@@ -46,7 +46,7 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl text-white">daisyUI</a>
+          <a className="text-3xl font-bold text-white">Earnify</a>
         </div>
         {/* <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
@@ -75,7 +75,7 @@ const Navbar = () => {
           <a className="text-white">Login</a>
           <a className="text-white">Register</a>
           {/* <a className="btn">Button</a> */}
-          <a className="btn rounded-full font-bold">Join as developer</a>
+          <a className="rounded-lg font-bold bg-[#21c591] text-white border-none py-3 px-6">Join as developer</a>
         </div>
       </div>
     </div>
