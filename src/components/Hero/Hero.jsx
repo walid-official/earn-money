@@ -2,7 +2,7 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination,Autoplay } from "swiper/modules";
+import {Autoplay } from "swiper/modules";
 import heroHand from "../../assets/hand.png";
 import card from "../../assets/card.png";
 import card2 from "../../assets/card2.png";
@@ -23,7 +23,7 @@ const Hero = () => {
             delay: 3000, // Set the delay time between slides (in ms)
             disableOnInteraction: false, // Allow autoplay to continue after user interaction
           }}
-            modules={[Pagination,Autoplay]}
+            modules={[Autoplay]}
           className="mySwiper"
         >
           <SwiperSlide>
@@ -32,13 +32,13 @@ const Hero = () => {
                 <div className="">
                   <h2 className="text-white text-xl">
                     {" "}
-                    <span className="text-[#4af0bb] font-bold">
+                    <span className="text-[#00d7c0] font-bold">
                       Discover
                     </span>{" "}
                     how to earn more
                   </h2>
-                  <h1 className="font-bold leading-tight text-white text-7xl py-4">
-                    Make Your <span className="text-[#4af0bb]">money</span>.{" "}
+                  <h1 className="font-bold leading-tight text-white text-6xl py-4">
+                    Make Your <span className="text-[#00d7c0]">money</span>.{" "}
                     <br /> From anywhere, anytime!
                   </h1>
                   <p className="text-white py-3 leading-normal">
@@ -48,14 +48,14 @@ const Hero = () => {
                   </p>
                   <div className="flex gap-6 items-center pt-5">
                     <div className="flex gap-4 items-center">
-                      <h2 className="text-5xl text-[#4af0bb] font-bold">2M+</h2>
+                      <h2 className="text-5xl text-[#00d7c0] font-bold">2M+</h2>
                       <p className="text-white">Active Users</p>
                     </div>
                     <div className="">
                       <div className="w-1 h-10 bg-white"></div>
                     </div>
                     <div className="flex items-center gap-4">
-                      <h2 className="text-5xl text-[#4af0bb] font-bold">4.8</h2>
+                      <h2 className="text-5xl text-[#00d7c0] font-bold">4.8</h2>
                       <p className="text-white">Average</p>
                     </div>
                   </div>
@@ -75,13 +75,13 @@ const Hero = () => {
                 <div className="">
                   <h2 className="text-white text-xl">
                     {" "}
-                    <span className="text-[#4af0bb] font-bold">
+                    <span className="text-[#00d7c0] font-bold">
                       Discover
                     </span>{" "}
                     how to earn more
                   </h2>
-                  <h1 className="font-bold leading-tight text-white text-7xl py-4">
-                    Make Your <span className="text-[#4af0bb]">money</span>.{" "}
+                  <h1 className="font-bold leading-tight text-white text-6xl py-4">
+                    Make Your <span className="text-[#00d7c0]">money</span>.{" "}
                     <br /> From anywhere, anytime!
                   </h1>
                   <p className="text-white py-3 leading-normal">
@@ -91,14 +91,14 @@ const Hero = () => {
                   </p>
                   <div className="flex gap-6 items-center pt-5">
                     <div className="flex gap-4 items-center">
-                      <h2 className="text-5xl text-[#4af0bb] font-bold">2M+</h2>
+                      <h2 className="text-5xl text-[#00d7c0] font-bold">2M+</h2>
                       <p className="text-white">Active Users</p>
                     </div>
                     <div className="">
                       <div className="w-1 h-10 bg-white"></div>
                     </div>
                     <div className="flex items-center gap-4">
-                      <h2 className="text-5xl text-[#4af0bb] font-bold">4.8</h2>
+                      <h2 className="text-5xl text-[#00d7c0] font-bold">4.8</h2>
                       <p className="text-white">Average</p>
                     </div>
                   </div>
@@ -118,13 +118,13 @@ const Hero = () => {
                 <div className="">
                   <h2 className="text-white text-xl">
                     {" "}
-                    <span className="text-[#4af0bb] font-bold">
+                    <span className="text-[#00d7c0] font-bold">
                       Discover
                     </span>{" "}
                     how to earn more
                   </h2>
-                  <h1 className="font-bold leading-tight text-white text-7xl py-4">
-                    Make Your <span className="text-[#4af0bb]">money</span>.{" "}
+                  <h1 className="font-bold leading-tight text-white text-6xl py-4">
+                    Make Your <span className="text-[#00d7c0]">money</span>.{" "}
                     <br /> From anywhere, anytime!
                   </h1>
                   <p className="text-white py-3 leading-normal">
@@ -134,14 +134,14 @@ const Hero = () => {
                   </p>
                   <div className="flex gap-6 items-center pt-5">
                     <div className="flex gap-4 items-center">
-                      <h2 className="text-5xl text-[#4af0bb] font-bold">2M+</h2>
+                      <h2 className="text-5xl text-[#00d7c0] font-bold">2M+</h2>
                       <p className="text-white">Active Users</p>
                     </div>
                     <div className="">
                       <div className="w-1 h-10 bg-white"></div>
                     </div>
                     <div className="flex items-center gap-4">
-                      <h2 className="text-5xl text-[#4af0bb] font-bold">4.8</h2>
+                      <h2 className="text-5xl text-[#00d7c0] font-bold">4.8</h2>
                       <p className="text-white">Average</p>
                     </div>
                   </div>

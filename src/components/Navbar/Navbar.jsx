@@ -75,7 +75,7 @@ const Navbar = () => {
           <a className="text-white">Login</a>
           <a className="text-white">Register</a>
           {/* <a className="btn">Button</a> */}
-          <a className="rounded-lg font-bold bg-[#21c591] text-white border-none py-3 px-6">Join as developer</a>
+          <a className="rounded-lg font-bold bg-[#00d7c0] text-white border-none py-3 px-6">Join as developer</a>
         </div>
       </div>
     </div>
