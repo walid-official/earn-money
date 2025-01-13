@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 
 const HomePageLayout = () => {
     return (
-        <div>
+        <div className='bg-gradient-to-r from-[#020710] to-[#1b2028] relative'>
             <Navbar></Navbar>
             <Outlet></Outlet>
         </div>
