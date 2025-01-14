@@ -14,14 +14,14 @@ const Testimonial = () => {
         </p>
       </div>
       <div className="flex gap-8">
-        <div className="w-[60%]">
+        <div className="w-[60%] mx-auto">
           <TestimonialSlider></TestimonialSlider>
         </div>
-        <div className="w-[40%] flex justify-center items-center">
+        {/* <div className="w-[40%] flex justify-center items-center">
           <h2 className="font-bold text-5xl leading-normal text-white">
            <span className="">5000+</span> <br /> happy clients all around the world
           </h2>
-        </div>
+        </div> */}
       </div>
     </div>
   );

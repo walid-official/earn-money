@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 const ScaleCard = () => {
+  const [range, setRange] = useState(false);
   return (
     <div className="w-[80%] mx-auto pb-14">
       <div className="pb-20">
@@ -12,6 +13,7 @@ const ScaleCard = () => {
           into a global movement. Join us in reaching new milestones every day.
         </p>
       </div>
+
       <div className="bg-[#10121d] rounded-xl px-14 py-10 w-full  z-10 text-white shadow-2xl">
         <div className="py-20">
           <h2 className="font-bold text-3xl text-center">
@@ -115,7 +117,8 @@ const ScaleCard = () => {
               Redefining the Future of Earning
             </h2>
             <p className="text-left py-4">
-            Discover how we make earning limitless for everyone, anytime, anywhere.
+              Discover how we make earning limitless for everyone, anytime,
+              anywhere.
             </p>
             <div className="">
               {/* <progress className="progress w-56" value="70" max="100"></progress> */}
@@ -134,7 +137,8 @@ const ScaleCard = () => {
               A Community of Growth and Success
             </h2>
             <p className="text-left py-4">
-            Our platform's growth mirrors users' global success in earning with ease and security.
+              Our platform's growth mirrors users' global success in earning
+              with ease and security.
             </p>
             <div className="">
               {/* <progress className="progress w-56" value="70" max="100"></progress> */}
