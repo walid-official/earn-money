@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -73,6 +74,7 @@ const Navbar = () => {
         </div> */}
         <div className="navbar-end space-x-5">
           <a className="text-white">Login</a>
+          {/* <NavLink to="/test" className="text-white">Test</NavLink> */}
           <a className="text-white">Register</a>
           {/* <a className="btn">Button</a> */}
           <a className="rounded-lg font-bold bg-[#00d7c0] text-white border-none py-3 px-6">Join as developer</a>
