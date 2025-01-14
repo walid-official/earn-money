@@ -4,12 +4,14 @@ import ScaleCard from '../components/ScaleCard/ScaleCard';
 import Features from '../components/Features/Features';
 import Testimonial from '../components/Testimonial/Testimonial';
 import Start from '../components/Start/Start';
+import DiamondFacility from '../components/DiamondFacility/DiamondFacility';
 
 const Home = () => {
     return (
         <div>
             <Hero></Hero>
            <ScaleCard></ScaleCard>
+           <DiamondFacility></DiamondFacility>
            <Features></Features>
            <Testimonial></Testimonial>
            <Start></Start>

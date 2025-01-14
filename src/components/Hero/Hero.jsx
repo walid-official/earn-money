@@ -5,7 +5,8 @@ import "swiper/css/pagination";
 import { Autoplay } from "swiper/modules";
 import heroHand from "../../assets/hand.png";
 import card from "../../assets/card.png";
-import card2 from "../../assets/card2.png";
+import diamond1 from "../../assets/diamond1.png";
+import diamond2 from "../../assets/diamond2.png";
 import "./hero.css";
 
 const Hero = () => {
@@ -20,11 +21,13 @@ const Hero = () => {
             dynamicBullets: true,
           }}
           autoplay={{
-            delay: 3000, // Set the delay time between slides (in ms)
+            delay: 7000, // Set the delay time between slides (in ms)
             disableOnInteraction: false, // Allow autoplay to continue after user interaction
           }}
           rtl={true} // Enable right-to-left layout
           loop={true} // E
+          speed={1000}
+          freeMode={true}
           modules={[Autoplay]}
           className="mySwiper"
         >
@@ -65,8 +68,8 @@ const Hero = () => {
               </div>
 
               <div className="w-[50%] ">
-                <div className="w-[55%] flex justify-end mx-auto">
-                  <img src={card} alt="" />
+                <div className="w-[65%] flex justify-end mx-auto">
+                  <img src={diamond1} alt="" />
                 </div>
               </div>
             </div>
@@ -109,7 +112,7 @@ const Hero = () => {
 
               <div className="w-[50%] ">
                 <div className="w-[55%] flex justify-end mx-auto">
-                  <img src={card} alt="" />
+                  <img src={diamond2} alt="" />
                 </div>
               </div>
             </div>

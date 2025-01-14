@@ -15,8 +15,8 @@ const Features = () => {
         </p>
       </div>
       <div className="flex justify-between">
-        <div className="w-[50%]">
-          <img src={featureImg} alt="" />
+        <div className="w-[50%] flex items-center">
+          <img src="https://iko-nuxt.netlify.app/assets/img/update/normal/faq_1-1.png" alt="" />
         </div>
         <div className="w-[50%]">
           <TestSlider></TestSlider>
