@@ -9,6 +9,7 @@ import diamond1 from "../../assets/diamond1.png";
 import diamond2 from "../../assets/diamond2.png";
 import "./hero.css";
 import { motion } from "motion/react";
+import CountUp from "react-countup";
 
 const Hero = () => {
   return (
@@ -36,16 +37,16 @@ const Hero = () => {
             <div className="flex justify-between">
               <div className="w-[50%] flex items-center">
                 <div className="">
-                  <h2 className="text-white text-xl">
+                  <p className="text-white rounded-tr-2xl  rounded-bl-2xl text-center bg-gradient-to-t from-[#27292f] to-[#10121d] py-3 px-7 w-[50%] text-xl">
                     {" "}
                     <span className="text-[#00d7c0] font-bold">
                       Discover
                     </span>{" "}
                     how to earn more
-                  </h2>
+                  </p>
                   <h1 className="font-bold leading-tight text-white text-6xl py-4">
                     Make Your <span className="text-[#00d7c0]">money</span>.{" "}
-                    <br /> From anywhere, anytime!
+                    From anywhere, anytime!
                   </h1>
                   <p className="text-white py-3 leading-normal">
                     Make money anytime, anywhere with the freedom to work when
@@ -53,16 +54,25 @@ const Hero = () => {
                     seamlessly.
                   </p>
                   <div className="flex gap-6 items-center pt-5">
-                    <div className="flex gap-4 items-center">
-                      <h2 className="text-5xl text-[#00d7c0] font-bold">2M+</h2>
-                      <p className="text-white">Active Users</p>
+                    <div className="rounded-tr-[30px] px-7 py-4  rounded-bl-[30px] text-center bg-gradient-to-t from-[#27292f] to-[#10121d]">
+                      <h2 className="text-5xl text-[#00d7c0] font-bold">
+                        <CountUp end={2} />
+                        M+
+                      </h2>
+                      <p className="text-white py-4">Profit Growth</p>
                     </div>
-                    <div className="">
-                      <div className="w-1 h-10 bg-white"></div>
+
+                    <div className="rounded-tr-[30px] px-7 py-4  rounded-bl-[30px] text-center bg-gradient-to-t from-[#27292f] to-[#10121d]">
+                      <h2 className="text-5xl text-[#00d7c0] font-bold">
+                        <CountUp end={90} />K
+                      </h2>
+                      <p className="text-white py-4">Earning Boost</p>
                     </div>
-                    <div className="flex items-center gap-4">
-                      <h2 className="text-5xl text-[#00d7c0] font-bold">4.8</h2>
-                      <p className="text-white">Average</p>
+                    <div className="rounded-tr-[30px] px-7 py-4  rounded-bl-[30px] text-center bg-gradient-to-t from-[#27292f] to-[#10121d]">
+                      <h2 className="text-5xl text-[#00d7c0] font-bold">
+                        <CountUp end={12.5} />K
+                      </h2>
+                      <p className="text-white py-4">Quick Rewards</p>
                     </div>
                   </div>
                 </div>
@@ -88,16 +98,16 @@ const Hero = () => {
             <div className="flex justify-between">
               <div className="w-[50%] flex items-center">
                 <div className="">
-                  <h2 className="text-white text-xl">
+                  <p className="text-white rounded-tr-2xl  rounded-bl-2xl text-center bg-gradient-to-t from-[#27292f] to-[#10121d] py-3 px-7 w-[50%] text-xl">
                     {" "}
                     <span className="text-[#00d7c0] font-bold">
                       Discover
                     </span>{" "}
                     how to earn more
-                  </h2>
+                  </p>
                   <h1 className="font-bold leading-tight text-white text-6xl py-4">
-                    Make Your <span className="text-[#00d7c0]">money</span>.{" "}
-                    <br /> From anywhere, anytime!
+                    Grow Your <span className="text-[#00d7c0]">wealth</span>.
+                    Anytime, anywhere!
                   </h1>
                   <p className="text-white py-3 leading-normal">
                     Make money anytime, anywhere with the freedom to work when
@@ -105,16 +115,25 @@ const Hero = () => {
                     seamlessly.
                   </p>
                   <div className="flex gap-6 items-center pt-5">
-                    <div className="flex gap-4 items-center">
-                      <h2 className="text-5xl text-[#00d7c0] font-bold">2M+</h2>
-                      <p className="text-white">Active Users</p>
+                    <div className="rounded-tr-[30px] px-7 py-4  rounded-bl-[30px] text-center bg-gradient-to-t from-[#27292f] to-[#10121d]">
+                      <h2 className="text-5xl text-[#00d7c0] font-bold">
+                        <CountUp end={4} />
+                        M+
+                      </h2>
+                      <p className="text-white py-4">Growth Path</p>
                     </div>
-                    <div className="">
-                      <div className="w-1 h-10 bg-white"></div>
+
+                    <div className="rounded-tr-[30px] px-7 py-4  rounded-bl-[30px] text-center bg-gradient-to-t from-[#27292f] to-[#10121d]">
+                      <h2 className="text-5xl text-[#00d7c0] font-bold">
+                        <CountUp end={95} />K
+                      </h2>
+                      <p className="text-white py-4">Success Drive</p>
                     </div>
-                    <div className="flex items-center gap-4">
-                      <h2 className="text-5xl text-[#00d7c0] font-bold">4.8</h2>
-                      <p className="text-white">Average</p>
+                    <div className="rounded-tr-[30px] px-7 py-4  rounded-bl-[30px] text-center bg-gradient-to-t from-[#27292f] to-[#10121d]">
+                      <h2 className="text-5xl text-[#00d7c0] font-bold">
+                        <CountUp end={44.5} />K
+                      </h2>
+                      <p className="text-white py-4">Fast Earnings</p>
                     </div>
                   </div>
                 </div>
@@ -140,16 +159,16 @@ const Hero = () => {
             <div className="flex justify-between">
               <div className="w-[50%] flex items-center">
                 <div className="">
-                  <h2 className="text-white text-xl">
+                  <p className="text-white rounded-tr-2xl  rounded-bl-2xl text-center bg-gradient-to-t from-[#27292f] to-[#10121d] py-3 px-7 w-[50%] text-xl">
                     {" "}
                     <span className="text-[#00d7c0] font-bold">
                       Discover
                     </span>{" "}
                     how to earn more
-                  </h2>
+                  </p>
                   <h1 className="font-bold leading-tight text-white text-6xl py-4">
-                    Make Your <span className="text-[#00d7c0]">money</span>.{" "}
-                    <br /> From anywhere, anytime!
+                    Boost Your <span className="text-[#00d7c0]">skills</span>.
+                    Anytime, anywhere!
                   </h1>
                   <p className="text-white py-3 leading-normal">
                     Make money anytime, anywhere with the freedom to work when
@@ -157,16 +176,25 @@ const Hero = () => {
                     seamlessly.
                   </p>
                   <div className="flex gap-6 items-center pt-5">
-                    <div className="flex gap-4 items-center">
-                      <h2 className="text-5xl text-[#00d7c0] font-bold">2M+</h2>
-                      <p className="text-white">Active Users</p>
+                    <div className="rounded-tr-[30px] px-7 py-4  rounded-bl-[30px] text-center bg-gradient-to-t from-[#27292f] to-[#10121d]">
+                      <h2 className="text-5xl text-[#00d7c0] font-bold">
+                        <CountUp end={3} />
+                        M+
+                      </h2>
+                      <p className="text-white py-4">Winning Edge</p>
                     </div>
-                    <div className="">
-                      <div className="w-1 h-10 bg-white"></div>
+
+                    <div className="rounded-tr-[30px] px-7 py-4  rounded-bl-[30px] text-center bg-gradient-to-t from-[#27292f] to-[#10121d]">
+                      <h2 className="text-5xl text-[#00d7c0] font-bold">
+                        <CountUp end={85} />K
+                      </h2>
+                      <p className="text-white py-4">Task Success</p>
                     </div>
-                    <div className="flex items-center gap-4">
-                      <h2 className="text-5xl text-[#00d7c0] font-bold">4.8</h2>
-                      <p className="text-white">Average</p>
+                    <div className="rounded-tr-[30px] px-7 py-4  rounded-bl-[30px] text-center bg-gradient-to-t from-[#27292f] to-[#10121d]">
+                      <h2 className="text-5xl text-[#00d7c0] font-bold">
+                        <CountUp end={17} />H
+                      </h2>
+                      <p className="text-white py-4">Bonus Time</p>
                     </div>
                   </div>
                 </div>
