@@ -4,6 +4,7 @@ import Home from "../Pages/Home";
 import TestSlider from "../components/TestSlider/TestSlider";
 import Login from "../Pages/Authentications/Login";
 import Register from "../Pages/Authentications/Register";
+import ErrorPage from "../Pages/ErrorPage";
 
 const router = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
     {
       path: "register",
       element: <Register></Register>
+    },
+    {
+      path: "*",
+      element: <ErrorPage></ErrorPage>
     }
   ]);
   

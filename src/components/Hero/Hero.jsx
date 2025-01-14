@@ -8,6 +8,7 @@ import card from "../../assets/card.png";
 import diamond1 from "../../assets/diamond1.png";
 import diamond2 from "../../assets/diamond2.png";
 import "./hero.css";
+import { motion } from "motion/react";
 
 const Hero = () => {
   return (
@@ -68,9 +69,18 @@ const Hero = () => {
               </div>
 
               <div className="w-[50%] ">
-                <div className="w-[65%] flex justify-end mx-auto">
-                  <img src={diamond1} alt="" />
-                </div>
+                <motion.div
+                  animate={{ y: 20 }}
+                  transition={{
+                    duration: 2,
+                    ease: "easeInOut",
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                  }}
+                  className="w-3/5 flex justify-end mx-auto"
+                >
+                  <img src={diamond1} alt="Diamond" />
+                </motion.div>
               </div>
             </div>
           </SwiperSlide>
@@ -111,9 +121,18 @@ const Hero = () => {
               </div>
 
               <div className="w-[50%] ">
-                <div className="w-[55%] flex justify-end mx-auto">
-                  <img src={diamond2} alt="" />
-                </div>
+                <motion.div
+                  animate={{ y: 20 }}
+                  transition={{
+                    duration: 2,
+                    ease: "easeInOut",
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                  }}
+                  className="w-[55%] flex justify-end mx-auto"
+                >
+                  <img src={diamond2} alt="Diamond" />
+                </motion.div>
               </div>
             </div>
           </SwiperSlide>
@@ -153,10 +172,19 @@ const Hero = () => {
                 </div>
               </div>
 
-              <div className="w-[50%] ">
-                <div className="w-[55%] flex justify-end mx-auto">
-                  <img src={card} alt="" />
-                </div>
+              <div className="w-[45%] ">
+                <motion.div
+                  animate={{ y: 20 }}
+                  transition={{
+                    duration: 2,
+                    ease: "easeInOut",
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                  }}
+                  className="w-3/5 flex justify-end mx-auto"
+                >
+                  <img src={card} alt="Diamond" />
+                </motion.div>
               </div>
             </div>
           </SwiperSlide>
