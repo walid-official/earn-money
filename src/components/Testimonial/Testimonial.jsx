@@ -1,6 +1,6 @@
 import React from "react";
-import { Rating } from "@smastrom/react-rating";
-import "@smastrom/react-rating/style.css";
+
+import TestimonialSlider from "../TestimonialSlider/TestimonialSlider";
 const Testimonial = () => {
   return (
     <div className="w-11/12 mx-auto py-20">
@@ -13,25 +13,13 @@ const Testimonial = () => {
           and success stories with our platform.
         </p>
       </div>
-      <div className="flex gap-6">
-        <div className="w-[50%]">
-          <div className="bg-gradient-to-t from-[#10121d] to-[#27292f] px-20 py-10 rounded-tr-[80px]  rounded-bl-[80px] shadow-2xl">
-            <Rating style={{ maxWidth: 120 }} value={5} readOnly />
-            <p className="text-white w-[80%] pt-6 pb-4">This platform has truly changed my financial journey. The opportunities are endless, and I love the flexibility of earning at my own pace!</p>
-            <div className="flex items-center justify-between">
-                <div className="">
-                    <h2 className="font-bold text-2xl text-white">Nick Green</h2>
-                    <p className="text-white">Developer</p>
-                </div>
-                <div className="">
-                    <img className="w-12 h-12 rounded-full" src="https://toka.peerduck.com/wp-content/uploads/2022/02/98-testimonial.png" alt="" />
-                </div>
-            </div>
-          </div>
+      <div className="flex gap-8">
+        <div className="w-[60%]">
+          <TestimonialSlider></TestimonialSlider>
         </div>
-        <div className="w-[50%]">
+        <div className="w-[40%] flex justify-center items-center">
           <h2 className="font-bold text-5xl leading-normal text-white">
-           <span>5000+</span> <br></br>  happy clients <br></br> all around the world
+           <span className="">5000+</span> <br /> happy clients all around the world
           </h2>
         </div>
       </div>
