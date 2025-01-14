@@ -73,9 +73,9 @@ const Navbar = () => {
           </ul>
         </div> */}
         <div className="navbar-end space-x-5">
-          <a className="text-white">Login</a>
+          <NavLink to="login" className="text-white">Login</NavLink>
           {/* <NavLink to="/test" className="text-white">Test</NavLink> */}
-          <a className="text-white">Register</a>
+          <NavLink to="register" className="text-white">Register</NavLink>
           {/* <a className="btn">Button</a> */}
           <a className="rounded-tr-2xl  rounded-bl-2xl font-bold bg-[#00d7c0] text-white border-none py-3 px-6">Join as developer</a>
         </div>
