@@ -2,7 +2,7 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import {Autoplay } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import heroHand from "../../assets/hand.png";
 import card from "../../assets/card.png";
 import card2 from "../../assets/card2.png";
@@ -23,7 +23,9 @@ const Hero = () => {
             delay: 3000, // Set the delay time between slides (in ms)
             disableOnInteraction: false, // Allow autoplay to continue after user interaction
           }}
-            modules={[Autoplay]}
+          rtl={true} // Enable right-to-left layout
+          loop={true} // E
+          modules={[Autoplay]}
           className="mySwiper"
         >
           <SwiperSlide>

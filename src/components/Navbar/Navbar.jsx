@@ -77,7 +77,7 @@ const Navbar = () => {
           {/* <NavLink to="/test" className="text-white">Test</NavLink> */}
           <a className="text-white">Register</a>
           {/* <a className="btn">Button</a> */}
-          <a className="rounded-lg font-bold bg-[#00d7c0] text-white border-none py-3 px-6">Join as developer</a>
+          <a className="rounded-tr-2xl  rounded-bl-2xl font-bold bg-[#00d7c0] text-white border-none py-3 px-6">Join as developer</a>
         </div>
       </div>
     </div>

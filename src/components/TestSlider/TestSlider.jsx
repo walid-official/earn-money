@@ -18,15 +18,18 @@ const TestSlider = () => {
     <div className="">
       <Swiper
         direction={"vertical"}
+        slidesPerView={1} 
         pagination={{
           clickable: true,
           dynamicBullets: true,
         }}
         autoplay={{
-          delay: 3000, // Set the delay time between slides (in ms)
+          delay: 2000, // Set the delay time between slides (in ms)
           disableOnInteraction: false, // Allow autoplay to continue after user interaction
         }}
         loop={true}
+        speed={1000}
+        freeMode={true}
         modules={[Autoplay]}
         className="mySwiper"
         style={{ height: "500px" }}
