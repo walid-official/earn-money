@@ -6,6 +6,7 @@ import Register from "../Pages/Authentications/Register";
 import ErrorPage from "../Pages/ErrorPage";
 import DashBoardLayout from "../Layouts/DashBoardLayout";
 import DashboardHome from "../Pages/DashboardHome";
+import PrivetRouter from "./PrivetRouter";
 
 const router = createBrowserRouter([
   {
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <DashBoardLayout></DashBoardLayout>,
+    element: <PrivetRouter><DashBoardLayout></DashBoardLayout></PrivetRouter> ,
     children: [
       {
         index: true,

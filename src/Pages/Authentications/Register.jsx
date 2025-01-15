@@ -2,36 +2,33 @@ import React, { useContext, useState } from "react";
 import registerImg from "../../assets/login.png";
 import { AuthContext } from "../../components/AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
+import { NavLink } from "react-router-dom";
+import { FaArrowRightLong } from "react-icons/fa6";
 const Register = () => {
-const {createUser} = useContext(AuthContext)
+  const { createUser, updateUserProfile } = useContext(AuthContext);
 
+  const handleRegisterForm = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const photoURL = form.photo.value;
+    const email = form.email.value;
+    const password = form.password.value;
 
-const handleRegisterForm = async (e) => {
-  e.preventDefault();
-  const form = e.target;
-  const name = form.name.value;
-  const photoURL = form.photo.value;
-  const email = form.email.value;
-  const password = form.password.value;
-
-  try {
-    const userCredential = await createUser(email, password);
-    // await updateUserProfile({
-    //   displayName: name,
-    //   photoURL: photoURL,
-    // });
-    console.log("User Registered", userCredential);
-    toast.success("Successfully Registered Your Account");
-  } catch (error) {
-    console.log("Error Registering User", error);
-    // setErrorMessage((prev) => ({ ...prev, register: error.message }));
-    toast.error("Registration failed");
-  }
-
-
-}
-
-
+    try {
+      const userCredential = await createUser(email, password);
+      await updateUserProfile({
+        displayName: name,
+        photoURL: photoURL,
+      });
+      console.log("User Registered", userCredential);
+      toast.success("Successfully Registered Your Account");
+    } catch (error) {
+      console.log("Error Registering User", error);
+      // setErrorMessage((prev) => ({ ...prev, register: error.message }));
+      toast.error("Registration failed");
+    }
+  };
 
   return (
     <div className="bg-gradient-to-r from-[#020710] to-[#1b2028] h-screen">
@@ -40,12 +37,28 @@ const handleRegisterForm = async (e) => {
           <div className="w-[50%] flex justify-center items-center">
             <div className="">
               {/* <img className="w-full" src={registerImg} alt="" /> */}
-              <h2 className="font-bold text-4xl text-white">Register to Start Earning</h2>
-              <p className="text-white py-3">Sign up now to unlock earning opportunities and access exclusive features.</p>
-              <div className="flex justify-start py-3">
-                <button className="bg-[#488d94] rounded-tr-2xl rounded-bl-2xl font-bold text-white hover:bg-[#488d94] py-3 px-7">
-                  Go To Login
-                </button>
+              <h2 className="font-bold text-4xl text-white">
+                Register to Start Earning
+              </h2>
+              <p className="text-white py-3">
+                Sign up now to unlock earning opportunities and access exclusive
+                features.
+              </p>
+              <div className="flex justify-start py-3 gap-3 items-center">
+                <NavLink to="/login">
+                  <button className="bg-[#00d7c0] rounded-tr-2xl rounded-bl-2xl font-bold text-white hover:bg-[#00d7c0] py-3 px-7">
+                    Go To Login
+                  </button>
+                </NavLink>
+                <NavLink to="/">
+                  {" "}
+                  <button className="text-white font-bold flex items-center gap-2 hover:translate-x-2 duration-500 ">
+                    Go To Home
+                    <button>
+                      <FaArrowRightLong></FaArrowRightLong>
+                    </button>
+                  </button>
+                </NavLink>
               </div>
             </div>
           </div>
@@ -113,7 +126,7 @@ const handleRegisterForm = async (e) => {
               </div>
 
               <div className="form-control mt-6">
-                <button className="btn bg-[#488d94] hover:bg-[#488d94] border-none text-white font-medium">
+                <button className="btn bg-[#00d7c0] hover:bg-[#00d7c0] border-none text-white font-medium">
                   Register Now
                 </button>
               </div>

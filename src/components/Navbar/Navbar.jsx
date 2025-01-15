@@ -1,7 +1,18 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useContext } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Navbar = () => {
+  const {user,userSignOut} = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogoutUser = () => {
+    userSignOut().then(() => {
+      navigate("/login");
+    });
+  }
+
+
   return (
     <div>
       <div className="navbar w-11/12 py-6 mx-auto">
@@ -77,6 +88,10 @@ const Navbar = () => {
           {/* <NavLink to="/test" className="text-white">Test</NavLink> */}
           <NavLink to="register" className="text-white">Register</NavLink>
           <NavLink to="/dashboard" className="text-white">Dashboard</NavLink>
+          <NavLink onClick={handleLogoutUser} className="text-white">  Logout</NavLink>
+          <div className="bg-white w-12 h-12 rounded-full">
+            <img className="w-12 h-12 rounded-full" src={user?.photoURL} alt="" />
+          </div>
           {/* <a className="btn">Button</a> */}
           <a className="rounded-tr-2xl  rounded-bl-2xl font-bold bg-[#00d7c0] text-white border-none py-3 px-6">Join as developer</a>
         </div>
