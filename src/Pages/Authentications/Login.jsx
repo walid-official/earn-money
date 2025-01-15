@@ -1,30 +1,37 @@
 import React, { useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../components/AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { AuthContext } from "../../components/AuthProvider/AuthProvider";
 
 const Login = () => {
-  const {createSignInUser} = useContext(AuthContext)
+  const { createSignInUser, signInWithGoogle } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const handleSignInUser = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
 
-const handleSignInUser = async () => {
-const navigate = useNavigate()
+    try {
+      await createSignInUser(email, password);
+      toast.success("Successfully Logged in");
+      navigate(location?.state || "/");
+    } catch (error) {
+      console.error("Login Error: ", error);
+      toast.error("Login failed");
+    }
+  };
 
-  try {
-    await createSignInUser(email, password);
-    toast.success("Successfully Logged in");
-    navigate(location?.state || "/");
-  } catch (error) {
-    console.error("Login Error: ", error);
-    toast.error("Login failed");
-  }
-}
-
-const handleGoogleLogin = () => {
-  
-}
-
-
+  const handleGoogleLogin = async () => {
+    try {
+      await signInWithGoogle();
+      navigate(location?.state || "/");
+    } catch (err) {
+      console.error("Login Error: ", error);
+      toast.error("Login failed");
+    }
+  };
 
   return (
     <div className="bg-gradient-to-r from-[#020710] to-[#1b2028] h-screen">
@@ -47,7 +54,9 @@ const handleGoogleLogin = () => {
                 {" "}
                 <button className="text-white font-bold flex items-center gap-2 hover:translate-x-2 duration-500 ">
                   Go To Home
-                  <button><FaArrowRightLong></FaArrowRightLong></button>
+                  <button>
+                    <FaArrowRightLong></FaArrowRightLong>
+                  </button>
                 </button>
               </NavLink>
             </div>
@@ -84,11 +93,22 @@ const handleGoogleLogin = () => {
                 </label>
               </div>
               <div className="form-control mt-6">
-                <button type="submit" className="btn bg-[#00d7c0] hover:bg-[#00d7c0] font-bold text-white">
+                <button
+                  type="submit"
+                  className="btn bg-[#00d7c0] hover:bg-[#00d7c0] font-bold text-white"
+                >
                   Login
                 </button>
-                <button onClick={handleGoogleLogin} type="button" className="btn mt-3 bg-[#00d7c0] hover:bg-[#00d7c0] font-bold text-white">
-                  <img src="https://i.ibb.co/TvvzXfq/google.png" className="w-8" alt="" />
+                <button
+                  onClick={handleGoogleLogin}
+                  type="button"
+                  className="btn mt-3 bg-[#00d7c0] hover:bg-[#00d7c0] font-bold text-white"
+                >
+                  <img
+                    src="https://i.ibb.co/TvvzXfq/google.png"
+                    className="w-8"
+                    alt=""
+                  />
                   Continue With Google
                 </button>
               </div>
