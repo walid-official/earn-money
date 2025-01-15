@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { AuthContext } from "../../components/AuthProvider/AuthProvider";
+import axios from "axios";
 
 const Login = () => {
   const { createSignInUser, signInWithGoogle } = useContext(AuthContext);
@@ -29,8 +30,15 @@ const Login = () => {
 
   const handleGoogleLogin = async () => {
     try {
-      await signInWithGoogle();
+      const data = await signInWithGoogle();
+      console.log(data);
       navigate(location?.state || "/");
+      const googleUserData = {
+        name: data?.user?.displayName,
+        email: data?.user?.email,
+        photo: data?.user?.photoURL,
+      }
+      await axios.post("http://localhost:9000/earning-users",googleUserData)
     } catch (error) {
       console.error("Login Error: ", error);
       toast.error("Login failed");

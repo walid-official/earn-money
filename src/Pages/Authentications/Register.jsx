@@ -4,6 +4,7 @@ import { AuthContext } from "../../components/AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
 import { NavLink } from "react-router-dom";
 import { FaArrowRightLong } from "react-icons/fa6";
+import axios from "axios";
 
 const Register = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
@@ -15,7 +16,24 @@ const Register = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
+    console.log(data);
     const { name, photo, email, password } = data;
+
+    let coin;
+    if (data.role === "Worker") {
+      coin = 10;
+    }
+    if (data.role === "Buyer") {
+      coin = 50;
+    }
+
+    const userData = {
+      name: data.name,
+      photo: data.photo,
+      email: data.email,
+      role: data.role,
+      coin: coin,
+    };
 
     try {
       const userCredential = await createUser(email, password);
@@ -24,6 +42,12 @@ const Register = () => {
         photoURL: photo,
       });
       console.log("User Registered", userCredential);
+
+      const { data } = await axios.post(
+        "http://localhost:9000/earning-users",
+        userData
+      );
+      console.log(data);
       toast.success("Successfully Registered Your Account");
       reset();
     } catch (error) {
@@ -42,7 +66,8 @@ const Register = () => {
                 Register to Start Earning
               </h2>
               <p className="text-white py-3">
-                Sign up now to unlock earning opportunities and access exclusive features.
+                Sign up now to unlock earning opportunities and access exclusive
+                features.
               </p>
               <div className="flex justify-start py-3 gap-3 items-center">
                 <NavLink to="/login">
@@ -71,7 +96,9 @@ const Register = () => {
                   placeholder="Name"
                   className="input input-bordered"
                 />
-                {errors.name && <p className="text-red-500">{errors.name.message}</p>}
+                {errors.name && (
+                  <p className="text-red-500">{errors.name.message}</p>
+                )}
               </div>
               <div className="form-control">
                 <label className="label">
@@ -83,7 +110,9 @@ const Register = () => {
                   placeholder="Photo URL"
                   className="input input-bordered"
                 />
-                {errors.photo && <p className="text-red-500">{errors.photo.message}</p>}
+                {errors.photo && (
+                  <p className="text-red-500">{errors.photo.message}</p>
+                )}
               </div>
               <div className="form-control">
                 <label className="label">
@@ -95,7 +124,9 @@ const Register = () => {
                   placeholder="Email"
                   className="input input-bordered"
                 />
-                {errors.email && <p className="text-red-500">{errors.email.message}</p>}
+                {errors.email && (
+                  <p className="text-red-500">{errors.email.message}</p>
+                )}
               </div>
               <div className="form-control">
                 <label className="label">
@@ -111,7 +142,9 @@ const Register = () => {
                   <option value="Worker">Worker</option>
                   <option value="Buyer">Buyer</option>
                 </select>
-                {errors.role && <p className="text-red-500">{errors.role.message}</p>}
+                {errors.role && (
+                  <p className="text-red-500">{errors.role.message}</p>
+                )}
               </div>
               <div className="form-control">
                 <label className="label">

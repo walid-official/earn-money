@@ -90,7 +90,7 @@ const Navbar = () => {
           <NavLink to="/dashboard" className="text-white">Dashboard</NavLink>
           <NavLink onClick={handleLogoutUser} className="text-white">  Logout</NavLink>
           <div className="bg-white w-12 h-12 rounded-full">
-            <img className="w-12 h-12 rounded-full" src={user?.photoURL} alt="" />
+            <img className="w-12 h-12 rounded-full" referrerPolicy="no-referrer" src={user?.photoURL} alt="" />
           </div>
           {/* <a className="btn">Button</a> */}
           <a className="rounded-tr-2xl  rounded-bl-2xl font-bold bg-[#00d7c0] text-white border-none py-3 px-6">Join as developer</a>

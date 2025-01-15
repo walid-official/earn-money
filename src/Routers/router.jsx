@@ -7,6 +7,7 @@ import ErrorPage from "../Pages/ErrorPage";
 import DashBoardLayout from "../Layouts/DashBoardLayout";
 import DashboardHome from "../Pages/DashboardHome";
 import PrivetRouter from "./PrivetRouter";
+import AddNewTasks from "../Pages/ByerRoutes/AddNewTasks";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <DashboardHome></DashboardHome>
+      },
+      {
+        path: "addNewTasks",
+        element: <AddNewTasks></AddNewTasks>
       }
     ]
   },
