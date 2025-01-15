@@ -4,10 +4,12 @@ const Login = () => {
   return (
     <div className="bg-gradient-to-r from-[#020710] to-[#1b2028] h-screen">
       <div className="hero bg-gradient-to-t from-[#27292f] to-[#10121d] rounded-tr-full rounded-bl-full min-h-screen">
-        <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="text-center lg:text-left">
-           <img src={loginImg} alt="" />
-           <div className="flex justify-center py-10">
+        <div className="hero-content flex-col gap-20 lg:flex-row-reverse">
+          <div className="text-center lg:text-left w-[50%]">
+           {/* <img src={loginImg} alt="" /> */}
+           <h2 className="font-bold text-4xl text-white"> Login to Account</h2>
+              <p className="text-white py-3">Log in to track your earnings and access your dashboard.</p>
+           <div className="flex justify-start py-3">
                 <button className="bg-[#00d7c0] rounded-tr-2xl rounded-bl-2xl font-bold text-white hover:bg-[#00d7c0] py-3 px-7">
                   Go To Register
                 </button>
