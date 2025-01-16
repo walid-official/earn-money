@@ -40,12 +40,12 @@ const Sidebar = () => {
           </h2>
           <h2 className="text-xl">Add new task</h2>
         </NavLink>
-        <div className="flex gap-4 items-center text-white  pl-12 hover:bg-slate-700 py-3 duration-300 cursor-pointer">
+        <NavLink to="/dashboard/myTasks" className="flex gap-4 items-center text-white  pl-12 hover:bg-slate-700 py-3 duration-300 cursor-pointer">
           <h2 className="text-xl">
           <RiSortAsc></RiSortAsc>
           </h2>
           <h2 className="text-xl">My Tasks</h2>
-        </div>
+        </NavLink>
         <div className="flex gap-4 items-center text-white  pl-12 hover:bg-slate-700 py-3 duration-300 cursor-pointer">
           <h2 className="text-xl">
             <FaPesetaSign></FaPesetaSign>

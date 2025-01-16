@@ -1,11 +1,17 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import toast from "react-hot-toast";
 
 const Image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${Image_hosting_key}`;
 
 const AddNewTasks = () => {
+  const axiosSecure = useAxiosSecure();
+  const [startDate, setStartDate] = useState(new Date());
   const {
     register,
     handleSubmit,
@@ -14,8 +20,14 @@ const AddNewTasks = () => {
 
   const handleAddNewTask = async (data) => {
     console.log(data);
-    console.log(data.submissionInfo[0]);
-
+    const taskTitle = data.taskTitle
+    const taskDetail = data.taskDetail
+    const parsePayment = parseInt(data.payableAmount);
+    const parseWorker = parseInt(data.requiredWorker);
+    console.log(parsePayment);
+    console.log(parseWorker);
+    const payableAmount = parsePayment * parseWorker;
+    // uploading Image On ImageBB Server
     const formData1 = new FormData();
     formData1.append("image", data.submissionInfo[0]);
 
@@ -38,9 +50,31 @@ const AddNewTasks = () => {
         },
       });
       console.log("Second image upload response:", res2.data);
+
+      const addTaskInfoData = {
+        title: taskTitle,
+        detail: taskDetail,
+        payment: parsePayment,
+        worker: parseWorker,
+        totalPayment: payableAmount,
+        completionDate: startDate,
+        submissionImage: res1.data.data.url,
+        taskImage: res2.data.data.url
+      };
+
+      try{
+        const {data}  = await axiosSecure.post("new-tasks",addTaskInfoData)
+        console.log(data);
+        toast.success("Successfully Added Your Task")
+      }catch(err){
+        console.log(err);
+      }
+
     } catch (err) {
       console.log(err);
     }
+
+  
   };
 
   return (
@@ -82,7 +116,7 @@ const AddNewTasks = () => {
                 ></textarea>
               </div>
 
-              <div className="flex gap-3">
+              <div className="">
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Required Workers</span>
@@ -117,7 +151,25 @@ const AddNewTasks = () => {
                 </div>
               </div>
 
-              <div className="flex gap-3">
+              <div className="form-control w-full">
+                <label className="label">
+                  <span className="label-text">Payable Amount</span>
+                </label>
+                <div className="w-full">
+                  <DatePicker
+                  className="border py-3 rounded-lg px-3 w-full"
+                    selected={startDate}
+                    onChange={(date) => setStartDate(date)}
+                  />
+                </div>
+                {errors.payableAmount && (
+                  <span className="text-red-500">
+                    Payable Amount is required
+                  </span>
+                )}
+              </div>
+
+              <div className="">
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Submission Info</span>

@@ -2,12 +2,13 @@ import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../components/AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
-import { NavLink } from "react-router-dom";
+import { Navigate, NavLink } from "react-router-dom";
 import { FaArrowRightLong } from "react-icons/fa6";
 import axios from "axios";
 
 const Register = () => {
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { createUser, updateUserProfile, signInWithGoogle } =
+    useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -52,6 +53,23 @@ const Register = () => {
       reset();
     } catch (error) {
       console.error("Error Registering User", error);
+      toast.error("Registration failed");
+    }
+  };
+
+  const handleGoogleRegister = async () => {
+    try {
+      const data = await signInWithGoogle();
+      console.log(data);
+      // Navigate(location?.state || "/");
+      const googleUserData = {
+        name: data?.user?.displayName,
+        email: data?.user?.email,
+        photo: data?.user?.photoURL,
+      };
+      await axios.post("http://localhost:9000/earning-users", googleUserData);
+    } catch (error) {
+      console.error("Login Error: ", error);
       toast.error("Registration failed");
     }
   };
@@ -168,8 +186,22 @@ const Register = () => {
                 )}
               </div>
               <div className="form-control mt-6">
-                <button className="btn bg-[#00d7c0] hover:bg-[#00d7c0] border-none text-white font-medium">
+                <button type="submit" className="btn bg-[#00d7c0] hover:bg-[#00d7c0] border-none text-white font-medium">
                   Register Now
+                </button>
+              </div>
+              <div className="">
+                <button
+                  onClick={handleGoogleRegister}
+                  type="button"
+                  className="btn w-full mt-3 bg-[#00d7c0] hover:bg-[#00d7c0] font-bold text-white"
+                >
+                  <img
+                    src="https://i.ibb.co/TvvzXfq/google.png"
+                    className="w-8"
+                    alt="Google"
+                  />
+                  Continue With Google
                 </button>
               </div>
             </form>
