@@ -5,8 +5,9 @@ import axios from "axios";
 const Image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${Image_hosting_key}`;
 const UpdateModal = ({ singleTask,refetch }) => {
+  console.log(singleTask);
   const axiosSecure = useAxiosSecure();
-  const { _id, title, detail } = singleTask || {};
+  const { _id, title, detail,submissionImage } = singleTask || {};
 
   const handleUpdateTask = async (e) => {
     e.preventDefault();

@@ -2,6 +2,7 @@ import React from "react";
 import { IoBagAdd } from "react-icons/io5";
 import { RiSortAsc } from "react-icons/ri";
 import { FaPesetaSign } from "react-icons/fa6";
+import { MdReviews } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 
 const BuyerMenu = () => {
@@ -15,6 +16,15 @@ const BuyerMenu = () => {
           <IoBagAdd></IoBagAdd>
         </h2>
         <h2 className="text-xl">Add new task</h2>
+      </NavLink>
+      <NavLink
+        to=""
+        className="flex gap-4 items-center text-white  pl-12 hover:bg-slate-700 py-3 duration-300 cursor-pointer"
+      >
+        <h2 className="text-xl">
+          <MdReviews></MdReviews>
+        </h2>
+        <h2 className="text-xl">Task to review</h2>
       </NavLink>
       <NavLink
         to="/dashboard/myTasks"
