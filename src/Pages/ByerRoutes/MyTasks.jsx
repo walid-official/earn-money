@@ -1,21 +1,50 @@
-import React from "react";
 import MyTaskTable from "./MyTaskTable";
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "./../../Hooks/useAuth";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import UpdateModal from "./UpdateModal";
+import { useState } from "react";
 
 const MyTasks = () => {
   const { user } = useAuth();
-  const axiosSecure = useAxiosSecure()
-  const { data: myTasks, isLoading } = useQuery({
+  const axiosSecure = useAxiosSecure();
+  const [singleTask,setSingleTask] = useState(null)
+  const { data: myTasks = [], isLoading,refetch } = useQuery({
     queryKey: ["tasks", user],
     queryFn: async () => {
-      const { data } = await axiosSecure(`new-tasks/${user?.email}`);
+      const { data } = await axiosSecure(`my-tasks/${user?.email}`);
+      console.log(data);
       return data;
     },
   });
 
   console.log(myTasks);
+
+  const handleDelete = async (id) => {
+    try {
+      const { data } = await axiosSecure.delete(`tasks/${id}`);
+      console.log(data);
+      refetch()
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  
+
+  const handleUpdate = async(id) => {
+    document.getElementById("my_modal_1").showModal();
+
+    try{
+      const {data} = await axiosSecure.get(`tasks/${id}`);
+      setSingleTask(data);
+    }catch(err){
+      console.log(err);
+    }
+
+  };
+
+  console.log(singleTask);
 
   return (
     <div className="w-[90%] mx-auto">
@@ -36,41 +65,17 @@ const MyTasks = () => {
           </thead>
           <tbody>
             {/* row 1 */}
-            <tr>
-              <td>
-                <div className="flex items-center gap-3">
-                  <div className="avatar">
-                    <div className="mask mask-squircle h-12 w-12">
-                      <img
-                        src="https://img.daisyui.com/images/profile/demo/2@94.webp"
-                        alt="Avatar Tailwind CSS Component"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <div className="font-bold">Hart Hagerty</div>
-                    <div className="text-sm opacity-50">United States</div>
-                  </div>
-                </div>
-              </td>
-              <td>
-                Zemlak, Daniel and Leannon
-                <br />
-                <span className="badge badge-ghost badge-sm">
-                  Desktop Support Technician
-                </span>
-              </td>
-              <td>Purple</td>
-              <th>
-                <button className="btn btn-ghost btn-xs">Update</button>
-              </th>
-              <th>
-                <button className="btn btn-ghost btn-xs">delete</button>
-              </th>
-            </tr>
+            {myTasks.map((myTask) => (
+              <MyTaskTable
+                handleDelete={handleDelete}
+                handleUpdate={handleUpdate}
+                myTask={myTask}
+              ></MyTaskTable>
+            ))}
           </tbody>
         </table>
       </div>
+      <UpdateModal singleTask={singleTask} refetch={refetch}></UpdateModal>
     </div>
   );
 };

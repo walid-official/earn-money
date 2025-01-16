@@ -7,8 +7,14 @@ import AdminMenu from "../Menu/AdminMenu";
 import useRole from "../../Hooks/useRole";
 const Sidebar = () => {
   const [role, isLoading] = useRole();
-  const userRole = role.map((singleRole) => singleRole.role);
-  console.log(userRole);
+console.log(role);
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <span className="loading loading-ring loading-lg"></span>
+      </div>
+    );
+  }
   return (
     <div className="pt-10">
       <div className="flex gap-4 items-center text-white  pl-12 hover:bg-slate-700 py-3 duration-300 cursor-pointer">
@@ -17,9 +23,9 @@ const Sidebar = () => {
         </h2>
         <h2 className="text-xl">Home</h2>
       </div>
-      {userRole.includes("Admin") && <AdminMenu />}
-      {userRole.includes("Worker") && <WorkerMenu />}
-      {userRole.includes("Buyer") && <BuyerMenu />}
+      {role === "Admin" && <AdminMenu />}
+      {role === "Worker" && <WorkerMenu />}
+      {role === "Buyer" && <BuyerMenu />}
     </div>
   );
 };

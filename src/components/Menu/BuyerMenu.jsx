@@ -2,13 +2,9 @@ import React from "react";
 import { IoBagAdd } from "react-icons/io5";
 import { RiSortAsc } from "react-icons/ri";
 import { FaPesetaSign } from "react-icons/fa6";
-import { NavLink } from 'react-router-dom';
-
+import { NavLink } from "react-router-dom";
 
 const BuyerMenu = () => {
-
-
-
   return (
     <div>
       <NavLink

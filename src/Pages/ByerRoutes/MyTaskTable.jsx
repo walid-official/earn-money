@@ -1,40 +1,60 @@
-import React from "react";
+import React, { useState } from "react";
 
-const MyTaskTable = () => {
+const MyTaskTable = ({ myTask,handleUpdate,handleDelete }) => {
+  
+
+  const {
+    _id,
+    taskImage,
+    title,
+    detail,
+    worker,
+    totalPayment,
+    submissionImage,
+    completionDate,
+  } = myTask || {};
+
+  console.log(completionDate);
+
+  let date = new Date(completionDate);
+  /* Date format you have */
+  let dateMDY = `${date.getDate()}-${
+    date.getMonth() + 1
+  }-${date.getFullYear()}`;
+  console.log(dateMDY);
   return (
-    <div>
+  
       <tr>
-        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-          <div className="flex items-center">
-            <div className="flex-shrink-0">
-              <div className="block relative">
-                <img
-                  alt="profile"
-                  src="https://i.ibb.co.com/rMHmQP2/money-plant-in-feng-shui-brings-luck.jpg"
-                  className="mx-auto object-cover rounded h-10 w-15 "
-                />
+        <td>
+          <div className="flex items-center gap-3">
+            <div className="avatar">
+              <div className="mask mask-squircle h-12 w-12">
+                <img src={taskImage} alt="Avatar Tailwind CSS Component" />
               </div>
+            </div>
+            <div>
+              <div className="font-bold">{title}</div>
+              <div className="text-sm opacity-50"></div>
             </div>
           </div>
         </td>
-
-        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-          <p className="text-gray-900 whitespace-no-wrap">Money Plant</p>
+        <td>{detail}</td>
+        <td>{dateMDY}</td>
+        <td>{worker}</td>
+        <td>
+          <div className="mask mask-squircle h-16 w-16">
+            <img src={submissionImage} alt="Avatar Tailwind CSS Component" />
+          </div>
         </td>
-        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-          <p className="text-gray-900 whitespace-no-wrap">Indoor</p>
-        </td>
-        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-          <p className="text-gray-900 whitespace-no-wrap">$120</p>
-        </td>
-        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-          <p className="text-gray-900 whitespace-no-wrap">5</p>
-        </td>
-        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-          <p className="text-gray-900 whitespace-no-wrap">Pending</p>
-        </td>
+        <td>{totalPayment}</td>
+        <th>
+          <button onClick={() => handleUpdate(_id)}  className="py-2 px-4 rounded-xl">Update</button>
+        </th>
+        <th>
+          <button onClick={() => handleDelete(_id)} className="py-2 px-4 rounded-xl">delete</button>
+        </th>
       </tr>
-    </div>
+  
   );
 };
 
