@@ -12,6 +12,7 @@ import MyTasks from "../Pages/ByerRoutes/MyTasks";
 import BuyerRouter from "./BuyerRouter";
 import ManageUsers from "../Pages/AdminRoutes/ManageUsers";
 import AdminRouter from './AdminRouter';
+import TaskLists from "../Pages/WorkerRoutes/TaskLists";
 
 const router = createBrowserRouter([
   {
@@ -69,6 +70,10 @@ const router = createBrowserRouter([
       {
         path: "manageUsers",
         element: <PrivetRouter><ManageUsers></ManageUsers></PrivetRouter> 
+      },
+      {
+        path: "taskLists",
+        element: <PrivetRouter><TaskLists></TaskLists></PrivetRouter> 
       }
     ],
   },

@@ -1,5 +1,5 @@
-const ManageUsersTable = ({ singleUser }) => {
-  const { name, photo, email, role, coin } = singleUser || {};
+const ManageUsersTable = ({ singleUser,handleUserDelete }) => {
+  const { _id,name, photo, email, role, coin } = singleUser || {};
   return (
     <tr>
       <td>
@@ -37,7 +37,7 @@ const ManageUsersTable = ({ singleUser }) => {
         </select>
       </th>
       <th>
-        <button className="py-2 px-4 rounded-xl">delete</button>
+        <button onClick={() => handleUserDelete(_id)} className="py-2 px-4 rounded-xl">delete</button>
       </th>
     </tr>
   );

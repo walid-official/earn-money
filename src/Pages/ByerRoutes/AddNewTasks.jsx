@@ -5,12 +5,14 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import toast from "react-hot-toast";
+import useAuth from "../../Hooks/useAuth";
 
 const Image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${Image_hosting_key}`;
 
 const AddNewTasks = () => {
   const axiosSecure = useAxiosSecure();
+  const {user} = useAuth()
   const [startDate, setStartDate] = useState(new Date());
   const {
     register,
@@ -59,7 +61,8 @@ const AddNewTasks = () => {
         totalPayment: payableAmount,
         completionDate: startDate,
         submissionImage: res1.data.data.url,
-        taskImage: res2.data.data.url
+        taskImage: res2.data.data.url,
+        buyerInfo: {name: user?.displayName,email: user?.email,photo: user?.photoURL}
       };
 
       try{

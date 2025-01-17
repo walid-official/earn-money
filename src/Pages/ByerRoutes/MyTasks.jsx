@@ -10,7 +10,7 @@ const MyTasks = () => {
   const axiosSecure = useAxiosSecure();
   const [singleTask,setSingleTask] = useState(null)
   const { data: myTasks = [], isLoading,refetch } = useQuery({
-    queryKey: ["tasks", user],
+    queryKey: ["myTasks", user],
     queryFn: async () => {
       const { data } = await axiosSecure.get(`my-tasks/${user?.email}`);
       console.log(data);

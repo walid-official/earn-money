@@ -6,20 +6,21 @@ import ManageUsersTable from "./ManageUsersTable";
 
 const ManageUsers = () => {
   const axiosSecure = useAxiosSecure();
-  const {user} = useAuth();
+  const { user } = useAuth();
+  console.log(user?.email);
   const {
     data: allUsers = [],
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ["tasks"],
+    queryKey: ["users", user?.email],
     enabled: !!user?.email,
     queryFn: async () => {
-      const { data } = await axiosSecure(`allUsers`);
+        if (!user?.email) return [];
+      const { data } = await axiosSecure(`allUsers/${user?.email}`);
       return data;
     },
   });
- 
 
   if (isLoading)
     return (
@@ -28,10 +29,19 @@ const ManageUsers = () => {
       </div>
     );
 
-    console.log(allUsers);
+  const handleUserDelete = async (id) => {
+    try{
+        const {data} = await axiosSecure.delete(`/user/${id}`);
+        console.log(data);
+        refetch()
+    }catch(err){
+        console.log(err);
+    }
+  }
 
-  return <div>
-  <div className="overflow-x-auto">
+  return (
+    <div>
+      <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
           <thead>
@@ -47,16 +57,18 @@ const ManageUsers = () => {
           </thead>
           <tbody>
             {/* row 1 */}
-            {allUsers.map((singleUser,index) => (
+            {allUsers.map((singleUser, index) => (
               <ManageUsersTable
-               key={index}
-               singleUser={singleUser}
+                key={index}
+                handleUserDelete={handleUserDelete}
+                singleUser={singleUser}
               ></ManageUsersTable>
             ))}
           </tbody>
         </table>
       </div>
-  </div>;
+    </div>
+  );
 };
 
 export default ManageUsers;
