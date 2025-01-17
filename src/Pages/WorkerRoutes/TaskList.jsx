@@ -1,8 +1,10 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const TaskList = ({ postedTask }) => {
   const {
     title,
+    _id,
     detail,
     payment,
     worker,
@@ -36,7 +38,7 @@ const TaskList = ({ postedTask }) => {
 
           <div className="card-actions justify-between items-center ">
             <p className="font-bold text-xl">{payment}.00$</p>
-            <button className="btn bg-accent text-white">view Details</button>
+            <NavLink to={`/dashboard/taskDetails/${_id}`} className="btn bg-accent text-white">view Details</NavLink>
           </div>
         </div>
       </div>

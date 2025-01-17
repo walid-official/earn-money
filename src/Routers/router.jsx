@@ -13,6 +13,7 @@ import BuyerRouter from "./BuyerRouter";
 import ManageUsers from "../Pages/AdminRoutes/ManageUsers";
 import AdminRouter from './AdminRouter';
 import TaskLists from "../Pages/WorkerRoutes/TaskLists";
+import TaskDetails from "../Pages/WorkerRoutes/TaskDetails";
 
 const router = createBrowserRouter([
   {
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
             </BuyerRouter>{" "}
           </PrivetRouter>
         ),
+      },
+      {
+        path: "taskDetails/:id",
+        element: <TaskDetails></TaskDetails>
       },
       {
         path: "manageUsers",
