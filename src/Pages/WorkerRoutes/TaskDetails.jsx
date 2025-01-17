@@ -1,9 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import useAuth from "../../Hooks/useAuth";
+import toast from "react-hot-toast";
 
 const TaskDetails = () => {
+  const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   const { id } = useParams();
   const {
@@ -40,6 +43,42 @@ const TaskDetails = () => {
     buyerInfo,
   } = taskDetail || {};
 
+  const handleTaskSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const submissionDetail = form.submission_detail.value;
+    const currentDate = new Date();
+
+    const taskSubmitInfo = {
+      task_id: taskDetail._id,
+      task_title: taskDetail.title,
+      payable_amount: taskDetail.payment,
+      submission_detail: submissionDetail,
+      worker_detail: {
+        name: user?.displayName,
+        email: user?.email,
+      },
+      buyer_detail: {
+        name: taskDetail.buyerInfo.name,
+        email: taskDetail.buyerInfo.email,
+      },
+      current_date: currentDate,
+      status: "pending"
+    };
+    console.log(taskSubmitInfo);
+
+    try {
+      const { data } = await axiosSecure.post(
+        "taskSubmissions",
+        taskSubmitInfo
+      );
+      console.log(data);
+      toast.success("Submission is Successful!!!")
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   let date = new Date(completionDate);
 
   // Array of month names
@@ -71,7 +110,7 @@ const TaskDetails = () => {
         <h2 className="font-bold text-center text-3xl">
           Maximize Your Earnings: A Comprehensive Guide
         </h2>
-        <p className="py-3 text-center">
+        <p className="py-3 text-center w-[60%] mx-auto">
           Discover effective strategies and practical tips to boost your income
           through various methods, including online opportunities, investment
           strategies, and side hustles.
@@ -158,13 +197,18 @@ const TaskDetails = () => {
               </p>
             </div>
             <div className="py-5">
-              <textarea
-                placeholder="Submission_Details"
-                className="textarea textarea-bordered textarea-lg w-full max-w-xs"
-              ></textarea>
-              <div className="mt-2">
-                <button className="btn bg-accent text-white task">Submit</button>
-              </div>
+              <form onSubmit={handleTaskSubmit}>
+                <textarea
+                  placeholder="Submission_Details"
+                  name="submission_detail"
+                  className="textarea textarea-bordered textarea-lg w-full max-w-xs"
+                ></textarea>
+                <div className="mt-2">
+                  <button className="btn bg-accent text-white task">
+                    Submit
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
