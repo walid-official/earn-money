@@ -14,6 +14,8 @@ import ManageUsers from "../Pages/AdminRoutes/ManageUsers";
 import AdminRouter from './AdminRouter';
 import TaskLists from "../Pages/WorkerRoutes/TaskLists";
 import TaskDetails from "../Pages/WorkerRoutes/TaskDetails";
+import MySubmissions from "../Pages/WorkerRoutes/MySubmissions";
+import TaskToReview from "../Pages/ByerRoutes/TaskToReview";
 
 const router = createBrowserRouter([
   {
@@ -71,6 +73,14 @@ const router = createBrowserRouter([
       {
         path: "taskDetails/:id",
         element: <TaskDetails></TaskDetails>
+      },
+      {
+        path: "mySubmission",
+        element: <MySubmissions></MySubmissions>
+      },
+      {
+        path: "reviewTasks",
+        element: <TaskToReview></TaskToReview>
       },
       {
         path: "manageUsers",

@@ -18,7 +18,7 @@ const BuyerMenu = () => {
         <h2 className="text-xl">Add new task</h2>
       </NavLink>
       <NavLink
-        to=""
+        to="/dashboard/reviewTasks"
         className="flex gap-4 items-center text-white  pl-12 hover:bg-slate-700 py-3 duration-300 cursor-pointer"
       >
         <h2 className="text-xl">
