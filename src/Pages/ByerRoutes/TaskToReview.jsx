@@ -46,7 +46,8 @@ const TaskToReview = () => {
             {/* row 1 */}
             {tasksReview.map((taskReview, index) => (
               <TaskToReviewTable
-                handleTaskReviewModal={handleTaskReviewModal}
+              refetch={refetch}
+              handleTaskReviewModal={handleTaskReviewModal}
                 key={index}
                 taskReview={taskReview}
               ></TaskToReviewTable>

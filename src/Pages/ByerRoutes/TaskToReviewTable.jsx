@@ -1,7 +1,26 @@
 import React from "react";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import toast from "react-hot-toast";
 
-const TaskToReviewTable = ({ taskReview,handleTaskReviewModal }) => {
-    const {task_title,submission_detail,status,payable_amount,worker_detail} = taskReview || {}
+const TaskToReviewTable = ({ taskReview,handleTaskReviewModal,refetch }) => {
+    const axiosSecure = useAxiosSecure();
+    const {task_title,_id,status,payable_amount,worker_detail} = taskReview || {}
+
+    const handleReviewStatus = async (e,id) => {
+        const status = e.target.value;
+        console.log(status);
+
+        try{
+            const {data} = await axiosSecure.patch(`submissionStatus/${id}`,{status})
+            console.log(data);
+            toast.success("Successfully Updated Status")
+            refetch()
+        }catch(err){
+            console.log(err);
+        }
+
+    }
+
   return (
     <tr>
       <td>
@@ -24,7 +43,7 @@ const TaskToReviewTable = ({ taskReview,handleTaskReviewModal }) => {
       </th>
       <th>
         
-        <select className="select select-bordered w-full max-w-xs">
+        <select onChange={(e)=>handleReviewStatus(e,_id)} className="select select-bordered w-full max-w-xs">
           <option disabled selected>
             Action
           </option>

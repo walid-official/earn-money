@@ -2,12 +2,12 @@ import React from "react";
 import { LuActivity } from "react-icons/lu";
 import { MdOutlinePayment, MdOutlinePending } from "react-icons/md";
 
-const AdminHome = () => {
+const WorkerHome = () => {
   return (
     <div>
       <div className="py-8">
         <h2 className="text-center font-bold text-4xl py-3">
-          Welcome To Admin Dashboard!
+          Welcome To Worker Dashboard!
         </h2>
         <p className="w-[50%] mx-auto text-center">
           Effortlessly manage your account, track activity, and access
@@ -54,4 +54,4 @@ const AdminHome = () => {
   );
 };
 
-export default AdminHome;
+export default WorkerHome;

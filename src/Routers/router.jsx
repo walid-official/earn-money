@@ -11,7 +11,7 @@ import AddNewTasks from "../Pages/ByerRoutes/AddNewTasks";
 import MyTasks from "../Pages/ByerRoutes/MyTasks";
 import BuyerRouter from "./BuyerRouter";
 import ManageUsers from "../Pages/AdminRoutes/ManageUsers";
-import AdminRouter from './AdminRouter';
+import AdminRouter from "./AdminRouter";
 import TaskLists from "../Pages/WorkerRoutes/TaskLists";
 import TaskDetails from "../Pages/WorkerRoutes/TaskDetails";
 import MySubmissions from "../Pages/WorkerRoutes/MySubmissions";
@@ -72,24 +72,32 @@ const router = createBrowserRouter([
       },
       {
         path: "taskDetails/:id",
-        element: <TaskDetails></TaskDetails>
+        element: <TaskDetails></TaskDetails>,
       },
       {
         path: "mySubmission",
-        element: <MySubmissions></MySubmissions>
+        element: <MySubmissions></MySubmissions>,
       },
       {
         path: "reviewTasks",
-        element: <TaskToReview></TaskToReview>
+        element: <TaskToReview></TaskToReview>,
       },
       {
         path: "manageUsers",
-        element: <PrivetRouter><ManageUsers></ManageUsers></PrivetRouter> 
+        element: (
+          <PrivetRouter>
+            <ManageUsers></ManageUsers>
+          </PrivetRouter>
+        ),
       },
       {
         path: "taskLists",
-        element: <PrivetRouter><TaskLists></TaskLists></PrivetRouter> 
-      }
+        element: (
+          <PrivetRouter>
+            <TaskLists></TaskLists>
+          </PrivetRouter>
+        ),
+      },
     ],
   },
   {

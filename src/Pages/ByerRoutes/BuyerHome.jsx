@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 import { LuActivity } from "react-icons/lu";
-import { MdOutlinePayment, MdOutlinePending } from "react-icons/md";
-
-const AdminHome = () => {
-  return (
-    <div>
-      <div className="py-8">
+import { MdOutlinePending } from "react-icons/md";
+import { MdOutlinePayment } from "react-icons/md";
+const BuyerHome = () => {
+    return (
+        <div>
+             <div className="py-8">
         <h2 className="text-center font-bold text-4xl py-3">
-          Welcome To Admin Dashboard!
+          Welcome To Buyer Dashboard!
         </h2>
         <p className="w-[50%] mx-auto text-center">
           Effortlessly manage your account, track activity, and access
@@ -50,8 +50,8 @@ const AdminHome = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
+        </div>
+    );
 };
 
-export default AdminHome;
+export default BuyerHome;
