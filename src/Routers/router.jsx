@@ -9,6 +9,9 @@ import DashboardHome from "../Pages/DashboardHome";
 import PrivetRouter from "./PrivetRouter";
 import AddNewTasks from "../Pages/ByerRoutes/AddNewTasks";
 import MyTasks from "../Pages/ByerRoutes/MyTasks";
+import BuyerRouter from "./BuyerRouter";
+import ManageUsers from "../Pages/AdminRoutes/ManageUsers";
+import AdminRouter from './AdminRouter';
 
 const router = createBrowserRouter([
   {
@@ -31,21 +34,43 @@ const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <PrivetRouter><DashBoardLayout></DashBoardLayout></PrivetRouter> ,
+    element: (
+      <PrivetRouter>
+        <DashBoardLayout></DashBoardLayout>
+      </PrivetRouter>
+    ),
     children: [
       {
         index: true,
-        element: <DashboardHome></DashboardHome>
+        element: <DashboardHome></DashboardHome>,
       },
       {
         path: "addNewTasks",
-        element: <AddNewTasks></AddNewTasks>
+        element: (
+          <PrivetRouter>
+            {" "}
+            <BuyerRouter>
+              <AddNewTasks></AddNewTasks>
+            </BuyerRouter>{" "}
+          </PrivetRouter>
+        ),
       },
       {
         path: "myTasks",
-        element: <MyTasks></MyTasks>
+        element: (
+          <PrivetRouter>
+            {" "}
+            <BuyerRouter>
+              <MyTasks></MyTasks>
+            </BuyerRouter>{" "}
+          </PrivetRouter>
+        ),
+      },
+      {
+        path: "manageUsers",
+        element: <PrivetRouter><ManageUsers></ManageUsers></PrivetRouter> 
       }
-    ]
+    ],
   },
   {
     path: "*",
