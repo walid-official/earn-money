@@ -16,6 +16,7 @@ import TaskLists from "../Pages/WorkerRoutes/TaskLists";
 import TaskDetails from "../Pages/WorkerRoutes/TaskDetails";
 import MySubmissions from "../Pages/WorkerRoutes/MySubmissions";
 import TaskToReview from "../Pages/ByerRoutes/TaskToReview";
+import PurchaseCoin from "../Pages/ByerRoutes/PurchaseCoin";
 
 const router = createBrowserRouter([
   {
@@ -69,6 +70,10 @@ const router = createBrowserRouter([
             </BuyerRouter>{" "}
           </PrivetRouter>
         ),
+      },
+      {
+        path: "purchaseCoin",
+        element: <PurchaseCoin></PurchaseCoin>
       },
       {
         path: "taskDetails/:id",

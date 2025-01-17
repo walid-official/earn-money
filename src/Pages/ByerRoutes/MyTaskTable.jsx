@@ -38,12 +38,12 @@ const MyTaskTable = ({ myTask,handleUpdate,handleDelete }) => {
             </div>
           </div>
         </td>
-        <td>{detail}</td>
+        <td>{detail.slice(0,20)}..</td>
         <td>{dateMDY}</td>
         <td>{worker}</td>
         <td>
-          <div className="mask mask-squircle h-16 w-16">
-            <img src={submissionImage} alt="Avatar Tailwind CSS Component" />
+          <div className="">
+            <img className="h-14 w-14 rounded-full object-cover" src={submissionImage} alt="Avatar Tailwind CSS Component" />
           </div>
         </td>
         <td>{totalPayment}</td>

@@ -1,6 +1,23 @@
 import React from "react";
+import useAuth from "../../Hooks/useAuth";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const DashboardNavbar = () => {
+  const {user} = useAuth();
+  const axiosSecure = useAxiosSecure();
+
+  const { data: myInfo = [], isLoading,refetch } = useQuery({
+    queryKey: ["myInfo", user?.email],
+    queryFn: async () => {
+      const { data } = await axiosSecure.get(`loggedUser/${user?.email}`);
+      console.log(data);
+      return data;
+    },
+  });
+
+  console.log(myInfo);
+
   return (
     <div className="bg-gradient-to-r from-[#020710] to-[#1b2028] text-white">
       <div className="navbar flex justify-end ">
@@ -48,12 +65,14 @@ const DashboardNavbar = () => {
         <div className="">
             <div className="flex justify-center items-center gap-10">
                 <div className="flex justify-center flex-col items-center space-y-4">
-                    <h2 className="font-bold text-xl">Available Coin <span>0</span> </h2>
-                    <div className="badge badge-accent text-white font-bold">Admin</div>
+                    <h2 className="font-bold text-xl">Available Coin: <span>{myInfo?.coin}</span> </h2>
+                    <div className="badge badge-accent text-white font-bold">{myInfo?.role}</div>
                 </div>
                 <div className="flex justify-center flex-col items-center">
-                    <div className="bg-white w-12 h-12 rounded-full"></div>
-                    <h2 className="pt-1 font-bold text-xl">Walid Hasan</h2>
+                    <div className="bg-white w-12 h-12 rounded-full">
+                      <img src={myInfo?.photo} alt="" />
+                    </div>
+                    <h2 className="pt-1 font-bold text-xl">{myInfo?.name}</h2>
                 </div>
             </div>
           <div className="px-8">
