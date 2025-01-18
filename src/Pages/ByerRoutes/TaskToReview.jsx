@@ -39,7 +39,8 @@ const TaskToReview = () => {
               <th>Payable Amount</th>
               <th>Status</th>
               <th>Submission Detail</th>
-              <th>Action</th>
+              <th>Approval</th>
+              <th>Rejection</th>
             </tr>
           </thead>
           <tbody>

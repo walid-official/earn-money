@@ -12,6 +12,7 @@ const DashboardNavbar = () => {
     queryFn: async () => {
       const { data } = await axiosSecure.get(`loggedUser/${user?.email}`);
       console.log(data);
+    
       return data;
     },
   });
@@ -70,7 +71,7 @@ const DashboardNavbar = () => {
                 </div>
                 <div className="flex justify-center flex-col items-center">
                     <div className="bg-white w-12 h-12 rounded-full">
-                      <img src={myInfo?.photo} alt="" />
+                      <img className="w-12 h-12 rounded-full object-cover" src={myInfo?.photo} alt="" />
                     </div>
                     <h2 className="pt-1 font-bold text-xl">{myInfo?.name}</h2>
                 </div>

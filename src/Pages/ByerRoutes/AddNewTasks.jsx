@@ -6,13 +6,16 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import toast from "react-hot-toast";
 import useAuth from "../../Hooks/useAuth";
+import { useQuery } from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
 
 const Image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${Image_hosting_key}`;
 
 const AddNewTasks = () => {
   const axiosSecure = useAxiosSecure();
-  const {user} = useAuth()
+  const { user } = useAuth();
+  const navigate = useNavigate();
   const [startDate, setStartDate] = useState(new Date());
   const {
     register,
@@ -20,15 +23,36 @@ const AddNewTasks = () => {
     formState: { errors },
   } = useForm();
 
+  const {
+    data: coinInfo = [],
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ["coinInfo", user?.email],
+    queryFn: async () => {
+      const { data } = await axiosSecure.get(`loggedUser/${user?.email}`);
+      console.log(data);
+      return data;
+    },
+  });
+
+  console.log(coinInfo);
+
   const handleAddNewTask = async (data) => {
     console.log(data);
-    const taskTitle = data.taskTitle
-    const taskDetail = data.taskDetail
+    const taskTitle = data.taskTitle;
+    const taskDetail = data.taskDetail;
     const parsePayment = parseInt(data.payableAmount);
     const parseWorker = parseInt(data.requiredWorker);
+
+
     console.log(parsePayment);
     console.log(parseWorker);
+    const PaymentCoin = parsePayment * 10;
+    console.log(PaymentCoin);
     const payableAmount = parsePayment * parseWorker;
+    console.log(payableAmount);
+
     // uploading Image On ImageBB Server
     const formData1 = new FormData();
     formData1.append("image", data.submissionInfo[0]);
@@ -62,22 +86,30 @@ const AddNewTasks = () => {
         completionDate: startDate,
         submissionImage: res1.data.data.url,
         taskImage: res2.data.data.url,
-        buyerInfo: {name: user?.displayName,email: user?.email,photo: user?.photoURL}
+        coinId: coinInfo?._id,
+        PaymentCoin,
+        buyerInfo: {
+          name: user?.displayName,
+          email: user?.email,
+          photo: user?.photoURL,
+        },
       };
 
-      try{
-        const {data}  = await axiosSecure.post("new-tasks",addTaskInfoData)
+      if (payableAmount > coinInfo?.coin) {
+        navigate("/dashboard/purchaseCoin");
+        return toast.error("Total Payment Exceeds Your Coin");
+      }
+      try {
+        const { data } = await axiosSecure.post("new-tasks", addTaskInfoData);
         console.log(data);
-        toast.success("Successfully Added Your Task")
-      }catch(err){
+        toast.success("Successfully Added Your Task");
+        refetch()
+      } catch (err) {
         console.log(err);
       }
-
     } catch (err) {
       console.log(err);
     }
-
-  
   };
 
   return (
@@ -160,7 +192,7 @@ const AddNewTasks = () => {
                 </label>
                 <div className="w-full">
                   <DatePicker
-                  className="border py-3 rounded-lg px-3 w-full"
+                    className="border py-3 rounded-lg px-3 w-full"
                     selected={startDate}
                     onChange={(date) => setStartDate(date)}
                   />

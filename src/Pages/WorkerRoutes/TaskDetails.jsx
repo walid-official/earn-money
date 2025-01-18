@@ -37,11 +37,15 @@ const TaskDetails = () => {
     payment,
     worker,
     totalPayment,
+    PaymentCoin,
+
     completionDate,
     submissionImage,
     taskImage,
     buyerInfo,
   } = taskDetail || {};
+
+  console.log(PaymentCoin);
 
   const handleTaskSubmit = async (e) => {
     e.preventDefault();
@@ -54,6 +58,7 @@ const TaskDetails = () => {
       task_title: taskDetail.title,
       payable_amount: taskDetail.payment,
       submission_detail: submissionDetail,
+      PaymentCoin: taskDetail.PaymentCoin,
       worker_detail: {
         name: user?.displayName,
         email: user?.email,
@@ -63,19 +68,22 @@ const TaskDetails = () => {
         email: taskDetail.buyerInfo.email,
       },
       current_date: currentDate,
-      status: "pending"
+      status: "pending",
     };
     console.log(taskSubmitInfo);
 
     try {
       const { data } = await axiosSecure.post(
-        "taskSubmissions",
+        `taskSubmissions/${user?.email}`,
         taskSubmitInfo
       );
+
+      refetch();
       console.log(data);
-      toast.success("Submission is Successful!!!")
+      toast.success("Submission is Successful!!!");
     } catch (err) {
       console.log(err);
+      toast.error("Something Went Wrong...", err.message);
     }
   };
 

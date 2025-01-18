@@ -17,6 +17,7 @@ import TaskDetails from "../Pages/WorkerRoutes/TaskDetails";
 import MySubmissions from "../Pages/WorkerRoutes/MySubmissions";
 import TaskToReview from "../Pages/ByerRoutes/TaskToReview";
 import PurchaseCoin from "../Pages/ByerRoutes/PurchaseCoin";
+import Payment from "../Pages/Payment/Payment";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <DashboardHome></DashboardHome>,
+      },
+      {
+        path: "payment",
+        element: <Payment></Payment>
       },
       {
         path: "addNewTasks",
