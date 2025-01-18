@@ -17,8 +17,20 @@ const TaskToReviewTable = ({ taskReview, handleTaskReviewModal, refetch }) => {
   const handleReviewStatus = async (status, id) => {
     console.log(status);
 
-    if(status === "Approve"){
-      console.log("approved");
+    console.log(PaymentCoin);
+    const approvedCoin = {
+      PaymentCoin: PaymentCoin,
+      workerEmail: worker_detail?.email,
+    };
+    if (status === "Approve") {
+      try {
+        const { data } = await axiosSecure.patch("/paymentCoin", {
+          approvedCoin,
+        });
+        console.log(data);
+      } catch (err) {
+        console.log(err);
+      }
     }
 
     const reviewInfo = {

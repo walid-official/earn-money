@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 
-const MyTaskTable = ({ myTask,handleUpdate,handleDelete }) => {
-  
-
+const MyTaskTable = ({ myTask, handleUpdate, handleDelete }) => {
   const {
     _id,
     taskImage,
@@ -10,6 +8,7 @@ const MyTaskTable = ({ myTask,handleUpdate,handleDelete }) => {
     detail,
     worker,
     totalPayment,
+    PaymentCoin,
     submissionImage,
     completionDate,
   } = myTask || {};
@@ -23,38 +22,50 @@ const MyTaskTable = ({ myTask,handleUpdate,handleDelete }) => {
   }-${date.getFullYear()}`;
   console.log(dateMDY);
   return (
-  
-      <tr>
-        <td>
-          <div className="flex items-center gap-3">
-            <div className="avatar">
-              <div className="mask mask-squircle h-12 w-12">
-                <img src={taskImage} alt="Avatar Tailwind CSS Component" />
-              </div>
-            </div>
-            <div>
-              <div className="font-bold">{title}</div>
-              <div className="text-sm opacity-50"></div>
+    <tr>
+      <td>
+        <div className="flex items-center gap-3">
+          <div className="avatar">
+            <div className="mask mask-squircle h-12 w-12">
+              <img src={taskImage} alt="Avatar Tailwind CSS Component" />
             </div>
           </div>
-        </td>
-        <td>{detail.slice(0,20)}..</td>
-        <td>{dateMDY}</td>
-        <td>{worker}</td>
-        <td>
-          <div className="">
-            <img className="h-14 w-14 rounded-full object-cover" src={submissionImage} alt="Avatar Tailwind CSS Component" />
+          <div>
+            <div className="font-bold">{title}</div>
+            <div className="text-sm opacity-50"></div>
           </div>
-        </td>
-        <td>{totalPayment}</td>
-        <th>
-          <button onClick={() => handleUpdate(_id)}  className="py-2 px-4 rounded-xl">Update</button>
-        </th>
-        <th>
-          <button onClick={() => handleDelete(_id)} className="py-2 px-4 rounded-xl">delete</button>
-        </th>
-      </tr>
-  
+        </div>
+      </td>
+      <td>{detail.slice(0, 20)}..</td>
+      <td>{dateMDY}</td>
+      <td>{worker}</td>
+      <td>
+        <div className="">
+          <img
+            className="h-14 w-14 rounded-full object-cover"
+            src={submissionImage}
+            alt="Avatar Tailwind CSS Component"
+          />
+        </div>
+      </td>
+      <td>{totalPayment}</td>
+      <th>
+        <button
+          onClick={() => handleUpdate(_id)}
+          className="py-2 px-4 rounded-xl"
+        >
+          Update
+        </button>
+      </th>
+      <th>
+        <button
+          onClick={() => handleDelete(_id, PaymentCoin)}
+          className="py-2 px-4 rounded-xl"
+        >
+          delete
+        </button>
+      </th>
+    </tr>
   );
 };
 

@@ -7,6 +7,7 @@ import logo from "../assets/logo.png";
 import Sidebar from "../components/Sidebar/Sidebar";
 
 const DashBoardLayout = () => {
+
   return (
     <div className="flex justify-between">
       <div className="w-[20%] min-h-screen bg-gradient-to-r from-[#020710] to-[#1b2028]">

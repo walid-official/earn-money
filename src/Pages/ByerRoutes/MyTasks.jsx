@@ -8,8 +8,12 @@ import { useState } from "react";
 const MyTasks = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
-  const [singleTask,setSingleTask] = useState(null)
-  const { data: myTasks = [], isLoading,refetch } = useQuery({
+  const [singleTask, setSingleTask] = useState(null);
+  const {
+    data: myTasks = [],
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["myTasks", user],
     queryFn: async () => {
       const { data } = await axiosSecure.get(`my-tasks/${user?.email}`);
@@ -20,28 +24,33 @@ const MyTasks = () => {
 
   console.log(myTasks);
 
-  const handleDelete = async (id) => {
+  const handleDelete = async (id, paymentCoin) => {
+    try {
+      const { data } = await axiosSecure.patch(`refillData/${user?.email}`, {
+        paymentCoin,
+      });
+      console.log(data);
+    } catch (err) {
+      console.log(err);
+    }
     try {
       const { data } = await axiosSecure.delete(`tasks/${id}`);
       console.log(data);
-      refetch()
+      refetch();
     } catch (err) {
       console.log(err);
     }
   };
 
-  
-
-  const handleUpdate = async(id) => {
+  const handleUpdate = async (id) => {
     document.getElementById("my_modal_1").showModal();
 
-    try{
-      const {data} = await axiosSecure.get(`tasks/${id}`);
+    try {
+      const { data } = await axiosSecure.get(`tasks/${id}`);
       setSingleTask(data);
-    }catch(err){
+    } catch (err) {
       console.log(err);
     }
-
   };
 
   console.log(singleTask);

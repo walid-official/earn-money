@@ -6,7 +6,7 @@ import useAuth from './useAuth';
 
 
 export const axiosSecure = axios.create({
-    baseURL: "http://localhost:9000/",
+    baseURL: "http://localhost:5000/",
 })
 
 const useAxiosSecure = () => {
