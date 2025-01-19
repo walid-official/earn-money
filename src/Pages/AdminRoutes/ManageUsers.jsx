@@ -3,6 +3,7 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import useAuth from "../../Hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import ManageUsersTable from "./ManageUsersTable";
+import toast from "react-hot-toast";
 
 const ManageUsers = () => {
   const axiosSecure = useAxiosSecure();
@@ -16,7 +17,7 @@ const ManageUsers = () => {
     queryKey: ["users", user?.email],
     enabled: !!user?.email,
     queryFn: async () => {
-        if (!user?.email) return [];
+      if (!user?.email) return [];
       const { data } = await axiosSecure(`allUsers/${user?.email}`);
       return data;
     },
@@ -30,14 +31,30 @@ const ManageUsers = () => {
     );
 
   const handleUserDelete = async (id) => {
-    try{
-        const {data} = await axiosSecure.delete(`/user/${id}`);
-        console.log(data);
-        refetch()
-    }catch(err){
-        console.log(err);
+    try {
+      const { data } = await axiosSecure.delete(`/user/${id}`);
+      console.log(data);
+      toast.success("successfully deleted")
+      refetch();
+    } catch (err) {
+      console.log(err);
     }
-  }
+  };
+
+  const handleManageRole = (role,email) => {
+    const roleUser = {
+      role,email
+    }
+
+    try {
+      const {data} = axiosSecure.patch("update-role",roleUser);
+      console.log(data);
+      toast.success("Successfully Updated ")
+      refetch()
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div>
@@ -59,6 +76,7 @@ const ManageUsers = () => {
             {/* row 1 */}
             {allUsers.map((singleUser, index) => (
               <ManageUsersTable
+                handleManageRole={handleManageRole}
                 key={index}
                 handleUserDelete={handleUserDelete}
                 singleUser={singleUser}

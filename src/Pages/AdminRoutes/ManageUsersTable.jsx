@@ -1,4 +1,4 @@
-const ManageUsersTable = ({ singleUser,handleUserDelete }) => {
+const ManageUsersTable = ({ singleUser,handleUserDelete,handleManageRole }) => {
   const { _id,name, photo, email, role, coin } = singleUser || {};
   return (
     <tr>
@@ -27,7 +27,7 @@ const ManageUsersTable = ({ singleUser,handleUserDelete }) => {
 
       <td>{coin}</td>
       <th>
-        <select className="select select-bordered w-full max-w-xs">
+        <select onChange={(e) => handleManageRole(e.target.value,email)} className="select select-bordered w-full max-w-xs">
           <option disabled selected>
             Update Role
           </option>
