@@ -2,6 +2,8 @@ import React from "react";
 import useAuth from "../../Hooks/useAuth";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import ManageTaskTable from "./ManageTaskTable";
+import toast from "react-hot-toast";
 
 const ManageTasks = () => {
   const { user } = useAuth();
@@ -21,12 +23,28 @@ const ManageTasks = () => {
 
   console.log(manageTasks);
 
+
+  const ManageTaskRemove = async (id) => {
+    try{
+      const {data} = await axiosSecure.delete(`manage-remove-task/${id}`)
+      console.log(data);
+      toast.success("Task is successfully deleted")
+      refetch()
+    }catch(err){
+      console.log(err);
+    }
+  }
+
   return (
-    <div className="">
-        <div className="py-10">
-            <h2 className="font-bold text-center text-3xl">Task Management</h2>
-            <p className="py-2 w-[45%] mx-auto text-center"> Streamline and organize your tasks efficiently, ensuring smooth workflow and timely completion of responsibilities.</p>
-        </div>
+    <div className="w-[80%] mx-auto">
+      <div className="py-10">
+        <h2 className="font-bold text-center text-3xl">Task Management</h2>
+        <p className="py-2 w-[50%] mx-auto text-center">
+          {" "}
+          Streamline and organize your tasks efficiently, ensuring smooth
+          workflow and timely completion of responsibilities.
+        </p>
+      </div>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
@@ -44,13 +62,9 @@ const ManageTasks = () => {
           </thead>
           <tbody>
             {/* row 1 */}
-            {/* {myTasks.map((myTask) => (
-              <MyTaskTable
-                handleDelete={handleDelete}
-                handleUpdate={handleUpdate}
-                myTask={myTask}
-              ></MyTaskTable>
-            ))} */}
+          {
+            manageTasks.map((manageTask,index) => <ManageTaskTable key={index} ManageTaskRemove={ManageTaskRemove} manageTask={manageTask}></ManageTaskTable>)
+          }
           </tbody>
         </table>
       </div>

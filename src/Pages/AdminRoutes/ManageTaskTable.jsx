@@ -1,6 +1,26 @@
 import React from 'react';
 
-const ManageTaskTable = () => {
+const ManageTaskTable = ({manageTask,ManageTaskRemove}) => {
+
+  const {
+    _id,
+    taskImage,
+    title,
+    detail,
+    worker,
+    totalPayment,
+    PaymentCoin,
+    submissionImage,
+    completionDate,
+  } = manageTask || {};
+
+  let date = new Date(completionDate);
+  /* Date format you have */
+  let dateMDY = `${date.getDate()}-${
+    date.getMonth() + 1
+  }-${date.getFullYear()}`;
+  console.log(dateMDY);
+
     return (
         <tr>
         <td>
@@ -34,7 +54,7 @@ const ManageTaskTable = () => {
         </th>
         <th>
           <button
-            // onClick={() => handleDelete(_id, PaymentCoin)}
+            onClick={() => ManageTaskRemove(_id)}
             className="py-2 px-4 rounded-xl"
           >
             delete
