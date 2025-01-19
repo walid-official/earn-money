@@ -11,11 +11,23 @@ const TaskToReviewTable = ({ taskReview, handleTaskReviewModal, refetch }) => {
     status,
     payable_amount,
     worker_detail,
+    buyer_detail,
     PaymentCoin,
   } = taskReview || {};
 
-  const handleReviewStatus = async (status, id) => {
+  const handleReviewStatus = async (status, id, title, worker, paymentCoin,buyer,route) => {
     console.log(status);
+    const date = new Date()
+    const notificationObj = {
+      status,
+      message: `you have earned ${paymentCoin} coin from ${buyer?.name} for completing ${title}
+`,
+      email: worker?.email,
+      actionRoute: route,
+      time: date
+    };
+
+    console.log(notificationObj);
 
     console.log(PaymentCoin);
     const approvedCoin = {
@@ -23,6 +35,13 @@ const TaskToReviewTable = ({ taskReview, handleTaskReviewModal, refetch }) => {
       workerEmail: worker_detail?.email,
     };
     if (status === "Approve") {
+      try{
+        const {data} = await axiosSecure.post("notifications",notificationObj);
+        console.log(data);
+        toast.success("successfully Added Notification")
+      }catch(err){
+        console.log(err);
+      }
       try {
         const { data } = await axiosSecure.patch("/paymentCoin", {
           approvedCoin,
@@ -72,7 +91,19 @@ const TaskToReviewTable = ({ taskReview, handleTaskReviewModal, refetch }) => {
         </button>
       </th>
       <th>
-        <button onClick={() => handleReviewStatus("Approve", _id)}>
+        <button
+          onClick={() =>
+            handleReviewStatus(
+              "Approve",
+              _id,
+              task_title,
+              worker_detail,
+              PaymentCoin,
+              buyer_detail,
+              "/dashboard/mySubmission"
+            )
+          }
+        >
           Approve
         </button>
       </th>
