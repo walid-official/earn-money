@@ -3,6 +3,7 @@ import WithdrawalRequestTable from "./WithdrawalRequestTable";
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../Hooks/useAuth";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import toast from "react-hot-toast";
 
 const WithdrawRequests = () => {
     const {user} = useAuth()
@@ -25,6 +26,22 @@ const WithdrawRequests = () => {
   
 
   console.log(withdrawalRequests);
+
+
+  const handleApproval = (approved,withdrawCoin,email) => {
+
+    const withdrawUpdateData ={
+        approved,withdrawCoin,email
+    }
+    try{
+        const {data} = axiosSecure.patch(`withdrawUpdate/${user?.email}`,withdrawUpdateData);
+        console.log(data);
+        toast.success("Withdraw payment is successful!!");
+        refetch();
+    }catch(err){
+        console.log(err);
+    }
+  }
 
   return (
     <div>
@@ -57,7 +74,7 @@ const WithdrawRequests = () => {
             <tbody>
               {/* row 1 */}
               {
-                withdrawalRequests.map((requests,index) => <WithdrawalRequestTable key={index} requests={requests}></WithdrawalRequestTable>)
+                withdrawalRequests.map((requests,index) => <WithdrawalRequestTable handleApproval={handleApproval} key={index} requests={requests}></WithdrawalRequestTable>)
               }
               
             </tbody>

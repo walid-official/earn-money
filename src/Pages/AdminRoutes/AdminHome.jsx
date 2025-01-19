@@ -93,7 +93,7 @@ const AdminHome = () => {
           </div>
         </div>
       </div>
-      <WithdrawRequests></WithdrawRequests>
+      <WithdrawRequests refetch={refetch}></WithdrawRequests>
     </div>
   );
 };

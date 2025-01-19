@@ -1,6 +1,6 @@
 import React from "react";
 
-const WithdrawalRequestTable = ({ requests }) => {
+const WithdrawalRequestTable = ({ requests,handleApproval }) => {
   const {
     accountNumber,
     name,
@@ -18,6 +18,8 @@ const WithdrawalRequestTable = ({ requests }) => {
     date.getMonth() + 1
   }-${date.getFullYear()}`;
   console.log(dateMDY);
+
+
 
   return (
     <tr>
@@ -41,7 +43,7 @@ const WithdrawalRequestTable = ({ requests }) => {
       <td>{paymentMethod}</td>
       <td>{dateMDY}</td>
       <td>
-        <button className="bg-slate-700 rounded-full text-white px-4 py-2">
+        <button onClick={() => handleApproval("Approved",withdrawCoin,email)} className="bg-slate-700 rounded-full text-white px-4 py-2">
           Payment
         </button>
       </td>
