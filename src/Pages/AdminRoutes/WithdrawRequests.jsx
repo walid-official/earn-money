@@ -6,8 +6,8 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 
 const WithdrawRequests = () => {
-    const {user} = useAuth()
-    const axiosSecure = useAxiosSecure()
+  const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
 
   const {
     data: withdrawalRequests = [],
@@ -23,25 +23,53 @@ const WithdrawRequests = () => {
     },
   });
 
-  
-
   console.log(withdrawalRequests);
 
 
-  const handleApproval = (approved,withdrawCoin,email) => {
+  // handleWithDrawApproval Button function
+  const handleApproval = async (
+    approved,
+    withdrawCoin,
+    email,
+    convertedUsd,
+    route
+  ) => {
+    const date = new Date();
+    let message = `You have successfully withdrawn ${convertedUsd} USD`;
 
-    const withdrawUpdateData ={
-        approved,withdrawCoin,email
+    const notificationObj = {
+      message,
+      email: email,
+      actionRoute: route,
+      time: date,
+    };
+
+    try {
+      const { data } = await axiosSecure.post("/notifications", notificationObj);
+      console.log(data);
+      toast.success("Successfully added notification");
+    } catch (err) {
+      console.log(err);
     }
-    try{
-        const {data} = axiosSecure.patch(`withdrawUpdate/${user?.email}`,withdrawUpdateData);
-        console.log(data);
-        toast.success("Withdraw payment is successful!!");
-        refetch();
-    }catch(err){
-        console.log(err);
+
+    const withdrawUpdateData = {
+      approved,
+      withdrawCoin,
+      email,
+    };
+
+    try {
+      const { data } = await axiosSecure.patch(
+        `withdrawUpdate/${user?.email}`,
+        withdrawUpdateData
+      );
+      console.log(data);
+      toast.success("Withdraw payment is successful!!");
+      refetch();
+    } catch (err) {
+      console.log(err);
     }
-  }
+  };
 
   return (
     <div>
@@ -73,10 +101,13 @@ const WithdrawRequests = () => {
             </thead>
             <tbody>
               {/* row 1 */}
-              {
-                withdrawalRequests.map((requests,index) => <WithdrawalRequestTable handleApproval={handleApproval} key={index} requests={requests}></WithdrawalRequestTable>)
-              }
-              
+              {withdrawalRequests.map((requests, index) => (
+                <WithdrawalRequestTable
+                  handleApproval={handleApproval}
+                  key={index}
+                  requests={requests}
+                ></WithdrawalRequestTable>
+              ))}
             </tbody>
           </table>
         </div>

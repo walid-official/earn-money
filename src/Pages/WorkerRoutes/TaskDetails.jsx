@@ -81,6 +81,27 @@ const TaskDetails = () => {
       refetch();
       console.log(data);
       toast.success("Submission is Successful!!!");
+
+      // Post Message For Buyer To submission Alert
+      let message = `${user?.displayName} has submitted the work for ${title}`;
+      const route = "/dashboard/reviewTasks";
+      const notificationObj = {
+        message,
+        email: taskDetail.buyerInfo.email,
+        actionRoute: route,
+        time: currentDate,
+      };
+
+      try {
+        const { data } = await axiosSecure.post(
+          "/notifications",
+          notificationObj
+        );
+        console.log(data);
+        toast.success("Successfully added notification");
+      } catch (err) {
+        console.log(err);
+      }
     } catch (err) {
       console.log(err);
       toast.error("Something Went Wrong...", err.message);

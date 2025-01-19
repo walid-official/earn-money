@@ -18,10 +18,18 @@ const TaskToReviewTable = ({ taskReview, handleTaskReviewModal, refetch }) => {
   const handleReviewStatus = async (status, id, title, worker, paymentCoin,buyer,route) => {
     console.log(status);
     const date = new Date()
+    let message;
+  
+    // Determine message based on status
+    if (status === "Reject") {
+      message = "Sorry, You Are Rejected";
+    } else if (status === "Approve") {
+      message = `You have earned ${paymentCoin} coin from ${buyer?.name} for completing ${title}`;
+    }
+
     const notificationObj = {
       status,
-      message: `you have earned ${paymentCoin} coin from ${buyer?.name} for completing ${title}
-`,
+      message,
       email: worker?.email,
       actionRoute: route,
       time: date
@@ -30,23 +38,31 @@ const TaskToReviewTable = ({ taskReview, handleTaskReviewModal, refetch }) => {
     console.log(notificationObj);
 
     console.log(PaymentCoin);
-    const approvedCoin = {
-      PaymentCoin: PaymentCoin,
-      workerEmail: worker_detail?.email,
-    };
     if (status === "Approve") {
-      try{
-        const {data} = await axiosSecure.post("notifications",notificationObj);
+      try {
+        const { data } = await axiosSecure.post("/notifications", notificationObj);
         console.log(data);
-        toast.success("successfully Added Notification")
-      }catch(err){
+        toast.success("Successfully added notification");
+      } catch (err) {
         console.log(err);
       }
+      
+      const approvedCoin = {
+        PaymentCoin: paymentCoin,
+        workerEmail: worker?.email,
+      };
+  
       try {
-        const { data } = await axiosSecure.patch("/paymentCoin", {
-          approvedCoin,
-        });
+        const { data } = await axiosSecure.patch("/paymentCoin", { approvedCoin });
         console.log(data);
+      } catch (err) {
+        console.log(err);
+      }
+    } else if (status === "Reject") {
+      try {
+        const { data } = await axiosSecure.post("/notifications", notificationObj);
+        console.log(data);
+        toast.warning("Notification for rejection added");
       } catch (err) {
         console.log(err);
       }
@@ -108,7 +124,11 @@ const TaskToReviewTable = ({ taskReview, handleTaskReviewModal, refetch }) => {
         </button>
       </th>
       <th>
-        <button onClick={() => handleReviewStatus("Reject", _id)}>
+        <button onClick={() => handleReviewStatus("Reject", _id, task_title,
+              worker_detail,
+              PaymentCoin,
+              buyer_detail,
+              "/dashboard/mySubmission")}>
           Reject
         </button>
       </th>

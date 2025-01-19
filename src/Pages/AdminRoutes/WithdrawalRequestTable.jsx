@@ -43,7 +43,7 @@ const WithdrawalRequestTable = ({ requests,handleApproval }) => {
       <td>{paymentMethod}</td>
       <td>{dateMDY}</td>
       <td>
-        <button onClick={() => handleApproval("Approved",withdrawCoin,email)} className="bg-slate-700 rounded-full text-white px-4 py-2">
+        <button onClick={() => handleApproval("Approved",withdrawCoin,email,convertedUsd,"/dashboard/withdrawals")} className="bg-slate-700 rounded-full text-white px-4 py-2">
           Payment
         </button>
       </td>
