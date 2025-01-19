@@ -72,40 +72,46 @@ const TaskDetails = () => {
     };
     console.log(taskSubmitInfo);
 
-    try {
-      const { data } = await axiosSecure.post(
-        `taskSubmissions/${user?.email}`,
-        taskSubmitInfo
-      );
 
-      refetch();
-      console.log(data);
-      toast.success("Submission is Successful!!!");
-
-      // Post Message For Buyer To submission Alert
-      let message = `${user?.displayName} has submitted the work for ${title}`;
-      const route = "/dashboard/reviewTasks";
-      const notificationObj = {
-        message,
-        email: taskDetail.buyerInfo.email,
-        actionRoute: route,
-        time: currentDate,
-      };
-
+    if(worker > 0){
+      // write something
       try {
         const { data } = await axiosSecure.post(
-          "/notifications",
-          notificationObj
+          `taskSubmissions/${user?.email}`,
+          taskSubmitInfo
         );
+  
+        refetch();
         console.log(data);
-        toast.success("Successfully added notification");
+        toast.success("Submission is Successful!!!");
+  
+        // Post Message For Buyer To submission Alert
+        let message = `${user?.displayName} has submitted the work for ${title}`;
+        const route = "/dashboard/reviewTasks";
+        const notificationObj = {
+          message,
+          email: taskDetail.buyerInfo.email,
+          actionRoute: route,
+          time: currentDate,
+        };
+     
+        try {
+          const { data } = await axiosSecure.post(
+            "/notifications",
+            notificationObj
+          );
+          console.log(data);
+          toast.success("Successfully added notification");
+        } catch (err) {
+          console.log(err);
+        }
       } catch (err) {
         console.log(err);
+        toast.error("Something Went Wrong...", err.message);
       }
-    } catch (err) {
-      console.log(err);
-      toast.error("Something Went Wrong...", err.message);
     }
+
+  
   };
 
   let date = new Date(completionDate);
@@ -231,6 +237,7 @@ const TaskDetails = () => {
                   placeholder="Submission_Details"
                   name="submission_detail"
                   className="textarea textarea-bordered textarea-lg w-full max-w-xs"
+                  required
                 ></textarea>
                 <div className="mt-2">
                   <button className="btn bg-accent text-white task">
