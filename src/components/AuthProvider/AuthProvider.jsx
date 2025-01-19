@@ -15,7 +15,7 @@ export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [availableCoin,setAvailableCoin] = useState(null);
+  // const [availableCoin,setAvailableCoin] = useState(null);
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
@@ -58,7 +58,7 @@ const AuthProvider = ({ children }) => {
       if (currentUser) {
         const userInfo = { email: currentUser.email };
 
-        axios.post("http://localhost:9000/jwt", userInfo).then((res) => {
+        axios.post("http://localhost:5000/jwt", userInfo).then((res) => {
           if (res.data.token) {
             localStorage.setItem("access-token", res.data.token);
           }
@@ -87,8 +87,8 @@ const AuthProvider = ({ children }) => {
     createSignInUser,
     updateUserProfile,
     signInWithGoogle,
-    availableCoin,
-    setAvailableCoin,
+    // availableCoin,
+    // setAvailableCoin,
   };
 
   return (

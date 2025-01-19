@@ -19,12 +19,12 @@ const WorkerMenu = () => {
         </h2>
         <h2 className="text-xl">My Submissions</h2>
       </NavLink>
-      <div className="flex gap-4 items-center text-white  pl-12  hover:bg-slate-700 py-3 duration-300 cursor-pointer">
+      <NavLink to="/dashboard/withdrawals" className="flex gap-4 items-center text-white  pl-12  hover:bg-slate-700 py-3 duration-300 cursor-pointer">
         <h2 className="text-xl">
           <MdPayments></MdPayments>
         </h2>
         <h2 className="text-xl">withdrawals</h2>
-      </div>
+      </NavLink>
     </div>
   );
 };

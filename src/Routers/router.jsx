@@ -18,6 +18,7 @@ import MySubmissions from "../Pages/WorkerRoutes/MySubmissions";
 import TaskToReview from "../Pages/ByerRoutes/TaskToReview";
 import PurchaseCoin from "../Pages/ByerRoutes/PurchaseCoin";
 import Payment from "../Pages/Payment/Payment";
+import Withdrawals from "../Pages/WorkerRoutes/Withdrawals";
 
 const router = createBrowserRouter([
   {
@@ -91,6 +92,10 @@ const router = createBrowserRouter([
       {
         path: "reviewTasks",
         element: <TaskToReview></TaskToReview>,
+      },
+      {
+        path: "withdrawals",
+        element: <Withdrawals></Withdrawals>
       },
       {
         path: "manageUsers",
