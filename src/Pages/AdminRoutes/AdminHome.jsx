@@ -1,8 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { LuActivity } from "react-icons/lu";
 import { MdOutlinePayment, MdOutlinePending } from "react-icons/md";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { FaPersonBreastfeeding } from "react-icons/fa6";
+import { BsCashCoin } from "react-icons/bs";
+import { BsCoin } from "react-icons/bs";
+import { GrUserWorker } from "react-icons/gr";
+import useAuth from "../../Hooks/useAuth";
+import { useQuery } from "@tanstack/react-query";
+import WithdrawRequests from "./WithdrawRequests";
 
 const AdminHome = () => {
+  const {user} = useAuth()
+  const axiosSecure = useAxiosSecure()
+  const {
+    data: allInfo = [],
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ["allInfo", user?.email],
+    queryFn: async () => {
+      const { data } = await axiosSecure.get(`allUsers/${user?.email}`);
+      console.log(data);
+
+      return data;
+    },
+  });
+
+  console.log(allInfo);
+
+
+  const totalBuyers = allInfo.filter(user => user.role === "Buyer").length;
+  const totalWorkers = allInfo.filter(user => user.role === "Worker").length;
+  const totalCoins = allInfo.reduce((total, user) => total + (user.coin || 0), 0);
+
+
+
   return (
     <div>
       <div className="py-8">
@@ -16,40 +49,51 @@ const AdminHome = () => {
         </p>
       </div>
       <div className="w-[70%] mx-auto">
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-4">
           <div className="stats shadow">
             <div className="stat">
-              <div className="stat-title">Total Task Count</div>
-              <button className="font-bold text-2xl py-1">
-                <MdOutlinePending></MdOutlinePending>
+              <div className="stat-title text-center">Total Worker</div>
+             <button className="font-bold text-2xl py-3 flex justify-center">
+                <GrUserWorker></GrUserWorker>
               </button>
-              <div className="stat-value">89,400</div>
-              <div className="stat-desc">21% more than last month</div>
+              <div className="stat-value text-center">{totalWorkers}</div>
+             
             </div>
           </div>
           <div className="stats shadow">
             <div className="stat">
-              <div className="stat-title">Pending Task</div>
-              <button className="font-bold text-2xl py-1">
-                <LuActivity></LuActivity>
+              <div className="stat-title text-center">Total Buyer</div>
+             <button className="font-bold text-2xl py-3 flex justify-center">
+                <FaPersonBreastfeeding></FaPersonBreastfeeding>
               </button>
-              <div className="stat-value">89,400</div>
-              <div className="stat-desc">21% more than last month</div>
+              <div className="stat-value text-center">{totalBuyers}</div>
+             
+            </div>
+          </div>
+          <div className="stats shadow">
+            <div className="stat">
+              <div className="stat-title text-center">Total Available Coin</div>
+              <button className="font-bold text-2xl py-3 flex justify-center">
+                <BsCoin></BsCoin>
+              </button>
+              <div className="stat-value text-center ">{totalCoins}</div>
+             
             </div>
           </div>
 
           <div className="stats shadow">
             <div className="stat">
-              <div className="stat-title">Total Payment</div>
-              <button className="font-bold text-2xl py-1">
-                <MdOutlinePayment></MdOutlinePayment>
+              <div className="stat-title text-center">Total Payment</div>
+             <button className="font-bold text-2xl py-3 flex justify-center">
+                <BsCashCoin></BsCashCoin>
               </button>
-              <div className="stat-value">89,400</div>
-              <div className="stat-desc">21% more than last month</div>
+              <div className="stat-value text-center">89,400</div>
+             
             </div>
           </div>
         </div>
       </div>
+      <WithdrawRequests></WithdrawRequests>
     </div>
   );
 };

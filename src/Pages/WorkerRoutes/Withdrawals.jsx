@@ -55,12 +55,14 @@ const Withdrawals = () => {
     };
     console.log(WithdrawalInfo);
     try{
-        const {data} = await axiosSecure.post("withdrawals",WithdrawalInfo);
+        const {data} = await axiosSecure.post(`withdrawals/${user?.email}`,WithdrawalInfo);
         console.log(data);
         toast.success("Withdraw Request is Successful!!!")
         reset()
+        refetch()
+        setConvertedUsd(null)
     }catch(err){
-
+        console.log(err);
     }
   };
 
