@@ -15,7 +15,7 @@ const AdminMenu = () => {
         <h2 className="text-xl">Manage Users</h2>
       </NavLink>
       <NavLink
-        to=""
+        to="/dashboard/manageTasks"
         className="flex gap-4 items-center text-white  pl-12 hover:bg-slate-700 py-3 duration-300 cursor-pointer"
       >
         <h2 className="text-xl">

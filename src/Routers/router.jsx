@@ -19,6 +19,7 @@ import TaskToReview from "../Pages/ByerRoutes/TaskToReview";
 import PurchaseCoin from "../Pages/ByerRoutes/PurchaseCoin";
 import Payment from "../Pages/Payment/Payment";
 import Withdrawals from "../Pages/WorkerRoutes/Withdrawals";
+import ManageTasks from "../Pages/AdminRoutes/ManageTasks";
 
 const router = createBrowserRouter([
   {
@@ -76,6 +77,10 @@ const router = createBrowserRouter([
             </BuyerRouter>{" "}
           </PrivetRouter>
         ),
+      },
+      {
+        path: "manageTasks",
+        element: <ManageTasks></ManageTasks>
       },
       {
         path: "purchaseCoin",
