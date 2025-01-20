@@ -27,14 +27,29 @@ const AdminHome = () => {
     },
   });
 
+  const {
+    data: allAmounts = [],
+  } = useQuery({
+    queryKey: ["allAmounts", user?.email],
+    queryFn: async () => {
+      const { data } = await axiosSecure.get(`allPayments-history`);
+      console.log(data);
+      return data;
+    },
+  });
+
+console.log(allAmounts);
   console.log(allInfo);
 
 
   const totalBuyers = allInfo.filter(user => user.role === "Buyer").length;
   const totalWorkers = allInfo.filter(user => user.role === "Worker").length;
   const totalCoins = allInfo.reduce((total, user) => total + (user.coin || 0), 0);
+  const totalPaymentHistory = allAmounts.reduce((total,historyAmount) => total + (historyAmount.amount || 0),0)
 
+  console.log(totalPaymentHistory);
 
+  const totalUsdPayment = totalPaymentHistory / 100;
 
   return (
     <div>
@@ -87,7 +102,7 @@ const AdminHome = () => {
              <button className="font-bold text-2xl py-3 flex justify-center">
                 <BsCashCoin></BsCashCoin>
               </button>
-              <div className="stat-value text-center">89,400</div>
+              <div className="stat-value text-center">{totalUsdPayment}$</div>
              
             </div>
           </div>

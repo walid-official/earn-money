@@ -82,7 +82,7 @@ const WithdrawRequests = () => {
           their funds from their account to a chosen payment method.
         </p>
       </div>
-      <div className="px-4 pb-10">
+      <div className="w-[90%] mx-auto  pb-10">
         <div className="overflow-x-auto">
           <table className="table">
             {/* head */}
