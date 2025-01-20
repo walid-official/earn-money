@@ -5,6 +5,7 @@ import { RiCoinsLine } from "react-icons/ri";
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../Hooks/useAuth";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import ApprovedSubmissions from "./ApprovedSubmissions";
 const WorkerHome = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
@@ -91,6 +92,7 @@ const WorkerHome = () => {
           </div>
         </div>
       </div>
+      <ApprovedSubmissions totalApprovedData={totalApprovedData}></ApprovedSubmissions>
     </div>
   );
 };
