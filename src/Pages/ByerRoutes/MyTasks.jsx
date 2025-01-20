@@ -66,8 +66,10 @@ const MyTasks = () => {
               <th>Detail</th>
               <th>Date</th>
               <th>worker</th>
+              <th>per Worker</th>
+              <th>Coin</th>
               <th>Submission</th>
-              <th>Payment</th>
+              <th>Total Payment</th>
               <th>Update</th>
               <th>Action</th>
             </tr>

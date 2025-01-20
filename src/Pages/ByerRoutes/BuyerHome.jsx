@@ -22,19 +22,40 @@ const BuyerHome = () => {
   });
 
 
-
-
-  const { data: pendingTasks = [], error, isLoading: pendingLoad } = useQuery({
-    queryKey: ["pendingTasks", user?.email],
+  const {
+    data: totalWorkers = [],
+   
+  } = useQuery({
+    queryKey: ["totalWorkers", user],
     queryFn: async () => {
-      if (!user?.email) return []; // Return an empty array if user email is not available
-      const { data } = await axiosSecure.get(`pendingSubmissions/${user.email}`);
+      const { data } = await axiosSecure.get(`my-tasks/${user?.email}`);
+      console.log(data);
       return data;
     },
-    enabled: !!user?.email, // Only run the query if user email is available
   });
-  
-  console.log(pendingTasks);
+
+
+
+  const {
+    data: myAmounts = [],
+  } = useQuery({
+    queryKey: ["myAmounts", user?.email],
+    queryFn: async () => {
+      const { data } = await axiosSecure.get(`payment-history/${user?.email}`);
+      console.log(data);
+      return data;
+    },
+  });
+
+  // const totalCoins = allInfo.reduce((total, user) => total + (user.coin || 0), 0);
+
+  const totalWorker = totalWorkers.reduce((total,Worker) => total + (Worker.worker ||0),0)
+  const myAmount = myAmounts.reduce((total,amount) => total + (amount.amount || 0),0)
+
+const usdAmount = myAmount / 100;
+
+
+  console.log(totalWorkers);
   console.log(addedTasks);
 
   return (
@@ -63,11 +84,11 @@ const BuyerHome = () => {
           </div>
           <div className="stats shadow">
             <div className="stat">
-              <div className="stat-title text-center">Pending Task</div>
+              <div className="stat-title text-center">Total Workers</div>
              <button className="font-bold text-2xl py-3 flex justify-center">
                 <MdOutlinePending></MdOutlinePending>
               </button>
-              <div className="stat-value text-center">89,400</div>
+              <div className="stat-value text-center">{totalWorker}</div>
              
             </div>
           </div>
@@ -78,7 +99,7 @@ const BuyerHome = () => {
              <button className="font-bold text-2xl py-3 flex justify-center">
                 <MdOutlinePayment></MdOutlinePayment>
               </button>
-              <div className="stat-value text-center">89,400</div>
+              <div className="stat-value text-center">{usdAmount}$</div>
              
             </div>
           </div>

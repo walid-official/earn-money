@@ -15,6 +15,8 @@ const MyTaskTable = ({ myTask, handleUpdate, handleDelete }) => {
 
   console.log(completionDate);
 
+  const perWorker = totalPayment / worker;
+
   let date = new Date(completionDate);
   /* Date format you have */
   let dateMDY = `${date.getDate()}-${
@@ -36,9 +38,11 @@ const MyTaskTable = ({ myTask, handleUpdate, handleDelete }) => {
           </div>
         </div>
       </td>
-      <td>{detail.slice(0, 20)}..</td>
+      <td>{detail.slice(0, 10)}..</td>
       <td>{dateMDY}</td>
       <td>{worker}</td>
+      <td>{perWorker}</td>
+      <td>{PaymentCoin}</td>
       <td>
         <div className="">
           <img
@@ -48,7 +52,7 @@ const MyTaskTable = ({ myTask, handleUpdate, handleDelete }) => {
           />
         </div>
       </td>
-      <td>{totalPayment}</td>
+      <td>{totalPayment}$</td>
       <th>
         <button
           onClick={() => handleUpdate(_id)}

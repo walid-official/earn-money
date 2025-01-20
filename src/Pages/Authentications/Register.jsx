@@ -2,13 +2,14 @@ import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../components/AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
-import { Navigate, NavLink } from "react-router-dom";
+import { Navigate, NavLink, useNavigate } from "react-router-dom";
 import { FaArrowRightLong } from "react-icons/fa6";
 import axios from "axios";
 
 const Register = () => {
   const { createUser, updateUserProfile, signInWithGoogle } =
     useContext(AuthContext);
+    const navigate = useNavigate()
   const {
     register,
     handleSubmit,
@@ -45,12 +46,13 @@ const Register = () => {
       console.log("User Registered", userCredential);
 
       const { data } = await axios.post(
-        "http://localhost:9000/earning-users",
+        "http://localhost:5000/earning-users",
         userData
       );
       console.log(data);
       toast.success("Successfully Registered Your Account");
       reset();
+      navigate("/")
     } catch (error) {
       console.error("Error Registering User", error);
       toast.error("Registration failed");
