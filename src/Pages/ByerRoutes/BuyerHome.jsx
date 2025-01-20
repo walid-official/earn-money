@@ -21,16 +21,20 @@ const BuyerHome = () => {
     },
   });
 
-  const { data: totalReviewTasks = [] } = useQuery({
-    queryKey: ["review-tasks"],
+
+
+
+  const { data: pendingTasks = [], error, isLoading: pendingLoad } = useQuery({
+    queryKey: ["pendingTasks", user?.email],
     queryFn: async () => {
-      const { data } = await axiosSecure.get(`review-tasks`);
-      console.log(data);
+      if (!user?.email) return []; // Return an empty array if user email is not available
+      const { data } = await axiosSecure.get(`pendingSubmissions/${user.email}`);
       return data;
     },
+    enabled: !!user?.email, // Only run the query if user email is available
   });
-
-  console.log(totalReviewTasks);
+  
+  console.log(pendingTasks);
   console.log(addedTasks);
 
   return (
@@ -49,32 +53,32 @@ const BuyerHome = () => {
         <div className="grid grid-cols-3 gap-4">
           <div className="stats shadow">
             <div className="stat">
-              <div className="stat-title">Total Task Count</div>
+              <div className="stat-title text-center">Total Task Count</div>
              <button className="font-bold text-2xl py-3 flex justify-center">
                 <LuActivity></LuActivity>
               </button>
-              <div className="stat-value">{addedTasks.length}</div>
+              <div className="stat-value text-center">{addedTasks.length}</div>
              
             </div>
           </div>
           <div className="stats shadow">
             <div className="stat">
-              <div className="stat-title">Pending Task</div>
+              <div className="stat-title text-center">Pending Task</div>
              <button className="font-bold text-2xl py-3 flex justify-center">
                 <MdOutlinePending></MdOutlinePending>
               </button>
-              <div className="stat-value">89,400</div>
+              <div className="stat-value text-center">89,400</div>
              
             </div>
           </div>
 
           <div className="stats shadow">
             <div className="stat">
-              <div className="stat-title">Total Payment</div>
+              <div className="stat-title text-center">Total Payment</div>
              <button className="font-bold text-2xl py-3 flex justify-center">
                 <MdOutlinePayment></MdOutlinePayment>
               </button>
-              <div className="stat-value">89,400</div>
+              <div className="stat-value text-center">89,400</div>
              
             </div>
           </div>

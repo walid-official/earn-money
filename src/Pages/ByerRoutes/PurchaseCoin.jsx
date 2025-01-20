@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import PaymentHistory from "./PaymentHistory";
 
 
 const PurchaseCoin = () => {
@@ -49,6 +50,7 @@ const PurchaseCoin = () => {
           </NavLink>
         ))}
       </div>
+      <PaymentHistory></PaymentHistory>
     </div>
   );
 };

@@ -71,6 +71,31 @@ const CheckoutForm = ({singlePurchase}) => {
       console.log("payment intent", paymentIntent)
       if (paymentIntent.status === "succeeded") {
         setTransactionId(`Your Transaction Id: ${paymentIntent.id}`);
+        const date = new Date();
+
+
+        const paymentData = {
+          id: paymentIntent.id,
+          status: paymentIntent.status,
+          amount: paymentIntent.amount,
+          currency: paymentIntent.currency,
+
+        }
+
+
+        const paymentHistory = {
+          ...paymentData,
+          email: user?.email,
+          date: date,
+          coin: singlePurchase?.coin
+        }
+        try{
+          const {data} = axiosSecure.post(`payment-history/${user?.email}`,paymentHistory)
+          console.log(data);
+          toast.success("transaction is Successful!!")
+        }catch(err){
+          console.log(err);
+        }
       }
     }
     

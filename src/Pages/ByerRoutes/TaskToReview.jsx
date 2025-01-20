@@ -3,18 +3,20 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import TaskToReviewTable from "./TaskToReviewTable";
 import TaskReviewDetailsModal from "./TaskReviewDetailsModal";
+import useAuth from "../../Hooks/useAuth";
 
 const TaskToReview = () => {
   const axiosSecure = useAxiosSecure();
+  const {user} = useAuth()
   const [reviewDetail, setReviewDetail] = useState(null);
   const {
     data: tasksReview = [],
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ["review-tasks"],
+    queryKey: ["review-tasks",user],
     queryFn: async () => {
-      const { data } = await axiosSecure.get(`review-tasks`);
+      const { data } = await axiosSecure.get(`review-tasks/${user?.email}`);
       console.log(data);
       return data;
     },
