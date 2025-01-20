@@ -33,6 +33,10 @@ const MySubmissions = () => {
   console.log(pages);
 
 
+  if(isLoading) return <div className="flex justify-center items-center h-screen">
+  <span className="loading loading-ring loading-lg"></span>
+</div>
+
 
   const handlePrev = () => {
     if(currentPage > 0){
