@@ -140,27 +140,15 @@ const Navbar = () => {
             >
               {user ? (
                 <div className="">
-                  <NavLink to="/dashboard" className="text-[#000]">
+                  <NavLink
+                    to="/dashboard"
+                    className="rounded-tr-2xl block text-center rounded-bl-2xl font-bold bg-[#00d7c0] text-white border-none py-3 px-6 "
+                  >
                     Dashboard
                   </NavLink>
-
-                  <div className="text-[#000]">
-                    <img className="w-10" src={coinNav} alt="" />
-                    <h2>{totalCoins ? totalCoins : 0}</h2>
-                  </div>
-
-                  <div className="bg-white w-12 h-12 rounded-full">
-                    
-                    <img
-                      className="w-12 h-12 rounded-full object-cover"
-                      referrerPolicy="no-referrer"
-                      src={user?.photoURL}
-                      alt=""
-                    />
-                  </div>
                   <NavLink
                     onClick={handleLogoutUser}
-                    className="rounded-tr-2xl block my-3 rounded-bl-2xl font-bold bg-[#00d7c0] text-white border-none py-3 px-6"
+                    className="rounded-tr-2xl block my-3 text-center rounded-bl-2xl font-bold bg-[#00d7c0] text-white border-none py-3 px-6"
                   >
                     {" "}
                     Logout
@@ -169,16 +157,32 @@ const Navbar = () => {
                   <a
                     href="https://github.com/walid-official"
                     target="_blank"
-                    className="rounded-tr-2xl block rounded-bl-2xl font-bold bg-[#00d7c0] text-white border-none py-3 px-6"
+                    className="rounded-tr-2xl text-center block rounded-bl-2xl font-bold bg-[#00d7c0] text-white border-none py-3 px-6"
                   >
                     Join as developer
                   </a>
+
+                  <div className="flex py-3 justify-between gap-3">
+                    <div className="text-[#000] flex items-center gap-2">
+                      <img className="w-10" src={coinNav} alt="" />
+                      <h2>{totalCoins ? totalCoins : 0}</h2>
+                    </div>
+
+                    <div className="bg-white w-12 h-12 rounded-full">
+                      <img
+                        className="w-12 h-12 rounded-full object-cover"
+                        referrerPolicy="no-referrer"
+                        src={user?.photoURL}
+                        alt=""
+                      />
+                    </div>
+                  </div>
                 </div>
               ) : (
                 <div className="flex gap-4 items-center">
                   <NavLink
                     to="login"
-                    className="rounded-tr-2xl  rounded-bl-2xl font-bold bg-[#00d7c0] text-white border-none py-3 px-6"
+                    className="rounded-tr-2xl text-center  rounded-bl-2xl font-bold bg-[#00d7c0] text-white border-none py-3 px-6"
                   >
                     Login
                   </NavLink>
@@ -200,7 +204,6 @@ const Navbar = () => {
               )}
             </ul>
           </div>
-         
         </div>
       </div>
     </div>

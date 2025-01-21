@@ -6,7 +6,7 @@ import { Autoplay } from "swiper/modules";
 import heroHand from "../../assets/hand.png";
 import card from "../../assets/card.png";
 import diamond1 from "../../assets/diamond1.png";
-import diamond2 from "../../assets/diamond2.png";
+import diamond2 from "../../assets/coins.png";
 import "./hero.css";
 import { motion } from "motion/react";
 import CountUp from "react-countup";
@@ -44,16 +44,16 @@ const Hero = () => {
                     </span>{" "}
                     how to earn more
                   </p>
-                  <h1 className="font-bold leading-tight text-white text-center lg:text-left text-3xl md:text-5xl lg:text-6xl py-4">
+                  <h1 className="font-bold lg:leading-tight text-white text-center lg:text-left text-3xl md:text-5xl lg:text-6xl py-4">
                     Make Your <span className="text-[#00d7c0]">money</span>.{" "}
-                    From anywhere, anytime!
+                   <br /> From anywhere, anytime!
                   </h1>
                   <p className="text-white lg:text-left text-center py-3 leading-normal">
                     Make money anytime, anywhere with the freedom to work when
                     and where you want, balancing income and lifestyle
                     seamlessly.
                   </p>
-                  <div className="flex gap-6 items-center justify-center lg:justify-start pt-5">
+                  <div className="md:flex space-y-2 md:space-y-2 gap-6 items-center justify-center lg:justify-start pt-5">
                     <div className="rounded-tr-[30px] px-7 py-4  rounded-bl-[30px] text-center bg-gradient-to-t from-[#27292f] to-[#10121d]">
                       <h2 className="text-5xl text-[#00d7c0] font-bold">
                         <CountUp end={2} />
@@ -78,7 +78,7 @@ const Hero = () => {
                 </div>
               </div>
 
-              <div className="lg:w-[50%] ">
+              <div className="lg:w-[46%] ">
                 <motion.div
                   animate={{ y: 20 }}
                   transition={{
@@ -89,7 +89,8 @@ const Hero = () => {
                   }}
                   className="w-3/5 flex justify-end mx-auto"
                 >
-                  <img src={diamond1} alt="Diamond" />
+                   <img src={card} alt="Diamond" />
+                  
                 </motion.div>
               </div>
             </div>
@@ -105,7 +106,7 @@ const Hero = () => {
                     </span>{" "}
                     how to earn more
                   </p>
-                  <h1 className="font-bold leading-tight text-white text-center lg:text-left text-3xl md:text-5xl lg:text-6xl py-4">
+                  <h1 className="font-bold lg:leading-tight text-white text-center lg:text-left text-3xl md:text-5xl lg:text-6xl py-4">
                     Grow Your <span className="text-[#00d7c0]">wealth</span>.
                     Anytime, anywhere!
                   </h1>
@@ -114,7 +115,7 @@ const Hero = () => {
                     and where you want, balancing income and lifestyle
                     seamlessly.
                   </p>
-                  <div className="flex gap-6 items-center justify-center lg:justify-start pt-5">
+                  <div className="md:flex space-y-2 md:space-y-2 gap-6 items-center justify-center lg:justify-start pt-5">
                     <div className="rounded-tr-[30px] px-7 py-4  rounded-bl-[30px] text-center bg-gradient-to-t from-[#27292f] to-[#10121d]">
                       <h2 className="text-5xl text-[#00d7c0] font-bold">
                         <CountUp end={4} />
@@ -139,7 +140,7 @@ const Hero = () => {
                 </div>
               </div>
 
-              <div className="lg:w-[50%] ">
+              <div className="lg:w-[43%] ">
                 <motion.div
                   animate={{ y: 20 }}
                   transition={{
@@ -166,7 +167,7 @@ const Hero = () => {
                     </span>{" "}
                     how to earn more
                   </p>
-                  <h1 className="font-bold leading-tight text-white text-center lg:text-left text-3xl md:text-5xl lg:text-6xl py-4">
+                  <h1 className="font-bold lg:leading-tight text-white text-center lg:text-left text-3xl md:text-5xl lg:text-6xl py-4">
                     Boost Your <span className="text-[#00d7c0]">skills</span>.
                     Anytime, anywhere!
                   </h1>
@@ -175,7 +176,7 @@ const Hero = () => {
                     and where you want, balancing income and lifestyle
                     seamlessly.
                   </p>
-                  <div className="flex gap-6 items-center justify-center lg:justify-start pt-5">
+                  <div className="md:flex space-y-2 md:space-y-2 gap-6 items-center justify-center lg:justify-start pt-5">
                     <div className="rounded-tr-[30px] px-7 py-4  rounded-bl-[30px] text-center bg-gradient-to-t from-[#27292f] to-[#10121d]">
                       <h2 className="text-5xl text-[#00d7c0] font-bold">
                         <CountUp end={3} />
@@ -192,7 +193,7 @@ const Hero = () => {
                     </div>
                     <div className="rounded-tr-[30px] px-7 py-4  rounded-bl-[30px] text-center bg-gradient-to-t from-[#27292f] to-[#10121d]">
                       <h2 className="text-5xl text-[#00d7c0] font-bold">
-                        <CountUp end={17} />H
+                        <CountUp end={11} />H+
                       </h2>
                       <p className="text-white py-4">Bonus Time</p>
                     </div>
@@ -200,7 +201,7 @@ const Hero = () => {
                 </div>
               </div>
 
-              <div className="lg:w-[45%] ">
+              <div className="lg:w-[50%] ">
                 <motion.div
                   animate={{ y: 20 }}
                   transition={{
@@ -211,7 +212,7 @@ const Hero = () => {
                   }}
                   className="w-3/5 flex justify-end mx-auto"
                 >
-                  <img src={card} alt="Diamond" />
+                 <img src={diamond1} alt="Diamond" />
                 </motion.div>
               </div>
             </div>
