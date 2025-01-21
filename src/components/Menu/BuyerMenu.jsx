@@ -17,7 +17,7 @@ const BuyerMenu = () => {
         </h2>
         <h2 className="text-xl">Add new task</h2>
       </NavLink>
-      <NavLink
+      {/* <NavLink
         to="/dashboard/reviewTasks"
         className="flex gap-4 items-center text-white  pl-12 hover:bg-slate-700 py-3 duration-300 cursor-pointer"
       >
@@ -25,7 +25,7 @@ const BuyerMenu = () => {
           <MdReviews></MdReviews>
         </h2>
         <h2 className="text-xl">Task to review</h2>
-      </NavLink>
+      </NavLink> */}
       <NavLink
         to="/dashboard/myTasks"
         className="flex gap-4 items-center text-white  pl-12 hover:bg-slate-700 py-3 duration-300 cursor-pointer"

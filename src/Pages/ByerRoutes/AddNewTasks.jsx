@@ -22,6 +22,7 @@ const AddNewTasks = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -54,6 +55,8 @@ const AddNewTasks = () => {
     console.log(PaymentCoin);
     const payableAmount = parsePayment * parseWorker;
     console.log(payableAmount);
+
+   
 
     // uploading Image On ImageBB Server
     const formData1 = new FormData();
@@ -101,12 +104,18 @@ const AddNewTasks = () => {
         navigate("/dashboard/purchaseCoin");
         return toast.error("Total Payment Exceeds Your Coin");
       }
+
+      if (parsePayment <= 0 || parseWorker <= 0) {
+        return toast.error("Payable amount and required workers must be greater than zero.");
+      }
+   
       try {
         const { data } = await axiosSecure.post("new-tasks", addTaskInfoData);
         console.log(data);
         toast.success("Successfully Added Your Task");
         coinFetch()
         refetch()
+        reset()
       } catch (err) {
         console.log(err);
       }
@@ -173,12 +182,12 @@ const AddNewTasks = () => {
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Payable Amount</span>
+                    <span className="label-text">Payable Amount (USD: 1$ = 10 coin)</span>
                   </label>
                   <input
                     type="number"
                     {...register("payableAmount", { required: true })}
-                    placeholder="Payable Amount"
+                    placeholder="Payable Amount (USD)"
                     className="input input-bordered"
                   />
                   {errors.payableAmount && (

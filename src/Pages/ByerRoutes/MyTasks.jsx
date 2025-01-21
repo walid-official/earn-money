@@ -50,6 +50,7 @@ const MyTasks = () => {
 
     try {
       const { data } = await axiosSecure.get(`tasks/${id}`);
+      myTaskRefetch()
       setSingleTask(data);
     } catch (err) {
       console.log(err);
@@ -89,7 +90,7 @@ const MyTasks = () => {
           </tbody>
         </table>
       </div>
-      <UpdateModal singleTask={singleTask} refetch={refetch}></UpdateModal>
+      <UpdateModal singleTask={singleTask} myTaskRefetch={myTaskRefetch}></UpdateModal>
     </div>
   );
 };

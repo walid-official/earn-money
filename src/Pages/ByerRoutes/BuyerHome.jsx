@@ -5,6 +5,7 @@ import { MdOutlinePayment } from "react-icons/md";
 import useAuth from "../../Hooks/useAuth";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import TaskToReview from "./TaskToReview";
 const BuyerHome = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
@@ -105,6 +106,7 @@ const usdAmount = myAmount / 100;
           </div>
         </div>
       </div>
+      <TaskToReview></TaskToReview>
     </div>
   );
 };

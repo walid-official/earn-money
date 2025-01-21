@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import { IoMdClose } from "react-icons/io";
 const Image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${Image_hosting_key}`;
-const UpdateModal = ({ singleTask, refetch }) => {
+const UpdateModal = ({ singleTask, myTaskRefetch }) => {
   console.log(singleTask);
   const axiosSecure = useAxiosSecure();
   const { _id, title, detail, submissionImage } = singleTask || {};
@@ -17,41 +17,45 @@ const UpdateModal = ({ singleTask, refetch }) => {
     const detail = form.detail.value;
     const fileInput = form.file;
     const file = fileInput.files[0];
-
-    const formData = new FormData();
-    formData.append("image", file);
-
-    try {
-      const res = await axios.post(image_hosting_api, formData, {
-        headers: {
-          "content-type": "multipart/form-data",
-        },
-      });
-      console.log("First image upload response:", res.data);
-      const submissionImage = res.data.data.url;
-      refetch();
-      const updateTask = {
-        title,
-        detail,
-        submissionImage,
-      };
+  
+    let submissionImage;
+  
+    if (file) {
+      const formData = new FormData();
+      formData.append("image", file);
+  
       try {
-        const { data } = await axiosSecure.patch(
-          `taskUpdate/${_id}`,
-          updateTask
-        );
-        console.log(data);
-        toast.success("successfully Updated");
-        refetch();
-        document.getElementById("my_modal_1").close();
+        const res = await axios.post(image_hosting_api, formData, {
+          headers: {
+            "content-type": "multipart/form-data",
+          },
+        });
+        console.log("First image upload response:", res.data);
+        submissionImage = res.data.data.url;
       } catch (err) {
-        console.log(err);
+        console.log("Error uploading image:", err);
       }
+    } else {
+      submissionImage = singleTask.submissionImage; // Keep the existing image if no new one is selected
+    }
+  
+    const updateTask = {
+      title,
+      detail,
+      ...(submissionImage && { submissionImage }), // Include submissionImage only if it exists
+    };
+  
+    try {
+      const { data } = await axiosSecure.patch(`taskUpdate/${_id}`, updateTask);
+      console.log(data);
+      toast.success("Successfully Updated");
+      myTaskRefetch();
+      document.getElementById("my_modal_1").close();
     } catch (err) {
-      console.log(err);
+      console.log("Error updating task:", err);
     }
   };
-
+  
   const handleCloseModal = () => {
     document.getElementById("my_modal_1").close();
   }

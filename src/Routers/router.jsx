@@ -20,6 +20,7 @@ import PurchaseCoin from "../Pages/ByerRoutes/PurchaseCoin";
 import Payment from "../Pages/Payment/Payment";
 import Withdrawals from "../Pages/WorkerRoutes/Withdrawals";
 import ManageTasks from "../Pages/AdminRoutes/ManageTasks";
+import WorkerRouter from "./WorkerRouter";
 
 const router = createBrowserRouter([
   {
@@ -50,11 +51,11 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <DashboardHome></DashboardHome>,
+        element: <PrivetRouter><DashboardHome></DashboardHome></PrivetRouter> ,
       },
       {
         path: "payment/:id",
-        element: <Payment></Payment>
+        element: <PrivetRouter><Payment></Payment></PrivetRouter> 
       },
       {
         path: "addNewTasks",
@@ -80,33 +81,30 @@ const router = createBrowserRouter([
       },
       {
         path: "manageTasks",
-        element: <ManageTasks></ManageTasks>
+        element: <PrivetRouter> <AdminRouter><ManageTasks></ManageTasks></AdminRouter> </PrivetRouter> 
       },
       {
         path: "purchaseCoin",
-        element: <PurchaseCoin></PurchaseCoin>
+        element: <PrivetRouter> <BuyerRouter><PurchaseCoin></PurchaseCoin></BuyerRouter> </PrivetRouter>
       },
       {
         path: "taskDetails/:id",
-        element: <TaskDetails></TaskDetails>,
+        element: <PrivetRouter><TaskDetails></TaskDetails></PrivetRouter> ,
       },
       {
         path: "mySubmission",
-        element: <MySubmissions></MySubmissions>,
+        element: <PrivetRouter>  <MySubmissions></MySubmissions></PrivetRouter> ,
       },
-      {
-        path: "reviewTasks",
-        element: <TaskToReview></TaskToReview>,
-      },
+
       {
         path: "withdrawals",
-        element: <Withdrawals></Withdrawals>
+        element: <PrivetRouter> <WorkerRouter><Withdrawals></Withdrawals></WorkerRouter> </PrivetRouter> 
       },
       {
         path: "manageUsers",
         element: (
           <PrivetRouter>
-            <ManageUsers></ManageUsers>
+            <AdminRouter><ManageUsers></ManageUsers></AdminRouter>
           </PrivetRouter>
         ),
       },

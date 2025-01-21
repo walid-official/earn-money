@@ -78,7 +78,7 @@ const Withdrawals = () => {
         </p>
 
         <h2 className="font-bold text-3xl text-center py-4 mt-6">
-          Your Total Earning: {amountInfo.coin / 20}.00$
+          Your Total Earning: {amountInfo.coin ? amountInfo.coin / 20 : 0}$
         </h2>
       </div>
       <div className="w-[50%] mx-auto pb-20">

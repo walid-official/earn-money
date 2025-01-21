@@ -68,8 +68,9 @@ const Register = () => {
         name: data?.user?.displayName,
         email: data?.user?.email,
         photo: data?.user?.photoURL,
+        role: "Worker"
       };
-      await axios.post("http://localhost:9000/earning-users", googleUserData);
+      await axios.post("http://localhost:5000/earning-users", googleUserData);
     } catch (error) {
       console.error("Login Error: ", error);
       toast.error("Registration failed");
