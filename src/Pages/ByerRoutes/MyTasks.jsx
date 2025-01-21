@@ -3,16 +3,18 @@ import { useQuery } from "@tanstack/react-query";
 import useAuth from "./../../Hooks/useAuth";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import UpdateModal from "./UpdateModal";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { myInfoContext } from "../../Layouts/DashBoardLayout";
 
 const MyTasks = () => {
   const { user } = useAuth();
+  const {refetch} = useContext(myInfoContext)
   const axiosSecure = useAxiosSecure();
   const [singleTask, setSingleTask] = useState(null);
   const {
     data: myTasks = [],
     isLoading,
-    refetch,
+    refetch:myTaskRefetch,
   } = useQuery({
     queryKey: ["myTasks", user],
     queryFn: async () => {
@@ -36,6 +38,7 @@ const MyTasks = () => {
     try {
       const { data } = await axiosSecure.delete(`tasks/${id}`);
       console.log(data);
+      myTaskRefetch()
       refetch();
     } catch (err) {
       console.log(err);

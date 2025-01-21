@@ -3,23 +3,11 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { NavLink } from "react-router-dom";
 
-const DashboardNavbar = () => {
+const DashboardNavbar = ({myInfo}) => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
 
-  const {
-    data: myInfo = [],
-    isLoading,
-    refetch,
-  } = useQuery({
-    queryKey: ["myInfo", user?.email],
-    queryFn: async () => {
-      const { data } = await axiosSecure.get(`loggedUser/${user?.email}`);
-      console.log(data);
 
-      return data;
-    },
-  });
 
   const {
     data: notifications = [],
@@ -84,7 +72,7 @@ const DashboardNavbar = () => {
           <div className="flex justify-center items-center gap-10">
             <div className="flex justify-center flex-col items-center space-y-4">
               <h2 className="font-bold text-xl">
-                Available Coin: <span>{myInfo?.coin}</span>{" "}
+                Available Coin: { myInfo.coin > 0  ? <span>{myInfo?.coin}</span> : 0} 
               </h2>
               <div className="badge badge-accent text-white font-bold">
                 {myInfo?.role}

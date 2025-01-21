@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import DatePicker from "react-datepicker";
@@ -8,12 +8,14 @@ import toast from "react-hot-toast";
 import useAuth from "../../Hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
+import { myInfoContext } from "../../Layouts/DashBoardLayout";
 
 const Image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${Image_hosting_key}`;
 
 const AddNewTasks = () => {
   const axiosSecure = useAxiosSecure();
+  const {refetch} = useContext(myInfoContext)
   const { user } = useAuth();
   const navigate = useNavigate();
   const [startDate, setStartDate] = useState(new Date());
@@ -26,7 +28,7 @@ const AddNewTasks = () => {
   const {
     data: coinInfo = [],
     isLoading,
-    refetch,
+    refetch: coinFetch,
   } = useQuery({
     queryKey: ["coinInfo", user?.email],
     queryFn: async () => {
@@ -103,6 +105,7 @@ const AddNewTasks = () => {
         const { data } = await axiosSecure.post("new-tasks", addTaskInfoData);
         console.log(data);
         toast.success("Successfully Added Your Task");
+        coinFetch()
         refetch()
       } catch (err) {
         console.log(err);

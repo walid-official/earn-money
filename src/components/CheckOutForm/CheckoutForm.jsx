@@ -1,11 +1,12 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import useAuth from "../../Hooks/useAuth";
 import toast from "react-hot-toast";
 
-const CheckoutForm = ({singlePurchase}) => {
+const CheckoutForm = ({singlePurchase,refetch}) => {
   const stripe = useStripe();
+  
   const {user} = useAuth()
   const [transactionId,setTransactionId] = useState("")
   const elements = useElements();
@@ -90,9 +91,10 @@ const CheckoutForm = ({singlePurchase}) => {
           coin: singlePurchase?.coin
         }
         try{
-          const {data} = axiosSecure.post(`payment-history/${user?.email}`,paymentHistory)
+          const {data} = await axiosSecure.post(`payment-history/${user?.email}`,paymentHistory)
           console.log(data);
           toast.success("transaction is Successful!!")
+          await refetch()
         }catch(err){
           console.log(err);
         }

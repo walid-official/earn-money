@@ -1,18 +1,20 @@
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CheckoutForm from "../../components/CheckOutForm/CheckoutForm";
 import { useParams } from "react-router-dom";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import { myInfoContext } from "../../Layouts/DashBoardLayout";
 const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_GATEWAY_PK);
 const Payment = () => {
 const {id} = useParams();
- const axiosSecure = useAxiosSecure()
+ const axiosSecure = useAxiosSecure();
+ const {refetch} = useContext(myInfoContext)
 const {
   data: singlePurchase = [],
   isLoading,
-  refetch,
+  refetch:purchaseFetch,
 } = useQuery({
   queryKey: ["singlePurchase", id],
   queryFn: async () => {
@@ -38,7 +40,7 @@ console.log(singlePurchase);
       </div>
       <div className="">
         <Elements stripe={stripePromise}>
-          <CheckoutForm singlePurchase={singlePurchase}></CheckoutForm>
+          <CheckoutForm singlePurchase={singlePurchase} refetch={refetch}></CheckoutForm>
         </Elements>
       </div>
     </div>
