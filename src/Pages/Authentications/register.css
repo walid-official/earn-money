@@ -1,0 +1,18 @@
+.custom-file-input {
+    display: none; /* Hide the default file input */
+  }
+
+  .file-label {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+    cursor: pointer;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .file-label:hover {
+    background-color: #e0e0e0;
+  }
