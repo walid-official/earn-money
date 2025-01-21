@@ -14,10 +14,10 @@ import CountUp from "react-countup";
 const Hero = () => {
   return (
     <div className="relative pt-20">
-      <div className="absolute right-0 w-[40%] top-[310px] z-10">
+      <div className="absolute right-0 w-[40%] top-[310px] z-10 lg:flex hidden">
         <img src={heroHand} className="" alt="" />
       </div>
-      <div className="h-screen w-11/12 mx-auto">
+      <div className="lg:h-screen w-11/12 mx-auto">
         <Swiper
           pagination={{
             dynamicBullets: true,
@@ -34,26 +34,26 @@ const Hero = () => {
           className="mySwiper"
         >
           <SwiperSlide>
-            <div className="flex justify-between">
-              <div className="w-[50%] flex items-center">
+            <div className="lg:flex justify-between">
+              <div className="lg:w-[50%] md:w-[70%] w-[90%] mx-auto lg:mx-0 flex items-center">
                 <div className="">
-                  <p className="text-white rounded-tr-2xl  rounded-bl-2xl text-center bg-gradient-to-t from-[#27292f] to-[#10121d] py-3 px-7 w-[50%] text-xl">
+                  <p className="text-white rounded-tr-2xl  rounded-bl-2xl text-center bg-gradient-to-t from-[#27292f] to-[#10121d] py-3 px-7 lg:w-[50%] md:w-[70%] md:mx-auto lg:mx-0 w-full text-xl">
                     {" "}
                     <span className="text-[#00d7c0] font-bold">
                       Discover
                     </span>{" "}
                     how to earn more
                   </p>
-                  <h1 className="font-bold leading-tight text-white text-6xl py-4">
+                  <h1 className="font-bold leading-tight text-white text-center lg:text-left text-3xl md:text-5xl lg:text-6xl py-4">
                     Make Your <span className="text-[#00d7c0]">money</span>.{" "}
                     From anywhere, anytime!
                   </h1>
-                  <p className="text-white py-3 leading-normal">
+                  <p className="text-white lg:text-left text-center py-3 leading-normal">
                     Make money anytime, anywhere with the freedom to work when
                     and where you want, balancing income and lifestyle
                     seamlessly.
                   </p>
-                  <div className="flex gap-6 items-center pt-5">
+                  <div className="flex gap-6 items-center justify-center lg:justify-start pt-5">
                     <div className="rounded-tr-[30px] px-7 py-4  rounded-bl-[30px] text-center bg-gradient-to-t from-[#27292f] to-[#10121d]">
                       <h2 className="text-5xl text-[#00d7c0] font-bold">
                         <CountUp end={2} />
@@ -78,7 +78,7 @@ const Hero = () => {
                 </div>
               </div>
 
-              <div className="w-[50%] ">
+              <div className="lg:w-[50%] ">
                 <motion.div
                   animate={{ y: 20 }}
                   transition={{
@@ -95,26 +95,26 @@ const Hero = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="flex justify-between">
-              <div className="w-[50%] flex items-center">
+            <div className="lg:flex justify-between">
+              <div className="lg:w-[50%] md:w-[70%] w-[90%] mx-auto lg:mx-0 flex items-center">
                 <div className="">
-                  <p className="text-white rounded-tr-2xl  rounded-bl-2xl text-center bg-gradient-to-t from-[#27292f] to-[#10121d] py-3 px-7 w-[50%] text-xl">
+                  <p className="text-white rounded-tr-2xl  rounded-bl-2xl text-center bg-gradient-to-t from-[#27292f] to-[#10121d] py-3 px-7 lg:w-[50%] md:w-[70%] md:mx-auto lg:mx-0 w-full text-xl">
                     {" "}
                     <span className="text-[#00d7c0] font-bold">
                       Discover
                     </span>{" "}
                     how to earn more
                   </p>
-                  <h1 className="font-bold leading-tight text-white text-6xl py-4">
+                  <h1 className="font-bold leading-tight text-white text-center lg:text-left text-3xl md:text-5xl lg:text-6xl py-4">
                     Grow Your <span className="text-[#00d7c0]">wealth</span>.
                     Anytime, anywhere!
                   </h1>
-                  <p className="text-white py-3 leading-normal">
+                  <p className="text-white lg:text-left text-center py-3 leading-normal">
                     Make money anytime, anywhere with the freedom to work when
                     and where you want, balancing income and lifestyle
                     seamlessly.
                   </p>
-                  <div className="flex gap-6 items-center pt-5">
+                  <div className="flex gap-6 items-center justify-center lg:justify-start pt-5">
                     <div className="rounded-tr-[30px] px-7 py-4  rounded-bl-[30px] text-center bg-gradient-to-t from-[#27292f] to-[#10121d]">
                       <h2 className="text-5xl text-[#00d7c0] font-bold">
                         <CountUp end={4} />
@@ -139,7 +139,7 @@ const Hero = () => {
                 </div>
               </div>
 
-              <div className="w-[50%] ">
+              <div className="lg:w-[50%] ">
                 <motion.div
                   animate={{ y: 20 }}
                   transition={{
@@ -156,26 +156,26 @@ const Hero = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="flex justify-between">
-              <div className="w-[50%] flex items-center">
+            <div className="lg:flex justify-between">
+              <div className="lg:w-[50%] md:w-[70%] w-[90%] mx-auto lg:mx-0 flex items-center">
                 <div className="">
-                  <p className="text-white rounded-tr-2xl  rounded-bl-2xl text-center bg-gradient-to-t from-[#27292f] to-[#10121d] py-3 px-7 w-[50%] text-xl">
+                  <p className="text-white rounded-tr-2xl  rounded-bl-2xl text-center bg-gradient-to-t from-[#27292f] to-[#10121d] py-3 px-7 lg:w-[50%] md:w-[70%] md:mx-auto lg:mx-0 w-full text-xl">
                     {" "}
                     <span className="text-[#00d7c0] font-bold">
                       Discover
                     </span>{" "}
                     how to earn more
                   </p>
-                  <h1 className="font-bold leading-tight text-white text-6xl py-4">
+                  <h1 className="font-bold leading-tight text-white text-center lg:text-left text-3xl md:text-5xl lg:text-6xl py-4">
                     Boost Your <span className="text-[#00d7c0]">skills</span>.
                     Anytime, anywhere!
                   </h1>
-                  <p className="text-white py-3 leading-normal">
+                  <p className="text-white lg:text-left text-center py-3 leading-normal">
                     Make money anytime, anywhere with the freedom to work when
                     and where you want, balancing income and lifestyle
                     seamlessly.
                   </p>
-                  <div className="flex gap-6 items-center pt-5">
+                  <div className="flex gap-6 items-center justify-center lg:justify-start pt-5">
                     <div className="rounded-tr-[30px] px-7 py-4  rounded-bl-[30px] text-center bg-gradient-to-t from-[#27292f] to-[#10121d]">
                       <h2 className="text-5xl text-[#00d7c0] font-bold">
                         <CountUp end={3} />
@@ -200,7 +200,7 @@ const Hero = () => {
                 </div>
               </div>
 
-              <div className="w-[45%] ">
+              <div className="lg:w-[45%] ">
                 <motion.div
                   animate={{ y: 20 }}
                   transition={{

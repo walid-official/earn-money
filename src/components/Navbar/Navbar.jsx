@@ -5,6 +5,7 @@ import Logo from "../../assets/logo.png";
 import coinNav from "../../assets/coinNav.png";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { FaUser } from "react-icons/fa";
 const Navbar = () => {
   const { user, userSignOut } = useContext(AuthContext);
   const axiosSecure = useAxiosSecure();
@@ -143,12 +144,13 @@ const Navbar = () => {
                     Dashboard
                   </NavLink>
 
-                  <div className="flex gap-2 items-center text-[#000]">
+                  <div className="text-[#000]">
                     <img className="w-10" src={coinNav} alt="" />
                     <h2>{totalCoins ? totalCoins : 0}</h2>
                   </div>
 
                   <div className="bg-white w-12 h-12 rounded-full">
+                    
                     <img
                       className="w-12 h-12 rounded-full object-cover"
                       referrerPolicy="no-referrer"
