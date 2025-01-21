@@ -14,7 +14,7 @@ const Testimonial = () => {
         </p>
       </div>
       <div className="flex gap-8">
-        <div className="w-[60%] mx-auto">
+        <div className="lg:w-[60%] md:w-[80%] w-[90%] mx-auto">
           <TestimonialSlider></TestimonialSlider>
         </div>
         {/* <div className="w-[40%] flex justify-center items-center">

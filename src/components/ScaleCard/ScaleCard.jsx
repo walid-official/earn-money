@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const ScaleCard = () => {
   const [range, setRange] = useState(false);
   return (
-    <div className="w-[80%] mx-auto pb-14">
+    <div className="md:w-[80%] w-[90%] mx-auto pb-14">
       <div className="pb-20">
         <h2 className="text-4xl text-white font-bold text-center">
           Transforming Dreams into Reality
@@ -34,7 +34,7 @@ const ScaleCard = () => {
             />
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           <div className="">
             <h2 className="font-bold text-2xl text-left">
               Real-Time Earnings Tracker

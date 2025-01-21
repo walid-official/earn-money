@@ -13,8 +13,8 @@ const DiamondFacility = () => {
           support, all within a secure and user-friendly platform.
         </p>
       </div>
-      <div className="flex gap-8 py-10">
-        <div className="w-[25%] space-y-4">
+      <div className="lg:flex gap-8 py-10">
+        <div className="lg:w-[25%] space-y-4">
           {/* Card 1 */}
           <div className="bg-gradient-to-t from-[#10121d] to-[#24262c] rounded-xl p-10">
             <h2 className="font-bold text-white text-2xl text-center">
@@ -45,10 +45,10 @@ const DiamondFacility = () => {
             </p>
           </div>
         </div>
-        <div className="w-[30%] flex justify-center items-center mx-auto">
+        <div className="lg:w-[30%] lg:py-0 py-10 flex justify-center items-center mx-auto">
           <img className="w-full" src="https://iko-nuxt.netlify.app/assets/img/update/normal/intro_1-1.png" alt="" />
         </div>
-        <div className="w-[25%] space-y-4">
+        <div className="lg:w-[25%] space-y-4">
           {/* Card 1 */}
           <div className="bg-gradient-to-t from-[#10121d] to-[#24262c] rounded-xl p-10">
             <h2 className="font-bold text-white text-2xl text-center">

@@ -5,7 +5,7 @@ import { RiGithubLine } from "react-icons/ri";
 const Footer = () => {
   return (
     <div className="bg-gradient-to-t from-[#10121d] to-[#10121d] py-16 px-10">
-      <div className="w-11/12 mx-auto flex justify-between ">
+      <div className="w-11/12 mx-auto lg:flex justify-between ">
         <div className="">
           <h2 className="font-bold text-4xl text-white">Earnify</h2>
           <p className="text-white py-3">
