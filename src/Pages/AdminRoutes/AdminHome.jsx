@@ -39,7 +39,7 @@ const AdminHome = () => {
   });
 
 console.log(allAmounts);
-  console.log(allInfo);
+console.log(allInfo);
 
 
   const totalBuyers = allInfo.filter(user => user.role === "Buyer").length;
