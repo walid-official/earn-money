@@ -20,15 +20,20 @@ const DashboardNavbar = ({ myInfo }) => {
     },
   });
 
-  // const date = new Date(notifications?.time);
-
-  // // Extract time
-  // const hours = date.getHours().toString().padStart(2, '0'); // Hours (24-hour format)
-  // const minutes = date.getMinutes().toString().padStart(2, '0'); // Minutes
-  // const seconds = date.getSeconds().toString().padStart(2, '0'); // Seconds
+  const updatedNotifications = notifications.map(notification => {
+    const date = new Date(notification.time);
   
-  // const time = `${hours}:${minutes}:${seconds}`;
-  // console.log("Time:", time);
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+    const seconds = date.getSeconds().toString().padStart(2, '0');
+  
+    return {
+      ...notification,
+      time: `${hours}:${minutes}:${seconds}`, // Update the time to HH:mm:ss format
+    };
+  });
+  
+  console.log(updatedNotifications);
 
   return (
     <div className="bg-gradient-to-t from-[#0b1019] to-[#141922] py-3 text-white shadow-2xl">
@@ -123,9 +128,9 @@ const DashboardNavbar = ({ myInfo }) => {
               </div>
               <ul
                 tabIndex={0}
-                className="dropdown-content menu bg-base-100 min-h-20 rounded-box z-10 w-[500px] mt-6 p-2 shadow"
+                className="dropdown-content menu bg-base-100 min-h-20 rounded-box z-50 w-[500px] mt-6 p-2 shadow"
               >
-                {notifications.map((notification, index) => (
+                {updatedNotifications.map((notification, index) => (
                   <NavLink
                     to={notification?.actionRoute}
                     className=" hover:bg-accent rounded-lg px-3 py-4 my-1 flex gap-5"
@@ -136,7 +141,7 @@ const DashboardNavbar = ({ myInfo }) => {
                     </i>
                     <div className="">
                       <li className="">{notification?.message}</li>
-                      
+                      <li>{notification?.time}</li>
                     </div>
                   </NavLink>
                 ))}

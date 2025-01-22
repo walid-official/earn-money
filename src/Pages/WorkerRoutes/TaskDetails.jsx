@@ -87,7 +87,7 @@ const TaskDetails = () => {
   
         // Post Message For Buyer To submission Alert
         let message = `${user?.displayName} has submitted the work for ${title}`;
-        const route = "/dashboard/reviewTasks";
+        const route = "/dashboard";
         const notificationObj = {
           message,
           email: taskDetail.buyerInfo.email,

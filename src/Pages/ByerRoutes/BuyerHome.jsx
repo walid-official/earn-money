@@ -72,16 +72,16 @@ const BuyerHome = () => {
       </div> */}
       <div className="lg:flex gap-4">
         <div className="lg:w-[70%] ">
-          <div className="bg-[#242835]  p-8 rounded-xl shadow-2xl">
+          <div className="bg-gradient-to-r from-[#020710] to-[#1b2028]  p-8 rounded-xl shadow-2xl">
             <BuyerChart></BuyerChart>
           </div>
-          <div className="mt-8 bg-[#242835] p-8 rounded-xl shadow-2xl">
+          <div className="mt-8 bg-gradient-to-r from-[#020710] to-[#1b2028] p-8 rounded-xl shadow-2xl">
             <TaskToReview></TaskToReview>
           </div>
         </div>
-        <div className="lg:w-[30%] bg-[#242835] p-8 rounded-xl mt-10 lg:mt-0 ">
+        <div className="lg:w-[30%] bg-gradient-to-r from-[#020710] to-[#1b2028] p-8 rounded-xl mt-10 lg:mt-0 ">
           <div className="space-y-4">
-            <div className="stats shadow w-full bg-[#26e16a] text-white">
+            <div className="stats shadow w-full bg-gradient-to-r from-[#193a98] to-[#070c2e] text-white">
               <div className="stat">
                 <div className="stat-title text-center text-white font-bold">
                   Total Task Count
@@ -94,7 +94,7 @@ const BuyerHome = () => {
                 </div>
               </div>
             </div>
-            <div className="stats shadow w-full bg-[#4d8ff5] text-white">
+            <div className="stats shadow w-full bg-gradient-to-r from-[#20d6ef] to-[#0846da] text-white">
               <div className="stat">
                 <div className="stat-title text-center text-white font-bold">
                   Total Workers
@@ -105,7 +105,7 @@ const BuyerHome = () => {
                 <div className="stat-value text-center">{totalWorker}</div>
               </div>
             </div>
-            <div className="stats shadow w-full bg-[#f78431] text-white">
+            <div className="stats shadow w-full bg-gradient-to-r from-[#551f8b] to-[#1c172d] text-white">
               <div className="stat">
                 <div className="stat-title text-center font-bold text-white">
                   Total Payment
