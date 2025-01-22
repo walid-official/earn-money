@@ -24,22 +24,40 @@ const TaskList = ({ postedTask }) => {
 
   return (
     <div>
-      
-      <div className="card bg-gradient-to-r from-[#020710] to-[#1b2028] text-white shadow-xl">
+      <div className="card shadow-xl">
         {/* <figure>
           <img src={taskImage} alt="Shoes" />
         </figure> */}
         <div className="px-4 py-4 space-y-3">
-          <div className="flex items-center gap-2 justify-between">
-            <h2 className="font-bold card-title">{title}</h2>
-            <p className="bg-accent text-white px-5 py-2 rounded-lg">{worker}</p>
+          <div className="flex justify-between items-center">
+            <div className="flex items-center gap-2">
+              <div className="">
+                <img
+                  src={buyerInfo?.photo}
+                  className="w-10 h-10 rounded-full object-cover"
+                  alt=""
+                />
+              </div>
+              <div className="">
+                <p className="font-bold">{buyerInfo?.name}</p>
+                <p className="border-b pb-3">{dateMDY}</p>
+              </div>
+            </div>
+            <div className="">
+              <p className="px-5 py-2 rounded-lg">Worker: {worker}</p>
+            </div>
           </div>
-          <p className="font-bold">{buyerInfo?.name}</p>
-          <p className="border-b pb-3">{dateMDY}</p>
+
+          <h2 className="font-bold card-title py-3">{title}</h2>
 
           <div className="card-actions justify-between items-center ">
             <p className="font-bold text-xl">{payment}.00$</p>
-            <NavLink to={`/dashboard/taskDetails/${_id}`} className="btn bg-accent text-white border-none hover:bg-accent">view Details</NavLink>
+            <NavLink
+              to={`/dashboard/taskDetails/${_id}`}
+              className="btn border-none"
+            >
+              view Details
+            </NavLink>
           </div>
         </div>
       </div>

@@ -67,12 +67,12 @@ const Withdrawals = () => {
   };
 
   return (
-    <div>
+    <div className="w-11/12 mx-auto">
       <div className="py-8">
-        <h2 className="text-center font-bold text-4xl py-3">
+        <h2 className="text-center font-bold text-3xl md:text-4xl py-3">
           Effortless Withdrawals Hub
         </h2>
-        <p className="w-[40%] mx-auto text-center">
+        <p className="md:w-[40%] mx-auto text-center">
           Effortless Withdrawals Hub offers fast and secure financial withdrawal
           services, ensuring smooth and reliable transactions for all users.
         </p>
@@ -81,7 +81,7 @@ const Withdrawals = () => {
           Your Total Earning: {amountInfo.coin ? amountInfo.coin / 20 : 0}$
         </h2>
       </div>
-      <div className="w-[50%] mx-auto pb-20">
+      <div className=" md:w-[70%] lg:w-[50%] mx-auto pb-20">
         <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
           <form
             onSubmit={handleSubmit(handleWithdrawSubmit)}

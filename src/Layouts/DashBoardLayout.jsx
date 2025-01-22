@@ -81,7 +81,7 @@ const DashBoardLayout = () => {
               </div>
             </div>
           </div>
-          <div className="lg:flex hidden ">
+          <div className="lg:block hidden ">
             <Sidebar></Sidebar>
           </div>
         </div>

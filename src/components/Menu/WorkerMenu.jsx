@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 const WorkerMenu = () => {
   return (
     <div className="">
-      <NavLink to="/dashboard/taskLists" className="flex gap-4 items-center text-white  pl-10  hover:bg-slate-700 py-3 duration-300 cursor-pointer">
+      <NavLink to="/dashboard/taskLists" className="flex gap-4 items-center text-white   pl-10  hover:bg-slate-700 py-3 duration-300 cursor-pointer">
         <h2 className="text-xl">
           <FaTasks></FaTasks>
         </h2>

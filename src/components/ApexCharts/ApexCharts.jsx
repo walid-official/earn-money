@@ -58,7 +58,7 @@ const ApexCharts = () => {
 
   return (
     <div>
-      <div id="chart" className='bg-[#242835] p-10 rounded-lg shadow-2xl'>
+      <div id="chart" className='bg-[#242835] md:p-10 p-4 rounded-lg shadow-2xl'>
         <ReactApexChart 
           options={state.options} 
           series={state.series} 

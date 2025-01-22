@@ -53,8 +53,8 @@ const MySubmissions = () => {
   return (
     <div className="w-[90%] mx-auto">
       <div className="py-8">
-        <h2 className="font-bold text-4xl text-center">My Submission</h2>
-        <p className="w-[50%] mx-auto py-3 text-center">
+        <h2 className="font-bold text-3xl md:text-4xl text-center">My Submission</h2>
+        <p className="md:w-[50%] mx-auto py-3 text-center">
           Stay informed about the status of your submissions. Receive timely
           notifications for every task submitted, reviewed, or approved, keeping
           you connected with your workflow.
@@ -86,7 +86,7 @@ const MySubmissions = () => {
         </table>
       </div>
       <div className="flex justify-center py-10">
-        <button onClick={handlePrev} className="btn">Prev</button>
+        <button onClick={handlePrev} className="btn mr-2">Prev</button>
         {pages.map((page,index) => (
           <button
           key={index}
@@ -96,7 +96,7 @@ const MySubmissions = () => {
             {page + 1}
           </button>
         ))}
-        <button onClick={handleNext} className="btn">Next</button>
+        <button onClick={handleNext} className="btn ml-2">Next</button>
         {/* <select onChange={handleItemsPerPage} name="" id="">
           <option value="select">Select</option>
           <option value="3">3</option>

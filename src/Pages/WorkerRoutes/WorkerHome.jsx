@@ -52,8 +52,8 @@ const WorkerHome = () => {
 
   return (
     <div className="bg-gradient-to-r from-[#020710] to-[#1b2028]">
-      <div className="p-10 flex gap-3 justify-between">
-        <div className="w-[70%]">
+      <div className="p-10 lg:flex gap-3 justify-between">
+        <div className="lg:w-[70%]">
           <ApexCharts></ApexCharts>
           <div className="bg-[#242835] rounded-xl mt-4">
           <h2 className="font-bold text-center text-white py-6 text-3xl">Approval Submission</h2>
@@ -62,7 +62,7 @@ const WorkerHome = () => {
             ></ApprovedSubmissions>
           </div>
         </div>
-        <div className="w-[30%]">
+        <div className="lg:w-[30%] mt-10 lg:mt-0">
           <div className="space-y-3 bg-[#242835] p-6 shadow-2xl rounded-xl">
             <div className="stats shadow w-full bg-[#54ade7] text-white">
               <div className="stat">
