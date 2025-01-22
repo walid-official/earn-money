@@ -2,12 +2,10 @@ import useAuth from "../../Hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { NavLink } from "react-router-dom";
-
-const DashboardNavbar = ({myInfo}) => {
+import { MdOutlineNotificationsActive } from "react-icons/md";
+const DashboardNavbar = ({ myInfo }) => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
-
-
 
   const {
     data: notifications = [],
@@ -22,7 +20,15 @@ const DashboardNavbar = ({myInfo}) => {
     },
   });
 
-  console.log(notifications);
+  // const date = new Date(notifications?.time);
+
+  // // Extract time
+  // const hours = date.getHours().toString().padStart(2, '0'); // Hours (24-hour format)
+  // const minutes = date.getMinutes().toString().padStart(2, '0'); // Minutes
+  // const seconds = date.getSeconds().toString().padStart(2, '0'); // Seconds
+  
+  // const time = `${hours}:${minutes}:${seconds}`;
+  // console.log("Time:", time);
 
   return (
     <div className="bg-gradient-to-t from-[#0b1019] to-[#141922] py-3 text-white shadow-2xl">
@@ -72,7 +78,8 @@ const DashboardNavbar = ({myInfo}) => {
           <div className="flex justify-center items-center gap-10">
             <div className="flex justify-center flex-col items-center space-y-4">
               <h2 className="font-bold">
-                Available Coin: { myInfo.coin > 0  ? <span>{myInfo?.coin}</span> : 0} 
+                Available Coin:{" "}
+                {myInfo.coin > 0 ? <span>{myInfo?.coin}</span> : 0}
               </h2>
               <div className="badge badge-accent text-white font-bold">
                 {myInfo?.role}
@@ -116,11 +123,21 @@ const DashboardNavbar = ({myInfo}) => {
               </div>
               <ul
                 tabIndex={0}
-                className="dropdown-content menu bg-base-100 rounded-box z-[1] w-[400px] mt-6 p-2 shadow"
+                className="dropdown-content menu bg-base-100 min-h-20 rounded-box z-10 w-[500px] mt-6 p-2 shadow"
               >
                 {notifications.map((notification, index) => (
-                  <NavLink to={notification?.actionRoute} className="bg-accent text-white rounded-xl p-2 my-1" key={index}>
-                    <li className="">{notification?.message}</li>
+                  <NavLink
+                    to={notification?.actionRoute}
+                    className=" hover:bg-accent rounded-lg px-3 py-4 my-1 flex gap-5"
+                    key={index}
+                  >
+                    <i className="font-bold text-xl">
+                      <MdOutlineNotificationsActive></MdOutlineNotificationsActive>
+                    </i>
+                    <div className="">
+                      <li className="">{notification?.message}</li>
+                      
+                    </div>
                   </NavLink>
                 ))}
               </ul>

@@ -39,7 +39,7 @@ const DashBoardLayout = () => {
     <myInfoContext.Provider value={InfoNav}>
       <div className="lg:flex justify-between">
         <div className="lg:w-[20%] lg:min-h-screen bg-gradient-to-r from-[#020710] to-[#1b2028]">
-          <div className="py-4 pl-6 border-b border-gray-600 flex justify-between">
+          <div className="py-4 pl-10 border-b border-gray-600 flex justify-between">
             <div className="">
               <img src={logo} className="w-16 h-16 rounded-full" alt="" />
             </div>
