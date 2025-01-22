@@ -29,24 +29,28 @@ const DashBoardLayout = () => {
   });
 
   const InfoNav = {
-    myInfo,isLoading,refetch
-  }
+    myInfo,
+    isLoading,
+    refetch,
+  };
 
   return (
     <myInfoContext.Provider value={InfoNav}>
       <div className="flex justify-between">
-        <div className="w-[20%] min-h-screen bg-gradient-to-r from-[#020710] to-[#1b2028]">
-          <div className="py-3 flex justify-center border-b">
+        <div className="w-[20%] min-h-screen bg-[#242835]">
+          <div className="py-4 flex justify-center  border-b">
             <img src={logo} className="w-16 h-16 rounded-full" alt="" />
           </div>
           <Sidebar></Sidebar>
         </div>
         <div className="w-[80%]">
           <DashboardNavbar myInfo={myInfo}></DashboardNavbar>
-          <div className="min-h-[580px]">
+          <div className="min-h-[580px] bg-black">
             <Outlet></Outlet>
           </div>
-          <Footer></Footer>
+          <div className="bg-[#242835]">
+            <Footer></Footer>
+          </div>
         </div>
       </div>
     </myInfoContext.Provider>

@@ -17,7 +17,7 @@ console.log(role);
   }
   return (
     <div className="pt-10">
-      <NavLink to="/dashboard" className="flex gap-4 items-center text-white  pl-12 hover:bg-slate-700 py-3 duration-300 cursor-pointer">
+      <NavLink to="/dashboard" className="flex gap-4 items-center text-white  pl-10 hover:bg-slate-700 py-3 duration-300 cursor-pointer">
         <h2 className="text-xl">
           <IoHome></IoHome>
         </h2>

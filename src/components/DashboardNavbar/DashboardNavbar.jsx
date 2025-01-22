@@ -25,7 +25,7 @@ const DashboardNavbar = ({myInfo}) => {
   console.log(notifications);
 
   return (
-    <div className="bg-gradient-to-r from-[#020710] to-[#1b2028] text-white">
+    <div className="bg-[#242835] text-white shadow-2xl">
       <div className="navbar flex justify-end ">
         {/* <div className="navbar-start">
           <div className="dropdown">
