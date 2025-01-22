@@ -51,11 +51,12 @@ const WorkerHome = () => {
   console.log(pendingSubmissions);
 
   return (
-    <div>
+    <div className="bg-gradient-to-r from-[#020710] to-[#1b2028]">
       <div className="p-10 flex gap-3 justify-between">
         <div className="w-[70%]">
           <ApexCharts></ApexCharts>
-          <div className="">
+          <div className="bg-[#242835] rounded-xl mt-4">
+          <h2 className="font-bold text-center text-white py-6 text-3xl">Approval Submission</h2>
             <ApprovedSubmissions
               totalApprovedData={totalApprovedData}
             ></ApprovedSubmissions>

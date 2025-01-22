@@ -18,7 +18,7 @@ const ApprovedSubmissions = ({ totalApprovedData }) => {
           <table className="table text-white">
             {/* head */}
             <thead>
-              <tr>
+              <tr className="text-white">
                 <th>task_title</th>
                 <th>payable_amount</th>
                 <th>Buyer_name</th>

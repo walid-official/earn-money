@@ -25,7 +25,7 @@ const DashboardNavbar = ({myInfo}) => {
   console.log(notifications);
 
   return (
-    <div className="bg-[#242835] text-white shadow-2xl">
+    <div className="bg-gradient-to-t from-[#0b1019] to-[#141922] py-3 text-white shadow-2xl">
       <div className="navbar flex justify-end ">
         {/* <div className="navbar-start">
           <div className="dropdown">
@@ -71,7 +71,7 @@ const DashboardNavbar = ({myInfo}) => {
         <div className="">
           <div className="flex justify-center items-center gap-10">
             <div className="flex justify-center flex-col items-center space-y-4">
-              <h2 className="font-bold text-xl">
+              <h2 className="font-bold">
                 Available Coin: { myInfo.coin > 0  ? <span>{myInfo?.coin}</span> : 0} 
               </h2>
               <div className="badge badge-accent text-white font-bold">
@@ -79,14 +79,14 @@ const DashboardNavbar = ({myInfo}) => {
               </div>
             </div>
             <div className="flex justify-center flex-col items-center">
-              <div className="bg-white w-12 h-12 rounded-full">
+              <div className="bg-white w-8 h-8 rounded-full">
                 <img
-                  className="w-12 h-12 rounded-full object-cover"
+                  className="w-8 h-8 rounded-full object-cover"
                   src={myInfo?.photo}
                   alt=""
                 />
               </div>
-              <h2 className="pt-1 font-bold text-xl">{myInfo?.name}</h2>
+              <h2 className="pt-1 font-bold">{myInfo?.name}</h2>
             </div>
           </div>
           <div className="px-8 text-slate-950">

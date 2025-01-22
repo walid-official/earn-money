@@ -15,6 +15,7 @@ const ApexCharts = () => {
         height: 350,
         type: 'area'
       },
+      
       dataLabels: {
         enabled: false
       },
@@ -31,7 +32,21 @@ const ApexCharts = () => {
           "2018-09-19T04:30:00.000Z", 
           "2018-09-19T05:30:00.000Z", 
           "2018-09-19T06:30:00.000Z"
-        ]
+        ],
+        labels: {
+          style: {
+            colors: '#FFFFFF', // Set x-axis label color to white
+            fontSize: '12px'
+          }
+        }
+      },
+      yaxis: {
+        labels: {
+          style: {
+            colors: '#FFFFFF', // Set y-axis label color to white
+            fontSize: '12px'
+          }
+        }
       },
       tooltip: {
         x: {
