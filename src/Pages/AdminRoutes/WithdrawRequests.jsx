@@ -73,21 +73,13 @@ const WithdrawRequests = () => {
 
   return (
     <div>
-      <div className="py-12">
-        <h2 className="text-center font-bold text-4xl py-3">
-          Withdrawal Request
-        </h2>
-        <p className="w-[40%] mx-auto text-center">
-          A withdrawal request allows users to securely initiate a transfer of
-          their funds from their account to a chosen payment method.
-        </p>
-      </div>
+      
       <div className="w-[90%] mx-auto  pb-10">
         <div className="overflow-x-auto">
           <table className="table">
             {/* head */}
             <thead>
-              <tr>
+              <tr className="text-white">
                 <th>Name</th>
                 <th>Email</th>
                 <th>Withdraw Coin</th>
