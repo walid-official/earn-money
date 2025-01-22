@@ -10,7 +10,7 @@ const BuyerMenu = () => {
     <div>
       <NavLink
         to="/dashboard/addNewTasks"
-        className="flex gap-4 items-center text-white  pl-12 hover:bg-slate-700 py-3 duration-300 cursor-pointer"
+        className="flex gap-4 items-center text-white  pl-10 hover:bg-slate-700 py-3 duration-300 cursor-pointer"
       >
         <h2 className="text-xl">
           <IoBagAdd></IoBagAdd>
@@ -19,7 +19,7 @@ const BuyerMenu = () => {
       </NavLink>
       {/* <NavLink
         to="/dashboard/reviewTasks"
-        className="flex gap-4 items-center text-white  pl-12 hover:bg-slate-700 py-3 duration-300 cursor-pointer"
+        className="flex gap-4 items-center text-white  pl-10 hover:bg-slate-700 py-3 duration-300 cursor-pointer"
       >
         <h2 className="text-xl">
           <MdReviews></MdReviews>
@@ -28,14 +28,14 @@ const BuyerMenu = () => {
       </NavLink> */}
       <NavLink
         to="/dashboard/myTasks"
-        className="flex gap-4 items-center text-white  pl-12 hover:bg-slate-700 py-3 duration-300 cursor-pointer"
+        className="flex gap-4 items-center text-white  pl-10 hover:bg-slate-700 py-3 duration-300 cursor-pointer"
       >
         <h2 className="text-xl">
           <RiSortAsc></RiSortAsc>
         </h2>
         <h2 className="text-xl">My Tasks</h2>
       </NavLink>
-      <NavLink to="/dashboard/purchaseCoin" className="flex gap-4 items-center text-white  pl-12 hover:bg-slate-700 py-3 duration-300 cursor-pointer">
+      <NavLink to="/dashboard/purchaseCoin" className="flex gap-4 items-center text-white  pl-10 hover:bg-slate-700 py-3 duration-300 cursor-pointer">
         <h2 className="text-xl">
           <FaPesetaSign></FaPesetaSign>
         </h2>

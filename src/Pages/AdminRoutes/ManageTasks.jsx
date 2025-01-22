@@ -56,7 +56,6 @@ const ManageTasks = () => {
               <th>worker</th>
               <th>Submission</th>
               <th>Payment</th>
-              <th>Update</th>
               <th>Action</th>
             </tr>
           </thead>

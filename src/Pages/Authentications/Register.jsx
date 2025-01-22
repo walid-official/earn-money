@@ -50,7 +50,7 @@ const Register = () => {
       await axios.post("http://localhost:5000/earning-users", userData);
       toast.success("Successfully Registered Your Account");
       reset();
-      navigate("/");
+      navigate("/dashboard");
     } catch (error) {
       console.error("Error Registering User", error);
       toast.error("Registration failed");
@@ -68,6 +68,7 @@ const Register = () => {
         role: "Worker"
       };
       await axios.post("http://localhost:5000/earning-users", googleUserData);
+      navigate("/dashboard")
     } catch (error) {
       console.error("Login Error: ", error);
       toast.error("Registration failed");
@@ -75,11 +76,11 @@ const Register = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-[#020710] to-[#1b2028] h-screen">
+    <div className="bg-gradient-to-r from-[#020710] to-[#1b2028] min-h-screen">
       <div className="hero bg-gradient-to-t from-[#27292f] to-[#10121d] shadow-2xl rounded-tl-full rounded-br-full w-full min-h-screen">
-        <div className="flex gap-8">
-          <div className="w-[50%] flex justify-center items-center">
-            <div>
+        <div className="w-11/12 mx-auto lg:flex lg:py-0">
+          <div className="lg:w-[50%] lg:flex justify-center items-center">
+            <div className="py-20">
               <h2 className="font-bold text-4xl text-white">Register to Start Earning</h2>
               <p className="text-white py-3">Sign up now to unlock earning opportunities and access exclusive features.</p>
               <div className="flex justify-start py-3 gap-3 items-center">
@@ -95,7 +96,7 @@ const Register = () => {
               </div>
             </div>
           </div>
-          <div className="card w-[50%] bg-base-100 max-w-md shrink-0 shadow-2xl">
+          <div className="card lg:w-[50%] bg-base-100 lg:max-w-md max-w-lg shrink-0 shadow-2xl">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
                 <label className="label">

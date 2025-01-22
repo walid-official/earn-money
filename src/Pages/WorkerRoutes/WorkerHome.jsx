@@ -52,6 +52,7 @@ const WorkerHome = () => {
 
   return (
     <div className="bg-gradient-to-r from-[#020710] to-[#1b2028]">
+      <h2 className="font-bold text-2xl p-10 pb-0 text-white">ProfitHub 360: Your Earnings Dashboard at a Glance</h2>
       <div className="p-10 lg:flex gap-3 justify-between">
         <div className="lg:w-[70%]">
           <ApexCharts></ApexCharts>

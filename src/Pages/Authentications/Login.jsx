@@ -21,7 +21,7 @@ const Login = () => {
     try {
       await createSignInUser(email, password);
       toast.success("Successfully Logged in");
-      navigate(location?.state || "/");
+      navigate(location?.state || "/dashboard");
     } catch (error) {
       console.error("Login Error: ", error);
       toast.error("Login failed");
@@ -32,7 +32,7 @@ const Login = () => {
     try {
       const data = await signInWithGoogle();
       console.log(data);
-      navigate(location?.state || "/");
+      navigate(location?.state || "/dashboard");
       const googleUserData = {
         name: data?.user?.displayName,
         email: data?.user?.email,
@@ -40,6 +40,7 @@ const Login = () => {
         role: "Worker"
       }
       await axios.post("http://localhost:5000/earning-users",googleUserData)
+    
     } catch (error) {
       console.error("Login Error: ", error);
       toast.error("Login failed");
@@ -47,29 +48,29 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-[#020710] to-[#1b2028] h-screen">
+    <div className="bg-gradient-to-r from-[#020710] to-[#1b2028] min-h-screen">
       <div className="hero bg-gradient-to-t from-[#27292f] to-[#10121d] rounded-tr-full rounded-bl-full min-h-screen">
-        <div className="hero-content flex-col gap-20 lg:flex-row-reverse">
-          <div className="text-center lg:text-left w-[50%]">
-            <h2 className="font-bold text-4xl text-white">Login to Account</h2>
+        <div className="w-11/12 mx-auto lg:flex lg:flex-row-reverse">
+          <div className="text-center lg:text-left lg:w-[50%] py-8">
+            <h2 className="font-bold text-4xl text-white">Login to Your Account</h2>
             <p className="text-white py-3">
               Log in to track your earnings and access your dashboard.
             </p>
-            <div className="flex justify-start items-center gap-4 py-3">
+            <div className="md:flex lg:justify-start justify-center items-center gap-4 py-3">
               <NavLink to="/register">
                 <button className="bg-[#00d7c0] rounded-tr-2xl rounded-bl-2xl font-bold text-white hover:bg-[#00d7c0] py-3 px-7">
                   Go To Register
                 </button>
               </NavLink>
-              <NavLink to="/">
-                <button className="text-white font-bold flex items-center gap-2 hover:translate-x-2 duration-500">
+              <NavLink to="/" className="flex justify-center py-3">
+                <button className="text-white py-3 text-center font-bold flex items-center gap-2 hover:translate-x-2 duration-500">
                   Go To Home
                   <FaArrowRightLong />
                 </button>
               </NavLink>
             </div>
           </div>
-          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+          <div className="card lg:w-[50%] mx-auto bg-base-100 max-w-lg lg:max-w-md shrink-0 shadow-2xl">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
                 <label className="label">

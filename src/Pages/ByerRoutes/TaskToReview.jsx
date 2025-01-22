@@ -30,20 +30,18 @@ const TaskToReview = () => {
   };
 
   return (
-    <div className="w-[80%] mx-auto my-20">
+    <div className="mb-20">
        <div className="pb-10">
-        <h2 className="text-center font-bold text-4xl py-3">
+        <h2 className="text-center text-white font-bold text-4xl py-3">
           Task To Review
         </h2>
-        <p className="w-[50%] mx-auto text-center">
-        Assess the Admin Dashboard section for proper layout, visual appeal, and clear messaging to ensure a welcoming and intuitive user experience.
-        </p>
+        
       </div>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
           <thead>
-            <tr>
+            <tr className="text-white">
               <th>Worker Name</th>
               <th>Task Title</th>
               <th>Payable Amount</th>

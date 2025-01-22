@@ -61,6 +61,10 @@ const MyTasks = () => {
 
   return (
     <div className="w-[90%] mx-auto">
+      <div className="py-8">
+        <h2 className="font-bold text-3xl text-center">Task Manager - Stay Organized, Stay Ahead</h2>
+        <p className="w-[60%] mx-auto text-center py-3">Efficiently track, prioritize, and manage your tasks with clarity. Stay on top of deadlines and achieve your goals with ease.</p>
+      </div>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}

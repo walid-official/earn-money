@@ -134,7 +134,7 @@ const AddNewTasks = () => {
         </p>
       </div>
       <div className="pb-16">
-        <div className="card bg-base-100 w-[45%] mx-auto shrink-0 shadow-2xl">
+        <div className="card bg-base-100 lg:w-[45%] md:w-[60%] w-[90%] mx-auto shrink-0 shadow-2xl">
           <form onSubmit={handleSubmit(handleAddNewTask)} className="card-body">
             <div className="space-y-4">
               <div className="form-control">

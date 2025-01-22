@@ -9,6 +9,7 @@ import { GrUserWorker } from "react-icons/gr";
 import useAuth from "../../Hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import WithdrawRequests from "./WithdrawRequests";
+import AdminRecharts from "../../components/Recharts/AdminRecharts";
 
 const AdminHome = () => {
   const {user} = useAuth()
@@ -53,16 +54,8 @@ console.log(allInfo);
 
   return (
     <div>
-      <div className="py-8">
-        <h2 className="text-center font-bold text-4xl py-3">
-          Welcome To Admin Dashboard!
-        </h2>
-        <p className="w-[50%] mx-auto text-center">
-          Effortlessly manage your account, track activity, and access
-          personalized features all in one place. Enjoy a streamlined and
-          intuitive experience.
-        </p>
-      </div>
+      div.
+      <AdminRecharts></AdminRecharts>
       <div className="w-[70%] mx-auto">
         <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-4">
           <div className="stats shadow">
