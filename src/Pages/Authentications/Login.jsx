@@ -1,13 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { AuthContext } from "../../components/AuthProvider/AuthProvider";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+
 import axios from "axios";
 
 const Login = () => {
   const { createSignInUser, signInWithGoogle } = useContext(AuthContext);
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const {
     register,
@@ -37,10 +40,9 @@ const Login = () => {
         name: data?.user?.displayName,
         email: data?.user?.email,
         photo: data?.user?.photoURL,
-        role: "Worker"
-      }
-      await axios.post("http://localhost:5000/earning-users",googleUserData)
-    
+        role: "Worker",
+      };
+      await axios.post("http://localhost:5000/earning-users", googleUserData);
     } catch (error) {
       console.error("Login Error: ", error);
       toast.error("Login failed");
@@ -52,7 +54,9 @@ const Login = () => {
       <div className="hero bg-gradient-to-t from-[#27292f] to-[#10121d] rounded-tr-full rounded-bl-full min-h-screen">
         <div className="w-11/12 mx-auto lg:flex lg:flex-row-reverse">
           <div className="text-center lg:text-left lg:w-[50%] py-8">
-            <h2 className="font-bold text-4xl text-white">Login to Your Account</h2>
+            <h2 className="font-bold text-4xl text-white">
+              Login to Your Account
+            </h2>
             <p className="text-white py-3">
               Log in to track your earnings and access your dashboard.
             </p>
@@ -86,12 +90,12 @@ const Login = () => {
                   <p className="text-red-500">{errors.email.message}</p>
                 )}
               </div>
-              <div className="form-control">
+              <div className="form-control relative">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   {...register("password", {
                     required: "Password is required",
                   })}
@@ -101,12 +105,25 @@ const Login = () => {
                 {errors.password && (
                   <p className="text-red-500">{errors.password.message}</p>
                 )}
+
+                <div
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-[52px] cursor-pointer"
+                >
+                  {showPassword ? (
+                    <FaEyeSlash className="text-xl" />
+                  ) : (
+                    <FaEye className="text-xl" />
+                  )}
+                </div>
+
                 <label className="label">
                   <a href="#" className="label-text-alt link link-hover">
                     Forgot password?
                   </a>
                 </label>
               </div>
+
               <div className="form-control mt-6">
                 <button
                   type="submit"
