@@ -10,7 +10,7 @@ const Worker = ({ TopWorker }) => {
           alt={name}
           className="w-28 h-28 mx-auto rounded-full border-4 border-gray-600"
         />
-        <div className="absolute top-2 right-2 text-white text-xs font-bold px-2 py-1 rounded-full">
+        <div className="absolute top-0 right-0 text-white text-xs font-bold px-2 py-1 rounded-full">
           <img className="w-8 h-8" src={coinWorker} alt="" />
           {coin}
         </div>

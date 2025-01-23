@@ -58,7 +58,7 @@ const ApexCharts = () => {
 
   return (
     <div>
-      <div id="chart" className='bg-[#242835] md:p-10 p-4 rounded-lg shadow-2xl'>
+      <div id="chart" className='bg-gradient-to-r from-[#020710] to-[#1b2028] md:p-10 p-4 rounded-lg shadow-2xl'>
         <h2 className='text-white font-bold text-center text-2xl pb-4'>Worker Chart</h2>
         <ReactApexChart 
           options={state.options} 

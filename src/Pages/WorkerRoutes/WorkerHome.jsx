@@ -56,7 +56,7 @@ const WorkerHome = () => {
       <div className="p-10 lg:flex gap-3 justify-between">
         <div className="lg:w-[70%]">
           <ApexCharts></ApexCharts>
-          <div className="bg-[#242835] rounded-xl mt-4">
+          <div className="bg-gradient-to-r from-[#020710] to-[#1b2028] rounded-xl mt-4">
           <h2 className="font-bold text-center text-white py-6 text-3xl">Approval Submission</h2>
             <ApprovedSubmissions
               totalApprovedData={totalApprovedData}
@@ -64,7 +64,7 @@ const WorkerHome = () => {
           </div>
         </div>
         <div className="lg:w-[30%] mt-10 lg:mt-0">
-          <div className="space-y-3 bg-[#242835] p-6 shadow-2xl rounded-xl">
+          <div className="space-y-3 bg-gradient-to-r from-[#020710] to-[#1b2028] p-6 shadow-2xl rounded-xl">
             <div className="stats shadow w-full bg-[#54ade7] text-white">
               <div className="stat">
                 <div className="stat-title text-center text-white font-bold">

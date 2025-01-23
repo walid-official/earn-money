@@ -3,6 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
+body,html{
     font-family: "Space Grotesk", serif;
+    overflow-x: hidden;
 }
