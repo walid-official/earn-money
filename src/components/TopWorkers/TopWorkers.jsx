@@ -12,7 +12,7 @@ const TopWorkers = () => {
   } = useQuery({
     queryKey: ["TopWorkers"],
     queryFn: async () => {
-      const { data } = await axiosSecure.get(`/users/worker`);
+      const { data } = await axiosSecure.get(`users/worker`);
       console.log(data);
       return data;
     },
@@ -23,7 +23,7 @@ const TopWorkers = () => {
   return (
     <div className="w-11/12 mx-auto pb-16">
       <div className="py-10 text-white">
-        <h2 className="font-bold text-4xl text-center">Top Workers</h2>
+        <h2 className="font-bold text-4xl text-center">Top Achieving Workers</h2>
         <p className="text-center md:w-[45%] mx-auto py-3">
           Discover our dedicated professionals who excel in their fields. From
           innovative blockchain architects to inspiring CEOs, our top workers

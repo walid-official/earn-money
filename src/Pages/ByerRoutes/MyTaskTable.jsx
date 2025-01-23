@@ -41,7 +41,7 @@ const MyTaskTable = ({ myTask, handleUpdate, handleDelete }) => {
       <td>{detail.slice(0, 10)}..</td>
       <td>{dateMDY}</td>
       <td>{worker}</td>
-      <td>{perWorker}</td>
+      <td>{perWorker}$</td>
       <td>{PaymentCoin}</td>
       <td>
         <div className="">

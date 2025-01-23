@@ -15,6 +15,8 @@ const TaskToReviewTable = ({ taskReview, handleTaskReviewModal, refetch }) => {
     PaymentCoin,
   } = taskReview || {};
 
+  const singlePaymentCoin = PaymentCoin / payable_amount;
+
   const handleReviewStatus = async (status, id, title, worker, paymentCoin,buyer,route) => {
     console.log(status);
     const date = new Date()
@@ -85,7 +87,7 @@ const TaskToReviewTable = ({ taskReview, handleTaskReviewModal, refetch }) => {
   };
 
   return (
-    <tr>
+    <tr className="text-white">
       <td>
         <div className="flex items-center gap-3">
           <div>
@@ -114,7 +116,7 @@ const TaskToReviewTable = ({ taskReview, handleTaskReviewModal, refetch }) => {
               _id,
               task_title,
               worker_detail,
-              PaymentCoin,
+              singlePaymentCoin,
               buyer_detail,
               "/dashboard/mySubmission"
             )
@@ -126,7 +128,7 @@ const TaskToReviewTable = ({ taskReview, handleTaskReviewModal, refetch }) => {
       <th>
         <button onClick={() => handleReviewStatus("Reject", _id, task_title,
               worker_detail,
-              PaymentCoin,
+              singlePaymentCoin,
               buyer_detail,
               "/dashboard/mySubmission")}>
           Reject

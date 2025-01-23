@@ -2,15 +2,17 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import TaskList from "./TaskList";
+import useAuth from "../../Hooks/useAuth";
 
 const TaskLists = () => {
   const axiosSecure = useAxiosSecure();
+  const {user} = useAuth()
   const {
     data: postedTasks = [],
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ["myTasks"],
+    queryKey: ["postedTasks"],
     queryFn: async () => {
       const { data } = await axiosSecure.get(`postedTasks`);
       console.log(data);

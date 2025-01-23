@@ -51,12 +51,11 @@ const AddNewTasks = () => {
 
     console.log(parsePayment);
     console.log(parseWorker);
-    const PaymentCoin = parsePayment * 10;
+    const PaymentCoin = (parsePayment * 10) * parseWorker;
     console.log(PaymentCoin);
     const payableAmount = parsePayment * parseWorker;
     console.log(payableAmount);
 
-   
 
     // uploading Image On ImageBB Server
     const formData1 = new FormData();
