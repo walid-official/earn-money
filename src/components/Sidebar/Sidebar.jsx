@@ -1,13 +1,16 @@
 import React from "react";
 import { IoHome } from "react-icons/io5";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import WorkerMenu from "../Menu/WorkerMenu";
 import BuyerMenu from "../Menu/BuyerMenu";
 import AdminMenu from "../Menu/AdminMenu";
 import useRole from "../../Hooks/useRole";
 import { CiLogin } from "react-icons/ci";
+import useAuth from "../../Hooks/useAuth";
 const Sidebar = () => {
   const [role, isLoading] = useRole();
+  const {userSignOut} = useAuth();
+  const navigate = useNavigate()
   console.log(role);
   if (isLoading) {
     return (
@@ -16,6 +19,7 @@ const Sidebar = () => {
       </div>
     );
   }
+
   return (
     <div className="pt-10 ">
       <NavLink
@@ -43,12 +47,12 @@ const Sidebar = () => {
         </h2>
         <h2 className="text-xl">Home</h2>
       </NavLink>
-        <NavLink className="flex gap-2 pl-10 text-white hover:bg-slate-700 py-3 duration-300 items-center">
+        {/* <NavLink to="/" className="flex gap-2 pl-10 text-white hover:bg-slate-700 py-3 duration-300 items-center">
           <button className="text-xl font-bold">
             <CiLogin></CiLogin>
           </button>
           <h2 className="text-xl">Logout</h2>
-        </NavLink>
+        </NavLink> */}
       </div>
     </div>
   );

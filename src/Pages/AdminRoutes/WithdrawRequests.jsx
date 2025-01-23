@@ -25,47 +25,49 @@ const WithdrawRequests = () => {
 
   console.log(withdrawalRequests);
 
-
   // handleWithDrawApproval Button function
   const handleApproval = async (
     approved,
     withdrawCoin,
     email,
     convertedUsd,
-    route
+    route,
+    id
   ) => {
     const date = new Date();
-    let message = `You have successfully withdrawn ${convertedUsd} USD`;
-
     const notificationObj = {
-      message,
-      email: email,
+      message: `You have successfully withdrawn ${convertedUsd} USD`,
+      email,
       actionRoute: route,
       time: date,
     };
 
     try {
-      const { data } = await axiosSecure.post("/notifications", notificationObj);
-      console.log(data);
+      await axiosSecure.post("notifications", notificationObj);
       toast.success("Successfully added notification");
     } catch (err) {
-      console.log(err);
+      console.error("Notification error:", err);
     }
 
-    const withdrawUpdateData = {
-      approved,
-      withdrawCoin,
-      email,
-    };
+    const withdrawUpdateData = { approved, withdrawCoin, email };
 
     try {
       const { data } = await axiosSecure.patch(
-        `withdrawUpdate/${user?.email}`,
+        `withdrawUpdate/${email}`,
         withdrawUpdateData
-      );
-      console.log(data);
+      ); // Use email directly
+      console.log("Withdraw update response:", data);
       toast.success("Withdraw payment is successful!!");
-      refetch();
+      refetch(); // Ensure refetch is properly bound
+    } catch (err) {
+      console.error("Withdraw update error:", err);
+    }
+
+    try {
+      const {data} = await axiosSecure.patch(`withdrawalStatusUpdate/${email}/${id}`,withdrawUpdateData)
+      console.log(data);
+      toast.success("status is changed!!");
+      refetch()
     } catch (err) {
       console.log(err);
     }
@@ -73,8 +75,8 @@ const WithdrawRequests = () => {
 
   return (
     <div>
-      
       <div className="w-[90%] mx-auto  pb-10">
+      
         <div className="overflow-x-auto">
           <table className="table">
             {/* head */}

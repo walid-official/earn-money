@@ -58,9 +58,9 @@ const AdminHome = () => {
 
   return (
     <div className="bg-black p-8">
-      <div className="flex gap-4">
-        <div className=" w-[70%]">
-          <div className="grid lg:grid-cols-2 bg-[#242835] p-8 rounded-xl gap-4">
+      <div className="lg:flex gap-4">
+        <div className="lg:w-[70%]">
+          <div className="grid lg:grid-cols-2 bg-gradient-to-r from-[#020710] to-[#1b2028] p-8 rounded-xl gap-4">
             <div className="stats shadow text-white bg-gradient-to-r from-[#cf71f2] to-[#cf71f2]">
               <div className="stat">
                 <div className="stat-title text-center text-white font-bold text-2xl">
@@ -107,14 +107,12 @@ const AdminHome = () => {
               </div>
             </div>
           </div>
-          <div className="bg-[#242835] mt-8 p-4 rounded-xl">
+          <div className="bg-gradient-to-r from-[#020710] to-[#1b2028] mt-8 p-4 rounded-xl">
             <AdminRecharts></AdminRecharts>
           </div>
-          <div className="bg-[#242835] mt-8 p-4 rounded-xl">
-            <WithdrawRequests refetch={refetch}></WithdrawRequests>
-          </div>
+        
         </div>
-        <div className="bg-[#242835] rounded-xl w-[30%]">
+        <div className="bg-gradient-to-r from-[#020710] to-[#1b2028] rounded-xl lg:w-[30%]">
           <div className="py-6">
             <PieCircle></PieCircle>
           </div>
@@ -139,6 +137,9 @@ const AdminHome = () => {
           </div>
         </div>
       </div>
+      <div className="bg-gradient-to-r from-[#020710] to-[#1b2028] mt-8 p-4 rounded-xl">
+            <WithdrawRequests refetch={refetch}></WithdrawRequests>
+          </div>
     </div>
   );
 };

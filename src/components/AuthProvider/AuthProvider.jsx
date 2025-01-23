@@ -88,8 +88,6 @@ const AuthProvider = ({ children }) => {
     createSignInUser,
     updateUserProfile,
     signInWithGoogle,
-    // availableCoin,
-    // setAvailableCoin,
   };
 
   return (
