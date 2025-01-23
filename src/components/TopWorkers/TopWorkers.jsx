@@ -1,10 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
-import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Worker from "./Worker";
+import axios from "axios";
 
 const TopWorkers = () => {
-  const axiosSecure = useAxiosSecure();
   const {
     data: TopWorkers = [],
     isLoading,
@@ -12,7 +11,7 @@ const TopWorkers = () => {
   } = useQuery({
     queryKey: ["TopWorkers"],
     queryFn: async () => {
-      const { data } = await axiosSecure.get(`users/worker`);
+      const { data } = await axios.get(`http://localhost:5000/worker`);
       console.log(data);
       return data;
     },

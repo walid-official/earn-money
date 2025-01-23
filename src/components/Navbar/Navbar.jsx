@@ -4,11 +4,11 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 import Logo from "../../assets/logo.png";
 import coinNav from "../../assets/coinNav.png";
 import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { FaUser } from "react-icons/fa";
+import axios from "axios";
 const Navbar = () => {
   const { user, userSignOut } = useContext(AuthContext);
-  const axiosSecure = useAxiosSecure();
+
   const navigate = useNavigate();
 
   const handleLogoutUser = () => {
@@ -23,7 +23,7 @@ const Navbar = () => {
   } = useQuery({
     queryKey: ["allUsersCoin"],
     queryFn: async () => {
-      const { data } = await axiosSecure.get(`allUsersCoin`);
+      const { data } = await axios.get(`http://localhost:5000/allUsersCoin`);
       console.log(data);
 
       return data;

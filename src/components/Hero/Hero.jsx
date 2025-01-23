@@ -6,7 +6,7 @@ import { Autoplay } from "swiper/modules";
 import heroHand from "../../assets/hand.png";
 import card from "../../assets/card.png";
 import diamond1 from "../../assets/diamond1.png";
-import diamond2 from "../../assets/coins.png";
+import diamond2 from "../../assets/coin90.png";
 import "./hero.css";
 import { motion } from "motion/react";
 import CountUp from "react-countup";

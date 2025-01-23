@@ -3,11 +3,12 @@ import diamondImg from "../../assets/diamond.png";
 const DiamondFacility = () => {
   return (
     <div
-      className="bg-no-repeat bg-center"
-      style={{
-        backgroundImage: `url(https://ninetheme.com/themes/cryptoland/wp-content/uploads/2018/10/data-bg.png)`,
-      }}
-    >
+    className="bg-no-repeat bg-center "
+    style={{
+      backgroundImage: `url(https://ninetheme.com/themes/cryptoland/wp-content/uploads/2018/10/data-bg.png)`,
+    }}
+
+  >
       <div className="w-11/12 mx-auto">
         <div className="py-20">
           <h2 className="text-4xl text-white font-bold text-center">
