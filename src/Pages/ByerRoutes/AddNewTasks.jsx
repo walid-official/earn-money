@@ -99,7 +99,7 @@ const AddNewTasks = () => {
         },
       };
 
-      if (payableAmount > coinInfo?.coin) {
+      if (PaymentCoin > coinInfo?.coin) {
         navigate("/dashboard/purchaseCoin");
         return toast.error("Total Payment Exceeds Your Coin");
       }

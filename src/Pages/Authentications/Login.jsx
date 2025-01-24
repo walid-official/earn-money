@@ -42,7 +42,7 @@ const Login = () => {
         photo: data?.user?.photoURL,
         role: "Worker",
       };
-      await axios.post("http://localhost:5000/earning-users", googleUserData);
+      await axios.post("https://earn-money-platform-server.vercel.app/earning-users", googleUserData);
     } catch (error) {
       console.error("Login Error: ", error);
       toast.error("Login failed");

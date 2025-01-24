@@ -145,14 +145,14 @@ const TaskDetails = () => {
         <h2 className="font-bold text-center text-3xl">
           Maximize Your Earnings: A Comprehensive Guide
         </h2>
-        <p className="py-3 text-center w-[60%] mx-auto">
+        <p className="py-3 text-center md:w-[60%] mx-auto">
           Discover effective strategies and practical tips to boost your income
           through various methods, including online opportunities, investment
           strategies, and side hustles.
         </p>
       </div>
-      <div className="flex gap-4">
-        <div className="card mb-10 shadow-xl duration-500 w-[60%]">
+      <div className="lg:flex gap-4">
+        <div className="card mb-10 shadow-xl duration-500 lg:w-[60%]">
           <figure>
             <img
               className="w-full h-[350px] object-cover"
@@ -207,7 +207,7 @@ const TaskDetails = () => {
             </div>
           </div>
         </div>
-        <div className="w-[40%] mb-10 shadow-xl">
+        <div className="lg:w-[40%] mb-10 shadow-xl">
           <div className="">
             <img className="" src={submissionImage} alt="" />
           </div>

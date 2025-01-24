@@ -3,10 +3,11 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { NavLink } from "react-router-dom";
 import { MdOutlineNotificationsActive } from "react-icons/md";
+import useRole from "../../Hooks/useRole";
 const DashboardNavbar = ({ myInfo }) => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
-
+  const [role] = useRole();
   const {
     data: notifications = [],
     isLoading: loading,
@@ -20,19 +21,19 @@ const DashboardNavbar = ({ myInfo }) => {
     },
   });
 
-  const updatedNotifications = notifications.map(notification => {
+  const updatedNotifications = notifications.map((notification) => {
     const date = new Date(notification.time);
-  
-    const hours = date.getHours().toString().padStart(2, '0');
-    const minutes = date.getMinutes().toString().padStart(2, '0');
-    const seconds = date.getSeconds().toString().padStart(2, '0');
-  
+
+    const hours = date.getHours().toString().padStart(2, "0");
+    const minutes = date.getMinutes().toString().padStart(2, "0");
+    const seconds = date.getSeconds().toString().padStart(2, "0");
+
     return {
       ...notification,
       time: `${hours}:${minutes}:${seconds}`, // Update the time to HH:mm:ss format
     };
   });
-  
+
   console.log(updatedNotifications);
 
   return (
@@ -83,8 +84,14 @@ const DashboardNavbar = ({ myInfo }) => {
           <div className="flex justify-center items-center gap-10">
             <div className="flex justify-center flex-col items-center space-y-4">
               <h2 className="font-bold">
-                Available Coin:{" "}
-                {myInfo.coin > 0 ? <span>{myInfo?.coin}</span> : 0}
+                {role === "Admin" ? (
+                  <p className="font-bold text-xl">Boss Body</p>
+                ) : (
+                  <div className="">
+                    Available Coin:{" "}
+                    {myInfo.coin > 0 ? <span>{myInfo?.coin}</span> : 0}
+                  </div>
+                )}
               </h2>
               <div className="badge badge-accent text-white font-bold">
                 {myInfo?.role}

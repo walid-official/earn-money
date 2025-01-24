@@ -1,12 +1,11 @@
 import React from "react";
-import diamondImg from "../../assets/diamond.png";
 const DiamondFacility = () => {
   return (
     <div
-    // className="bg-no-repeat bg-center "
-    // style={{
-    //   backgroundImage: `url(https://ninetheme.com/themes/cryptoland/wp-content/uploads/2018/10/data-bg.png)`,
-    // }}
+    className="bg-no-repeat bg-center "
+    style={{
+      backgroundImage: `url(https://ninetheme.com/themes/cryptoland/wp-content/uploads/2018/10/data-bg.png)`,
+    }}
 
   >
       <div className="w-11/12 mx-auto">

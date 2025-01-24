@@ -24,7 +24,7 @@ const BuyerHome = () => {
     },
   });
 
-  const { data: totalWorkers = [] } = useQuery({
+  const { data: totalWorkers = [],refetch: workerRefetch } = useQuery({
     queryKey: ["totalWorkers", user],
     queryFn: async () => {
       const { data } = await axiosSecure.get(`my-tasks/${user?.email}`);
@@ -76,7 +76,7 @@ const BuyerHome = () => {
             <BuyerChart></BuyerChart>
           </div>
           <div className="mt-8 bg-gradient-to-r from-[#020710] to-[#1b2028] p-8 rounded-xl shadow-2xl">
-            <TaskToReview></TaskToReview>
+            <TaskToReview workerRefetch={workerRefetch}></TaskToReview>
           </div>
         </div>
         <div className="lg:w-[30%] bg-gradient-to-r from-[#020710] to-[#1b2028] p-8 rounded-xl mt-10 lg:mt-0 ">

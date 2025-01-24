@@ -2,7 +2,7 @@ import React from "react";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 
-const TaskToReviewTable = ({ taskReview, handleTaskReviewModal, refetch }) => {
+const TaskToReviewTable = ({ taskReview, handleTaskReviewModal, refetch,workerRefetch }) => {
   const axiosSecure = useAxiosSecure();
   const {
     task_title,
@@ -57,6 +57,7 @@ const TaskToReviewTable = ({ taskReview, handleTaskReviewModal, refetch }) => {
       try {
         const { data } = await axiosSecure.patch("/paymentCoin", { approvedCoin });
         console.log(data);
+        workerRefetch()
       } catch (err) {
         console.log(err);
       }
@@ -81,6 +82,7 @@ const TaskToReviewTable = ({ taskReview, handleTaskReviewModal, refetch }) => {
       console.log(data);
       toast.success("Successfully Updated Status");
       refetch();
+      workerRefetch()
     } catch (err) {
       console.log(err);
     }

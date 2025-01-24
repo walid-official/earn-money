@@ -5,7 +5,7 @@ import TaskToReviewTable from "./TaskToReviewTable";
 import TaskReviewDetailsModal from "./TaskReviewDetailsModal";
 import useAuth from "../../Hooks/useAuth";
 
-const TaskToReview = () => {
+const TaskToReview = ({workerRefetch}) => {
   const axiosSecure = useAxiosSecure();
   const {user} = useAuth()
   const [reviewDetail, setReviewDetail] = useState(null);
@@ -56,6 +56,7 @@ const TaskToReview = () => {
             {tasksReview.map((taskReview, index) => (
               <TaskToReviewTable
               refetch={refetch}
+              workerRefetch={workerRefetch}
               handleTaskReviewModal={handleTaskReviewModal}
                 key={index}
                 taskReview={taskReview}
@@ -65,7 +66,7 @@ const TaskToReview = () => {
         </table>
       </div>
       <div className="">
-        <TaskReviewDetailsModal reviewDetail={reviewDetail}></TaskReviewDetailsModal>
+        <TaskReviewDetailsModal  reviewDetail={reviewDetail}></TaskReviewDetailsModal>
       </div>
     </div>
   );

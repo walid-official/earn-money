@@ -37,7 +37,7 @@ const Hero = () => {
             <div className="lg:flex justify-between">
               <div className="lg:w-[50%] md:w-[70%] w-[90%] mx-auto lg:mx-0 flex items-center">
                 <div className="">
-                  <p className="text-white rounded-tr-2xl  rounded-bl-2xl text-center bg-gradient-to-t from-[#27292f] to-[#10121d] py-3 px-7 lg:w-[50%] md:w-[70%] md:mx-auto lg:mx-0 w-full text-xl">
+                  <p className="text-white rounded-tr-2xl  rounded-bl-2xl text-center bg-gradient-to-t from-[#27292f] to-[#10121d] py-3 px-7 lg:w-[60%] md:w-[70%] md:mx-auto lg:mx-0 w-full text-xl">
                     {" "}
                     <span className="text-[#00d7c0] font-bold">
                       Discover

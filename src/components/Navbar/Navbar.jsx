@@ -23,7 +23,7 @@ const Navbar = () => {
   } = useQuery({
     queryKey: ["allUsersCoin"],
     queryFn: async () => {
-      const { data } = await axios.get(`http://localhost:5000/allUsersCoin`);
+      const { data } = await axios.get(`https://earn-money-platform-server.vercel.app/allUsersCoin`);
       console.log(data);
 
       return data;

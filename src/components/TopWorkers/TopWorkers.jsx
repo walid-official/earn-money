@@ -11,7 +11,7 @@ const TopWorkers = () => {
   } = useQuery({
     queryKey: ["TopWorkers"],
     queryFn: async () => {
-      const { data } = await axios.get(`http://localhost:5000/worker`);
+      const { data } = await axios.get(`https://earn-money-platform-server.vercel.app/users/worker`);
       console.log(data);
       return data;
     },
@@ -20,7 +20,7 @@ const TopWorkers = () => {
   console.log(TopWorkers);
 
   return (
-    <div className="w-11/12 mx-auto pb-16">
+    <div className="w-11/12 mx-auto pb-16 pt-12">
       <div className="py-10 text-white">
         <h2 className="font-bold text-4xl text-center">Top Achieving Workers</h2>
         <p className="text-center md:w-[45%] mx-auto py-3">
@@ -29,7 +29,7 @@ const TopWorkers = () => {
           are here to deliver excellence and drive success.
         </p>
       </div>
-      <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-5 w-[90%] mx-auto">
+      <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-5 w-[90%] my-10 mx-auto">
         {
             TopWorkers.map((TopWorker,index) => <Worker key={index} TopWorker={TopWorker} ></Worker>)
         }

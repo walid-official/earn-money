@@ -53,7 +53,7 @@ const DashBoardLayout = () => {
                 <div className="drawer-content">
                   <label
                     htmlFor="my-drawer"
-                    className="btn drawer-button mr-10"
+                    className="btn drawer-button sm:mr-10 mr-4"
                   >
                     {/* Toggle Button */}
                     <svg
@@ -74,7 +74,7 @@ const DashBoardLayout = () => {
                 </div>
                 <div className="drawer-side ">
                   <label htmlFor="my-drawer" className="drawer-overlay "></label>
-                  <div className="bg-gradient-to-r from-[#020710] to-[#1b2028] min-h-screen w-[300px]">
+                  <div className="bg-gradient-to-r from-[#020710] to-[#1b2028] min-h-screen sm:w-[300px] w-[250px]">
                     <Sidebar />
                   </div>
                 </div>
