@@ -89,7 +89,7 @@ const DashboardNavbar = ({ myInfo }) => {
                 ) : (
                   <div className="">
                     Available Coin:{" "}
-                    {myInfo.coin > 0 ? <span>{myInfo?.coin}</span> : 0}
+                    {myInfo.coin > 0 ? <span>{myInfo?.coin.toFixed(2)}</span> : 0}
                   </div>
                 )}
               </h2>
