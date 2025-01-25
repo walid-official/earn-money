@@ -60,7 +60,7 @@ const Navbar = () => {
 
               <div className="flex gap-2 items-center text-white">
                 <img className="w-10" src={coinNav} alt="" />
-                <h2>{totalCoins ? totalCoins : 0}</h2>
+                <h2>{totalCoins ? totalCoins.toFixed(2) : 0}</h2>
               </div>
 
               <div className="bg-white w-12 h-12 rounded-full">

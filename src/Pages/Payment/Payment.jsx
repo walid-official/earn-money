@@ -8,23 +8,51 @@ import { useQuery } from "@tanstack/react-query";
 import { myInfoContext } from "../../Layouts/DashBoardLayout";
 const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_GATEWAY_PK);
 const Payment = () => {
-const {id} = useParams();
- const axiosSecure = useAxiosSecure();
- const {refetch} = useContext(myInfoContext)
-const {
-  data: singlePurchase = [],
-  isLoading,
-  refetch:purchaseFetch,
-} = useQuery({
-  queryKey: ["singlePurchase", id],
-  queryFn: async () => {
-    const { data } = await axiosSecure.get(`paymentDetails/${id}`);
-    console.log(data);
-    return data;
-  },
-});
+  const { id } = useParams();
+  const axiosSecure = useAxiosSecure();
+  const { refetch } = useContext(myInfoContext);
+  const {
+    data: singlePurchase = [],
+    isLoading,
+    error,
+    refetch: purchaseFetch,
+  } = useQuery({
+    queryKey: ["singlePurchase", id],
+    queryFn: async () => {
+      const { data } = await axiosSecure.get(`paymentDetails/${id}`);
+      console.log(data);
+      return data;
+    },
+    enabled: !!id,
+  });
 
-console.log(singlePurchase);
+  console.log(singlePurchase);
+
+  // Loading and Error Handling
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <span className="loading loading-ring loading-lg"></span>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <p className="text-center py-10 text-red-500">
+        Error fetching payment details: {error.message}
+      </p>
+    );
+  }
+
+  // Fallback in case data is null or missing required fields
+  if (!singlePurchase || !singlePurchase.usd) {
+    return (
+      <p className="text-center py-10 text-red-500">
+        Invalid payment details. Please try again later.
+      </p>
+    );
+  }
 
   return (
     <div>
@@ -40,7 +68,10 @@ console.log(singlePurchase);
       </div>
       <div className="">
         <Elements stripe={stripePromise}>
-          <CheckoutForm singlePurchase={singlePurchase} refetch={refetch}></CheckoutForm>
+          <CheckoutForm
+            singlePurchase={singlePurchase}
+            refetch={refetch}
+          ></CheckoutForm>
         </Elements>
       </div>
     </div>

@@ -38,7 +38,7 @@ const TestSlider = () => {
           <div className="space-y-4">
             {/* Slider: 1 - One */}
             <div className="">
-              <div className="flex gap-4 bg-gradient-to-t from-[#27292f] to-[#10121d] px-8 py-8 rounded-lg shadow-2xl">
+              <div className="sm:flex justify-center gap-4 bg-gradient-to-t from-[#27292f] to-[#10121d] px-8 py-8 rounded-lg shadow-2xl">
                 <div className="rounded-full">
                   <div className="font-bold bg-[#00d7c0] w-14 h-14 flex justify-center items-center rounded-full text-3xl text-white">
                     <IoStar></IoStar>
@@ -55,7 +55,7 @@ const TestSlider = () => {
             </div>
             {/* Slider: 1 - two */}
             <div className="">
-              <div className="flex gap-4 bg-gradient-to-t from-[#27292f] to-[#10121d] px-8 py-8 rounded-lg shadow-2xl">
+              <div className="sm:flex gap-4 bg-gradient-to-t from-[#27292f] to-[#10121d] px-8 py-8 rounded-lg shadow-2xl">
                 <div className="rounded-full">
                   <div className="font-bold bg-[#00d7c0] w-14 h-14 flex justify-center items-center rounded-full text-3xl text-white">
                     <FaFileInvoiceDollar></FaFileInvoiceDollar>
@@ -73,7 +73,7 @@ const TestSlider = () => {
             </div>
             {/* Slider: 1 - three */}
             <div className="">
-              <div className="flex gap-4 bg-gradient-to-t from-[#27292f] to-[#10121d] px-8 py-8 rounded-lg shadow-2xl">
+              <div className="sm:flex gap-4 bg-gradient-to-t from-[#27292f] to-[#10121d] px-8 py-8 rounded-lg shadow-2xl">
                 <div className="rounded-full">
                   <div className="font-bold bg-[#00d7c0] w-14 h-14 flex justify-center items-center rounded-full text-3xl text-white">
                     <CgDropInvert></CgDropInvert>
@@ -94,7 +94,7 @@ const TestSlider = () => {
           <div className="space-y-4">
             {/* Slider: 2 - One */}
             <div className="">
-              <div className="flex gap-4 bg-gradient-to-t from-[#27292f] to-[#10121d] px-8 py-8 rounded-lg shadow-2xl">
+              <div className="sm:flex gap-4 bg-gradient-to-t from-[#27292f] to-[#10121d] px-8 py-8 rounded-lg shadow-2xl">
                 <div className="rounded-full">
                   <div className="font-bold bg-[#00d7c0] w-14 h-14 flex justify-center items-center rounded-full text-3xl text-white">
                     <MdOutlineInventory></MdOutlineInventory>
@@ -111,7 +111,7 @@ const TestSlider = () => {
             </div>
             {/* Slider: 2 - two */}
             <div className="">
-              <div className="flex gap-4 bg-gradient-to-t from-[#27292f] to-[#10121d] px-8 py-8 rounded-lg shadow-2xl">
+              <div className="sm:flex gap-4 bg-gradient-to-t from-[#27292f] to-[#10121d] px-8 py-8 rounded-lg shadow-2xl">
                 <div className="rounded-full">
                   <div className="font-bold bg-[#00d7c0] w-14 h-14 flex justify-center items-center rounded-full text-3xl text-white">
                     <SiSololearn></SiSololearn>
@@ -128,7 +128,7 @@ const TestSlider = () => {
             </div>
             {/* Slider: 2 - three */}
             <div className="">
-              <div className="flex gap-4 bg-gradient-to-t from-[#27292f] to-[#10121d] px-8 py-8 rounded-lg shadow-2xl">
+              <div className="sm:flex gap-4 bg-gradient-to-t from-[#27292f] to-[#10121d] px-8 py-8 rounded-lg shadow-2xl">
                 <div className="rounded-full">
                   <div className="font-bold bg-[#00d7c0] w-14 h-14 flex justify-center items-center rounded-full text-3xl text-white">
                     <IoStar></IoStar>

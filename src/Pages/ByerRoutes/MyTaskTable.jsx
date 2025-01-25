@@ -16,8 +16,9 @@ const MyTaskTable = ({ myTask, handleUpdate, handleDelete }) => {
   console.log(completionDate);
 
   const perWorker = totalPayment / worker;
-
-  const existingCoin = PaymentCoin - (PaymentCoin / worker);
+  // const existingTotalPayment = (perWorker * worker) 
+  // const existingCoin = PaymentCoin - (PaymentCoin / worker);
+  // const existTaskCoin = PaymentCoin - ((perWorker * worker) * 10)
 
   let date = new Date(completionDate);
   /* Date format you have */
@@ -43,7 +44,7 @@ const MyTaskTable = ({ myTask, handleUpdate, handleDelete }) => {
       <td>{detail.slice(0, 10)}..</td>
       <td>{dateMDY}</td>
       <td>{worker}</td>
-      <td>{perWorker}$</td>
+      <td>{perWorker.toFixed(2)}$</td>
       <td>{PaymentCoin}</td>
       <td>
         <div className="">
@@ -65,7 +66,7 @@ const MyTaskTable = ({ myTask, handleUpdate, handleDelete }) => {
       </th>
       <th>
         <button
-          onClick={() => handleDelete(_id, existingCoin)}
+          onClick={() => handleDelete(_id, PaymentCoin)}
           className="py-2 px-4 rounded-xl"
         >
           delete

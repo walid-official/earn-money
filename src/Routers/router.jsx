@@ -51,11 +51,22 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <PrivetRouter><DashboardHome></DashboardHome></PrivetRouter> ,
+        element: (
+          <PrivetRouter>
+            <DashboardHome></DashboardHome>
+          </PrivetRouter>
+        ),
       },
       {
         path: "payment/:id",
-        element: <PrivetRouter><Payment></Payment></PrivetRouter> 
+        element: (
+          <PrivetRouter>
+            <BuyerRouter>
+              {" "}
+              <Payment></Payment>
+            </BuyerRouter>
+          </PrivetRouter>
+        ),
       },
       {
         path: "addNewTasks",
@@ -81,30 +92,64 @@ const router = createBrowserRouter([
       },
       {
         path: "manageTasks",
-        element: <PrivetRouter> <AdminRouter><ManageTasks></ManageTasks></AdminRouter> </PrivetRouter> 
+        element: (
+          <PrivetRouter>
+            {" "}
+            <AdminRouter>
+              <ManageTasks></ManageTasks>
+            </AdminRouter>{" "}
+          </PrivetRouter>
+        ),
       },
       {
         path: "purchaseCoin",
-        element: <PrivetRouter> <BuyerRouter><PurchaseCoin></PurchaseCoin></BuyerRouter> </PrivetRouter>
+        element: (
+          <PrivetRouter>
+            {" "}
+            <BuyerRouter>
+              <PurchaseCoin></PurchaseCoin>
+            </BuyerRouter>{" "}
+          </PrivetRouter>
+        ),
       },
       {
         path: "taskDetails/:id",
-        element: <PrivetRouter><TaskDetails></TaskDetails></PrivetRouter> ,
+        element: (
+          <PrivetRouter>
+            <TaskDetails></TaskDetails>
+          </PrivetRouter>
+        ),
       },
       {
         path: "mySubmission",
-        element: <PrivetRouter>  <MySubmissions></MySubmissions></PrivetRouter> ,
+        element: (
+          <PrivetRouter>
+            {" "}
+            <WorkerRouter>
+              <MySubmissions></MySubmissions>
+            </WorkerRouter>{" "}
+          </PrivetRouter>
+        ),
       },
 
       {
         path: "withdrawals",
-        element: <PrivetRouter> <WorkerRouter><Withdrawals></Withdrawals></WorkerRouter> </PrivetRouter> 
+        element: (
+          <PrivetRouter>
+            {" "}
+            <WorkerRouter>
+              <Withdrawals></Withdrawals>
+            </WorkerRouter>{" "}
+          </PrivetRouter>
+        ),
       },
       {
         path: "manageUsers",
         element: (
           <PrivetRouter>
-            <AdminRouter><ManageUsers></ManageUsers></AdminRouter>
+            <AdminRouter>
+              <ManageUsers></ManageUsers>
+            </AdminRouter>
           </PrivetRouter>
         ),
       },
@@ -112,7 +157,9 @@ const router = createBrowserRouter([
         path: "taskLists",
         element: (
           <PrivetRouter>
-            <TaskLists></TaskLists>
+            <WorkerRouter>
+              <TaskLists></TaskLists>
+            </WorkerRouter>
           </PrivetRouter>
         ),
       },

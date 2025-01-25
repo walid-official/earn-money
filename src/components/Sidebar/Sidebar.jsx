@@ -9,8 +9,8 @@ import { CiLogin } from "react-icons/ci";
 import useAuth from "../../Hooks/useAuth";
 const Sidebar = () => {
   const [role, isLoading] = useRole();
-  const {userSignOut} = useAuth();
-  const navigate = useNavigate()
+  // const {userSignOut} = useAuth();
+  // const navigate = useNavigate()
   console.log(role);
   if (isLoading) {
     return (

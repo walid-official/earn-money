@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import Footer from "../components/Footer/Footer";
 import DashboardNavbar from "../components/DashboardNavbar/DashboardNavbar";
 import logo from "../assets/logo.png";
@@ -40,9 +40,18 @@ const DashBoardLayout = () => {
       <div className="lg:flex justify-between">
         <div className="lg:w-[20%] lg:min-h-screen bg-gradient-to-r from-[#020710] to-[#1b2028]">
           <div className="py-4 pl-10 border-b border-gray-600 flex justify-between">
-            <div className="">
-              <img src={logo} className="w-16 h-16 rounded-full" alt="" />
-            </div>
+            <NavLink to="/" className="">
+              <div className="flex gap-3 items-center">
+                <div className="">
+                  <img src={logo} className="w-16 h-16 rounded-full" alt="" />
+                </div>
+                <div className="">
+                  <h2 className="font-bold text-2xl text-white items-center">
+                    Earnify
+                  </h2>
+                </div>
+              </div>
+            </NavLink>
             <div className="lg:hidden flex">
               <div className="drawer ">
                 <input
@@ -73,7 +82,10 @@ const DashBoardLayout = () => {
                   </label>
                 </div>
                 <div className="drawer-side ">
-                  <label htmlFor="my-drawer" className="drawer-overlay "></label>
+                  <label
+                    htmlFor="my-drawer"
+                    className="drawer-overlay "
+                  ></label>
                   <div className="bg-gradient-to-r from-[#020710] to-[#1b2028] min-h-screen sm:w-[300px] w-[250px]">
                     <Sidebar />
                   </div>
