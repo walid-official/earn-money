@@ -15,7 +15,7 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${Image_hosting_ke
 
 const AddNewTasks = () => {
   const axiosSecure = useAxiosSecure();
-  const {refetch} = useContext(myInfoContext)
+  const { refetch } = useContext(myInfoContext);
   const { user } = useAuth();
   const navigate = useNavigate();
   const [startDate, setStartDate] = useState(new Date());
@@ -48,14 +48,12 @@ const AddNewTasks = () => {
     const parsePayment = parseInt(data.payableAmount);
     const parseWorker = parseInt(data.requiredWorker);
 
-
     console.log(parsePayment);
     console.log(parseWorker);
-    const PaymentCoin = (parsePayment * 10) * parseWorker;
+    const PaymentCoin = parsePayment * 10 * parseWorker;
     console.log(PaymentCoin);
     const payableAmount = parsePayment * parseWorker;
     console.log(payableAmount);
-
 
     // uploading Image On ImageBB Server
     const formData1 = new FormData();
@@ -105,16 +103,18 @@ const AddNewTasks = () => {
       }
 
       if (parsePayment <= 0 || parseWorker <= 0) {
-        return toast.error("Payable amount and required workers must be greater than zero.");
+        return toast.error(
+          "Payable amount and required workers must be greater than zero."
+        );
       }
-   
+
       try {
         const { data } = await axiosSecure.post("new-tasks", addTaskInfoData);
         console.log(data);
         toast.success("Successfully Added Your Task");
-        coinFetch()
-        refetch()
-        reset()
+        coinFetch();
+        refetch();
+        reset();
       } catch (err) {
         console.log(err);
       }
@@ -124,27 +124,31 @@ const AddNewTasks = () => {
   };
 
   return (
-    <div>
-      <div className="py-8">
-        <h2 className="text-center font-bold text-4xl py-3">New Task Entry</h2>
-        <p className="w-[30%] mx-auto text-center">
-          Quickly add new tasks and keep your projects on track with seamless
-          organization.
-        </p>
+    <div className="bg-black">
+      <div className="py-10">
+        <div className="py-8 bg-gradient-to-r from-[#020710] to-[#1b2028] w-[60%] text-white mx-auto rounded-xl">
+          <h2 className="text-center font-bold text-4xl py-3">
+            New Task Entry
+          </h2>
+          <p className="w-[40%] mx-auto text-center">
+            Quickly add new tasks and keep your projects on track with seamless
+            organization.
+          </p>
+        </div>
       </div>
       <div className="pb-16">
-        <div className="card bg-base-100 lg:w-[45%] md:w-[60%] w-[90%] mx-auto shrink-0 shadow-2xl">
+        <div className="card bg-gradient-to-r from-[#020710] to-[#1b2028] lg:w-[60%] md:w-[60%] w-[90%] mx-auto shrink-0 shadow-2xl">
           <form onSubmit={handleSubmit(handleAddNewTask)} className="card-body">
             <div className="space-y-4">
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Task Title</span>
+                  <span className="label-text text-white">Task Title</span>
                 </label>
                 <input
                   type="text"
                   {...register("taskTitle", { required: true })}
                   placeholder="Task Title"
-                  className="input input-bordered"
+                  className="input input-bordered shadow-inner bg-gradient-to-r from-[#020710] to-[#1b2028] text-white"
                 />
                 {errors.taskTitle && (
                   <span className="text-red-500">Task Title is required</span>
@@ -153,25 +157,27 @@ const AddNewTasks = () => {
 
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Task Detail</span>
+                  <span className="label-text text-white">Task Detail</span>
                 </label>
                 <textarea
                   {...register("taskDetail")}
                   placeholder="Task Detail"
-                  className="textarea textarea-bordered textarea-md w-full max-w-xl"
+                  className="textarea textarea-bordered textarea-md w-full bg-gradient-to-r from-[#020710] to-[#1b2028] text-white"
                 ></textarea>
               </div>
 
               <div className="">
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Required Workers</span>
+                    <span className="label-text text-white">
+                      Required Workers
+                    </span>
                   </label>
                   <input
                     type="number"
                     {...register("requiredWorker", { required: true })}
                     placeholder="Required Workers"
-                    className="input input-bordered"
+                    className="input input-bordered bg-gradient-to-r from-[#020710] to-[#1b2028] text-white"
                   />
                   {errors.requiredWorker && (
                     <span className="text-red-500">
@@ -181,13 +187,15 @@ const AddNewTasks = () => {
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Payable Amount (USD: 1$ = 10 coin)</span>
+                    <span className="label-text text-white">
+                      Payable per Amount (USD: 1$ = 10 coin)
+                    </span>
                   </label>
                   <input
                     type="number"
                     {...register("payableAmount", { required: true })}
                     placeholder="Payable Amount (USD)"
-                    className="input input-bordered"
+                    className="input input-bordered bg-gradient-to-r from-[#020710] to-[#1b2028] text-white"
                   />
                   {errors.payableAmount && (
                     <span className="text-red-500">
@@ -199,11 +207,11 @@ const AddNewTasks = () => {
 
               <div className="form-control w-full">
                 <label className="label">
-                  <span className="label-text">Payable Amount</span>
+                  <span className="label-text text-white">Completion Date</span>
                 </label>
                 <div className="w-full">
                   <DatePicker
-                    className="border py-3 rounded-lg px-3 w-full"
+                    className="shadow-inner py-3 rounded-lg px-3 w-full bg-gradient-to-r from-[#020710] to-[#1b2028] text-white"
                     selected={startDate}
                     onChange={(date) => setStartDate(date)}
                   />
@@ -218,7 +226,9 @@ const AddNewTasks = () => {
               <div className="">
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Submission Info</span>
+                    <span className="label-text text-white">
+                      Submission Info
+                    </span>
                   </label>
                   <input
                     type="file"
@@ -228,7 +238,9 @@ const AddNewTasks = () => {
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Task Image URL</span>
+                    <span className="label-text text-white">
+                      Task Image URL
+                    </span>
                   </label>
                   <input
                     type="file"
@@ -239,7 +251,9 @@ const AddNewTasks = () => {
               </div>
             </div>
             <div className="form-control mt-6">
-              <button className="btn bg-[#2b3440] text-white">Add Task</button>
+              <button className="bg-[#1b2028] py-3 px-7 rounded-lg shadow-2xl border-none text-white">
+                Add Task
+              </button>
             </div>
           </form>
         </div>

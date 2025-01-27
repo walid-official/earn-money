@@ -10,7 +10,7 @@ const PaymentHistoryTable = ({ history }) => {
   }-${transactionDate.getFullYear()}`;
   console.log(dateMDY);
   return (
-    <tr>
+    <tr className="text-white">
       <td>
         <div className="flex items-center gap-3">
           <div>

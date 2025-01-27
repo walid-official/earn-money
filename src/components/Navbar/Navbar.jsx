@@ -16,24 +16,22 @@ const Navbar = () => {
       navigate("/login");
     });
   };
-  const {
-    data: allUsersCoin = [],
-    isLoading,
-    refetch,
-  } = useQuery({
-    queryKey: ["allUsersCoin"],
+  const { data: UserCoin = {}, isLoading, refetch } = useQuery({
+    queryKey: ["UserCoin", user?.email],
     queryFn: async () => {
-      const { data } = await axios.get(`https://earn-money-platform-server.vercel.app/allUsersCoin`);
-      console.log(data);
-
-      return data;
+      if (!user?.email) return {};
+      const { data } = await axios.get(`https://earn-money-platform-server.vercel.app/userCoin/${user?.email}`);
+      return data || {};
     },
   });
+  
 
-  const totalCoins = allUsersCoin.reduce(
-    (total, user) => total + (user.coin || 0),
-    0
-  );
+  console.log(UserCoin);
+
+  // const totalCoins = allUsersCoin.reduce(
+  //   (total, user) => total + (user.coin || 0),
+  //   0
+  // );
 
   return (
     <div className="w-11/12  py-5 mx-auto">
@@ -60,7 +58,7 @@ const Navbar = () => {
 
               <div className="flex gap-2 items-center text-white">
                 <img className="w-10" src={coinNav} alt="" />
-                <h2>{totalCoins ? totalCoins.toFixed(2) : 0}</h2>
+               <h2>{UserCoin?.coin}</h2>
               </div>
 
               <div className="bg-white w-12 h-12 rounded-full">
@@ -73,16 +71,16 @@ const Navbar = () => {
               </div>
               <NavLink
                 onClick={handleLogoutUser}
-                className="rounded-tr-2xl  rounded-bl-2xl font-bold bg-[#00d7c0] text-white border-none py-3 px-6"
+                className="rounded-md font-bold bg-[#00d7c0] text-white border-none py-3 px-6"
               >
                 {" "}
                 Logout
               </NavLink>
               {/* <a className="btn">Button</a> */}
               <a
-                href="https://github.com/walid-official"
+                href="https://github.com/Programming-Hero-Web-Course4/b10a12-client-side-walid-official"
                 target="_blank"
-                className="rounded-tr-2xl  rounded-bl-2xl font-bold bg-[#00d7c0] text-white border-none py-3 px-6"
+                className="rounded-md font-bold bg-[#00d7c0] text-white border-none py-3 px-6"
               >
                 Join as developer
               </a>
@@ -91,21 +89,21 @@ const Navbar = () => {
             <div className="flex gap-4 items-center">
               <NavLink
                 to="login"
-                className="rounded-tr-2xl  rounded-bl-2xl font-bold bg-[#00d7c0] text-white border-none py-3 px-6"
+                className="rounded-md font-bold bg-[#00d7c0] text-white border-none py-3 px-6"
               >
                 Login
               </NavLink>
               {/* <NavLink to="/test" className="text-white">Test</NavLink> */}
               <NavLink
                 to="register"
-                className="rounded-tr-2xl  rounded-bl-2xl font-bold bg-[#00d7c0] text-white border-none py-3 px-6"
+                className="rounded-md font-bold bg-[#00d7c0] text-white border-none py-3 px-6"
               >
                 Register
               </NavLink>
               <a
-                href="https://github.com/walid-official"
+                href="https://github.com/Programming-Hero-Web-Course4/b10a12-client-side-walid-official"
                 target="_blank"
-                className="rounded-tr-2xl  rounded-bl-2xl font-bold bg-[#00d7c0] text-white border-none py-3 px-6"
+                className="rounded-md font-bold bg-[#00d7c0] text-white border-none py-3 px-6"
               >
                 Join as developer
               </a>
@@ -155,7 +153,7 @@ const Navbar = () => {
                   </NavLink>
                   {/* <a className="btn">Button</a> */}
                   <a
-                    href="https://github.com/walid-official"
+                    href="https://github.com/Programming-Hero-Web-Course4/b10a12-client-side-walid-official"
                     target="_blank"
                     className="rounded-tr-2xl text-center block rounded-bl-2xl font-bold bg-[#00d7c0] text-white border-none py-3 px-6"
                   >
@@ -165,7 +163,7 @@ const Navbar = () => {
                   <div className="flex py-3 justify-between gap-3">
                     <div className="text-[#000] flex items-center gap-2">
                       <img className="w-10" src={coinNav} alt="" />
-                      <h2>{totalCoins ? totalCoins : 0}</h2>
+                     <h2>{UserCoin?.coin}</h2>
                     </div>
 
                     <div className="bg-white w-12 h-12 rounded-full">
@@ -194,7 +192,7 @@ const Navbar = () => {
                     Register
                   </NavLink>
                   <a
-                    href="https://github.com/walid-official"
+                    href="https://github.com/Programming-Hero-Web-Course4/b10a12-client-side-walid-official"
                     target="_blank"
                     className="rounded-tr-2xl text-center  rounded-bl-2xl font-bold bg-[#00d7c0] text-white border-none py-3 px-6"
                   >

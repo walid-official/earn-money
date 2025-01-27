@@ -24,21 +24,23 @@ const PaymentHistory = () => {
 
   return (
     <div>
-      <div className="py-14">
-        <h2 className="font-bold text-center text-3xl">
-          Payment History Overview
-        </h2>
-        <p className="text-center w-[45%] mx-auto py-3">
-          Track your transactions with ease, including amounts, dates, and
-          statuses, for complete payment transparency.
-        </p>
+      <div className="py-10">
+        <div className="py-10 bg-gradient-to-r from-[#020710] to-[#1b2028] w-[60%] mx-auto text-white rounded-xl">
+          <h2 className="font-bold text-center text-3xl">
+            Payment History Overview
+          </h2>
+          <p className="text-center w-[50%] mx-auto py-3">
+            Track your transactions with ease, including amounts, dates, and
+            statuses, for complete payment transparency.
+          </p>
+        </div>
       </div>
-      <div className="w-[80%] mx-auto mb-10">
+      <div className="w-[90%] mx-auto p-10 bg-gradient-to-r from-[#020710] to-[#1b2028] rounded-xl shadow-xl">
         <div className="overflow-x-auto">
           <table className="table">
             {/* head */}
             <thead>
-              <tr>
+              <tr className="text-white">
                 <th>Transaction Id</th>
                 <th>email</th>
                 <th>amount</th>
@@ -48,12 +50,15 @@ const PaymentHistory = () => {
                 <th>date</th>
               </tr>
             </thead>
-            <tbody>{/* row 1 */}
+            <tbody>
+              {/* row 1 */}
 
-            {
-                myHistories.map((history,index) => <PaymentHistoryTable key={index} history={history}></PaymentHistoryTable>)
-            }
-
+              {myHistories.map((history, index) => (
+                <PaymentHistoryTable
+                  key={index}
+                  history={history}
+                ></PaymentHistoryTable>
+              ))}
             </tbody>
           </table>
         </div>

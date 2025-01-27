@@ -55,7 +55,7 @@ const Payment = () => {
   }
 
   return (
-    <div>
+    <div className="min-h-screen">
       <div className="py-10">
         <h2 className="font-bold text-center text-3xl">
           Secure Payment Portal

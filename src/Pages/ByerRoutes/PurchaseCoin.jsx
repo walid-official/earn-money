@@ -4,9 +4,8 @@ import { NavLink } from "react-router-dom";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import PaymentHistory from "./PaymentHistory";
 
-
 const PurchaseCoin = () => {
-  const axiosSecure = useAxiosSecure()
+  const axiosSecure = useAxiosSecure();
   const {
     data: purchase = [],
     isLoading,
@@ -23,20 +22,22 @@ const PurchaseCoin = () => {
   console.log(purchase);
 
   return (
-    <div>
+    <div className="bg-black">
       <div className="py-10">
-        <h2 className="font-bold text-center text-3xl">Payment Info</h2>
-        <p className="text-center py-3 w-[30%] mx-auto">
-          A form for securely entering payment details to complete a
-          transaction.
-        </p>
+        <div className="py-10 bg-gradient-to-r from-[#020710] to-[#1b2028] w-[60%] mx-auto text-white rounded-xl">
+          <h2 className="font-bold text-center text-3xl">Payment Info</h2>
+          <p className="text-center py-3 w-[40%] mx-auto">
+            A form for securely entering payment details to complete a
+            transaction.
+          </p>
+        </div>
       </div>
-      <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-4 w-[90%] mx-auto my-4">
+      <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-4 w-[90%] mx-auto">
         {purchase.map((purchaseCoin, index) => (
           <NavLink
-          key={index}
+            key={index}
             to={`/dashboard/payment/${purchaseCoin._id}`}
-            className="card bg-base-100 shadow-xl"
+            className="card bg-gradient-to-r from-[#020710] to-[#1b2028] text-white shadow-xl"
           >
             <div className="card-body">
               <h2 className="text-3xl font-bold text-center">

@@ -1,0 +1,17 @@
+/* Hide the default cursor */
+body {
+    cursor: none;
+  }
+  
+  .custom-cursor {
+    position: fixed;
+    width: 50px; /* Customize size */
+    height: 50px;
+    border-radius: 50%;
+    background: #ffffff79; /* Customize color */
+    pointer-events: none; /* Prevent interfering with clicks */
+    transform: translate(-50%, -50%);
+    transition: transform 0.5s ease; /* Smooth follow effect */
+    z-index: 9999;
+  }
+  

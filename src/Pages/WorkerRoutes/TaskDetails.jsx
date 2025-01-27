@@ -218,13 +218,10 @@ const TaskDetails = () => {
                 Tailored Professional Services
               </h2>
               <p className="py-2">
-                Providing a wide range of expert services designed to help you
-                achieve your goals efficiently and effectively.
+              Tasks are categorized by purpose to streamline workflows: development focuses on coding, design on visuals like UI and branding, education on skill-building, content on writing and organization, and submission on reviewing and sharing completed work.
               </p>
               <p className="py-2">
-                From web development and content creation to graphic design and
-                digital marketing, I offer customized solutions that meet your
-                unique requirements.
+              Each task has clear objectives, guiding its completion. Development tasks address features or bugs, design tasks enhance user interfaces, educational tasks improve skills, and content tasks deliver quality materials.
               </p>
               <p className="py-2">
                 Let’s collaborate to bring your vision to life and deliver
@@ -236,7 +233,7 @@ const TaskDetails = () => {
                 <textarea
                   placeholder="Submission_Details"
                   name="submission_detail"
-                  className="textarea textarea-bordered textarea-lg w-full max-w-xs"
+                  className="textarea textarea-bordered textarea-lg w-full max-w-lg"
                   required
                 ></textarea>
                 <div className="mt-2">

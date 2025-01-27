@@ -101,7 +101,7 @@ const DashBoardLayout = () => {
           <div className="">
             <DashboardNavbar myInfo={myInfo}></DashboardNavbar>
           </div>
-          <div className="min-h-[800px]">
+          <div className="">
             <Outlet></Outlet>
           </div>
           <div className="bg-[#242835]">
