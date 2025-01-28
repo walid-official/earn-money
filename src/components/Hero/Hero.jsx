@@ -46,7 +46,7 @@ const Hero = () => {
                   </p>
                   <h1 className="font-bold lg:leading-tight text-white text-center lg:text-left text-3xl md:text-5xl lg:text-6xl py-4">
                     Make Your <span className="text-[#00d7c0]">money</span>.{" "}
-                   <br /> From anywhere, anytime!
+                   <br /> anywhere, anytime!
                   </h1>
                   <p className="text-white lg:text-left text-center py-3 leading-normal">
                     Make money anytime, anywhere with the freedom to work when

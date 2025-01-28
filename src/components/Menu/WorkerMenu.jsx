@@ -23,7 +23,7 @@ const WorkerMenu = () => {
         <h2 className="text-xl">
           <MdPayments></MdPayments>
         </h2>
-        <h2 className="text-xl">withdrawals</h2>
+        <h2 className="text-xl">Withdrawals</h2>
       </NavLink>
     </div>
   );

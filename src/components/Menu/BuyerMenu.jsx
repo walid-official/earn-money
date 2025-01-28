@@ -15,17 +15,9 @@ const BuyerMenu = () => {
         <h2 className="text-xl">
           <IoBagAdd></IoBagAdd>
         </h2>
-        <h2 className="text-xl">Add new task</h2>
+        <h2 className="text-xl">Add task</h2>
       </NavLink>
-      {/* <NavLink
-        to="/dashboard/reviewTasks"
-        className="flex gap-4 items-center text-white  pl-10 hover:bg-slate-700 py-3 duration-300 cursor-pointer"
-      >
-        <h2 className="text-xl">
-          <MdReviews></MdReviews>
-        </h2>
-        <h2 className="text-xl">Task to review</h2>
-      </NavLink> */}
+     
       <NavLink
         to="/dashboard/myTasks"
         className="flex gap-4 items-center text-white  pl-10 hover:bg-slate-700 py-3 duration-300 cursor-pointer"
@@ -39,7 +31,7 @@ const BuyerMenu = () => {
         <h2 className="text-xl">
           <FaPesetaSign></FaPesetaSign>
         </h2>
-        <h2 className="text-xl">Purchase Coin</h2>
+        <h2 className="text-xl">Credit Coin</h2>
       </NavLink>
     </div>
   );

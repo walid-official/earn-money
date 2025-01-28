@@ -16,6 +16,7 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${Image_hosting_ke
 const AddNewTasks = () => {
   const axiosSecure = useAxiosSecure();
   const { refetch } = useContext(myInfoContext);
+  const [loading, setLoading] = useState(false);
   const { user } = useAuth();
   const navigate = useNavigate();
   const [startDate, setStartDate] = useState(new Date());
@@ -43,6 +44,7 @@ const AddNewTasks = () => {
 
   const handleAddNewTask = async (data) => {
     console.log(data);
+    setLoading(true);
     const taskTitle = data.taskTitle;
     const taskDetail = data.taskDetail;
     const parsePayment = parseInt(data.payableAmount);
@@ -99,19 +101,24 @@ const AddNewTasks = () => {
 
       if (PaymentCoin > coinInfo?.coin) {
         navigate("/dashboard/purchaseCoin");
-        return toast.error("Total Payment Exceeds Your Coin");
+        toast.error("Total Payment Exceeds Your Coin");
+        setLoading(false);
+        return;
       }
 
       if (parsePayment <= 0 || parseWorker <= 0) {
-        return toast.error(
+        toast.error(
           "Payable amount and required workers must be greater than zero."
         );
+        setLoading(false);
+        return;
       }
 
       try {
         const { data } = await axiosSecure.post("new-tasks", addTaskInfoData);
         console.log(data);
         toast.success("Successfully Added Your Task");
+        setLoading(false);
         coinFetch();
         refetch();
         reset();
@@ -120,6 +127,8 @@ const AddNewTasks = () => {
       }
     } catch (err) {
       console.log(err);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -251,8 +260,17 @@ const AddNewTasks = () => {
               </div>
             </div>
             <div className="form-control mt-6">
-              <button className="bg-[#1b2028] py-3 px-7 rounded-lg shadow-2xl border-none text-white">
-                Add Task
+              <button
+                className="bg-[#1b2028] py-3 px-7 rounded-lg shadow-2xl border-none text-white"
+                disabled={loading}
+              >
+                {loading ? (
+                  <div className="flex justify-center items-center">
+                    <span className="loading loading-bars loading-md"></span>
+                  </div>
+                ) : (
+                  "Add Task"
+                )}
               </button>
             </div>
           </form>

@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FaArrowRight, FaEye, FaEyeSlash } from "react-icons/fa"; // Correct icons
 import axios from "axios";
+import CustomCursor from "../../components/CustomCursor/CustomCursor";
 
 // Environment variables for image hosting
 const Image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
@@ -112,6 +113,7 @@ const Register = () => {
 
   return (
     <div className="bg-gradient-to-r from-[#020710] to-[#1b2028] min-h-screen">
+      <CustomCursor></CustomCursor>
       <div className="hero bg-gradient-to-t from-[#27292f] to-[#10121d] shadow-2xl rounded-tl-full rounded-br-full w-full min-h-screen">
         <div className="w-11/12 mx-auto lg:flex lg:py-0">
           {/* Left Section */}

@@ -177,24 +177,24 @@ const Navbar = () => {
                   </div>
                 </div>
               ) : (
-                <div className="flex gap-4 items-center">
+                <div className="md:flex gap-4 items-center">
                   <NavLink
                     to="login"
-                    className="rounded-tr-2xl text-center  rounded-bl-2xl font-bold bg-[#00d7c0] text-white border-none py-3 px-6"
+                    className=" rounded-lg text-center block  font-bold bg-[#00d7c0] text-white border-none py-3 px-6"
                   >
                     Login
                   </NavLink>
                   {/* <NavLink to="/test" className="text-white">Test</NavLink> */}
                   <NavLink
                     to="register"
-                    className="rounded-tr-2xl text-center rounded-bl-2xl font-bold bg-[#00d7c0] text-white border-none py-3 px-6"
+                    className="rounded-lg my-2 text-center block  font-bold bg-[#00d7c0] text-white border-none py-3 px-6"
                   >
                     Register
                   </NavLink>
                   <a
                     href="https://github.com/Programming-Hero-Web-Course4/b10a12-client-side-walid-official"
                     target="_blank"
-                    className="rounded-tr-2xl text-center  rounded-bl-2xl font-bold bg-[#00d7c0] text-white border-none py-3 px-6"
+                    className="rounded-lg text-center block  font-bold bg-[#00d7c0] text-white border-none py-3 px-6"
                   >
                     Join as developer
                   </a>

@@ -8,6 +8,7 @@ import useAxiosSecure from "../Hooks/useAxiosSecure";
 import useAuth from "../Hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import { createContext } from "react";
+import CustomCursor from "../components/CustomCursor/CustomCursor";
 // import Sidebar from './../components/Sidebar/Sidebar';
 
 export const myInfoContext = createContext();
@@ -37,6 +38,7 @@ const DashBoardLayout = () => {
 
   return (
     <myInfoContext.Provider value={InfoNav}>
+      
       <div className="lg:flex justify-between">
         <div className="lg:w-[20%] lg:min-h-screen bg-gradient-to-r from-[#020710] to-[#1b2028]">
           <div className="py-4 pl-10 border-b border-gray-600 flex justify-between">
@@ -108,6 +110,7 @@ const DashBoardLayout = () => {
             <Footer></Footer>
           </div>
         </div>
+        <CustomCursor></CustomCursor>
       </div>
     </myInfoContext.Provider>
   );

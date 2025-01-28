@@ -7,6 +7,7 @@ import { AuthContext } from "../../components/AuthProvider/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 import axios from "axios";
+import CustomCursor from "../../components/CustomCursor/CustomCursor";
 
 const Login = () => {
   const { createSignInUser, signInWithGoogle } = useContext(AuthContext);
@@ -51,6 +52,7 @@ const Login = () => {
 
   return (
     <div className="bg-gradient-to-r from-[#020710] to-[#1b2028] min-h-screen">
+      <CustomCursor></CustomCursor>
       <div className="hero bg-gradient-to-t from-[#27292f] to-[#10121d] rounded-tr-full rounded-bl-full min-h-screen">
         <div className="w-11/12 mx-auto lg:flex lg:flex-row-reverse">
           <div className="text-center lg:text-left lg:w-[50%] py-8">
