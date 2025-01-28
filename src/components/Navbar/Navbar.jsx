@@ -52,11 +52,11 @@ const Navbar = () => {
         <div className="lg:flex hidden">
           {user ? (
             <div className="flex gap-4 items-center pt-1">
-              <NavLink to="/dashboard" className="text-white">
+              <NavLink to="/dashboard"  className="rounded-md font-bold bg-[#00d7c0] text-white border-none py-3 px-6" >
                 Dashboard
               </NavLink>
 
-              <div className="flex gap-2 items-center text-white">
+              {/* <div className="flex gap-2 items-center text-white">
                 <img className="w-10" src={coinNav} alt="" />
                <h2>{UserCoin?.coin}</h2>
               </div>
@@ -68,14 +68,14 @@ const Navbar = () => {
                   src={user?.photoURL}
                   alt=""
                 />
-              </div>
-              <NavLink
+              </div> */}
+              {/* <NavLink
                 onClick={handleLogoutUser}
                 className="rounded-md font-bold bg-[#00d7c0] text-white border-none py-3 px-6"
               >
                 {" "}
                 Logout
-              </NavLink>
+              </NavLink> */}
               {/* <a className="btn">Button</a> */}
               <a
                 href="https://github.com/Programming-Hero-Web-Course4/b10a12-client-side-walid-official"

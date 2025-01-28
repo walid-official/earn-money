@@ -45,7 +45,7 @@ const TestSlider = () => {
                   </div>
                 </div>
                 <div className="text-white">
-                  <h2 className="font-bold text-2xl">Flexible Earnings</h2>
+                  <h2 className="font-bold sm:text-2xl text-xl">Flexible Earnings</h2>
                   <p className="py-2">
                     Discover various ways to earn money online or offline,
                     tailored to your skills and schedule.
@@ -62,7 +62,7 @@ const TestSlider = () => {
                   </div>
                 </div>
                 <div className="text-white">
-                  <h2 className="font-bold text-2xl">Monetize Skills</h2>
+                  <h2 className="font-bold sm:text-2xl text-xl">Monetize Skills</h2>
                   <p className="py-2">
                     Learn how to turn your talents and expertise into a
                     profitable income stream. tailored to your skills and
@@ -80,7 +80,7 @@ const TestSlider = () => {
                   </div>
                 </div>
                 <div className="text-white">
-                  <h2 className="font-bold text-2xl">Income Strategies</h2>
+                  <h2 className="font-bold sm:text-2xl text-xl">Income Strategies</h2>
                   <p className="py-2">
                     Explore strategies for generating passive income through
                     investments, blogging, and more.
@@ -101,7 +101,7 @@ const TestSlider = () => {
                   </div>
                 </div>
                 <div className="text-white">
-                  <h2 className="font-bold text-2xl">Freelancing Made Easy</h2>
+                  <h2 className="font-bold sm:text-2xl text-xl">Freelancing Made Easy</h2>
                   <p className="py-2">
                     Discover various ways to earn money online or offline,
                     tailored to your skills and schedule.
@@ -118,7 +118,7 @@ const TestSlider = () => {
                   </div>
                 </div>
                 <div className="text-white">
-                  <h2 className="font-bold text-2xl">Affiliate Marketing</h2>
+                  <h2 className="font-bold sm:text-2xl text-xl">Affiliate Marketing</h2>
                   <p className="py-2">
                     Master affiliate marketing to earn commissions by promoting
                     products and services you love.
@@ -135,7 +135,7 @@ const TestSlider = () => {
                   </div>
                 </div>
                 <div className="text-white">
-                  <h2 className="font-bold text-2xl">Financial Literacy</h2>
+                  <h2 className="font-bold sm:text-2xl text-xl">Financial Literacy</h2>
                   <p className="py-2">
                     Improve your financial literacy with tips on budgeting,
                     saving, and managing your earnings effectively.
@@ -150,14 +150,14 @@ const TestSlider = () => {
           <div className="space-y-4">
             {/* Slider: 3 - One */}
             <div className="">
-              <div className="flex gap-4 bg-gradient-to-t from-[#27292f] to-[#10121d] px-8 py-8 rounded-lg shadow-2xl">
+              <div className="sm:flex gap-4 bg-gradient-to-t from-[#27292f] to-[#10121d] px-8 py-8 rounded-lg shadow-2xl">
                 <div className="rounded-full">
                   <div className="font-bold bg-[#00d7c0] w-14 h-14 flex justify-center items-center rounded-full text-3xl text-white">
                     <SiGreatlearning></SiGreatlearning>
                   </div>
                 </div>
                 <div className="text-white">
-                  <h2 className="font-bold text-2xl"> Investment Guide</h2>
+                  <h2 className="font-bold sm:text-2xl text-xl"> Investment Guide</h2>
                   <p className="py-2">
                     Learn how to invest in real estate, from rental properties
                     to REITs, to build a solid income portfolio.
@@ -167,14 +167,14 @@ const TestSlider = () => {
             </div>
             {/* Slider: 3 - two */}
             <div className="">
-              <div className="flex gap-4 bg-gradient-to-t from-[#27292f] to-[#10121d] px-8 py-8 rounded-lg shadow-2xl">
+              <div className="sm:flex gap-4 bg-gradient-to-t from-[#27292f] to-[#10121d] px-8 py-8 rounded-lg shadow-2xl">
                 <div className="rounded-full">
                   <div className="font-bold bg-[#00d7c0] w-14 h-14 flex justify-center items-center rounded-full text-3xl text-white">
                     <SiFuturelearn></SiFuturelearn>
                   </div>
                 </div>
                 <div className="text-white">
-                  <h2 className="font-bold text-2xl">Crowdfunding Campaigns</h2>
+                  <h2 className="font-bold sm:text-2xl text-xl">Crowdfunding Campaigns</h2>
                   <p className="py-2">
                     Launch successful crowdfunding campaigns to raise funds for
                     your projects or business ideas.
@@ -184,14 +184,14 @@ const TestSlider = () => {
             </div>
             {/* Slider: 3 - three */}
             <div className="">
-              <div className="flex gap-4 bg-gradient-to-t from-[#27292f] to-[#10121d] px-8 py-8 rounded-lg shadow-2xl">
+              <div className="sm:flex gap-4 bg-gradient-to-t from-[#27292f] to-[#10121d] px-8 py-8 rounded-lg shadow-2xl">
                 <div className="rounded-full">
                   <div className="font-bold bg-[#00d7c0] w-14 h-14 flex justify-center items-center rounded-full text-3xl text-white">
                     <FaCreativeCommonsBy></FaCreativeCommonsBy>
                   </div>
                 </div>
                 <div className="text-white">
-                  <h2 className="font-bold text-2xl">Media Influence</h2>
+                  <h2 className="font-bold sm:text-2xl text-xl">Media Influence</h2>
                   <p className="py-2">
                     Build your social media presence and leverage it to earn
                     through brand partnerships and sponsored content.

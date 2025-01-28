@@ -16,8 +16,8 @@ const ScaleCard = () => {
           </p>
         </div>
 
-        <div className="bg-[#10121d] rounded-xl px-14 py-10 w-full  z-10 text-white shadow-2xl" >
-          <div className="py-20">
+        <div className="bg-[#10121d] rounded-xl px-8 md:px-14 py-10 w-full  z-10 text-white shadow-2xl" >
+          <div className="md:pb-16 md:pt-10 py-10">
             <h2 className="font-bold text-3xl text-center">
               Real-Time Earnings Tracker
             </h2>

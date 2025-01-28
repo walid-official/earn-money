@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { FaArrowRightLong } from "react-icons/fa6";
@@ -43,7 +43,10 @@ const Login = () => {
         photo: data?.user?.photoURL,
         role: "Worker",
       };
-      await axios.post("https://earn-money-platform-server.vercel.app/earning-users", googleUserData);
+      await axios.post(
+        "https://earn-money-platform-server.vercel.app/earning-users",
+        googleUserData
+      );
     } catch (error) {
       console.error("Login Error: ", error);
       toast.error("Login failed");
@@ -51,11 +54,19 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-[#020710] to-[#1b2028] min-h-screen">
+    <div className="bg-gradient-to-r from-[#020710] to-[#1b2028] min-h-screen relative">
       <CustomCursor></CustomCursor>
+      <div className="absolute" >
+        <NavLink to="/" className="flex p-5">
+          <button className="text-white py-3 text-center font-bold flex items-center gap-2 hover:translate-x-2 duration-500">
+            Go To Home
+            <FaArrowRightLong />
+          </button>
+        </NavLink>
+      </div>
       <div className="hero bg-gradient-to-t from-[#27292f] to-[#10121d] rounded-tr-full rounded-bl-full min-h-screen">
         <div className="w-11/12 mx-auto lg:flex lg:flex-row-reverse">
-          <div className="text-center lg:text-left lg:w-[50%] py-8">
+          {/* <div className="text-center lg:text-left lg:w-[50%] py-8">
             <h2 className="font-bold text-4xl text-white">
               Login to Your Account
             </h2>
@@ -75,7 +86,7 @@ const Login = () => {
                 </button>
               </NavLink>
             </div>
-          </div>
+          </div> */}
           <div className="card lg:w-[50%] mx-auto bg-base-100 max-w-lg lg:max-w-md shrink-0 shadow-2xl">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
@@ -119,13 +130,14 @@ const Login = () => {
                   )}
                 </div>
 
-                <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
+                <div className="label">
+                  <h2 className="label-text-alt link link-hover block">
                     Forgot password?
-                  </a>
-                </label>
+                  </h2>
+                 
+                </div>
               </div>
-
+              <h2 className="text-sm block">Don't have an account? please <Link to="/register" className="text-accent">Register</Link> </h2>
               <div className="form-control mt-6">
                 <button
                   type="submit"

@@ -10,7 +10,7 @@ const DiamondFacility = () => {
   >
       <div className="w-11/12 mx-auto">
         <div className="py-20">
-          <h2 className="text-4xl text-white font-bold text-center">
+          <h2 className="md:text-4xl text-3xl text-white font-bold text-center">
             Diamond Facilities for Your Earning Journey
           </h2>
           <p className="text-center text-white md:w-[50%] mx-auto py-3">

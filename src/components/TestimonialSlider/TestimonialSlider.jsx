@@ -24,14 +24,14 @@ const TestimonialSlider = () => {
       >
         <SwiperSlide>
           <div className="">
-            <div className="bg-gradient-to-t from-[#10121d] to-[#10121d] px-20 py-10 rounded-tr-[80px] border border-[#313843] rounded-bl-[80px] shadow-2xl">
+            <div className="bg-gradient-to-t from-[#10121d] to-[#10121d] px-10 md:px-20 py-10 rounded-tr-[80px] border border-[#313843] rounded-bl-[80px] shadow-2xl">
               <Rating style={{ maxWidth: 120 }} value={5} readOnly />
               <p className="text-white w-[80%] pt-10 pb-6">
                 This platform has truly changed my financial journey. The
                 opportunities are endless, and I love the flexibility of earning
                 at my own pace!
               </p>
-              <div className="flex items-center justify-between">
+              <div className="sm:flex items-center justify-between">
                 <div className="">
                   <h2 className="font-bold text-2xl text-white">Nick Green</h2>
                   <p className="text-white">Developer</p>
@@ -49,12 +49,12 @@ const TestimonialSlider = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div className="">
-            <div className="bg-gradient-to-t from-[#10121d] to-[#10121d] px-20 py-10 rounded-tr-[80px] border border-[#313843] rounded-bl-[80px] shadow-2xl">
+            <div className="bg-gradient-to-t from-[#10121d] to-[#10121d] px-10 md:px-20 py-10 rounded-tr-[80px] border border-[#313843] rounded-bl-[80px] shadow-2xl">
               <Rating style={{ maxWidth: 120 }} value={5} readOnly />
               <p className="text-white w-[80%] pt-10 pb-6">
               I started earning from home with ease thanks to the tools and resources available on this platform. Highly recommend it for anyone looking for extra income.
               </p>
-              <div className="flex items-center justify-between">
+              <div className="sm:flex items-center justify-between">
                 <div className="">
                   <h2 className="font-bold text-2xl text-white">Lucas P</h2>
                   <p className="text-white">Blogger</p>
@@ -72,12 +72,12 @@ const TestimonialSlider = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div className="">
-            <div className="bg-gradient-to-t from-[#10121d] to-[#10121d] px-20 py-10 rounded-tr-[80px] border border-[#313843]  rounded-bl-[80px] shadow-2xl">
+            <div className="bg-gradient-to-t from-[#10121d] to-[#10121d] px-10 md:px-20 py-10 rounded-tr-[80px] border border-[#313843]  rounded-bl-[80px] shadow-2xl">
               <Rating style={{ maxWidth: 120 }} value={5} readOnly />
               <p className="text-white w-[80%] pt-10 pb-6">
               I was skeptical at first, but after a few months, I can confidently say that this platform has helped me grow my online business significantly!
               </p>
-              <div className="flex items-center justify-between">
+              <div className="sm:flex items-center justify-between">
                 <div className="">
                   <h2 className="font-bold text-2xl text-white">Ethan H.</h2>
                   <p className="text-white">Freelancer</p>
@@ -95,12 +95,12 @@ const TestimonialSlider = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div className="">
-            <div className="bg-gradient-to-t from-[#10121d] to-[#10121d] px-20 py-10 rounded-tr-[80px] border border-[#313843] rounded-bl-[80px] shadow-2xl">
+            <div className="bg-gradient-to-t from-[#10121d] to-[#10121d] px-10 md:px-20 py-10 rounded-tr-[80px] border border-[#313843] rounded-bl-[80px] shadow-2xl">
               <Rating style={{ maxWidth: 120 }} value={5} readOnly />
               <p className="text-white w-[80%] pt-10 pb-6">
               I was skeptical at first, but after a few months, I can confidently say that this platform has helped me grow my online business significantly
               </p>
-              <div className="flex items-center justify-between">
+              <div className="sm:flex items-center justify-between">
                 <div className="">
                   <h2 className="font-bold text-2xl text-white">Sophia W.</h2>
                   <p className="text-white">Graphics Designer</p>

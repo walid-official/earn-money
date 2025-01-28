@@ -6,7 +6,7 @@ const Features = () => {
   return (
     <div className="w-11/12 mx-auto py-20">
       <div className="pb-20">
-        <h2 className="text-4xl text-white font-bold text-center">
+        <h2 className="md:text-4xl text-3xl text-white font-bold text-center">
           Skill-Based Job Matching
         </h2>
         <p className="text-center text-white md:w-[50%] mx-auto py-3">

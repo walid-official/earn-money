@@ -16,7 +16,7 @@ const Register = () => {
     useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const [passwordStrength, setPasswordStrength] = useState({
-    label: "Weak",
+    label: "Strong Your Password",
     color: "bg-red-500",
     progress: 0,
   });
@@ -117,7 +117,7 @@ const Register = () => {
       <div className="hero bg-gradient-to-t from-[#27292f] to-[#10121d] shadow-2xl rounded-tl-full rounded-br-full w-full min-h-screen">
         <div className="w-11/12 mx-auto lg:flex lg:py-0">
           {/* Left Section */}
-          <div className="lg:w-[50%] lg:flex justify-center items-center">
+          <div className="lg:w-[55%] lg:flex justify-center items-center">
             <div className="py-20">
               <h2 className="font-bold text-4xl text-white">
                 Register to Start Earning
@@ -141,7 +141,7 @@ const Register = () => {
             </div>
           </div>
           {/* Right Section */}
-          <div className="card lg:w-[50%] bg-base-100 lg:max-w-md max-w-lg shrink-0 shadow-2xl">
+          <div className="card lg:w-[45%] bg-base-100 lg:max-w-md max-w-lg shrink-0 shadow-2xl">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
 
             <div className="form-control">
@@ -226,7 +226,7 @@ const Register = () => {
                     ></div>
                   </div>
                   <p className="text-sm mt-1 text-gray-700">
-                    Strength: {passwordStrength.label}
+                     {passwordStrength.label}
                   </p>
                 </div>
               </div>
