@@ -3,9 +3,13 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { NavLink } from "react-router-dom";
 import { MdOutlineNotificationsActive } from "react-icons/md";
+import { CiSettings } from "react-icons/ci";
+import { MdOutlineLogout } from "react-icons/md";
 import useRole from "../../Hooks/useRole";
+import { BsCoin } from "react-icons/bs";
+
 const DashboardNavbar = ({ myInfo }) => {
-  const { user } = useAuth();
+  const { user,userSignOut } = useAuth();
   const axiosSecure = useAxiosSecure();
   const [role] = useRole();
   const {
@@ -20,6 +24,10 @@ const DashboardNavbar = ({ myInfo }) => {
       return data;
     },
   });
+
+const handleProfileLogout = async () => {
+  await userSignOut()
+}
 
   const updatedNotifications = notifications.map((notification) => {
     const date = new Date(notification.time);
@@ -39,75 +47,8 @@ const DashboardNavbar = ({ myInfo }) => {
   return (
     <div className="bg-gradient-to-t from-[#0b1019] to-[#141922] py-3 text-white shadow-2xl">
       <div className="navbar flex justify-end ">
-        {/* <div className="navbar-start">
-          <div className="dropdown">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h7"
-                />
-              </svg>
-            </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-            >
-              <li>
-                <a>Homepage</a>
-              </li>
-              <li>
-                <a>Portfolio</a>
-              </li>
-              <li>
-                <a>About</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="navbar-center">
-          <a className="btn btn-ghost text-xl">daisyUI</a>
-        </div> */}
         <div className="">
-          <div className="flex justify-center items-center gap-10">
-            <div className="flex justify-center flex-col items-center space-y-4">
-              <h2 className="font-bold">
-                {role === "Admin" ? (
-                  <p className="font-bold text-xl">Boss Body</p>
-                ) : (
-                  <div className="">
-                    Available Coin:{" "}
-                    {myInfo.coin > 0 ? <span>{myInfo?.coin.toFixed(2)}</span> : 0}
-                  </div>
-                )}
-              </h2>
-              <div className="badge badge-accent text-white font-bold">
-                {myInfo?.role}
-              </div>
-            </div>
-            <div className="flex justify-center flex-col items-center">
-              <div className="bg-white w-8 h-8 rounded-full">
-                <img
-                  className="w-8 h-8 rounded-full object-cover"
-                  src={myInfo?.photo}
-                  alt=""
-                />
-              </div>
-              <h2 className="pt-1 font-bold">{myInfo?.name}</h2>
-            </div>
-          </div>
+          {/* Notifications */}
           <div className="px-8 text-slate-950">
             <div className="dropdown dropdown-end">
               <div tabIndex={0} role="button" className=" m-1">
@@ -152,6 +93,54 @@ const DashboardNavbar = ({ myInfo }) => {
                     </div>
                   </NavLink>
                 ))}
+              </ul>
+            </div>
+          </div>
+          {/* User Info */}
+          <div className="flex justify-center items-center gap-10 ">
+         
+            <div className="dropdown dropdown-end mr-4">
+              <div tabIndex={0} role="button" className="">
+                <div className="bg-white w-10 h-10 rounded-full">
+                  <img
+                    className="w-10 h-10 rounded-full object-cover"
+                    src={myInfo?.photo}
+                    alt=""
+                  />
+                </div>
+              </div>
+              <ul
+                tabIndex={0}
+                className="dropdown-content menu bg-base-100 text-black rounded-box z-[1] w-60 p-2 shadow mt-4"
+              >
+                <li>
+                  <div className="flex">
+                    <h2 className="pt-1 font-bold">{myInfo?.name}</h2>
+                    <h2 className="bg-accent rounded-xl text-white px-2">
+                      {myInfo?.role}
+                    </h2>
+                  </div>
+                </li>
+                <li>
+                  <div className="flex gap-3">
+                    <h2 className="text-xl">
+                      <BsCoin></BsCoin>
+                    </h2>
+                    {myInfo.coin > 0 ? (
+                      <span>{myInfo?.coin.toFixed(2)}</span>
+                    ) : (
+                      0
+                    )}
+                  </div>
+                </li>
+                <li onClick={handleProfileLogout}>
+                  <div  className="flex gap-3">
+                    <button className="text-[22px]">
+                      <MdOutlineLogout></MdOutlineLogout>
+                    </button>
+                    <h2>Logout</h2>
+                  </div>
+                </li>
               </ul>
             </div>
           </div>

@@ -29,7 +29,7 @@ const Sidebar = () => {
         <h2 className="text-xl">
           <IoHome></IoHome>
         </h2>
-        <h2 className="text-xl">Home</h2>
+        <h2 className="text-xl">Dashboard</h2>
       </NavLink>
       <div className="border-b pb-10 border-gray-600">
         {role === "Admin" && <AdminMenu />}

@@ -53,26 +53,26 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-  
       if (currentUser) {
         console.log(currentUser);
-     
+
         const userInfo = { email: currentUser.email };
 
-        axios.post("https://earn-money-platform-server.vercel.app/jwt", userInfo).then((res) => {
-          console.log(res.data);
-          if (res.data.token) {
-            localStorage.setItem("access-token", res.data.token);
-            setUser(currentUser);
-            setLoading(false);
-          }
-        });
+        axios
+          .post("https://earn-money-platform-server.vercel.app/jwt", userInfo)
+          .then((res) => {
+            console.log(res.data);
+            if (res.data.token) {
+              localStorage.setItem("access-token", res.data.token);
+              setUser(currentUser);
+              setLoading(false);
+            }
+          });
       } else {
         localStorage.removeItem("access-token");
         setUser(null);
         setLoading(false);
       }
-      
     });
 
     return () => {
