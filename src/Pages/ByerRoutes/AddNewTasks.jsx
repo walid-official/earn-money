@@ -157,7 +157,7 @@ const AddNewTasks = () => {
                   type="text"
                   {...register("taskTitle", { required: true })}
                   placeholder="Task Title"
-                  className="input input-bordered shadow-inner bg-gradient-to-r from-[#020710] to-[#1b2028] text-white"
+                  className="input input-bordered shadow-inner border-gray-500 bg-gradient-to-r from-[#020710] to-[#1b2028] text-white"
                 />
                 {errors.taskTitle && (
                   <span className="text-red-500">Task Title is required</span>
@@ -171,7 +171,7 @@ const AddNewTasks = () => {
                 <textarea
                   {...register("taskDetail")}
                   placeholder="Task Detail"
-                  className="textarea textarea-bordered textarea-md w-full bg-gradient-to-r from-[#020710] to-[#1b2028] text-white"
+                  className="textarea textarea-bordered border-gray-500 textarea-md w-full bg-gradient-to-r from-[#020710] to-[#1b2028] text-white"
                 ></textarea>
               </div>
 
@@ -186,7 +186,7 @@ const AddNewTasks = () => {
                     type="number"
                     {...register("requiredWorker", { required: true })}
                     placeholder="Required Workers"
-                    className="input input-bordered bg-gradient-to-r from-[#020710] to-[#1b2028] text-white"
+                    className="input input-bordered border-gray-500 bg-gradient-to-r from-[#020710] to-[#1b2028] text-white"
                   />
                   {errors.requiredWorker && (
                     <span className="text-red-500">
@@ -204,7 +204,7 @@ const AddNewTasks = () => {
                     type="number"
                     {...register("payableAmount", { required: true })}
                     placeholder="Payable Amount (USD)"
-                    className="input input-bordered bg-gradient-to-r from-[#020710] to-[#1b2028] text-white"
+                    className="input input-bordered border-gray-500 bg-gradient-to-r from-[#020710] to-[#1b2028] text-white"
                   />
                   {errors.payableAmount && (
                     <span className="text-red-500">
@@ -218,9 +218,9 @@ const AddNewTasks = () => {
                 <label className="label">
                   <span className="label-text text-white">Completion Date</span>
                 </label>
-                <div className="w-full">
+                <div className="w-full ">
                   <DatePicker
-                    className="shadow-inner py-3 rounded-lg px-3 w-full bg-gradient-to-r from-[#020710] to-[#1b2028] text-white"
+                    className="shadow-inner py-3  rounded-lg px-3 w-full bg-gradient-to-r from-[#020710] to-[#1b2028] text-white"
                     selected={startDate}
                     onChange={(date) => setStartDate(date)}
                   />
@@ -242,12 +242,12 @@ const AddNewTasks = () => {
                   <input
                     type="file"
                     {...register("submissionInfo")}
-                    className="file-input file-input-bordered w-full max-w-xl"
+                    className="file-input file-input-bordered border-gray-500 w-full max-w-xl"
                   />
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text text-white">
+                    <span className="label-text border-gray-500 text-white">
                       Task Image URL
                     </span>
                   </label>

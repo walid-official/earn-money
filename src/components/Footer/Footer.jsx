@@ -14,17 +14,21 @@ const Footer = () => {
           </p>
           <div className="flex pt-4 gap-4 text-white">
             <div className="">
-              <a href="" className="text-xl">
+              <a
+                href="www.linkedin.com/in/walidhasan87"
+                target="_blank"
+                className="text-xl"
+              >
                 <FaLinkedinIn></FaLinkedinIn>
               </a>
             </div>
             <div className="">
-              <a href="" className="text-xl">
+              <a href="https://x.com/WalidHasan17083" target="_blank" className="text-xl">
                 <FaXTwitter></FaXTwitter>
               </a>
             </div>
             <div className="">
-              <a href="" className="text-xl">
+              <a href="https://github.com/walid-official" target="_blank" className="text-xl">
                 {" "}
                 <RiGithubLine></RiGithubLine>
               </a>
@@ -33,21 +37,21 @@ const Footer = () => {
         </div>
 
         <nav>
-          <h6 className="text-xl text-slate-600 font-bold pb-3">Services</h6>
+          <h6 className="text-xl text-white font-bold pb-3">Services</h6>
           <a className="link link-hover block text-white">Branding</a>
           <a className="link link-hover block text-white">Design</a>
           <a className="link link-hover block text-white">Marketing</a>
           <a className="link link-hover block text-white">Advertisement</a>
         </nav>
         <nav>
-          <h6 className="text-xl text-slate-600 font-bold pb-3">Company</h6>
+          <h6 className="text-xl text-white font-bold pb-3">Company</h6>
           <a className="link link-hover block text-white">About us</a>
           <a className="link link-hover block text-white">Contact</a>
           <a className="link link-hover block text-white">Jobs</a>
           <a className="link link-hover block text-white">Press kit</a>
         </nav>
         <nav>
-          <h6 className="text-xl text-slate-600 font-bold pb-3">Legal</h6>
+          <h6 className="text-xl text-white font-bold pb-3">Legal</h6>
           <a className="link link-hover block text-white">Terms of use</a>
           <a className="link link-hover block text-white">Privacy policy</a>
           <a className="link link-hover block text-white">Cookie policy</a>

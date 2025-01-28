@@ -29,7 +29,7 @@ const Sidebar = () => {
     <div className="pt-10 ">
       <NavLink
         to="/dashboard"
-        className="flex gap-4 items-center text-white  pl-10 hover:bg-slate-700 py-3 duration-300 cursor-pointer"
+        className="flex gap-4 items-center text-white  pl-6 hover:bg-slate-700 py-3 duration-300 cursor-pointer"
       >
         <h2 className="text-xl">
           <IoHome></IoHome>
@@ -42,17 +42,17 @@ const Sidebar = () => {
         {role === "Buyer" && <BuyerMenu />}
       </div>
 
-      <div className=" pt-10">
+      <div className="pt-40">
       <NavLink
         to="/"
-        className="flex gap-4 items-center pl-10 text-white hover:bg-slate-700 py-3 duration-300 cursor-pointer"
+        className="flex gap-4 items-center pl-6 text-white hover:bg-slate-700 py-3 duration-300 cursor-pointer"
       >
         <h2 className="text-xl">
           <IoHome></IoHome>
         </h2>
         <h2 className="text-xl">Home</h2>
       </NavLink>
-        <NavLink onClick={handleSidebarLogout} className="flex gap-2 pl-10 text-white hover:bg-slate-700 py-3 duration-300 items-center">
+        <NavLink onClick={handleSidebarLogout} className="flex gap-2 pl-6 text-white hover:bg-slate-700 py-3 duration-300 items-center">
           <button className="text-xl font-bold">
             <CiLogin></CiLogin>
           </button>
