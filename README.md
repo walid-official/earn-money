@@ -7,7 +7,7 @@ Welcome to the Micro-Task and Earning Platform! This MERN-based project provides
 
 ##
 
-<img src="https://raw.githubusercontent.com/walid-official/earn-money/main/Screenshot%202025-02-01%20124705.png" alt="Earnify Screenshot" height="500">
+<img src="https://raw.githubusercontent.com/walid-official/earn-money/main/Screenshot%202025-02-01%20124705.png" alt="Earnify Screenshot" height="400">
 
 # Admin Username and Password :
 
