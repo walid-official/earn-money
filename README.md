@@ -3,9 +3,12 @@
 
 ## Earnify - Micro-Task and Earning Platform
 
+<img src="https://raw.githubusercontent.com/walid-official/earn-money/main/Screenshot%202025-02-01%20124705.png" alt="Earnify Screenshot" height="500">
+
+##
+
 Welcome to the Micro-Task and Earning Platform! This MERN-based project provides a seamless experience for users to perform, create, and manage micro-tasks while earning and managing coins. The platform supports three distinct user roles: Worker, Buyer, and Admin, each with tailored functionalities for an engaging and efficient tasking ecosystem.
 
-<img src="https://raw.githubusercontent.com/walid-official/earn-money/main/Screenshot%202025-02-01%20124705.png" alt="Earnify Screenshot" height="300">
 
 # Admin Username and Password :
 
