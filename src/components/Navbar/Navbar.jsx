@@ -78,7 +78,7 @@ const Navbar = () => {
               </NavLink> */}
               {/* <a className="btn">Button</a> */}
               <a
-                href="https://github.com/Programming-Hero-Web-Course4/b10a12-client-side-walid-official"
+                href="https://github.com/walid-official"
                 target="_blank"
                 className="rounded-md font-bold bg-[#00d7c0] text-white border-none py-3 px-6"
               >
@@ -101,7 +101,7 @@ const Navbar = () => {
                 Register
               </NavLink>
               <a
-                href="https://github.com/Programming-Hero-Web-Course4/b10a12-client-side-walid-official"
+                href="https://github.com/walid-official"
                 target="_blank"
                 className="rounded-md font-bold bg-[#00d7c0] text-white border-none py-3 px-6"
               >
@@ -153,7 +153,7 @@ const Navbar = () => {
                   </NavLink>
                   {/* <a className="btn">Button</a> */}
                   <a
-                    href="https://github.com/Programming-Hero-Web-Course4/b10a12-client-side-walid-official"
+                    href="https://github.com/walid-official"
                     target="_blank"
                     className="rounded-tr-2xl text-center block rounded-bl-2xl font-bold bg-[#00d7c0] text-white border-none py-3 px-6"
                   >
@@ -192,7 +192,7 @@ const Navbar = () => {
                     Register
                   </NavLink>
                   <a
-                    href="https://github.com/Programming-Hero-Web-Course4/b10a12-client-side-walid-official"
+                    href="https://github.com/walid-official"
                     target="_blank"
                     className="rounded-lg text-center block  font-bold bg-[#00d7c0] text-white border-none py-3 px-6"
                   >

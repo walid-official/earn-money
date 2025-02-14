@@ -106,16 +106,7 @@ const WorkerHome = () => {
           </div>
         </div>
       </div>
-      {/* <div className="py-8">
-        <h2 className="text-center font-bold text-4xl py-3">
-          Welcome To Worker Dashboard!
-        </h2>
-        <p className="w-[50%] mx-auto text-center">
-          Effortlessly manage your account, track activity, and access
-          personalized features all in one place. Enjoy a streamlined and
-          intuitive experience.
-        </p>
-      </div> */}
+     
       <div className="w-[75%] mx-auto "></div>
     </div>
   );

@@ -112,7 +112,7 @@ const Register = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-[#020710] to-[#1b2028] min-h-screen">
+    <div className="bg-gradient-to-r from-[#020710] to-[#1b2028] min-h-screen py-10">
       <CustomCursor></CustomCursor>
       <div className="hero bg-gradient-to-t from-[#27292f] to-[#10121d] shadow-2xl rounded-tl-full rounded-br-full w-full min-h-screen">
         <div className="w-11/12 mx-auto lg:flex lg:py-0">
@@ -183,6 +183,24 @@ const Register = () => {
                 />
                 {errors.email && (
                   <p className="text-red-500">{errors.email.message}</p>
+                )}
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Role</span>
+                </label>
+                <select
+                  {...register("role", { required: "Role is required" })}
+                  className="select select-bordered w-full max-w-sm"
+                >
+                  <option disabled selected value="">
+                    Choose Your Role
+                  </option>
+                  <option value="Worker">Worker</option>
+                  <option value="Buyer">Buyer</option>
+                </select>
+                {errors.role && (
+                  <p className="text-red-500">{errors.role.message}</p>
                 )}
               </div>
               {/* Password Field */}
