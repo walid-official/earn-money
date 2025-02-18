@@ -9,7 +9,6 @@ import useAuth from "../Hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import { createContext } from "react";
 import CustomCursor from "../components/CustomCursor/CustomCursor";
-// import Sidebar from './../components/Sidebar/Sidebar';
 
 export const myInfoContext = createContext();
 
@@ -41,11 +40,11 @@ const DashBoardLayout = () => {
       
       <div className="lg:flex justify-between">
         <div className="lg:w-[20%] lg:min-h-screen bg-gradient-to-r from-[#020710] to-[#1b2028]">
-          <div className="py-4 pl-10 border-b border-gray-600 flex justify-between">
-            <NavLink to="/" className="">
-              <div className="flex gap-3 items-center">
+          <div className="py-6 pl-6 border-gray-600 flex justify-between">
+            <NavLink to="/" className="border-b">
+              <div className="flex gap-3 items-center fixed">
                 <div className="">
-                  <img src={logo} className="w-16 h-16 rounded-full" alt="" />
+                  <img src={logo} className="w-12 h-12 rounded-full" alt="" />
                 </div>
                 <div className="">
                   <h2 className="font-bold text-2xl text-white items-center">
@@ -95,22 +94,22 @@ const DashBoardLayout = () => {
               </div>
             </div>
           </div>
-          <div className="lg:block hidden ">
+          <div className="lg:block hidden fixed w-[20%]">
             <Sidebar></Sidebar>
           </div>
         </div>
-        <div className="lg:w-[80%]">
-          <div className="">
+        <div className="lg:w-[80%] ">
+          <div className="static top-0">
             <DashboardNavbar myInfo={myInfo}></DashboardNavbar>
           </div>
           <div className="min-h-screen">
             <Outlet></Outlet>
           </div>
-          <div className="bg-[#242835]">
+          {/* <div className="bg-[#242835]">
             <Footer></Footer>
-          </div>
+          </div> */}
         </div>
-        <CustomCursor></CustomCursor>
+
       </div>
     </myInfoContext.Provider>
   );

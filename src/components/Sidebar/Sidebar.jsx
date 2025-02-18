@@ -29,7 +29,7 @@ const Sidebar = () => {
     <div className="pt-10 ">
       <NavLink
         to="/dashboard"
-        className="flex gap-4 items-center text-white  pl-6 hover:bg-slate-700 py-3 duration-300 cursor-pointer"
+        className="flex gap-4 items-center text-white mt-10  pl-6 hover:bg-slate-700 py-3 duration-300 cursor-pointer"
       >
         <h2 className="text-xl">
           <IoHome></IoHome>
@@ -42,7 +42,7 @@ const Sidebar = () => {
         {role === "Buyer" && <BuyerMenu />}
       </div>
 
-      <div className="pt-40">
+      <div className="pt-10">
       <NavLink
         to="/"
         className="flex gap-4 items-center pl-6 text-white hover:bg-slate-700 py-3 duration-300 cursor-pointer"
