@@ -44,11 +44,11 @@ const Hero = () => {
                     </span>{" "}
                     how to earn more
                   </p>
-                  <h1 className="font-bold lg:leading-tight text-white text-center lg:text-left text-3xl md:text-5xl lg:text-6xl py-4">
+                  <h1 className="font-bold lg:leading-tight  text-center lg:text-left text-3xl md:text-5xl lg:text-6xl py-4">
                     Make Your <span className="text-[#00d7c0]">money</span>.{" "}
                    <br /> anywhere, anytime!
                   </h1>
-                  <p className="text-white lg:text-left text-center py-3 leading-normal">
+                  <p className=" lg:text-left text-center py-3 leading-normal">
                     Make money anytime, anywhere with the freedom to work when
                     and where you want, balancing income and lifestyle
                     seamlessly.
@@ -106,11 +106,11 @@ const Hero = () => {
                     </span>{" "}
                     how to earn more
                   </p>
-                  <h1 className="font-bold lg:leading-tight text-white text-center lg:text-left text-3xl md:text-5xl lg:text-6xl py-4">
+                  <h1 className="font-bold lg:leading-tight  text-center lg:text-left text-3xl md:text-5xl lg:text-6xl py-4">
                     Grow Your <span className="text-[#00d7c0]">wealth</span>.
                     Anytime, anywhere!
                   </h1>
-                  <p className="text-white lg:text-left text-center py-3 leading-normal">
+                  <p className=" lg:text-left text-center py-3 leading-normal">
                     Make money anytime, anywhere with the freedom to work when
                     and where you want, balancing income and lifestyle
                     seamlessly.
@@ -167,11 +167,11 @@ const Hero = () => {
                     </span>{" "}
                     how to earn more
                   </p>
-                  <h1 className="font-bold lg:leading-tight text-white text-center lg:text-left text-3xl md:text-5xl lg:text-6xl py-4">
+                  <h1 className="font-bold lg:leading-tight  text-center lg:text-left text-3xl md:text-5xl lg:text-6xl py-4">
                     Boost Your <span className="text-[#00d7c0]">skills</span>.
                     Anytime, anywhere!
                   </h1>
-                  <p className="text-white lg:text-left text-center py-3 leading-normal">
+                  <p className=" lg:text-left text-center py-3 leading-normal">
                     Make money anytime, anywhere with the freedom to work when
                     and where you want, balancing income and lifestyle
                     seamlessly.

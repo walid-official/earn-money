@@ -5,8 +5,8 @@ const About = () => {
     <div className="w-11/12 mx-auto">
       <div className="text-center py-10">
         <h3 className="text-accent text-xl font-bold">Our Story</h3>
-        <h2 className="text-5xl font-bold text-white">About our company</h2>
-        <p className="text-white py-4 w-[60%] mx-auto">
+        <h2 className="text-5xl font-bold ">About our company</h2>
+        <p className=" py-4 w-[60%] mx-auto">
           Micro-tasking earning platform where users can complete simple tasks
           and earn money instantly. We connect businesses with task solvers
           worldwide, offering diverse earning opportunities like data entry,
@@ -24,12 +24,12 @@ const About = () => {
         <div className="grid lg:grid-cols-2 gap-8">
           <div className="w-[90%]">
             <h3 className="text-accent text-xl pb-4 font-bold">Our Mission</h3>
-            <h2 className="text-4xl font-bold text-white">
+            <h2 className="text-4xl font-bold ">
               We are helping people to get a success.
             </h2>
           </div>
           <div className="">
-            <p className="text-white py-4 italic">
+            <p className=" py-4 italic">
               At Micro Tasking Earning Platform, we are dedicated to helping
               people achieve success by providing opportunities to earn, grow,
               and thrive. Whether you're looking for extra income, flexible
@@ -43,7 +43,7 @@ const About = () => {
       {/* Card section */}
       <div className="w-[80%] mx-auto py-10">
         <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6">
-          <div className="card bg-base-100 shadow-xl">
+          <div className="card shadow-xl">
             <div className="card-body">
               <div className="">
                 <img
@@ -61,7 +61,7 @@ const About = () => {
               </p>
             </div>
           </div>
-          <div className="card bg-base-100 shadow-xl">
+          <div className="card  shadow-xl">
             <div className="card-body">
               <div className="">
                 <img
@@ -80,7 +80,7 @@ const About = () => {
               </p>
             </div>
           </div>
-          <div className="card bg-base-100 shadow-xl">
+          <div className="card  shadow-xl">
             <div className="card-body">
               <div className="">
                 <img

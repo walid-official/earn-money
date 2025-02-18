@@ -6,10 +6,10 @@ const ScaleCard = () => {
     <div className="" >
       <div className="md:w-[80%] w-[90%] mx-auto pb-14">
         <div className="pt-10 pb-20">
-          <h2 className="text-4xl text-white font-bold text-center">
+          <h2 className="text-4xl  font-bold text-center">
             Transforming Dreams into Reality
           </h2>
-          <p className="text-center text-white md:w-[60%] mx-auto py-3">
+          <p className="text-center md:w-[60%] mx-auto py-3">
             With over 2 million active users, we’re turning earning
             opportunities into a global movement. Join us in reaching new
             milestones every day.

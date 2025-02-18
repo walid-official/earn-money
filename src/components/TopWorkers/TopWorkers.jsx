@@ -21,7 +21,7 @@ const TopWorkers = () => {
 
   return (
     <div className="w-11/12 mx-auto pb-16 pt-12">
-      <div className="py-10 text-white">
+      <div className="py-10 ">
         <h2 className="font-bold text-4xl text-center">Top Achieving Workers</h2>
         <p className="text-center md:w-[45%] mx-auto py-3">
           Discover our dedicated professionals who excel in their fields. From
