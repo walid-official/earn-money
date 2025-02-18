@@ -114,7 +114,7 @@ const Register = () => {
   return (
     <div className="bg-gradient-to-r from-[#020710] to-[#1b2028] min-h-screen py-10">
       <CustomCursor></CustomCursor>
-      <div className="hero bg-gradient-to-t from-[#27292f] to-[#10121d] shadow-2xl rounded-tl-full rounded-br-full w-full min-h-screen">
+      <div className="hero bg-gradient-to-t from-[#27292f] to-[#10121d] py-10 shadow-2xl rounded-tl-full rounded-br-full w-full min-h-screen">
         <div className="w-11/12 mx-auto lg:flex lg:py-0">
           {/* Left Section */}
           <div className="lg:w-[55%] lg:flex justify-center items-center">

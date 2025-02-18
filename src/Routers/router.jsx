@@ -21,6 +21,7 @@ import Payment from "../Pages/Payment/Payment";
 import Withdrawals from "../Pages/WorkerRoutes/Withdrawals";
 import ManageTasks from "../Pages/AdminRoutes/ManageTasks";
 import WorkerRouter from "./WorkerRouter";
+import About from "../components/About/About";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
       },
+      {
+        path: "about",
+        element: <About></About>
+      }
     ],
   },
   {

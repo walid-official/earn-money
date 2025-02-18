@@ -34,7 +34,7 @@ const Navbar = () => {
   // );
 
   return (
-    <div className="w-11/12  py-5 mx-auto">
+    <div className="w-11/12  py-6 mx-auto">
       <div className="flex justify-between items-center">
         <div className="">
           <div className="">
@@ -51,39 +51,21 @@ const Navbar = () => {
 
         <div className="lg:flex hidden">
           {user ? (
-            <div className="flex gap-4 items-center pt-1">
-              <NavLink to="/dashboard"  className="rounded-md font-bold bg-[#00d7c0] text-white border-none py-3 px-6" >
+            <div className="flex gap-6 items-center pt-1">
+              <NavLink to="/dashboard"  className=" text-white " >
                 Dashboard
               </NavLink>
-
-              {/* <div className="flex gap-2 items-center text-white">
-                <img className="w-10" src={coinNav} alt="" />
-               <h2>{UserCoin?.coin}</h2>
-              </div>
-
-              <div className="bg-white w-12 h-12 rounded-full">
-                <img
-                  className="w-12 h-12 rounded-full object-cover"
-                  referrerPolicy="no-referrer"
-                  src={user?.photoURL}
-                  alt=""
-                />
-              </div> */}
-              {/* <NavLink
-                onClick={handleLogoutUser}
-                className="rounded-md font-bold bg-[#00d7c0] text-white border-none py-3 px-6"
-              >
-                {" "}
-                Logout
-              </NavLink> */}
-              {/* <a className="btn">Button</a> */}
+              <NavLink to="/about"  className=" text-white border-none " >
+                About
+              </NavLink>
               <a
                 href="https://github.com/walid-official"
                 target="_blank"
-                className="rounded-md font-bold bg-[#00d7c0] text-white border-none py-3 px-6"
+                className=" text-white "
               >
                 Join as developer
               </a>
+              
             </div>
           ) : (
             <div className="flex gap-4 items-center">
@@ -107,6 +89,9 @@ const Navbar = () => {
               >
                 Join as developer
               </a>
+              <NavLink to="/dashboard"  className="rounded-md font-bold bg-[#00d7c0] text-white border-none py-3 px-6" >
+                About
+              </NavLink>
             </div>
           )}
         </div>
@@ -159,6 +144,9 @@ const Navbar = () => {
                   >
                     Join as developer
                   </a>
+                  <NavLink to="/about"  className="rounded-md font-bold bg-[#00d7c0] text-white border-none py-3 px-6" >
+                About
+              </NavLink>
 
                   <div className="flex py-3 justify-between gap-3">
                     <div className="text-[#000] flex items-center gap-2">
@@ -198,6 +186,9 @@ const Navbar = () => {
                   >
                     Join as developer
                   </a>
+                  <NavLink to="/about"  className="rounded-md font-bold bg-[#00d7c0] text-white border-none py-3 px-6" >
+                About
+              </NavLink>
                 </div>
               )}
             </ul>
