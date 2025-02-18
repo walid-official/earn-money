@@ -3,7 +3,7 @@ import React from "react";
 const Contact = () => {
   return (
     <div className="w-11/12 mx-auto">
-      <div className="text-center py-10">
+      <div className="text-center pt-10">
         <h3 className="text-accent text-xl font-bold">Get In Touch</h3>
         <h2 className="text-5xl font-bold text-white pt-3">
           Contact information
@@ -15,7 +15,7 @@ const Contact = () => {
       </div>
       <div className="pb-10 text-center">
         <div className="w-11/12 mx-auto py-14">
-          <div className="lg:flex gap-4 bg-white p-10">
+          <div className="lg:flex gap-4 bg-white p-10 rounded-xl">
             <div className="lg:w-[50%]">
               <div className="">
                 <img
