@@ -3,14 +3,17 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { NavLink } from "react-router-dom";
 import { MdOutlineNotificationsActive } from "react-icons/md";
-import { CiSettings } from "react-icons/ci";
+import { FaBars, FaTimes, FaMoon, FaSun } from "react-icons/fa";
 import { MdOutlineLogout } from "react-icons/md";
 import useRole from "../../Hooks/useRole";
 import { BsCoin } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
+import { useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 const DashboardNavbar = ({ myInfo }) => {
   const { user, userSignOut } = useAuth();
   const axiosSecure = useAxiosSecure();
+  const {theme,toggleTheme} = useContext(ThemeContext)
   const [role] = useRole();
   const {
     data: notifications = [],
@@ -46,10 +49,10 @@ const DashboardNavbar = ({ myInfo }) => {
 
   return (
     <div className="bg-gradient-to-t from-[#0b1019] to-[#141922] py-3 text-white shadow-2xl">
-      <div className="navbar flex justify-end ">
+      <div className="navbar flex justify-end">
         <div className="">
           {/* Notifications */}
-          <div className="px-8 text-slate-950">
+          <div className="text-slate-950">
             <div className="dropdown dropdown-end">
               <div tabIndex={0} role="button" className=" m-1">
                 <button className="btn btn-ghost btn-circle text-white">
@@ -95,6 +98,11 @@ const DashboardNavbar = ({ myInfo }) => {
                 ))}
               </ul>
             </div>
+          </div>
+          <div className="px-6 flex items-center">
+            <button onClick={toggleTheme} className="">
+              {theme === "dark" ? <FaSun size={24} /> : <FaMoon size={24} />}
+            </button>
           </div>
           {/* User Info */}
           <div className="flex justify-center items-center gap-10 ">
