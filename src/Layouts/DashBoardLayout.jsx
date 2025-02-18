@@ -82,7 +82,7 @@ const DashBoardLayout = () => {
                     </svg>
                   </label>
                 </div>
-                <div className="drawer-side ">
+                <div className="drawer-side">
                   <label
                     htmlFor="my-drawer"
                     className="drawer-overlay "
@@ -94,7 +94,7 @@ const DashBoardLayout = () => {
               </div>
             </div>
           </div>
-          <div className="lg:block hidden fixed w-[20%]">
+          <div className="lg:block hidden fixed w-[19.5%]">
             <Sidebar></Sidebar>
           </div>
         </div>
@@ -105,9 +105,6 @@ const DashBoardLayout = () => {
           <div className="min-h-screen">
             <Outlet></Outlet>
           </div>
-          {/* <div className="bg-[#242835]">
-            <Footer></Footer>
-          </div> */}
         </div>
 
       </div>

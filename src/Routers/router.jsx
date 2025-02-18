@@ -23,6 +23,7 @@ import ManageTasks from "../Pages/AdminRoutes/ManageTasks";
 import WorkerRouter from "./WorkerRouter";
 import About from "../components/About/About";
 import Contact from "../components/Contact/Contact";
+import Profile from "../Pages/Profile/Profile";
 
 const router = createBrowserRouter([
   {
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
             <DashboardHome></DashboardHome>
           </PrivetRouter>
         ),
+      },
+      {
+        path: "profile",
+        element: <Profile></Profile>
       },
       {
         path: "payment/:id",

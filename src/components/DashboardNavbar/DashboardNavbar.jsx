@@ -7,9 +7,9 @@ import { CiSettings } from "react-icons/ci";
 import { MdOutlineLogout } from "react-icons/md";
 import useRole from "../../Hooks/useRole";
 import { BsCoin } from "react-icons/bs";
-
+import { CgProfile } from "react-icons/cg";
 const DashboardNavbar = ({ myInfo }) => {
-  const { user,userSignOut } = useAuth();
+  const { user, userSignOut } = useAuth();
   const axiosSecure = useAxiosSecure();
   const [role] = useRole();
   const {
@@ -25,9 +25,9 @@ const DashboardNavbar = ({ myInfo }) => {
     },
   });
 
-const handleProfileLogout = async () => {
-  await userSignOut()
-}
+  const handleProfileLogout = async () => {
+    await userSignOut();
+  };
 
   const updatedNotifications = notifications.map((notification) => {
     const date = new Date(notification.time);
@@ -98,7 +98,6 @@ const handleProfileLogout = async () => {
           </div>
           {/* User Info */}
           <div className="flex justify-center items-center gap-10 ">
-         
             <div className="dropdown dropdown-end mr-4">
               <div tabIndex={0} role="button" className="">
                 <div className="bg-white w-10 h-10 rounded-full">
@@ -122,6 +121,16 @@ const handleProfileLogout = async () => {
                   </div>
                 </li>
                 <li>
+                  <NavLink to="/dashboard/profile">
+                    <div className="flex gap-3">
+                      <div className="text-[22px]">
+                        <CgProfile></CgProfile>
+                      </div>
+                      <p>Your Profile</p>
+                    </div>
+                  </NavLink>
+                </li>
+                <li>
                   <div className="flex gap-3">
                     <h2 className="text-xl">
                       <BsCoin></BsCoin>
@@ -133,8 +142,9 @@ const handleProfileLogout = async () => {
                     )}
                   </div>
                 </li>
+
                 <li onClick={handleProfileLogout}>
-                  <div  className="flex gap-3">
+                  <div className="flex gap-3">
                     <button className="text-[22px]">
                       <MdOutlineLogout></MdOutlineLogout>
                     </button>
