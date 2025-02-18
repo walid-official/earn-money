@@ -23,7 +23,7 @@ const About = () => {
       <div className="w-[80%] mx-auto py-10">
         <div className="grid lg:grid-cols-2 gap-8">
           <div className="w-[90%]">
-            <h3 className="text-accent text-xl pb-4 font-bold">Our Story</h3>
+            <h3 className="text-accent text-xl pb-4 font-bold">Our Mission</h3>
             <h2 className="text-4xl font-bold text-white">
               We are helping people to get a success.
             </h2>

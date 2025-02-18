@@ -58,6 +58,9 @@ const Navbar = () => {
               <NavLink to="/about"  className=" text-white border-none " >
                 About
               </NavLink>
+              <NavLink to="/contact"  className=" text-white border-none " >
+                Contact
+              </NavLink>
               <a
                 href="https://github.com/walid-official"
                 target="_blank"

@@ -22,6 +22,7 @@ import Withdrawals from "../Pages/WorkerRoutes/Withdrawals";
 import ManageTasks from "../Pages/AdminRoutes/ManageTasks";
 import WorkerRouter from "./WorkerRouter";
 import About from "../components/About/About";
+import Contact from "../components/Contact/Contact";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "about",
         element: <About></About>
+      },
+      {
+        path: "contact",
+        element: <Contact></Contact>
       }
     ],
   },
