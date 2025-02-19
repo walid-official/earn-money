@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { VscFileSubmodule } from "react-icons/vsc";
 import { MdOutlinePendingActions } from "react-icons/md";
 import { RiCoinsLine } from "react-icons/ri";
@@ -7,10 +7,11 @@ import useAuth from "../../Hooks/useAuth";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import ApprovedSubmissions from "./ApprovedSubmissions";
 import ApexCharts from "../../components/ApexCharts/ApexCharts";
+import { ThemeContext } from "../../context/ThemeContext";
 const WorkerHome = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
-
+  const { theme } = useContext(ThemeContext);
   const {
     data: { result: myTotalSubmissions = [], total = 0 } = {},
     isLoading,
@@ -49,22 +50,42 @@ const WorkerHome = () => {
 
   console.log(myTotalSubmissions);
   console.log(pendingSubmissions);
-
+  // #d4ceca
   return (
-    <div className="bg-gradient-to-r from-[#020710] to-[#1b2028]">
-      <h2 className="font-bold text-2xl p-10 pb-0 text-white">ProfitHub 360: Your Earnings Dashboard at a Glance</h2>
+    <div
+      className={` ${
+        theme === "light"
+          ? "backdrop-blur-xl bg-white/30"
+          : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
+      } z-10`}
+    >
+      <h2 className="font-bold text-2xl p-10 pb-0 ">
+        ProfitHub 360: Your Earnings Dashboard at a Glance
+      </h2>
       <div className="p-10 lg:flex gap-3 justify-between">
         <div className="lg:w-[70%]">
-          <ApexCharts></ApexCharts>
-          <div className="bg-gradient-to-r from-[#020710] to-[#1b2028] rounded-xl mt-4">
-          <h2 className="font-bold text-center text-white py-6 text-3xl">Approval Submission</h2>
+          <ApexCharts theme={theme}></ApexCharts>
+          <div
+            className={`rounded-xl mt-4 ${
+              theme === "light"
+                ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#f3f3f3] text-black"
+                : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
+            } z-10`}
+          >
+            <h2 className="font-bold text-center  py-6 text-3xl">
+              Approval Submission
+            </h2>
             <ApprovedSubmissions
               totalApprovedData={totalApprovedData}
             ></ApprovedSubmissions>
           </div>
         </div>
         <div className="lg:w-[30%] mt-10 lg:mt-0">
-          <div className="space-y-3 bg-gradient-to-r from-[#020710] to-[#1b2028] p-6 shadow-2xl rounded-xl">
+          <div className={`space-y-3 p-6 shadow-2xl rounded-xl ${
+      theme === "light"
+        ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#f3f3f3] "
+        : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
+    } z-10`}>
             <div className="stats shadow w-full bg-[#54ade7] text-white">
               <div className="stat">
                 <div className="stat-title text-center text-white font-bold">
@@ -106,7 +127,7 @@ const WorkerHome = () => {
           </div>
         </div>
       </div>
-     
+
       <div className="w-[75%] mx-auto "></div>
     </div>
   );

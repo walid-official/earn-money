@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-
+import { ThemeContext } from "../../context/ThemeContext";
 
 const Withdrawals = () => {
   const { user } = useAuth();
@@ -12,7 +12,7 @@ const Withdrawals = () => {
   const [withdrawCoin, setWithDrawCoin] = useState(null);
   const [convertedUsd, setConvertedUsd] = useState(null);
   const { register, handleSubmit, reset } = useForm();
-
+  const {theme} = useContext(ThemeContext)
   const {
     data: amountInfo = [],
     isLoading,
@@ -40,8 +40,8 @@ const Withdrawals = () => {
     // Perform withdrawal logic
     const date = new Date();
 
-    if(amountInfo?.coin < withdrawCoin){
-        return toast.error("Withdrawal coin exceeds Your total coin")
+    if (amountInfo?.coin < withdrawCoin) {
+      return toast.error("Withdrawal coin exceeds Your total coin");
     }
 
     const WithdrawalInfo = {
@@ -54,105 +54,115 @@ const Withdrawals = () => {
       status: "pending",
     };
     console.log(WithdrawalInfo);
-    try{
-        const {data} = await axiosSecure.post(`withdrawals/${user?.email}`,WithdrawalInfo);
-        console.log(data);
-        toast.success("Withdraw Request is Successful!!!")
-        reset()
-        refetch()
-        setConvertedUsd(null)
-    }catch(err){
-        console.log(err);
+    try {
+      const { data } = await axiosSecure.post(
+        `withdrawals/${user?.email}`,
+        WithdrawalInfo
+      );
+      console.log(data);
+      toast.success("Withdraw Request is Successful!!!");
+      reset();
+      refetch();
+      setConvertedUsd(null);
+    } catch (err) {
+      console.log(err);
     }
   };
 
   return (
-    <div className="w-11/12 mx-auto">
-      <div className="py-8">
-        <h2 className="text-center font-bold text-3xl md:text-4xl py-3">
-          Effortless Withdrawals Hub
-        </h2>
-        <p className="md:w-[40%] mx-auto text-center">
-          Effortless Withdrawals Hub offers fast and secure financial withdrawal
-          services, ensuring smooth and reliable transactions for all users.
-        </p>
+    <div className={` ${
+      theme === "light"
+        ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#f3f3f3] text-black"
+        : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
+    } z-10`}>
+      <div className="w-11/12 mx-auto">
+        <div className="py-8">
+          <h2 className="text-center font-bold text-3xl md:text-4xl py-3">
+            Effortless Withdrawals Hub
+          </h2>
+          <p className="md:w-[40%] mx-auto text-center">
+            Effortless Withdrawals Hub offers fast and secure financial
+            withdrawal services, ensuring smooth and reliable transactions for
+            all users.
+          </p>
 
-        <h2 className="font-bold text-3xl text-center py-4 mt-6">
-          Your Total Earning: {amountInfo.coin ? amountInfo.coin / 20 : 0}$
-        </h2>
-      </div>
-      <div className=" md:w-[70%] lg:w-[50%] mx-auto pb-20">
-        <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
-          <form
-            onSubmit={handleSubmit(handleWithdrawSubmit)}
-            className="card-body"
-          >
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Coin To Withdraw</span>
-              </label>
-              <input
-                type="number"
-                // {...register("coin")}
-                onChange={handleWithdrawCoin}
-                placeholder="Coin To Withdraw"
-                className="input input-bordered"
-                required
-              />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Withdraw amount</span>
-              </label>
-              <input
-                type="number"
-                defaultValue={convertedUsd}
-                placeholder="Withdraw amount"
-                className="input input-bordered"
-                required
-                readOnly
-              />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Account Number</span>
-              </label>
-              <input
-                type="number"
-                {...register("accountNumber")}
-                placeholder="Account Number"
-                className="input input-bordered"
-                required
-              />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Payment Method</span>
-              </label>
-              <select
-                {...register("paymentMethod")}
-                className="select select-bordered w-full max-w-xs"
-              >
-                <option disabled selected>
-                  Select Payment Method
-                </option>
-                <option value="bkash">bkash</option>
-                <option value="Nagad">Nagad</option>
-                <option value="Rocket">Rocket</option>
-              </select>
-            </div>
-            <div className="form-control mt-6">
-              {amountInfo.coin <= 200 ? (
-                <h2 className="text-red-500 font-bold text-xl text-center">
-                  Insufficient coin
-                </h2>
-              ) : (
-                <button className="btn bg-accent hover:bg-accent text-white font-bold">
-                  Withdraw
-                </button>
-              )}
-            </div>
-          </form>
+          <h2 className="font-bold text-3xl text-center py-4 mt-6">
+            Your Total Earning: {amountInfo.coin ? amountInfo.coin / 20 : 0}$
+          </h2>
+        </div>
+        <div className=" md:w-[70%] lg:w-[50%] mx-auto pb-20">
+          <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
+            <form
+              onSubmit={handleSubmit(handleWithdrawSubmit)}
+              className="card-body"
+            >
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Coin To Withdraw</span>
+                </label>
+                <input
+                  type="number"
+                  // {...register("coin")}
+                  onChange={handleWithdrawCoin}
+                  placeholder="Coin To Withdraw"
+                  className="input input-bordered"
+                  required
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Withdraw amount</span>
+                </label>
+                <input
+                  type="number"
+                  defaultValue={convertedUsd}
+                  placeholder="Withdraw amount"
+                  className="input input-bordered"
+                  required
+                  readOnly
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Account Number</span>
+                </label>
+                <input
+                  type="number"
+                  {...register("accountNumber")}
+                  placeholder="Account Number"
+                  className="input input-bordered"
+                  required
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Payment Method</span>
+                </label>
+                <select
+                  {...register("paymentMethod")}
+                  className="select select-bordered w-full max-w-xs"
+                >
+                  <option disabled selected>
+                    Select Payment Method
+                  </option>
+                  <option value="bkash">bkash</option>
+                  <option value="Nagad">Nagad</option>
+                  <option value="Rocket">Rocket</option>
+                </select>
+              </div>
+              <div className="form-control mt-6">
+                {amountInfo.coin <= 200 ? (
+                  <h2 className="text-red-500 font-bold text-xl text-center">
+                    Insufficient coin
+                  </h2>
+                ) : (
+                  <button className="btn bg-accent hover:bg-accent text-white font-bold">
+                    Withdraw
+                  </button>
+                )}
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>

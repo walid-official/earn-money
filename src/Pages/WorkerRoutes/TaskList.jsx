@@ -23,7 +23,7 @@ const TaskList = ({ postedTask }) => {
   console.log(dateMDY);
 
   return (
-    <div>
+    <div >
       <div className="card shadow-xl">
         {/* <figure>
           <img src={taskImage} alt="Shoes" />

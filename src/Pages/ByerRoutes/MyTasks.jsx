@@ -5,12 +5,14 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import UpdateModal from "./UpdateModal";
 import { useContext, useState } from "react";
 import { myInfoContext } from "../../Layouts/DashBoardLayout";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const MyTasks = () => {
   const { user } = useAuth();
   const { refetch } = useContext(myInfoContext);
   const axiosSecure = useAxiosSecure();
   const [singleTask, setSingleTask] = useState(null);
+  const {theme} = useContext(ThemeContext)
   const {
     data: myTasks = [],
     isLoading,
@@ -60,9 +62,17 @@ const MyTasks = () => {
   console.log(singleTask);
 
   return (
-    <div className="bg-black min-h-screen">
+    <div className={`min-h-screen ${
+      theme === "light"
+        ? "backdrop-blur-xl bg-white text-black"
+        : "dark:bg-black dark:text-white"
+    }`}>
       <div className="py-10">
-        <div className="py-8 bg-gradient-to-r from-[#020710] to-[#1b2028] w-[60%] mx-auto text-white rounded-xl">
+        <div className={`p-8 rounded-xl w-[60%] mx-auto ${
+        theme === "light"
+          ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#c3c0c0] text-black"
+          : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
+      }`}>
           <h2 className="font-bold text-3xl text-center">
             Task Manager - Stay Organized, Stay Ahead
           </h2>

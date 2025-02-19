@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { LuActivity } from "react-icons/lu";
 import { MdOutlinePending } from "react-icons/md";
 import { MdOutlinePayment } from "react-icons/md";
@@ -7,10 +7,12 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import TaskToReview from "./TaskToReview";
 import BuyerChart from "../../components/ApexCharts/BuyerChart";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const BuyerHome = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
+  const {theme} = useContext(ThemeContext)
   const {
     data: addedTasks = [],
     isLoading,
@@ -59,7 +61,11 @@ const BuyerHome = () => {
   console.log(addedTasks);
 
   return (
-    <div className="bg-black p-10">
+    <div className={`p-10 ${
+      theme === "light"
+        ? "backdrop-blur-xl bg-white text-black"
+        : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
+    }`}>
       {/* <div className="py-8">
         <h2 className="text-center font-bold text-4xl py-3">
           Welcome To Buyer Dashboard!
@@ -72,14 +78,26 @@ const BuyerHome = () => {
       </div> */}
       <div className="lg:flex gap-4">
         <div className="lg:w-[70%] ">
-          <div className="bg-gradient-to-r from-[#020710] to-[#1b2028]  p-8 rounded-xl shadow-2xl">
+          <div  className={`p-8 rounded-xl shadow-2xl ${
+        theme === "light"
+          ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#c3c0c0] text-black"
+          : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
+      }`}>
             <BuyerChart></BuyerChart>
           </div>
-          <div className="mt-8 bg-gradient-to-r from-[#020710] to-[#1b2028] p-8 rounded-xl shadow-2xl">
+          <div className={`p-8 rounded-xl shadow-2xl mt-8  ${
+        theme === "light"
+          ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#c3c0c0] text-black"
+          : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
+      }`}>
             <TaskToReview workerRefetch={workerRefetch}></TaskToReview>
           </div>
         </div>
-        <div className="lg:w-[30%] bg-gradient-to-r from-[#020710] to-[#1b2028] p-8 rounded-xl mt-10 lg:mt-0 ">
+        <div className={`lg:w-[30%] p-8 rounded-xl mt-10 lg:mt-0  ${
+        theme === "light"
+          ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#c3c0c0] text-black"
+          : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
+      }`}>
           <div className="space-y-4">
             <div className="stats shadow w-full bg-gradient-to-r from-[#193a98] to-[#070c2e] text-white">
               <div className="stat">

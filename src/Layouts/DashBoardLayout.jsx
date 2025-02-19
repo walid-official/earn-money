@@ -7,14 +7,16 @@ import Sidebar from "../components/Sidebar/Sidebar";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import useAuth from "../Hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 import CustomCursor from "../components/CustomCursor/CustomCursor";
+import { ThemeContext } from "../context/ThemeContext";
 
 export const myInfoContext = createContext();
 
 const DashBoardLayout = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
+  const {theme} = useContext(ThemeContext)
   const {
     data: myInfo = [],
     isLoading,
@@ -102,7 +104,11 @@ const DashBoardLayout = () => {
           <div className="static top-0">
             <DashboardNavbar myInfo={myInfo}></DashboardNavbar>
           </div>
-          <div className="min-h-screen">
+          <div  className={` min-h-screen${
+      theme === "light"
+        ? "backdrop-blur-xl bg-white/30"
+        : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
+    } z-10`}>
             <Outlet></Outlet>
           </div>
         </div>

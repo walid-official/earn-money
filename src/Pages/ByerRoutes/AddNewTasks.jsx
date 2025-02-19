@@ -9,6 +9,7 @@ import useAuth from "../../Hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { myInfoContext } from "../../Layouts/DashBoardLayout";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const Image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${Image_hosting_key}`;
@@ -19,6 +20,7 @@ const AddNewTasks = () => {
   const [loading, setLoading] = useState(false);
   const { user } = useAuth();
   const navigate = useNavigate();
+  const {theme} = useContext(ThemeContext)
   const [startDate, setStartDate] = useState(new Date());
   const {
     register,
@@ -133,9 +135,13 @@ const AddNewTasks = () => {
   };
 
   return (
-    <div className="bg-black">
+    <div className={` ${
+      theme === "light"
+        ? "backdrop-blur-xl bg-white text-black"
+        : "dark:bg-black dark:text-white"
+    }`}>
       <div className="py-10">
-        <div className="py-8 bg-gradient-to-r from-[#020710] to-[#1b2028] w-[60%] text-white mx-auto rounded-xl">
+        <div  className="py-8 bg-gradient-to-r from-[#020710] to-[#1b2028] w-[60%] text-white mx-auto rounded-xl">
           <h2 className="text-center font-bold text-4xl py-3">
             New Task Entry
           </h2>
