@@ -1,6 +1,6 @@
 import React from "react";
 
-const PaymentHistoryTable = ({ history }) => {
+const PaymentHistoryTable = ({ history,theme }) => {
   const { id, status, amount, email, coin, date, currency } = history || {};
   const mainAmount = amount / 100;
   let transactionDate = new Date(date);
@@ -10,7 +10,11 @@ const PaymentHistoryTable = ({ history }) => {
   }-${transactionDate.getFullYear()}`;
   console.log(dateMDY);
   return (
-    <tr className="text-white">
+    <tr className={` ${
+      theme === "light"
+        ? " text-black"
+        : " dark:text-white"
+    }`}>
       <td>
         <div className="flex items-center gap-3">
           <div>

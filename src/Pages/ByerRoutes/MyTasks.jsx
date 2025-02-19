@@ -82,12 +82,20 @@ const MyTasks = () => {
           </p>
         </div>
       </div>
-      <div className="bg-gradient-to-r from-[#020710] to-[#1b2028] w-[80%] mx-auto py-10  rounded-xl">
+      <div className={`w-[80%] mx-auto py-10  rounded-xl ${
+        theme === "light"
+          ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#c3c0c0] text-black"
+          : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
+      }`}>
         <div className="overflow-x-auto">
           <table className="table">
             {/* head */}
             <thead>
-              <tr className="text-white">
+              <tr className={` ${
+      theme === "light"
+        ? " text-black"
+        : " dark:text-white"
+    }`}>
                 <th>Title</th>
                 <th>Detail</th>
                 <th>Date</th>
@@ -104,6 +112,7 @@ const MyTasks = () => {
               {/* row 1 */}
               {myTasks.map((myTask) => (
                 <MyTaskTable
+                theme={theme}
                   handleDelete={handleDelete}
                   handleUpdate={handleUpdate}
                   myTask={myTask}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const MyTaskTable = ({ myTask, handleUpdate, handleDelete }) => {
+const MyTaskTable = ({ myTask, handleUpdate, handleDelete,theme }) => {
   const {
     _id,
     taskImage,
@@ -27,7 +27,11 @@ const MyTaskTable = ({ myTask, handleUpdate, handleDelete }) => {
   }-${date.getFullYear()}`;
   console.log(dateMDY);
   return (
-    <tr className="text-white">
+    <tr  className={` ${
+      theme === "light"
+        ? " text-black"
+        : " dark:text-white"
+    }`}>
       <td>
         <div className="flex items-center gap-3">
           <div className="avatar">

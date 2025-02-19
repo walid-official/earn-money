@@ -1,11 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import PaymentHistory from "./PaymentHistory";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const PurchaseCoin = () => {
   const axiosSecure = useAxiosSecure();
+  const { theme } = useContext(ThemeContext);
   const {
     data: purchase = [],
     isLoading,
@@ -22,9 +24,21 @@ const PurchaseCoin = () => {
   console.log(purchase);
 
   return (
-    <div className="bg-black">
+    <div
+      className={` ${
+        theme === "light"
+          ? "bg-white text-black"
+          : "dark:bg-black dark:text-white"
+      }`}
+    >
       <div className="py-10">
-        <div className="py-10 bg-gradient-to-r from-[#020710] to-[#1b2028] w-[60%] mx-auto text-white rounded-xl">
+        <div
+          className={`w-[60%] mx-auto shadow-2xl rounded-xl py-10 ${
+            theme === "light"
+              ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#c3c0c0] text-black"
+              : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
+          }`}
+        >
           <h2 className="font-bold text-center text-3xl">Payment Info</h2>
           <p className="text-center py-3 w-[40%] mx-auto">
             A form for securely entering payment details to complete a
@@ -37,7 +51,11 @@ const PurchaseCoin = () => {
           <NavLink
             key={index}
             to={`/dashboard/payment/${purchaseCoin._id}`}
-            className="card bg-gradient-to-r from-[#020710] to-[#1b2028] text-white shadow-xl"
+            className={`card  shadow-xl ${
+              theme === "light"
+                ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#c3c0c0] text-black"
+                : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
+            }`}
           >
             <div className="card-body">
               <h2 className="text-3xl font-bold text-center">
