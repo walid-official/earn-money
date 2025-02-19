@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { LuActivity } from "react-icons/lu";
 import { MdOutlinePayment, MdOutlinePending } from "react-icons/md";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
@@ -11,10 +11,12 @@ import { useQuery } from "@tanstack/react-query";
 import WithdrawRequests from "./WithdrawRequests";
 import AdminRecharts from "../../components/Recharts/AdminRecharts";
 import PieCircle from "../../components/ApexCharts/PieCircle";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const AdminHome = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
+  const { theme } = useContext(ThemeContext);
   const {
     data: allInfo = [],
     isLoading,
@@ -57,10 +59,22 @@ const AdminHome = () => {
   const totalUsdPayment = totalPaymentHistory / 100;
 
   return (
-    <div className="bg-black p-8">
+    <div
+      className={`p-8 ${
+        theme === "light"
+          ? "bg-white text-black"
+          : "dark:bg-black dark:text-white"
+      }`}
+    >
       <div className="lg:flex gap-4">
         <div className="lg:w-[70%]">
-          <div className="grid lg:grid-cols-2 bg-gradient-to-r from-[#020710] to-[#1b2028] p-8 rounded-xl gap-4">
+          <div
+            className={`grid lg:grid-cols-2  p-8 rounded-xl gap-4 ${
+              theme === "light"
+                ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#c3c0c0] text-black"
+                : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
+            }`}
+          >
             <div className="stats shadow text-white bg-gradient-to-r from-[#cf71f2] to-[#cf71f2]">
               <div className="stat">
                 <div className="stat-title text-center text-white font-bold text-2xl">
@@ -107,39 +121,86 @@ const AdminHome = () => {
               </div>
             </div>
           </div>
-          <div className="bg-gradient-to-r from-[#020710] to-[#1b2028] mt-8 p-4 rounded-xl">
+          <div
+            className={`mt-8 p-4 rounded-xl ${
+              theme === "light"
+                ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#c3c0c0] text-black"
+                : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
+            }`}
+          >
             <AdminRecharts></AdminRecharts>
           </div>
-        
         </div>
-        <div className="bg-gradient-to-r from-[#020710] to-[#1b2028] rounded-xl lg:w-[30%]">
+        <div
+          className={`rounded-xl lg:w-[30%] ${
+            theme === "light"
+              ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#c3c0c0] text-black"
+              : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
+          }`}
+        >
           <div className="py-6">
             <PieCircle></PieCircle>
           </div>
           <div className="p-4">
-            <div className="stat bg-gradient-to-r from-[#020710] to-[#1b2028] rounded-xl text-white ">
-              <div className="stat-title text-white text-center">Referral Earnings</div>
+            <div
+              className={`rounded-xl stat ${
+                theme === "light"
+                  ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#c3c0c0] text-black"
+                  : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
+              }`}
+            >
+              <div className="stat-title text-white text-center">
+                Referral Earnings
+              </div>
               <div className="stat-value text-white text-center">$4.5K</div>
-              <div className="stat-desc text-white text-center">↗︎ $500 (12%)</div>
+              <div className="stat-desc text-white text-center">
+                ↗︎ $500 (12%)
+              </div>
             </div>
 
-            <div className="stat bg-gradient-to-r from-[#020710] to-[#1b2028] rounded-xl text-white my-3">
-              <div className="stat-title text-white text-center">Platform Revenue</div>
+            <div
+              className={`rounded-xl stat my-3${
+                theme === "light"
+                  ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#c3c0c0] text-black"
+                  : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
+              }`}
+            >
+              <div className="stat-title text-white text-center">
+                Platform Revenue
+              </div>
               <div className="stat-value text-white text-center">$8.9K</div>
-              <div className="stat-desc text-white text-center">Jan 1st - Feb 1st</div>
+              <div className="stat-desc text-white text-center">
+                Jan 1st - Feb 1st
+              </div>
             </div>
 
-            <div className="stat bg-gradient-to-r from-[#020710] to-[#1b2028] rounded-xl text-white">
-              <div className="stat-title text-white text-center">Active Users</div>
+            <div
+              className={`rounded-xl stat ${
+                theme === "light"
+                  ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#c3c0c0] text-black"
+                  : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
+              }`}
+            >
+              <div className="stat-title text-white text-center">
+                Active Users
+              </div>
               <div className="stat-value text-white text-center">2,310</div>
-              <div className="stat-desc text-white text-center">↗︎ 120 (5%)</div>
+              <div className="stat-desc text-white text-center">
+                ↗︎ 120 (5%)
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="bg-gradient-to-r from-[#020710] to-[#1b2028] mt-8 p-4 rounded-xl">
-            <WithdrawRequests refetch={refetch}></WithdrawRequests>
-          </div>
+      <div
+        className={`mt-8 p-4 rounded-xl ${
+          theme === "light"
+            ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#c3c0c0] text-black"
+            : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
+        }`}
+      >
+        <WithdrawRequests theme={theme} refetch={refetch}></WithdrawRequests>
+      </div>
     </div>
   );
 };

@@ -5,7 +5,7 @@ import useAuth from "../../Hooks/useAuth";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 
-const WithdrawRequests = () => {
+const WithdrawRequests = ({theme}) => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
 

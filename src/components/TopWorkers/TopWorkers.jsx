@@ -11,7 +11,7 @@ const TopWorkers = () => {
   } = useQuery({
     queryKey: ["TopWorkers"],
     queryFn: async () => {
-      const { data } = await axios.get(`https://earn-money-platform-server.vercel.app/users/worker`);
+      const { data } = await axios.get(`http://localhost:5000/users/worker`);
       console.log(data);
       return data;
     },
