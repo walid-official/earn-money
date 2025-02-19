@@ -27,9 +27,9 @@ const PaymentHistory = () => {
   return (
     <div>
       <div className="py-10">
-        <div className={`w-[60%] mx-auto rounded-xl py-10 ${
+        <div className={`w-[60%] mx-auto shadow-xl rounded-xl py-10 ${
             theme === "light"
-              ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#c3c0c0] text-black"
+              ? "backdrop-blur-xl bg-[#FFFFFF] text-black"
               : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
           }`}>
           <h2 className="font-bold text-center text-3xl">
@@ -43,7 +43,7 @@ const PaymentHistory = () => {
       </div>
       <div className={`w-[90%] mx-auto p-10 rounded-xl shadow-xl ${
             theme === "light"
-              ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#c3c0c0] text-black"
+              ? "backdrop-blur-xl bg-[#FFFFFF] text-black"
               : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
           }`}>
         <div className="overflow-x-auto">

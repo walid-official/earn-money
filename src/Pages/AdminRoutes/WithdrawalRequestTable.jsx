@@ -1,6 +1,6 @@
 import React from "react";
 
-const WithdrawalRequestTable = ({ requests,handleApproval }) => {
+const WithdrawalRequestTable = ({ requests,handleApproval,theme }) => {
   const {
     accountNumber,
     _id,
@@ -23,7 +23,11 @@ const WithdrawalRequestTable = ({ requests,handleApproval }) => {
 
 
   return (
-    <tr className="text-white">
+    <tr className={` ${
+      theme === "light"
+        ? " text-black"
+        : " dark:text-white"
+    }`}>
       <td>
         <div className="flex items-center gap-3">
           <div>

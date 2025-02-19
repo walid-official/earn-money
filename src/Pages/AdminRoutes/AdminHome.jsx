@@ -62,16 +62,16 @@ const AdminHome = () => {
     <div
       className={`p-8 ${
         theme === "light"
-          ? "bg-white text-black"
+          ? "bg-[#f9fafc] text-black"
           : "dark:bg-black dark:text-white"
       }`}
     >
       <div className="lg:flex gap-4">
         <div className="lg:w-[70%]">
           <div
-            className={`grid lg:grid-cols-2  p-8 rounded-xl gap-4 ${
+            className={`grid lg:grid-cols-2  p-8 shadow-xl rounded-xl gap-4 ${
               theme === "light"
-                ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#c3c0c0] text-black"
+                ? "backdrop-blur-xl bg-[#FFFFFF] text-black"
                 : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
             }`}
           >
@@ -122,9 +122,9 @@ const AdminHome = () => {
             </div>
           </div>
           <div
-            className={`mt-8 p-4 rounded-xl ${
+            className={`mt-8 p-4 rounded-xl shadow-xl ${
               theme === "light"
-                ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#c3c0c0] text-black"
+                ? "backdrop-blur-xl bg-[#FFFFFF] text-black"
                 : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
             }`}
           >
@@ -132,9 +132,9 @@ const AdminHome = () => {
           </div>
         </div>
         <div
-          className={`rounded-xl lg:w-[30%] ${
+          className={`rounded-xl shadow-xl lg:w-[30%] ${
             theme === "light"
-              ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#c3c0c0] text-black"
+              ? "backdrop-blur-xl bg-[#FFFFFF] text-black"
               : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
           }`}
         >
@@ -145,15 +145,15 @@ const AdminHome = () => {
             <div
               className={`rounded-xl stat ${
                 theme === "light"
-                  ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#c3c0c0] text-black"
+                  ? "backdrop-blur-xl bg-[#FFFFFF] text-black"
                   : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
               }`}
             >
-              <div className="stat-title text-white text-center">
+              <div className="stat-title text-center">
                 Referral Earnings
               </div>
-              <div className="stat-value text-white text-center">$4.5K</div>
-              <div className="stat-desc text-white text-center">
+              <div className="stat-value  text-center">$4.5K</div>
+              <div className="stat-desc  text-center">
                 ↗︎ $500 (12%)
               </div>
             </div>
@@ -161,15 +161,15 @@ const AdminHome = () => {
             <div
               className={`rounded-xl stat my-3${
                 theme === "light"
-                  ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#c3c0c0] text-black"
+                  ? "backdrop-blur-xl bg-[#FFFFFF] text-black"
                   : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
               }`}
             >
-              <div className="stat-title text-white text-center">
+              <div className="stat-title  text-center">
                 Platform Revenue
               </div>
-              <div className="stat-value text-white text-center">$8.9K</div>
-              <div className="stat-desc text-white text-center">
+              <div className="stat-value  text-center">$8.9K</div>
+              <div className="stat-desc  text-center">
                 Jan 1st - Feb 1st
               </div>
             </div>
@@ -177,15 +177,15 @@ const AdminHome = () => {
             <div
               className={`rounded-xl stat ${
                 theme === "light"
-                  ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#c3c0c0] text-black"
+                  ? "backdrop-blur-xl bg-[#FFFFFF] text-black"
                   : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
               }`}
             >
-              <div className="stat-title text-white text-center">
+              <div className="stat-title text-center">
                 Active Users
               </div>
-              <div className="stat-value text-white text-center">2,310</div>
-              <div className="stat-desc text-white text-center">
+              <div className="stat-value  text-center">2,310</div>
+              <div className="stat-desc  text-center">
                 ↗︎ 120 (5%)
               </div>
             </div>
@@ -193,9 +193,9 @@ const AdminHome = () => {
         </div>
       </div>
       <div
-        className={`mt-8 p-4 rounded-xl ${
+        className={`mt-8 p-4 rounded-xl shadow-xl ${
           theme === "light"
-            ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#c3c0c0] text-black"
+            ? "backdrop-blur-xl bg-[#FFFFFF] text-black"
             : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
         }`}
       >

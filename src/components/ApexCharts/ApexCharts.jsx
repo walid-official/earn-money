@@ -35,7 +35,7 @@ const ApexCharts = ({theme}) => {
         ],
         labels: {
           style: {
-            colors: '#FFFFFF', // Set x-axis label color to white
+            // colors: '#FFFFFF', // Set x-axis label color to white
             fontSize: '12px'
           }
         }
@@ -43,7 +43,7 @@ const ApexCharts = ({theme}) => {
       yaxis: {
         labels: {
           style: {
-            colors: '#FFFFFF', // Set y-axis label color to white
+            // colors: '#FFFFFF', // Set y-axis label color to white
             fontSize: '12px'
           }
         }
@@ -58,9 +58,9 @@ const ApexCharts = ({theme}) => {
 
   return (
     <div>
-      <div id="chart"  className={`md:p-10 p-4 rounded-lg shadow-2xl${
+      <div id="chart"  className={`md:p-10 p-4 rounded-lg shadow-2xl ${
       theme === "light"
-        ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#f3f3f3] "
+        ? "backdrop-blur-xl bg-[#FFFFFF] "
         : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
     } z-10`}>
         <h2 className=' font-bold text-center text-2xl pb-4'>Worker Chart</h2>

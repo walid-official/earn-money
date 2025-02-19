@@ -81,7 +81,11 @@ const WithdrawRequests = ({theme}) => {
           <table className="table">
             {/* head */}
             <thead>
-              <tr className="text-white">
+              <tr className={` ${
+      theme === "light"
+        ? " text-black"
+        : " dark:text-white"
+    }`}>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Withdraw Coin</th>
@@ -100,6 +104,7 @@ const WithdrawRequests = ({theme}) => {
                   handleApproval={handleApproval}
                   key={index}
                   requests={requests}
+                  theme={theme}
                 ></WithdrawalRequestTable>
               ))}
             </tbody>

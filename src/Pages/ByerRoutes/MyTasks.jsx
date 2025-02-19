@@ -64,13 +64,13 @@ const MyTasks = () => {
   return (
     <div className={`min-h-screen ${
       theme === "light"
-        ? "backdrop-blur-xl bg-white text-black"
+        ? "backdrop-blur-xl bg-[#f9fafc] text-black"
         : "dark:bg-black dark:text-white"
     }`}>
       <div className="py-10">
-        <div className={`p-8 rounded-xl w-[60%] mx-auto ${
+        <div className={`p-8 rounded-xl shadow-xl w-[60%] mx-auto ${
         theme === "light"
-          ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#c3c0c0] text-black"
+          ? "backdrop-blur-xl bg-[#FFFFFF] text-black"
           : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
       }`}>
           <h2 className="font-bold text-3xl text-center">
@@ -82,9 +82,9 @@ const MyTasks = () => {
           </p>
         </div>
       </div>
-      <div className={`w-[80%] mx-auto py-10  rounded-xl ${
+      <div className={`w-[90%] shadow-xl mx-auto py-10  rounded-xl ${
         theme === "light"
-          ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#c3c0c0] text-black"
+          ? "backdrop-blur-xl bg-[#FFFFFF] text-black"
           : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
       }`}>
         <div className="overflow-x-auto">

@@ -1,7 +1,7 @@
 import React from "react";
 import ApprovedSubmissionTable from "./ApprovedSubmissionTable";
 
-const ApprovedSubmissions = ({ totalApprovedData }) => {
+const ApprovedSubmissions = ({ totalApprovedData,theme }) => {
     
   return (
     <div>
@@ -15,10 +15,14 @@ const ApprovedSubmissions = ({ totalApprovedData }) => {
       </div> */}
       <div className="w-[80%] mx-auto pb-20">
         <div className="overflow-x-auto">
-          <table className="table text-white">
+          <table className="table t">
             {/* head */}
             <thead>
-              <tr className="text-white">
+              <tr className={` ${
+      theme === "light"
+        ? " text-black"
+        : " dark:text-white"
+    }`}>
                 <th>task_title</th>
                 <th>payable_amount</th>
                 <th>Buyer_name</th>

@@ -25,7 +25,7 @@ const Navbar = () => {
     queryFn: async () => {
       if (!user?.email) return {};
       const { data } = await axios.get(
-        `http://localhost:5000/userCoin/${user?.email}`
+        `https://earn-money-platform-server.vercel.app/userCoin/${user?.email}`
       );
       return data || {};
     },
@@ -52,9 +52,6 @@ const Navbar = () => {
           Dashboard
         </NavLink>
       )}
-      <NavLink to="/contact" className=" hover:text-[#00d7c0]">
-        Join as developer
-      </NavLink>
     </>
   );
 
@@ -78,11 +75,11 @@ const Navbar = () => {
     </>
   ) : (
     <>
-      <NavLink to="/login" className=" hover:text-[#00d7c0]">
+      <NavLink
+        to="/login"
+       className=""
+      >
         Login
-      </NavLink>
-      <NavLink to="/register" className=" hover:text-[#00d7c0]">
-        Register
       </NavLink>
     </>
   );
@@ -101,12 +98,19 @@ const Navbar = () => {
         </NavLink>
 
         {/* Desktop Menu */}
-        <div className="hidden lg:flex items-center gap-6">
+        <div className="hidden lg:flex items-center justify-center gap-6">
           {commonLinks}
           {authLinks}
           <button onClick={toggleTheme} className="">
             {theme === "dark" ? <FaSun size={24} /> : <FaMoon size={24} />}
           </button>
+          <a
+            href="https://github.com/walid-official"
+            target="_blank"
+            className="btn bg-[#00d7c0] hover:bg-[#00d7c0] text-white border-none"
+          >
+            Join as developer
+          </a>
         </div>
 
         {/* Mobile Toggle Button */}

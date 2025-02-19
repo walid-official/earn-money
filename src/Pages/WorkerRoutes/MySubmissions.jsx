@@ -55,11 +55,11 @@ const MySubmissions = () => {
 
   return (
     <div
-      className={`min-h-screen ${
-        theme === "light"
-          ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#f3f3f3] text-black"
-          : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
-      }`}
+    className={`min-h-screen ${
+      theme === "light"
+        ? "bg-white text-black"
+        : "dark:bg-black dark:text-white"
+    }`}
     >
       <div className="w-[90%] mx-auto">
         <div className="py-8">

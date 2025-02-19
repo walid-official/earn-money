@@ -61,10 +61,10 @@ const BuyerHome = () => {
   console.log(addedTasks);
 
   return (
-    <div className={`p-10 ${
+    <div  className={`p-8 ${
       theme === "light"
-        ? "backdrop-blur-xl bg-white text-black"
-        : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
+        ? "bg-[#f9fafc] text-black"
+        : "dark:bg-black dark:text-white"
     }`}>
       {/* <div className="py-8">
         <h2 className="text-center font-bold text-4xl py-3">
@@ -80,22 +80,22 @@ const BuyerHome = () => {
         <div className="lg:w-[70%] ">
           <div  className={`p-8 rounded-xl shadow-2xl ${
         theme === "light"
-          ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#c3c0c0] text-black"
-          : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
+          ? "backdrop-blur-xl bg-[#FFFFFF] text-black"
+          : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028]"
       }`}>
             <BuyerChart></BuyerChart>
           </div>
           <div className={`p-8 rounded-xl shadow-2xl mt-8  ${
         theme === "light"
-          ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#c3c0c0] text-black"
-          : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
+          ? "backdrop-blur-xl bg-[#FFFFFF] text-black"
+          : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028]"
       }`}>
             <TaskToReview workerRefetch={workerRefetch}></TaskToReview>
           </div>
         </div>
         <div className={`lg:w-[30%] p-8 rounded-xl mt-10 lg:mt-0  ${
         theme === "light"
-          ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#c3c0c0] text-black"
+          ? "backdrop-blur-xl bg-[#FFFFFF] text-black"
           : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
       }`}>
           <div className="space-y-4">

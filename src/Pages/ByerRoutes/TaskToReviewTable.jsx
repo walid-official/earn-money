@@ -89,7 +89,7 @@ const TaskToReviewTable = ({ taskReview, handleTaskReviewModal, refetch,workerRe
   };
 
   return (
-    <tr className="text-white">
+    <tr className="">
       <td>
         <div className="flex items-center gap-3">
           <div>

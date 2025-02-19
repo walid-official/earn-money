@@ -69,7 +69,7 @@ const BuyerChart = () => {
         type: 'datetime',
         labels: {
             style: {
-              colors: '#FFFFFF', // Set x-axis label color to white
+              // colors: '#FFFFFF',
               fontSize: '12px'
             }
           }
@@ -77,7 +77,7 @@ const BuyerChart = () => {
       yaxis: {
         labels: {
           style: {
-            colors: '#FFFFFF', // Set y-axis label color to white
+            // colors: '#FFFFFF', 
             fontSize: '12px'
           }
         }

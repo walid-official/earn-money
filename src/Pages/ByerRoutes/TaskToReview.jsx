@@ -32,7 +32,7 @@ const TaskToReview = ({workerRefetch}) => {
   return (
     <div className="mb-20">
        <div className="pb-10">
-        <h2 className="text-center text-white font-bold text-4xl py-3">
+        <h2 className="text-center font-bold text-4xl py-3">
           Task To Review
         </h2>
         
@@ -41,7 +41,7 @@ const TaskToReview = ({workerRefetch}) => {
         <table className="table">
           {/* head */}
           <thead>
-            <tr className="text-white">
+            <tr >
               <th>Worker Name</th>
               <th>Task Title</th>
               <th>Payable Amount</th>

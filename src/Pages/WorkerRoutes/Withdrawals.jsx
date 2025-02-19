@@ -70,11 +70,11 @@ const Withdrawals = () => {
   };
 
   return (
-    <div className={` ${
+    <div  className={`min-h-screen ${
       theme === "light"
-        ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#f3f3f3] text-black"
-        : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
-    } z-10`}>
+        ? "bg-white text-black"
+        : "dark:bg-black dark:text-white"
+    }`}>
       <div className="w-11/12 mx-auto">
         <div className="py-8">
           <h2 className="text-center font-bold text-3xl md:text-4xl py-3">

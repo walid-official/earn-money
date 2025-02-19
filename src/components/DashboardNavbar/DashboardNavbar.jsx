@@ -138,7 +138,8 @@ const DashboardNavbar = ({ myInfo }) => {
                     </div>
                   </NavLink>
                 </li>
-                <li>
+                {
+                  role !== "Admin" && <li>
                   <div className="flex gap-3">
                     <h2 className="text-xl">
                       <BsCoin></BsCoin>
@@ -149,7 +150,9 @@ const DashboardNavbar = ({ myInfo }) => {
                       0
                     )}
                   </div>
-                </li>
+                </li> 
+                }
+                
 
                 <li onClick={handleProfileLogout}>
                   <div className="flex gap-3">

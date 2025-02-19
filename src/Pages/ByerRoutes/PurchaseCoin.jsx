@@ -27,19 +27,19 @@ const PurchaseCoin = () => {
     <div
       className={` ${
         theme === "light"
-          ? "bg-white text-black"
+          ? "bg-[#f9fafc] text-black"
           : "dark:bg-black dark:text-white"
       }`}
     >
       <div className="py-10">
         <div
-          className={`w-[60%] mx-auto shadow-2xl rounded-xl py-10 ${
+          className={`w-[60%] mx-auto shadow-xl rounded-xl py-10 ${
             theme === "light"
-              ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#c3c0c0] text-black"
+              ? "backdrop-blur-xl bg-[#FFFFFF] text-black"
               : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
           }`}
         >
-          <h2 className="font-bold text-center text-3xl">Payment Info</h2>
+          <h2 className="font-bold text-center text-4xl">Payment Info</h2>
           <p className="text-center py-3 w-[40%] mx-auto">
             A form for securely entering payment details to complete a
             transaction.
@@ -53,7 +53,7 @@ const PurchaseCoin = () => {
             to={`/dashboard/payment/${purchaseCoin._id}`}
             className={`card  shadow-xl ${
               theme === "light"
-                ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#c3c0c0] text-black"
+                ? "backdrop-blur-xl bg-[#FFFFFF] text-black"
                 : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
             }`}
           >

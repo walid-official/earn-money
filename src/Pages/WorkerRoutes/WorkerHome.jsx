@@ -53,22 +53,24 @@ const WorkerHome = () => {
   // #d4ceca
   return (
     <div
-      className={` ${
+      className={`= ${
         theme === "light"
-          ? "backdrop-blur-xl bg-white/30"
-          : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
-      } z-10`}
+          ? "backdrop-blur-xl bg-[#f9fafc] text-black"
+          : "dark:bg-black dark:text-white"
+      }`}
     >
       <h2 className="font-bold text-2xl p-10 pb-0 ">
         ProfitHub 360: Your Earnings Dashboard at a Glance
       </h2>
       <div className="p-10 lg:flex gap-3 justify-between">
         <div className="lg:w-[70%]">
-          <ApexCharts theme={theme}></ApexCharts>
+          <div className="shadow-2xl">
+            <ApexCharts theme={theme}></ApexCharts>
+          </div>
           <div
             className={`rounded-xl mt-4 ${
               theme === "light"
-                ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#f3f3f3] text-black"
+                ? "backdrop-blur-xl bg-[#FFFFFF] text-black"
                 : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
             } z-10`}
           >
@@ -76,16 +78,19 @@ const WorkerHome = () => {
               Approval Submission
             </h2>
             <ApprovedSubmissions
+            theme={theme}
               totalApprovedData={totalApprovedData}
             ></ApprovedSubmissions>
           </div>
         </div>
         <div className="lg:w-[30%] mt-10 lg:mt-0">
-          <div className={`space-y-3 p-6 shadow-2xl rounded-xl ${
-      theme === "light"
-        ? "backdrop-blur-xl bg-gradient-to-r from-[#a5a5a5] to-[#f3f3f3] "
-        : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
-    } z-10`}>
+          <div
+            className={`space-y-3 p-6 shadow-2xl rounded-xl ${
+              theme === "light"
+                ? "backdrop-blur-xl bg-[#FFFFFF] "
+                : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
+            } z-10`}
+          >
             <div className="stats shadow w-full bg-[#54ade7] text-white">
               <div className="stat">
                 <div className="stat-title text-center text-white font-bold">

@@ -3,7 +3,7 @@ import React from "react";
 const ApprovedSubmissionTable = ({ approved }) => {
   const { task_title, buyer_detail, PaymentCoin,status } = approved || {};
   return (
-    <tr className="text-white">
+    <tr className="">
       <td>{task_title}</td>
       <td>{PaymentCoin} coin</td>
       <td>{buyer_detail?.name}</td>
