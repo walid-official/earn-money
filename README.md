@@ -103,13 +103,13 @@ This project requires the following dependencies:
 
 To install all dependencies, run:
 
-```sh
+
 npm install
 
 
 Here’s the **full setup guide** that you can **copy and paste** into your `README.md` file:  
 
-```markdown
+
 # 🛠️ Run the Project Locally  
 
 Follow the steps below to set up and run the **Earnify - Micro-Task and Earning Platform** on your local machine.  
