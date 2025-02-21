@@ -37,18 +37,24 @@ const Navbar = () => {
 
   const commonLinks = (
     <>
-      <NavLink to="/" className=" hover:text-[#00d7c0]">
+      <NavLink to="/" className="font-semibold hover:text-[#00d7c0]">
         Home
       </NavLink>
 
-      <NavLink to="/about" className=" hover:text-[#00d7c0]">
+      <NavLink to="/about" className=" hover:text-[#00d7c0] font-semibold">
         About
       </NavLink>
-      <NavLink to="/contact" className=" hover:text-[#00d7c0]">
+      <NavLink to="/about" className=" hover:text-[#00d7c0] font-semibold">
+        All Tasks
+      </NavLink>
+      <NavLink to="/contact" className=" hover:text-[#00d7c0] font-semibold">
         Contact
       </NavLink>
       {user && (
-        <NavLink to="/dashboard" className=" hover:text-[#00d7c0]">
+        <NavLink
+          to="/dashboard"
+          className=" hover:text-[#00d7c0] font-semibold"
+        >
           Dashboard
         </NavLink>
       )}
@@ -75,64 +81,63 @@ const Navbar = () => {
     </>
   ) : (
     <>
-      <NavLink
-        to="/login"
-       className=""
-      >
+      <NavLink to="/login" className="font-semibold">
         Login
       </NavLink>
     </>
   );
 
   return (
-    <div className="w-11/12 py-6 mx-auto">
-      <div className="flex justify-between items-center">
-        {/* Logo */}
-        <NavLink to="/" className="flex gap-3 items-center">
-          <img
-            className="w-12 h-12 rounded-full object-cover"
-            src={Logo}
-            alt="Logo"
-          />
-          <h2 className="text-3xl font-bold ">Earnify</h2>
-        </NavLink>
+    <div className="fixed z-20 w-full backdrop-blur">
+      <div className="w-11/12 py-6 mx-auto">
+        <div className="flex justify-between items-center">
+          {/* Logo */}
+          <NavLink to="/" className="flex gap-3 items-center">
+            <img
+              className="w-12 h-12 rounded-full object-cover"
+              src={Logo}
+              alt="Logo"
+            />
+            <h2 className="text-3xl font-bold ">Earnify</h2>
+          </NavLink>
 
-        {/* Desktop Menu */}
-        <div className="hidden lg:flex items-center justify-center gap-6">
-          {commonLinks}
-          {authLinks}
-          <button onClick={toggleTheme} className="">
-            {theme === "dark" ? <FaSun size={24} /> : <FaMoon size={24} />}
-          </button>
-          <a
-            href="https://github.com/walid-official"
-            target="_blank"
-            className="btn bg-[#00d7c0] hover:bg-[#00d7c0] text-white border-none"
-          >
-            Join as developer
-          </a>
-        </div>
-
-        {/* Mobile Toggle Button */}
-        <div className="lg:hidden space-x-3">
-          <button onClick={toggleTheme} className="">
-            {theme === "dark" ? <FaSun size={24} /> : <FaMoon size={24} />}
-          </button>
-          <button onClick={toggleMobileMenu} className="">
-            {isMobileMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="lg:hidden mt-4">
-          <div className="flex flex-col gap-4 p-6 rounded-lg shadow-lg">
+          {/* Desktop Menu */}
+          <div className="hidden lg:flex items-center justify-center gap-6">
             {commonLinks}
             {authLinks}
+            <button onClick={toggleTheme} className="">
+              {theme === "dark" ? <FaSun size={24} /> : <FaMoon size={24} />}
+            </button>
+            <a
+              href="https://github.com/walid-official"
+              target="_blank"
+              className=" btn rounded-md bg-[#00d7c0] hover:bg-[#00d7c0] text-white border-none"
+            >
+              Join as developer
+            </a>
+          </div>
+
+          {/* Mobile Toggle Button */}
+          <div className="lg:hidden space-x-3">
+            <button onClick={toggleTheme} className="">
+              {theme === "dark" ? <FaSun size={24} /> : <FaMoon size={24} />}
+            </button>
+            <button onClick={toggleMobileMenu} className="">
+              {isMobileMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+            </button>
           </div>
         </div>
-      )}
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden mt-4">
+            <div className="flex flex-col gap-4 p-6 rounded-lg shadow-lg">
+              {commonLinks}
+              {authLinks}
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

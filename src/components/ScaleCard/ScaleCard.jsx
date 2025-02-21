@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const ScaleCard = () => {
   const [range, setRange] = useState(false);
+  const {theme} = useContext(ThemeContext)
   return (
     <div className="" >
-      <div className="md:w-[80%] w-[90%] mx-auto pb-14">
+      <div className="w-[90%] mx-auto pb-14">
         {/* <div className="pt-10 pb-20">
           <h2 className="text-4xl  font-bold text-center">
             Transforming Dreams into Reality
@@ -16,14 +18,17 @@ const ScaleCard = () => {
           </p>
         </div> */}
 
-        <div className="bg-[#10121d] rounded-xl px-8 md:px-14 py-10 w-full  z-10 text-white shadow-2xl" >
+        <div  className={`rounded-xl px-8 md:px-14 py-10 w-full shadow-2xl ${
+        theme === "light"
+          ? "bg-[#eaeaea] text-black"
+          : "bg-gradient-to-t from-[#27292f] to-[#10121d] text-white"
+      }`}>
           <div className="md:pb-16 md:pt-10 py-10">
             <h2 className="font-bold text-4xl text-center">
-              Real-Time Earnings Tracker
+            Empower Your Earnings, Anywhere, Anytime
             </h2>
-            <p className="text-center pt-4 pb-6">
-              Track your earnings in real time and stay on top of your financial
-              goals.
+            <p className="text-center pt-4 pb-6 w-[70%] mx-auto">
+            Unlock your earning potential with our secure, global platform. Track income in real time, access worldwide opportunities, and achieve your goals from home. Join a community of growth and success.
             </p>
             <div className="">
               {/* <progress className="progress w-56" value="70" max="100"></progress> */}
@@ -39,11 +44,10 @@ const ScaleCard = () => {
           <div className="grid md:grid-cols-2 gap-8">
             <div className="">
               <h2 className="font-bold text-2xl text-left">
-                Real-Time Earnings Tracker
+              Global Earning, Local Living
               </h2>
               <p className="text-left py-4">
-                Track your earnings in real time and stay on top of your
-                financial goals.
+              Earn worldwide, work from home, and grow with a secure, thriving community.
               </p>
               <div className="">
                 {/* <progress className="progress w-56" value="70" max="100"></progress> */}

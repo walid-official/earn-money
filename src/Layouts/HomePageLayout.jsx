@@ -10,7 +10,7 @@ const HomePageLayout = () => {
   return (
     <div className={` ${
       theme === "light"
-        ? "backdrop-blur-xl bg-gradient-to-r from-[#d7d7d7] to-[#eaeaea]"
+        ? "bg-gradient-to-r from-[#d7d7d7] to-[#eaeaea] "
         : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
     } z-10`}>
       {/* <CustomCursor></CustomCursor> */}

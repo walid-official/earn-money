@@ -3,9 +3,9 @@ import React from "react";
 const About = () => {
   return (
     <div className="w-11/12 mx-auto">
-      <div className="text-center py-10">
+      <div className="text-center py-10 pt-40">
         <h3 className="text-accent text-xl font-bold">Our Story</h3>
-        <h2 className="text-5xl font-bold ">About our company</h2>
+        <h2 className="text-5xl font-bold pt-2">About our Platform</h2>
         <p className=" py-4 w-[60%] mx-auto">
           Micro-tasking earning platform where users can complete simple tasks
           and earn money instantly. We connect businesses with task solvers
