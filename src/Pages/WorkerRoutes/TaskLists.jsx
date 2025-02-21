@@ -30,7 +30,7 @@ const TaskLists = () => {
     <div
       className={`min-h-screen ${
         theme === "light"
-          ? "bg-white text-black"
+          ? "bg-[#f9fafc] text-black"
           : "dark:bg-black dark:text-white"
       }`}
     >

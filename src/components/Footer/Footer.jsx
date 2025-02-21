@@ -38,23 +38,23 @@ const Footer = () => {
 
         <nav>
           <h6 className="text-xl text-white font-bold pb-3">Services</h6>
-          <a className="link link-hover block text-white">Branding</a>
-          <a className="link link-hover block text-white">Design</a>
-          <a className="link link-hover block text-white">Marketing</a>
-          <a className="link link-hover block text-white">Advertisement</a>
+          <a href="https://www.brandingmag.com/2015/10/14/what-is-branding-and-why-is-it-important-for-your-business/" target="_blank" className="link link-hover block text-white">Branding</a>
+          <a href="https://www.design.com/" target="_blank" className="link link-hover block text-white">Design</a>
+          <a href="https://dictionary.cambridge.org/dictionary/norwegian-english/markering" target="_blank" className="link link-hover block text-white">Marketing</a>
+          <a href="https://dictionary.cambridge.org/dictionary/english/advertisement" target="_blank" className="link link-hover block text-white">Advertisement</a>
         </nav>
         <nav>
           <h6 className="text-xl text-white font-bold pb-3">Company</h6>
-          <a className="link link-hover block text-white">About us</a>
-          <a className="link link-hover block text-white">Contact</a>
-          <a className="link link-hover block text-white">Jobs</a>
-          <a className="link link-hover block text-white">Press kit</a>
+          <a href="https://bloggers.feedspot.com/coin_blogs/" target="_blank" className="link link-hover block text-white">About us</a>
+          <a href="https://bloggers.feedspot.com/coin_blogs/" target="_blank" className="link link-hover block text-white">Contact</a>
+          <a href="https://wordpress.org/plugins/contact-form-7/" target="_blank" className="link link-hover block text-white">Jobs</a>
+          <a   href="https://www.shopify.com/blog/44447941-how-to-create-a-press-kit-that-gets-publicity-for-your-business" target="_blank" className="link link-hover block text-white">Press kit</a>
         </nav>
         <nav>
           <h6 className="text-xl text-white font-bold pb-3">Legal</h6>
-          <a className="link link-hover block text-white">Terms of use</a>
-          <a className="link link-hover block text-white">Privacy policy</a>
-          <a className="link link-hover block text-white">Cookie policy</a>
+          <a  href="https://termly.io/resources/templates/terms-of-use-template/" target="_blank" className="link link-hover block text-white">Terms of use</a>
+          <a  href="https://policies.google.com/privacy?hl=en-US" target="_blank" className="link link-hover block text-white">Privacy policy</a>
+          <a  href="https://www.cookiebot.com/en/cookie-policy/" target="_blank" className="link link-hover block text-white">Cookie policy</a>
         </nav>
       </div>
     </div>

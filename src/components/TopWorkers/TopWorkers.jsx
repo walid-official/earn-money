@@ -20,8 +20,8 @@ const TopWorkers = () => {
   console.log(TopWorkers);
 
   return (
-    <div className="w-11/12 mx-auto pb-16 pt-12">
-      <div className="py-10 ">
+    <div className="w-11/12 mx-auto pb-14 pt-12">
+      <div className="pt-10">
         <h2 className="font-bold text-4xl text-center">Top Achieving Workers</h2>
         <p className="text-center md:w-[45%] mx-auto py-3">
           Discover our dedicated professionals who excel in their fields. From
@@ -29,7 +29,7 @@ const TopWorkers = () => {
           are here to deliver excellence and drive success.
         </p>
       </div>
-      <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-5 w-[90%] my-10 mx-auto">
+      <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-5 my-10 mx-auto">
         {
             TopWorkers.map((TopWorker,index) => <Worker key={index} TopWorker={TopWorker} ></Worker>)
         }

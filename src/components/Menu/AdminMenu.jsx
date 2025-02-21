@@ -7,7 +7,7 @@ const AdminMenu = () => {
     <div>
       <NavLink
         to="/dashboard/manageUsers"
-        className="flex gap-4 items-center text-white  pl-6 hover:bg-slate-700 py-3 duration-300 cursor-pointer"
+        className="flex gap-4 items-center   pl-6  py-3 duration-300 cursor-pointer"
       >
         <h2 className="text-xl">
           <FaUserAlt></FaUserAlt>
@@ -16,7 +16,7 @@ const AdminMenu = () => {
       </NavLink>
       <NavLink
         to="/dashboard/manageTasks"
-        className="flex gap-4 items-center text-white  pl-6 hover:bg-slate-700 py-3 duration-300 cursor-pointer"
+        className="flex gap-4 items-center   pl-6  py-3 duration-300 cursor-pointer"
       >
         <h2 className="text-xl">
           <GrTasks></GrTasks>

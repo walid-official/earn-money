@@ -1,12 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import useAuth from "../../Hooks/useAuth";
 import toast from "react-hot-toast";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const TaskDetails = () => {
   const { user } = useAuth();
+  const {theme} = useContext(ThemeContext)
   const axiosSecure = useAxiosSecure();
   const { id } = useParams();
   const {
@@ -72,19 +74,18 @@ const TaskDetails = () => {
     };
     console.log(taskSubmitInfo);
 
-
-    if(worker > 0){
+    if (worker > 0) {
       // write something
       try {
         const { data } = await axiosSecure.post(
           `taskSubmissions/${user?.email}`,
           taskSubmitInfo
         );
-  
+
         refetch();
         console.log(data);
         toast.success("Submission is Successful!!!");
-  
+
         // Post Message For Buyer To submission Alert
         let message = `${user?.displayName} has submitted the work for ${title}`;
         const route = "/dashboard";
@@ -94,7 +95,7 @@ const TaskDetails = () => {
           actionRoute: route,
           time: currentDate,
         };
-     
+
         try {
           const { data } = await axiosSecure.post(
             "/notifications",
@@ -110,8 +111,6 @@ const TaskDetails = () => {
         toast.error("Something Went Wrong...", err.message);
       }
     }
-
-  
   };
 
   let date = new Date(completionDate);
@@ -140,108 +139,123 @@ const TaskDetails = () => {
   console.log(dateFormatted); // Output: January 28, 2025
 
   return (
-    <div className="w-[90%] mx-auto">
-      <div className="py-8">
-        <h2 className="font-bold text-center text-3xl">
-          Maximize Your Earnings: A Comprehensive Guide
-        </h2>
-        <p className="py-3 text-center md:w-[60%] mx-auto">
-          Discover effective strategies and practical tips to boost your income
-          through various methods, including online opportunities, investment
-          strategies, and side hustles.
-        </p>
-      </div>
-      <div className="lg:flex gap-4">
-        <div className="card mb-10 shadow-xl duration-500 lg:w-[60%]">
-          <figure>
-            <img
-              className="w-full h-[350px] object-cover"
-              src={taskImage}
-              alt="Shoes"
-            />
-          </figure>
-          <div className="card-body">
-            <div className="">
-              <h2 className="font-bold text-xl">{title}</h2>
-              <p className="py-2">{detail}</p>
-              <p className="py-2">
-                {" "}
-                <span className="font-bold text-xl mr-2">
-                  Completion-Date:
-                </span>{" "}
-                {dateFormatted}
-              </p>
-              <p className="py-2">
-                {" "}
-                <span className="font-bold text-xl">
-                  Required-Workers:
-                </span>{" "}
-                <span className="btn ml-2">{worker}</span>{" "}
-              </p>
-              <p className="py-2 border-b pb-6">
-                {" "}
-                <span className="font-bold text-xl">Payment:</span>{" "}
-                <span className="btn ml-2">{payment}.00$</span>{" "}
-              </p>
-            </div>
-
-            <div className="flex justify-between">
-              <div className="">
-                <h2 className="font-bold my-2">{buyerInfo?.name}</h2>
-                <div className="">
-                  <img
-                    className="w-14 h-14 rounded-full"
-                    src={buyerInfo?.photo}
-                    alt=""
-                  />
-                </div>
-              </div>
-              <div className="">
-                <h2 className="font-bold my-2">Total-Payment</h2>
-                <div className="">
-                  <p className="py-2">
-                    <span className="btn">{totalPayment}.00$</span>{" "}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div
+      className={`min-h-screen ${
+        theme === "light"
+          ? "bg-[#f9fafc] text-black"
+          : "dark:bg-black dark:text-white"
+      }`}
+    >
+      <div className="w-[90%] mx-auto">
+        <div className="py-8">
+          <h2 className="font-bold text-center text-3xl">
+            Maximize Your Earnings: A Comprehensive Guide
+          </h2>
+          <p className="py-3 text-center md:w-[60%] mx-auto">
+            Discover effective strategies and practical tips to boost your
+            income through various methods, including online opportunities,
+            investment strategies, and side hustles.
+          </p>
         </div>
-        <div className="lg:w-[40%] mb-10 shadow-xl">
-          <div className="">
-            <img className="" src={submissionImage} alt="" />
-          </div>
+        <div className="lg:flex gap-4">
+          <div className="card mb-10 shadow-xl duration-500 lg:w-[60%]">
+            <figure>
+              <img
+                className="w-full h-[350px] object-cover"
+                src={taskImage}
+                alt="Shoes"
+              />
+            </figure>
+            <div className="card-body">
+              <div className="">
+                <h2 className="font-bold text-xl">{title}</h2>
+                <p className="py-2">{detail}</p>
+                <p className="py-2">
+                  {" "}
+                  <span className="font-bold text-xl mr-2">
+                    Completion-Date:
+                  </span>{" "}
+                  {dateFormatted}
+                </p>
+                <p className="py-2">
+                  {" "}
+                  <span className="font-bold text-xl">
+                    Required-Workers:
+                  </span>{" "}
+                  <span className="btn ml-2">{worker}</span>{" "}
+                </p>
+                <p className="py-2 border-b pb-6">
+                  {" "}
+                  <span className="font-bold text-xl">Payment:</span>{" "}
+                  <span className="btn ml-2">{payment}.00$</span>{" "}
+                </p>
+              </div>
 
-          <div className="p-5">
-            <div className="">
-              <h2 className="font-bold text-xl ">
-                Tailored Professional Services
-              </h2>
-              <p className="py-2">
-              Tasks are categorized by purpose to streamline workflows: development focuses on coding, design on visuals like UI and branding, education on skill-building, content on writing and organization, and submission on reviewing and sharing completed work.
-              </p>
-              <p className="py-2">
-              Each task has clear objectives, guiding its completion. Development tasks address features or bugs, design tasks enhance user interfaces, educational tasks improve skills, and content tasks deliver quality materials.
-              </p>
-              <p className="py-2">
-                Let’s collaborate to bring your vision to life and deliver
-                outstanding results.
-              </p>
-            </div>
-            <div className="py-5">
-              <form onSubmit={handleTaskSubmit}>
-                <textarea
-                  placeholder="Submission_Details"
-                  name="submission_detail"
-                  className="textarea textarea-bordered textarea-lg w-full max-w-lg"
-                  required
-                ></textarea>
-                <div className="mt-2">
-                  <button className="btn bg-accent text-white task">
-                    Submit
-                  </button>
+              <div className="flex justify-between">
+                <div className="">
+                  <h2 className="font-bold my-2">{buyerInfo?.name}</h2>
+                  <div className="">
+                    <img
+                      className="w-14 h-14 rounded-full"
+                      src={buyerInfo?.photo}
+                      alt=""
+                    />
+                  </div>
                 </div>
-              </form>
+                <div className="">
+                  <h2 className="font-bold my-2">Total-Payment</h2>
+                  <div className="">
+                    <p className="py-2">
+                      <span className="btn">{totalPayment}.00$</span>{" "}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="lg:w-[40%] mb-10 shadow-xl">
+            <div className="">
+              <img className="" src={submissionImage} alt="" />
+            </div>
+
+            <div className="p-5">
+              <div className="">
+                <h2 className="font-bold text-xl ">
+                  Tailored Professional Services
+                </h2>
+                <p className="py-2">
+                  Tasks are categorized by purpose to streamline workflows:
+                  development focuses on coding, design on visuals like UI and
+                  branding, education on skill-building, content on writing and
+                  organization, and submission on reviewing and sharing
+                  completed work.
+                </p>
+                <p className="py-2">
+                  Each task has clear objectives, guiding its completion.
+                  Development tasks address features or bugs, design tasks
+                  enhance user interfaces, educational tasks improve skills, and
+                  content tasks deliver quality materials.
+                </p>
+                <p className="py-2">
+                  Let’s collaborate to bring your vision to life and deliver
+                  outstanding results.
+                </p>
+              </div>
+              <div className="py-5">
+                <form onSubmit={handleTaskSubmit}>
+                  <textarea
+                    placeholder="Submission_Details"
+                    name="submission_detail"
+                    className="textarea textarea-bordered textarea-lg w-full max-w-lg"
+                    required
+                  ></textarea>
+                  <div className="mt-2">
+                    <button className="btn bg-accent text-white task">
+                      Submit
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>

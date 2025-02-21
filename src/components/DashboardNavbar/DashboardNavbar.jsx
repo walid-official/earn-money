@@ -48,14 +48,18 @@ const DashboardNavbar = ({ myInfo }) => {
   console.log(updatedNotifications);
 
   return (
-    <div className="bg-gradient-to-t from-[#0b1019] to-[#141922] py-3 text-white shadow-2xl">
+    <div className={` shadow-2xl py-2 ${
+      theme === "light"
+        ? " bg-[#ffffff] text-black shadow-2xl"
+        : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
+    }`}>
       <div className="navbar flex justify-end">
         <div className="">
           {/* Notifications */}
-          <div className="text-slate-950">
+          <div className="">
             <div className="dropdown dropdown-end">
               <div tabIndex={0} role="button" className=" m-1">
-                <button className="btn btn-ghost btn-circle text-white">
+                <button className="btn btn-ghost btn-circle">
                   <div className="indicator">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -108,7 +112,7 @@ const DashboardNavbar = ({ myInfo }) => {
           <div className="flex justify-center items-center gap-10 ">
             <div className="dropdown dropdown-end mr-4">
               <div tabIndex={0} role="button" className="">
-                <div className="bg-white w-10 h-10 rounded-full">
+                <div className=" w-10 h-10 rounded-full">
                   <img
                     className="w-10 h-10 rounded-full object-cover"
                     src={myInfo?.photo}
@@ -123,7 +127,7 @@ const DashboardNavbar = ({ myInfo }) => {
                 <li>
                   <div className="flex">
                     <h2 className="pt-1 font-bold">{myInfo?.name}</h2>
-                    <h2 className="bg-accent rounded-xl text-white px-2">
+                    <h2 className="bg-accent rounded-xl px-2">
                       {myInfo?.role}
                     </h2>
                   </div>

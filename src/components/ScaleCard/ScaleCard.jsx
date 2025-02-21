@@ -5,7 +5,7 @@ const ScaleCard = () => {
   return (
     <div className="" >
       <div className="md:w-[80%] w-[90%] mx-auto pb-14">
-        <div className="pt-10 pb-20">
+        {/* <div className="pt-10 pb-20">
           <h2 className="text-4xl  font-bold text-center">
             Transforming Dreams into Reality
           </h2>
@@ -14,14 +14,14 @@ const ScaleCard = () => {
             opportunities into a global movement. Join us in reaching new
             milestones every day.
           </p>
-        </div>
+        </div> */}
 
         <div className="bg-[#10121d] rounded-xl px-8 md:px-14 py-10 w-full  z-10 text-white shadow-2xl" >
           <div className="md:pb-16 md:pt-10 py-10">
-            <h2 className="font-bold text-3xl text-center">
+            <h2 className="font-bold text-4xl text-center">
               Real-Time Earnings Tracker
             </h2>
-            <p className="text-center py-4">
+            <p className="text-center pt-4 pb-6">
               Track your earnings in real time and stay on top of your financial
               goals.
             </p>
