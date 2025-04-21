@@ -5,7 +5,7 @@ const Work = () => {
   return (
     <div className="w-11/12 mx-auto py-20">
       <div className="lg:flex justify-between gap-6">
-        <div className="w-[50%] flex justify-center relative">
+        <div className="lg:w-[50%] flex justify-center relative">
           <div className="w-[50%]">
             <img
               src="https://toka.peerduck.com/wp-content/uploads/2022/02/cryptophone.png"
@@ -43,9 +43,9 @@ const Work = () => {
             />
           </motion.div>
         </div>
-        <div className="w-[50%] flex flex-col justify-center">
+        <div className="lg:w-[50%] flex flex-col justify-center py-10 lg:py-0">
           <h2 className="text-[#00d7c0] text-xl font-bold">
-            What our platform do ?
+            What dose our platform do ?
           </h2>
           <h3 className="font-bold text-5xl py-4 leading-tight">
             Turn Simple Tasks into <br /> Real-World Rewards

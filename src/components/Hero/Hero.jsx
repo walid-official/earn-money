@@ -58,7 +58,7 @@ const Hero = () => {
                     <br /> Effortlessly!
                   </h1>
                 
-                  <p className=" lg:text-left text-center py-3 leading-normal w-[80%]">
+                  <p className=" lg:text-left text-center py-3 leading-normal lg:w-[80%]">
                     Make money anytime, anywhere with the freedom to work when
                     and where you want, balancing income and lifestyle
                     seamlessly.
@@ -144,7 +144,7 @@ const Hero = () => {
                   Earn Your <span className="text-[#00d7c0]">money</span>.{" "}  Anytime, Anywhere,  
                     <br /> Instantly!
                   </h1>
-                  <p className=" lg:text-left text-center py-3 leading-normal w-[80%]">
+                  <p className=" lg:text-left text-center py-3 leading-normal lg:w-[80%]">
                     Make money anytime, anywhere with the freedom to work when
                     and where you want, balancing income and lifestyle
                     seamlessly.
@@ -229,7 +229,7 @@ const Hero = () => {
                     Boost Your <span className="text-[#00d7c0]">skills</span>.
                     Anytime, anywhere! <br /> Seamlessly!
                   </h1>
-                  <p className=" lg:text-left text-center py-3 leading-normal w-[80%]">
+                  <p className=" lg:text-left text-center py-3 leading-normal lg:w-[80%]">
                     Make money anytime, anywhere with the freedom to work when
                     and where you want, balancing income and lifestyle
                     seamlessly.

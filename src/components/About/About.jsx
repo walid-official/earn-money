@@ -3,7 +3,7 @@ import React from "react";
 const About = () => {
   return (
     <div className="w-11/12 mx-auto">
-      <div className="text-center py-10 pt-40">
+      <div className="text-center pb-4 pt-44">
         <h3 className="text-accent text-xl font-bold">Our Story</h3>
         <h2 className="text-5xl font-bold pt-2">About our Platform</h2>
         <p className=" py-4 w-[60%] mx-auto">
@@ -20,7 +20,7 @@ const About = () => {
           alt=""
         />
       </div>
-      <div className="w-[80%] mx-auto py-10">
+      <div className="w-[80%] mx-auto pt-24">
         <div className="grid lg:grid-cols-2 gap-8">
           <div className="w-[90%]">
             <h3 className="text-accent text-xl pb-4 font-bold">Our Mission</h3>
@@ -29,7 +29,7 @@ const About = () => {
             </h2>
           </div>
           <div className="">
-            <p className=" py-4 italic">
+            <p className="pt-1.5 pb-4 italic">
               At Micro Tasking Earning Platform, we are dedicated to helping
               people achieve success by providing opportunities to earn, grow,
               and thrive. Whether you're looking for extra income, flexible
@@ -42,7 +42,7 @@ const About = () => {
       </div>
       {/* Card section */}
       <div className="w-[80%] mx-auto py-10">
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-9">
           <div className="card shadow-xl">
             <div className="card-body">
               <div className="">

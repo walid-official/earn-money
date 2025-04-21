@@ -25,7 +25,7 @@ const Navbar = () => {
     queryFn: async () => {
       if (!user?.email) return {};
       const { data } = await axios.get(
-        `https://earn-money-platform-server.vercel.app/userCoin/${user?.email}`
+        `http://localhost:5000/userCoin/${user?.email}`
       );
       return data || {};
     },
@@ -44,9 +44,9 @@ const Navbar = () => {
       <NavLink to="/about" className=" hover:text-[#00d7c0] font-semibold">
         About
       </NavLink>
-      <NavLink to="/about" className=" hover:text-[#00d7c0] font-semibold">
+      {/* <NavLink to="/about" className=" hover:text-[#00d7c0] font-semibold">
         All Tasks
-      </NavLink>
+      </NavLink> */}
       <NavLink to="/contact" className=" hover:text-[#00d7c0] font-semibold">
         Contact
       </NavLink>

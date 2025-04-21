@@ -1,37 +1,54 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const Contact = () => {
+  const { theme } = useContext(ThemeContext);
   return (
-    <div className="w-11/12 mx-auto">
-      <div className="text-center pt-36">
-        <h3 className="text-accent text-xl font-bold">Get In Touch</h3>
-        <h2 className="text-5xl font-bold  pt-3">
-          Contact information
-        </h2>
-        <p className=" py-4 w-[30%] mx-auto">
-          Our company was founded in 2020. We work daily to become better and we
-          are ready to share best practices.
-        </p>
-      </div>
+    <div className="w-11/12 mx-auto pt-24">
       <div className=" text-center">
-        <div className="w-11/12 mx-auto py-14">
-          <div className="lg:flex gap-4 p-10 rounded-xl">
-            <div className="lg:w-[50%]">
-              <div className="shadow-2xl">
-                <img
-                  className="rounded-xl w-full  object-cover"
-                  src="https://img.freepik.com/premium-photo/there-is-envelope-with-phone-attached-email-address_444198-43783.jpg?ga=GA1.1.2036279539.1736789910&semt=ais_hybrid"
-                  alt=""
-                />
+        <div className="w-11/12 mx-auto pt-14">
+          <div className="grid lg:grid-cols-2 gap-12 p-10 rounded-xl">
+            <div className="text-left flex items-center">
+              <div>
+                <h4 className="text-xl font-bold">Contact Us</h4>
+                <h2 className="text-4xl font-bold pt-2.5 pb-6">
+                  Are you interested in online scholarship? Contact us
+                </h2>
+                <p>
+                  Discover a variety of online scholarship opportunities
+                  designed to help you achieve your academic goals. Whether
+                  you’re pursuing undergraduate, graduate, or specialized
+                  programs, we’re here to guide you through the process and
+                  provide the support you need to apply. Reach out today for
+                  more information and expert assistance!
+                </p>
+
+                <div className="pt-12">
+                  <img
+                    src="https://edify-official.vercel.app/assets/sign.svg"
+                    alt=""
+                  />
+                </div>
+                <h2 className="font-bold text-xl pb-1.5">Brayden Backham</h2>
+                <p>DIRECTOR</p>
               </div>
             </div>
-            <div className="lg:w-[50%] flex items-center">
+
+            <div className="flex items-center">
               <div className="card bg-white w-full shadow-2xl ">
-                <form className="card-body">
-                  <div className="form-control">
-                    <label className="label">
-                      <span className="label-text ">Name</span>
-                    </label>
+                <form className="card-body py-16">
+                  <div
+                  
+                  >
+                    <h2 className="text-4xl font-bold text-left text-black">
+                      Fill out for contact
+                    </h2>
+                    <p className="text-left pb-5 text-black">
+                      We are here to help with any questions or details you
+                      need. Reach out today!
+                    </p>
+                  </div>
+                  <div className="form-control pb-2">
                     <input
                       type="name"
                       placeholder="Name"
@@ -40,10 +57,7 @@ const Contact = () => {
                       required
                     />
                   </div>
-                  <div className="form-control">
-                    <label className="label">
-                      <span className="label-text">Email</span>
-                    </label>
+                  <div className="form-control  pb-2">
                     <input
                       type="email"
                       name="from_name"
@@ -52,10 +66,7 @@ const Contact = () => {
                       required
                     />
                   </div>
-                  <div className="form-control">
-                    <label className="label">
-                      <span className="label-text">Message</span>
-                    </label>
+                  <div className="form-control  pb-2">
                     <textarea
                       type="text"
                       name="message"
@@ -65,7 +76,7 @@ const Contact = () => {
                     />
                   </div>
                   <div className="form-control mt-6">
-                    <button className="md:w-[40%] bg-accent font-bold text-white px-10 py-4 rounded-full shadow-lg border">
+                    <button className="md:w-[45%] bg-accent font-bold text-white px-10 py-4 rounded-xl shadow-lg border">
                       Send Message
                     </button>
                   </div>
@@ -78,5 +89,4 @@ const Contact = () => {
     </div>
   );
 };
-
 export default Contact;

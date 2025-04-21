@@ -36,7 +36,7 @@ const DashBoardLayout = () => {
 
   return (
     <myInfoContext.Provider value={InfoNav}>
-      <div className="lg:flex justify-between">
+      <div className="lg:flex justify-between ">
         {/* Sidebar for large screens */}
         <div
           className={`lg:w-[20%] lg:min-h-screen shadow-2xl z-10 ${

@@ -15,7 +15,7 @@ import AdminRouter from "./AdminRouter";
 import TaskLists from "../Pages/WorkerRoutes/TaskLists";
 import TaskDetails from "../Pages/WorkerRoutes/TaskDetails";
 import MySubmissions from "../Pages/WorkerRoutes/MySubmissions";
-import TaskToReview from "../Pages/ByerRoutes/TaskToReview";
+// import TaskToReview from "../Pages/ByerRoutes/TaskToReview";
 import PurchaseCoin from "../Pages/ByerRoutes/PurchaseCoin";
 import Payment from "../Pages/Payment/Payment";
 import Withdrawals from "../Pages/WorkerRoutes/Withdrawals";

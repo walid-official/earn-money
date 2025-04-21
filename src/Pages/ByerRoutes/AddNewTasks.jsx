@@ -135,13 +135,9 @@ const AddNewTasks = () => {
   };
 
   return (
-    <div className={` ${
-      theme === "light"
-        ? "backdrop-blur-xl bg-white text-black"
-        : "dark:bg-black dark:text-white"
-    }`}>
+    <div className="">
       <div className="py-10">
-        <div  className="py-8 bg-gradient-to-r from-[#020710] to-[#1b2028] w-[60%] text-white mx-auto rounded-xl">
+        <div  className="py-8 shadow-xl bg-base-100 text-black w-[60%] p-8 mx-auto rounded-xl">
           <h2 className="text-center font-bold text-4xl py-3">
             New Task Entry
           </h2>
@@ -152,18 +148,18 @@ const AddNewTasks = () => {
         </div>
       </div>
       <div className="pb-16">
-        <div className="card bg-gradient-to-r from-[#020710] to-[#1b2028] lg:w-[60%] md:w-[60%] w-[90%] mx-auto shrink-0 shadow-2xl">
+        <div className="card bg-base-100  lg:w-[60%] md:w-[60%] w-[90%] mx-auto shrink-0 shadow-2xl">
           <form onSubmit={handleSubmit(handleAddNewTask)} className="card-body">
             <div className="space-y-4">
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text text-white">Task Title</span>
+                  <span className="label-text ">Task Title</span>
                 </label>
                 <input
                   type="text"
                   {...register("taskTitle", { required: true })}
                   placeholder="Task Title"
-                  className="input input-bordered shadow-inner border-gray-500 bg-gradient-to-r from-[#020710] to-[#1b2028] text-white"
+                  className="input input-bordered shadow-inner text-black border-gray-500 "
                 />
                 {errors.taskTitle && (
                   <span className="text-red-500">Task Title is required</span>
@@ -172,19 +168,19 @@ const AddNewTasks = () => {
 
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text text-white">Task Detail</span>
+                  <span className="label-text ">Task Detail</span>
                 </label>
                 <textarea
                   {...register("taskDetail")}
                   placeholder="Task Detail"
-                  className="textarea textarea-bordered border-gray-500 textarea-md w-full bg-gradient-to-r from-[#020710] to-[#1b2028] text-white"
+                  className="textarea textarea-bordered border-gray-500 text-black textarea-md w-full "
                 ></textarea>
               </div>
 
               <div className="">
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text text-white">
+                    <span className="label-text">
                       Required Workers
                     </span>
                   </label>
@@ -192,7 +188,7 @@ const AddNewTasks = () => {
                     type="number"
                     {...register("requiredWorker", { required: true })}
                     placeholder="Required Workers"
-                    className="input input-bordered border-gray-500 bg-gradient-to-r from-[#020710] to-[#1b2028] text-white"
+                    className="input input-bordered text-black border-gray-500 "
                   />
                   {errors.requiredWorker && (
                     <span className="text-red-500">
@@ -202,7 +198,7 @@ const AddNewTasks = () => {
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text text-white">
+                    <span className="label-text">
                       Payable per Amount (USD: 1$ = 10 coin)
                     </span>
                   </label>
@@ -210,7 +206,7 @@ const AddNewTasks = () => {
                     type="number"
                     {...register("payableAmount", { required: true })}
                     placeholder="Payable Amount (USD)"
-                    className="input input-bordered border-gray-500 bg-gradient-to-r from-[#020710] to-[#1b2028] text-white"
+                    className="input input-bordered border-gray-500 text-black"
                   />
                   {errors.payableAmount && (
                     <span className="text-red-500">
@@ -222,11 +218,11 @@ const AddNewTasks = () => {
 
               <div className="form-control w-full">
                 <label className="label">
-                  <span className="label-text text-white">Completion Date</span>
+                  <span className="label-text">Completion Date</span>
                 </label>
                 <div className="w-full ">
                   <DatePicker
-                    className="shadow-inner py-3  rounded-lg px-3 w-full bg-gradient-to-r from-[#020710] to-[#1b2028] text-white"
+                    className="shadow-inner py-3 text-black rounded-lg px-3 w-full "
                     selected={startDate}
                     onChange={(date) => setStartDate(date)}
                   />

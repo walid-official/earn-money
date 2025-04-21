@@ -78,7 +78,7 @@ const Register = () => {
       };
 
       await axios.post(
-        "https://earn-money-platform-server.vercel.app/earning-users",
+        "http://localhost:5000/earning-users",
         userData
       );
       toast.success("Successfully Registered Your Account");
@@ -101,7 +101,7 @@ const Register = () => {
         role: "Worker",
       };
       await axios.post(
-        "https://earn-money-platform-server.vercel.app/earning-users",
+        "http://localhost:5000/earning-users",
         googleUserData
       );
       navigate("/dashboard");

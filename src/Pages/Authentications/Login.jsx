@@ -44,7 +44,7 @@ const Login = () => {
         role: "Worker",
       };
       await axios.post(
-        "https://earn-money-platform-server.vercel.app/earning-users",
+        "http://localhost:5000/earning-users",
         googleUserData
       );
     } catch (error) {
