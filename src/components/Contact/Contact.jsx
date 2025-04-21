@@ -12,15 +12,10 @@ const Contact = () => {
               <div>
                 <h4 className="text-xl font-bold">Contact Us</h4>
                 <h2 className="text-4xl font-bold pt-2.5 pb-6">
-                  Are you interested in online scholarship? Contact us
+                  Are you interested in online Earning? Contact us
                 </h2>
                 <p>
-                  Discover a variety of online scholarship opportunities
-                  designed to help you achieve your academic goals. Whether
-                  you’re pursuing undergraduate, graduate, or specialized
-                  programs, we’re here to guide you through the process and
-                  provide the support you need to apply. Reach out today for
-                  more information and expert assistance!
+                Explore a range of online earning opportunities through Earnify and start building your income from the comfort of your home. Whether you're a student, freelancer, or looking for side gigs, we connect you with real tasks that match your skills. Join now and let us guide you toward flexible, reliable ways to earn online. Reach out today to get started!
                 </p>
 
                 <div className="pt-12">

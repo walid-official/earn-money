@@ -1,4 +1,4 @@
-import MyTaskTable from "./MyTaskTable";
+import MyTaskTable from "./MyTaskTable"; 
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "./../../Hooks/useAuth";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
@@ -9,10 +9,17 @@ import { ThemeContext } from "../../context/ThemeContext";
 
 const MyTasks = () => {
   const { user } = useAuth();
-  const { refetch } = useContext(myInfoContext);
+  const context = useContext(myInfoContext);
+  const refetch = context?.refetch;
+
+  if (!context) {
+    console.warn("⚠️ Warning: myInfoContext is undefined. Make sure the provider is wrapping this component.");
+  }
+
   const axiosSecure = useAxiosSecure();
   const [singleTask, setSingleTask] = useState(null);
-  const {theme} = useContext(ThemeContext)
+  const { theme } = useContext(ThemeContext);
+
   const {
     data: myTasks = [],
     isLoading,
@@ -21,29 +28,25 @@ const MyTasks = () => {
     queryKey: ["myTasks", user],
     queryFn: async () => {
       const { data } = await axiosSecure.get(`my-tasks/${user?.email}`);
-      console.log(data);
       return data;
     },
   });
 
-  console.log(myTasks);
-
   const handleDelete = async (id, paymentCoin) => {
     try {
-      const { data } = await axiosSecure.patch(`refillData/${user?.email}`, {
+      await axiosSecure.patch(`refillData/${user?.email}`, {
         paymentCoin,
       });
-      console.log(data);
     } catch (err) {
-      console.log(err);
+      console.error("Error refilling data:", err);
     }
+
     try {
-      const { data } = await axiosSecure.delete(`tasks/${id}`);
-      console.log(data);
+      await axiosSecure.delete(`tasks/${id}`);
       myTaskRefetch();
-      refetch();
+      refetch?.(); // Safe call
     } catch (err) {
-      console.log(err);
+      console.error("Error deleting task:", err);
     }
   };
 
@@ -55,24 +58,26 @@ const MyTasks = () => {
       myTaskRefetch();
       setSingleTask(data);
     } catch (err) {
-      console.log(err);
+      console.error("Error fetching task for update:", err);
     }
   };
 
-  console.log(singleTask);
-
   return (
-    <div className={`min-h-screen ${
-      theme === "light"
-        ? "backdrop-blur-xl bg-[#f9fafc] text-black"
-        : "dark:bg-black dark:text-white"
-    }`}>
-      <div className="py-10">
-        <div className={`p-8 rounded-xl shadow-xl w-[60%] mx-auto ${
+    <div
+      className={`min-h-screen ${
         theme === "light"
-          ? "backdrop-blur-xl bg-[#FFFFFF] text-black"
-          : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
-      }`}>
+          ? "backdrop-blur-xl bg-[#f9fafc] text-black"
+          : "dark:bg-black dark:text-white"
+      }`}
+    >
+      <div className="py-10">
+        <div
+          className={`p-8 rounded-xl shadow-xl w-[60%] mx-auto ${
+            theme === "light"
+              ? "backdrop-blur-xl bg-[#FFFFFF] text-black"
+              : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
+          }`}
+        >
           <h2 className="font-bold text-3xl text-center">
             Task Manager - Stay Organized, Stay Ahead
           </h2>
@@ -82,25 +87,27 @@ const MyTasks = () => {
           </p>
         </div>
       </div>
-      <div className={`w-[90%] shadow-xl mx-auto py-10  rounded-xl ${
-        theme === "light"
-          ? "backdrop-blur-xl bg-[#FFFFFF] text-black"
-          : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
-      }`}>
+
+      <div
+        className={`w-[90%] shadow-xl mx-auto py-10 rounded-xl ${
+          theme === "light"
+            ? "backdrop-blur-xl bg-[#FFFFFF] text-black"
+            : "dark:bg-gradient-to-r from-[#020710] to-[#1b2028] dark:text-white"
+        }`}
+      >
         <div className="overflow-x-auto">
           <table className="table">
-            {/* head */}
             <thead>
-              <tr className={` ${
-      theme === "light"
-        ? " text-black"
-        : " dark:text-white"
-    }`}>
+              <tr
+                className={`${
+                  theme === "light" ? "text-black" : "dark:text-white"
+                }`}
+              >
                 <th>Title</th>
                 <th>Detail</th>
                 <th>Date</th>
-                <th>worker</th>
-                <th>per Worker</th>
+                <th>Worker</th>
+                <th>Per Worker</th>
                 <th>Coin</th>
                 <th>Submission</th>
                 <th>Total Payment</th>
@@ -109,23 +116,24 @@ const MyTasks = () => {
               </tr>
             </thead>
             <tbody>
-              {/* row 1 */}
               {myTasks.map((myTask) => (
                 <MyTaskTable
-                theme={theme}
+                  key={myTask._id}
+                  theme={theme}
                   handleDelete={handleDelete}
                   handleUpdate={handleUpdate}
                   myTask={myTask}
-                ></MyTaskTable>
+                />
               ))}
             </tbody>
           </table>
         </div>
       </div>
+
       <UpdateModal
         singleTask={singleTask}
         myTaskRefetch={myTaskRefetch}
-      ></UpdateModal>
+      />
     </div>
   );
 };

@@ -9,6 +9,7 @@ import TopWorkers from "../components/TopWorkers/TopWorkers";
 import Work from "../components/Work/Work";
 import Access from "../components/Access/Access";
 import TopRatedTasks from "../components/TopRatedTasks/TopRatedTasks";
+import Faq from "../components/Faq/Faq";
 
 const Home = () => {
   return (
@@ -21,6 +22,7 @@ const Home = () => {
       <TopWorkers></TopWorkers>
       <DiamondFacility></DiamondFacility>
       <Features></Features>
+      <Faq></Faq>
       <Testimonial></Testimonial>
       <Start></Start>
     </div>
