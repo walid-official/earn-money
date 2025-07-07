@@ -19,7 +19,7 @@ const WorkerHome = () => {
   } = useQuery({
     queryKey: ["mySubmission", user?.email],
     queryFn: async () => {
-      const { data } = await axiosSecure.get(`mySubmissions/${user?.email}`);
+      const { data } = await axiosSecure.get(`api/worker/submissions/${user?.email}`);
       console.log(data);
       return data;
     },
@@ -29,7 +29,7 @@ const WorkerHome = () => {
 
     queryFn: async () => {
       const { data } = await axiosSecure.get(
-        `pendingSubmissions/${user?.email}`
+        `api/worker/pending/${user?.email}`
       );
       console.log(data);
       return data;

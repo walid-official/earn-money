@@ -24,7 +24,7 @@ const AdminHome = () => {
   } = useQuery({
     queryKey: ["allInfo", user?.email],
     queryFn: async () => {
-      const { data } = await axiosSecure.get(`allUsers/${user?.email}`);
+      const { data } = await axiosSecure.get(`api/users/all/${user?.email}`);
       console.log(data);
 
       return data;
@@ -34,7 +34,7 @@ const AdminHome = () => {
   const { data: allAmounts = [] } = useQuery({
     queryKey: ["allAmounts", user?.email],
     queryFn: async () => {
-      const { data } = await axiosSecure.get(`allPayments-history`);
+      const { data } = await axiosSecure.get(`api/payments/all-history`);
       console.log(data);
       return data;
     },

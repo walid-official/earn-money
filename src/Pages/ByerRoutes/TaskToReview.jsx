@@ -16,7 +16,7 @@ const TaskToReview = ({workerRefetch}) => {
   } = useQuery({
     queryKey: ["review-tasks",user],
     queryFn: async () => {
-      const { data } = await axiosSecure.get(`review-tasks/${user?.email}`);
+      const { data } = await axiosSecure.get(`api/worker/review/${user?.email}`);
       console.log(data);
       return data;
     },

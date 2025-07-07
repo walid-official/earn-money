@@ -23,7 +23,7 @@ const DashBoardLayout = () => {
   } = useQuery({
     queryKey: ["myInfo", user?.email],
     queryFn: async () => {
-      const { data } = await axiosSecure.get(`loggedUser/${user?.email}`);
+      const { data } = await axiosSecure.get(`api/users/me/${user?.email}`);
       return data;
     },
   });

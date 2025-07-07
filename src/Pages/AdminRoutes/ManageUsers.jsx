@@ -20,7 +20,7 @@ const ManageUsers = () => {
     enabled: !!user?.email,
     queryFn: async () => {
       if (!user?.email) return [];
-      const { data } = await axiosSecure(`allUsers/${user?.email}`);
+      const { data } = await axiosSecure(`api/users/all/${user?.email}`);
       return data;
     },
   });
@@ -34,7 +34,7 @@ const ManageUsers = () => {
 
   const handleUserDelete = async (id) => {
     try {
-      const { data } = await axiosSecure.delete(`/user/${id}`);
+      const { data } = await axiosSecure.delete(`/api/users/${id}`);
       console.log(data);
       toast.success("successfully deleted");
       refetch();
@@ -50,7 +50,7 @@ const ManageUsers = () => {
     };
 
     try {
-      const { data } = axiosSecure.patch("update-role", roleUser);
+      const { data } = axiosSecure.patch("api/users/update-role", roleUser);
       console.log(data);
       toast.success("Successfully Updated ");
       refetch();

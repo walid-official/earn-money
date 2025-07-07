@@ -6,8 +6,8 @@ const Contact = () => {
   return (
     <div className="w-11/12 mx-auto pt-24">
       <div className=" text-center">
-        <div className="w-11/12 mx-auto pt-14">
-          <div className="grid lg:grid-cols-2 gap-12 p-10 rounded-xl">
+        <div className="">
+          <div className="grid lg:grid-cols-2 grid-cols-1 lg:gap-12 lg:p-10 p-5 rounded-xl">
             <div className="text-left flex items-center">
               <div>
                 <h4 className="text-xl font-bold">Contact Us</h4>
@@ -28,6 +28,8 @@ const Contact = () => {
                 <p>DIRECTOR</p>
               </div>
             </div>
+
+            <div>
 
             <div className="flex items-center">
               <div className="card bg-white w-full shadow-2xl ">
@@ -78,6 +80,8 @@ const Contact = () => {
                 </form>
               </div>
             </div>
+            </div>
+
           </div>
         </div>
       </div>

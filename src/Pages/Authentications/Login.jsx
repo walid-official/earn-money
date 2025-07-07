@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { FaArrowRightLong } from "react-icons/fa6";
+import { FaArrowLeftLong } from "react-icons/fa6";
 import { AuthContext } from "../../components/AuthProvider/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
@@ -44,7 +44,7 @@ const Login = () => {
         role: "Worker",
       };
       await axios.post(
-        "https://earn-money-platform-server.vercel.app/earning-users",
+        "https://earn-money-server-5.onrender.com/users",
         googleUserData
       );
     } catch (error) {
@@ -58,35 +58,14 @@ const Login = () => {
       <CustomCursor></CustomCursor>
       <div className="absolute" >
         <NavLink to="/" className="flex p-5">
-          <button className="text-white py-3 text-center font-bold flex items-center gap-2 hover:translate-x-2 duration-500">
-            Go To Home
-            <FaArrowRightLong />
+          <button className="text-white py-3 text-center font-bold flex items-center gap-2 hover:-translate-x-2 duration-500">
+            <FaArrowLeftLong />
+            Go Back Home
           </button>
         </NavLink>
       </div>
       <div className="hero bg-gradient-to-t from-[#27292f] to-[#10121d] rounded-tr-full rounded-bl-full min-h-screen">
         <div className="w-11/12 mx-auto lg:flex lg:flex-row-reverse">
-          {/* <div className="text-center lg:text-left lg:w-[50%] py-8">
-            <h2 className="font-bold text-4xl text-white">
-              Login to Your Account
-            </h2>
-            <p className="text-white py-3">
-              Log in to track your earnings and access your dashboard.
-            </p>
-            <div className="md:flex lg:justify-start justify-center items-center gap-4 py-3">
-              <NavLink to="/register">
-                <button className="bg-[#00d7c0] rounded-tr-2xl rounded-bl-2xl font-bold text-white hover:bg-[#00d7c0] py-3 px-7">
-                  Go To Register
-                </button>
-              </NavLink>
-              <NavLink to="/" className="flex justify-center py-3">
-                <button className="text-white py-3 text-center font-bold flex items-center gap-2 hover:translate-x-2 duration-500">
-                  Go To Home
-                  <FaArrowRightLong />
-                </button>
-              </NavLink>
-            </div>
-          </div> */}
           <div className="card lg:w-[50%] mx-auto bg-base-100 max-w-lg lg:max-w-md shrink-0 shadow-2xl">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">

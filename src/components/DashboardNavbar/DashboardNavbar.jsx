@@ -22,7 +22,7 @@ const DashboardNavbar = ({ myInfo }) => {
   } = useQuery({
     queryKey: ["notifications", user?.email],
     queryFn: async () => {
-      const { data } = await axiosSecure.get(`notification/${user?.email}`);
+      const { data } = await axiosSecure.get(`api/notifications/${user?.email}`);
       console.log(data);
       return data;
     },

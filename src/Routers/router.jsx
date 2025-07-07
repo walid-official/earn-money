@@ -24,6 +24,7 @@ import WorkerRouter from "./WorkerRouter";
 import About from "../components/About/About";
 import Contact from "../components/Contact/Contact";
 import Profile from "../Pages/Profile/Profile";
+import TopRatedTaskDetails from "../components/TopRatedTasks/TopRatedTaskDetails";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: "contact",
         element: <Contact></Contact>
+      },
+      {
+        path: "task/:id",
+        element: <TopRatedTaskDetails></TopRatedTaskDetails>
       }
     ],
   },

@@ -18,7 +18,7 @@ const TaskDetails = () => {
   } = useQuery({
     queryKey: ["taskDetail"],
     queryFn: async () => {
-      const { data } = await axiosSecure.get(`tasks/${id}`);
+      const { data } = await axiosSecure.get(`api/tasks/${id}`);
       console.log(data);
       return data;
     },
@@ -78,7 +78,7 @@ const TaskDetails = () => {
       // write something
       try {
         const { data } = await axiosSecure.post(
-          `taskSubmissions/${user?.email}`,
+          `api/worker/submit/${user?.email}`,
           taskSubmitInfo
         );
 

@@ -11,7 +11,7 @@ const TopWorkers = () => {
   } = useQuery({
     queryKey: ["TopWorkers"],
     queryFn: async () => {
-      const { data } = await axios.get(`https://earn-money-platform-server.vercel.app/users/worker`);
+      const { data } = await axios.get(`https://earn-money-server-5.onrender.com/api/users/top-workers`);
       console.log(data);
       return data;
     },
@@ -20,7 +20,7 @@ const TopWorkers = () => {
   console.log(TopWorkers);
 
   return (
-    <div className="w-11/12 mx-auto pb-14 pt-12">
+    <div className="w-11/12 mx-auto pb-10 pt-12">
       <div className="pt-10">
         <h2 className="font-bold text-4xl text-center">Top Achieving Workers</h2>
         <p className="text-center md:w-[45%] mx-auto py-3">

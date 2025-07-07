@@ -117,7 +117,7 @@ const AddNewTasks = () => {
       }
 
       try {
-        const { data } = await axiosSecure.post("new-tasks", addTaskInfoData);
+        const { data } = await axiosSecure.post("api/tasks", addTaskInfoData);
         console.log(data);
         toast.success("Successfully Added Your Task");
         setLoading(false);

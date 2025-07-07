@@ -59,7 +59,7 @@ const AuthProvider = ({ children }) => {
         const userInfo = { email: currentUser.email };
 
         axios
-          .post("https://earn-money-platform-server.vercel.app/jwt", userInfo)
+          .post("https://earn-money-server-5.onrender.com/api/auth/jwt", userInfo)
           .then((res) => {
             console.log(res.data);
             if (res.data.token) {

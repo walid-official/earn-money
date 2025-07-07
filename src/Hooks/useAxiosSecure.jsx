@@ -5,7 +5,7 @@ import useAuth from './useAuth';
 
 
 export const axiosSecure = axios.create({
-    baseURL: "https://earn-money-platform-server.vercel.app/",
+    baseURL: "https://earn-money-server-5.onrender.com/",
 })
 
 const useAxiosSecure = () => {

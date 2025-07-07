@@ -15,7 +15,7 @@ const PurchaseCoin = () => {
   } = useQuery({
     queryKey: ["purchase"],
     queryFn: async () => {
-      const { data } = await axiosSecure.get(`paymentDetails`);
+      const { data } = await axiosSecure.get(`api/payments/details`);
       console.log(data);
       return data;
     },

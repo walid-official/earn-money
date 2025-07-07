@@ -17,7 +17,7 @@ const TaskLists = () => {
   } = useQuery({
     queryKey: ["postedTasks",sortOrder],
     queryFn: async () => {
-      const { data } = await axiosSecure.get(`postedTasks?sort=${sortOrder}`);
+      const { data } = await axiosSecure.get(`api/worker/tasks?sort=${sortOrder}`);
       console.log(data);
       return data;
     },

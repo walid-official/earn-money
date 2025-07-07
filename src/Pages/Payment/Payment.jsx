@@ -19,7 +19,7 @@ const Payment = () => {
   } = useQuery({
     queryKey: ["singlePurchase", id],
     queryFn: async () => {
-      const { data } = await axiosSecure.get(`paymentDetails/${id}`);
+      const { data } = await axiosSecure.get(`api/payments/details/${id}`);
       console.log(data);
       return data;
     },

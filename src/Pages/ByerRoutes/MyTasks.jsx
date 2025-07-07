@@ -27,7 +27,7 @@ const MyTasks = () => {
   } = useQuery({
     queryKey: ["myTasks", user],
     queryFn: async () => {
-      const { data } = await axiosSecure.get(`my-tasks/${user?.email}`);
+      const { data } = await axiosSecure.get(`api/tasks/my/${user?.email}`);
       return data;
     },
   });

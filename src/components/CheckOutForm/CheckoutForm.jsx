@@ -17,7 +17,7 @@ const CheckoutForm = ({singlePurchase,refetch}) => {
   useEffect(() => {
     const fetchClientSecret = async () => {
       try {
-        const { data } = await axiosSecure.post("create-payment-intent", { price: singlePurchase.usd });
+        const { data } = await axiosSecure.post("api/payments/create-intent", { price: singlePurchase.usd });
         console.log(data.clientSecret);
         setClientSecret(data.clientSecret);
       } catch (error) {
@@ -91,7 +91,7 @@ const CheckoutForm = ({singlePurchase,refetch}) => {
           coin: singlePurchase?.coin
         }
         try{
-          const {data} = await axiosSecure.post(`payment-history/${user?.email}`,paymentHistory)
+          const {data} = await axiosSecure.post(`api/payments/history/${user?.email}`,paymentHistory)
           console.log(data);
           toast.success("transaction is Successful!!")
           await refetch()
@@ -100,8 +100,6 @@ const CheckoutForm = ({singlePurchase,refetch}) => {
         }
       }
     }
-    
-
   };
 
   return (

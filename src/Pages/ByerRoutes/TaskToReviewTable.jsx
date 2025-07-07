@@ -42,20 +42,19 @@ const TaskToReviewTable = ({ taskReview, handleTaskReviewModal, refetch,workerRe
     console.log(PaymentCoin);
     if (status === "Approve") {
       try {
-        const { data } = await axiosSecure.post("/notifications", notificationObj);
+        const { data } = await axiosSecure.post("api/notifications", notificationObj);
         console.log(data);
         toast.success("Successfully added notification");
       } catch (err) {
         console.log(err);
       }
-      
       const approvedCoin = {
         PaymentCoin: paymentCoin,
         workerEmail: worker?.email,
       };
   
       try {
-        const { data } = await axiosSecure.patch("/paymentCoin", { approvedCoin });
+        const { data } = await axiosSecure.patch("api/worker/reward-coin", { approvedCoin });
         console.log(data);
         workerRefetch()
       } catch (err) {
@@ -63,7 +62,7 @@ const TaskToReviewTable = ({ taskReview, handleTaskReviewModal, refetch,workerRe
       }
     } else if (status === "Reject") {
       try {
-        const { data } = await axiosSecure.post("/notifications", notificationObj);
+        const { data } = await axiosSecure.post("api/notifications", notificationObj);
         console.log(data);
         toast.warning("Notification for rejection added");
       } catch (err) {
@@ -76,7 +75,7 @@ const TaskToReviewTable = ({ taskReview, handleTaskReviewModal, refetch,workerRe
       taskId: task_id,
     };
     try {
-      const { data } = await axiosSecure.patch(`submissionStatus/${id}`, {
+      const { data } = await axiosSecure.patch(`api/tasks/submission-status/${id}`, {
         reviewInfo,
       });
       console.log(data);

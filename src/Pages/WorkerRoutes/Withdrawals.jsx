@@ -20,7 +20,7 @@ const Withdrawals = () => {
   } = useQuery({
     queryKey: ["amountCoin", user?.email],
     queryFn: async () => {
-      const { data } = await axiosSecure.get(`loggedUser/${user?.email}`);
+      const { data } = await axiosSecure.get(`api/users/me/${user?.email}`);
       console.log(data);
 
       return data;
@@ -56,7 +56,7 @@ const Withdrawals = () => {
     console.log(WithdrawalInfo);
     try {
       const { data } = await axiosSecure.post(
-        `withdrawals/${user?.email}`,
+        `api/withdrawals/${user?.email}`,
         WithdrawalInfo
       );
       console.log(data);

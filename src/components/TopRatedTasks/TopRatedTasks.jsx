@@ -11,14 +11,14 @@ const TopRatedTasks = () => {
   } = useQuery({
     queryKey: ["TopTasks"],
     queryFn: async () => {
-      const { data } = await axios.get(`https://earn-money-platform-server.vercel.app/homePostedTasks`);
+      const { data } = await axios.get(`https://earn-money-server-5.onrender.com/api/worker/home-tasks`);
       console.log(data);
       return data;
     },
   });
   console.log(topTasks);
   return (
-    <div className="w-[90%] mx-auto">
+    <div className="w-[90%] mx-auto pb-16">
       <div className="pt-10">
         <h2 className="font-bold text-4xl text-center">Top Rated Tasks</h2>
         <p className="text-center md:w-[45%] mx-auto py-3">

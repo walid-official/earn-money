@@ -17,7 +17,7 @@ const ManageTasks = () => {
   } = useQuery({
     queryKey: ["manageTasks", user?.email],
     queryFn: async () => {
-      const { data } = await axiosSecure.get(`allTasks/${user?.email}`);
+      const { data } = await axiosSecure.get(`api/tasks/all/${user?.email}`);
       console.log(data);
       return data;
     },
@@ -27,7 +27,7 @@ const ManageTasks = () => {
 
   const ManageTaskRemove = async (id) => {
     try {
-      const { data } = await axiosSecure.delete(`manage-remove-task/${id}`);
+      const { data } = await axiosSecure.delete(`api/tasks/remove/${id}`);
       console.log(data);
       toast.success("Task is successfully deleted");
       refetch();

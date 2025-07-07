@@ -20,7 +20,7 @@ const BuyerHome = () => {
   } = useQuery({
     queryKey: ["addedTasks", user?.email],
     queryFn: async () => {
-      const { data } = await axiosSecure.get(`my-tasks/${user?.email}`);
+      const { data } = await axiosSecure.get(`api/tasks/my/${user?.email}`);
       console.log(data);
       return data;
     },
@@ -29,7 +29,7 @@ const BuyerHome = () => {
   const { data: totalWorkers = [],refetch: workerRefetch } = useQuery({
     queryKey: ["totalWorkers", user],
     queryFn: async () => {
-      const { data } = await axiosSecure.get(`my-tasks/${user?.email}`);
+      const { data } = await axiosSecure.get(`api/tasks/my/${user?.email}`);
       console.log(data);
       return data;
     },
@@ -38,7 +38,7 @@ const BuyerHome = () => {
   const { data: myAmounts = [] } = useQuery({
     queryKey: ["myAmounts", user?.email],
     queryFn: async () => {
-      const { data } = await axiosSecure.get(`payment-history/${user?.email}`);
+      const { data } = await axiosSecure.get(`api/payments/history/${user?.email}`);
       console.log(data);
       return data;
     },

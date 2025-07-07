@@ -25,7 +25,7 @@ const Navbar = () => {
     queryFn: async () => {
       if (!user?.email) return {};
       const { data } = await axios.get(
-        `https://earn-money-platform-server.vercel.app/userCoin/${user?.email}`
+        `https://earn-money-server-5.onrender.com/userCoin/${user?.email}`
       );
       return data || {};
     },

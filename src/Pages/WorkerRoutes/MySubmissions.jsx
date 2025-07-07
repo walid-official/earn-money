@@ -20,7 +20,7 @@ const MySubmissions = () => {
     queryKey: ["mySubmission", user?.email, currentPage, itemsPerPage],
     queryFn: async () => {
       const { data } = await axiosSecure.get(
-        `mySubmissions/${user?.email}?page=${currentPage}&size=${itemsPerPage}`
+        `api/worker/submissions/${user?.email}?page=${currentPage}&size=${itemsPerPage}`
       );
       console.log(data);
       return data;
